@@ -1,0 +1,933 @@
+\documentclass[12pt,]{article}
+\usepackage[]{tgpagella}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Politics Among Rebels: The Causes of Division Among Dissidents},
+            pdfauthor={David Bowden},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Politics Among Rebels: The Causes of Division Among Dissidents}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{David Bowden}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{May 3, 2017}
+
+\usepackage{setspace}
+
+
+\usepackage{float}
+\let\origtable\table
+\let\endorigtable\endtable
+\renewenvironment{table}[1][2] {
+    \singlespacing
+    \expandafter\origtable\expandafter[H]
+} {
+    \endorigtable
+}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\doublespacing
+
+\section{Introduction}\label{introduction}
+
+\subsection{Previous Work on the Structure of Rebel
+Movements}\label{previous-work-on-the-structure-of-rebel-movements}
+
+The existing literature and empirical record suggest that the number of
+rebel groups active in a conflict is shaped by three broad processes.
+The number of rebel groups can increase when existing groups splinter
+into multiple factions. New groups can also emerge when previously
+non-violent individuals mobilize and join the conflict. Finally, the
+number of rebel groups can decrease when previously independent factions
+form alliances. In the remainder of this chapter, I provide a definition
+of each process, and review the existing explanations for each.
+
+\subsubsection{Splintering}\label{splintering}
+
+Existing rebel groups frequently splinter into multiple successor
+organizations. In 1968, for example, a faction led by Ahmed Jibril broke
+away from the Popular Front for the Liberation of Palestine (PFLP) to
+form a new group, the Popular Front for the Liberation of
+Palestine-General Command (PFLP-GC). While the two groups often
+collaborated against Israel, they maintain distinct organizational
+structures and membership bases, and operate in different areas. The
+split was allegedly motivated by differing views of Marxist ideology and
+military doctrine, with the PFLP pursuing a more extreme strategy of
+attrition. Similar splits have occurred within dozens of rebel groups,
+including the Communist Party of Burma, the Free Syrian Army and the
+Sudan Liberation Army. In many cases the result is more than a nominal
+separation. In Sri Lanka, for example, the Tamil Peoples Liberation
+Tigers not only split from the Liberation Tigers of Tamil Eelam, but
+also defected to the government side in the conflict (Staniland 2012).
+
+A growing body of literature identifies several key determinants of
+rebel group splintering. One subset of this research focuses on the role
+of external actors, and particularly the government. For instance,
+McLauchlin and Pearlman (2012) find that government repression provides
+occasion for groups to evaluate their current leadership structure.
+Pre-existing divisions within groups are likely to be exacerbated,
+leading the group to move toward more factionalized leadership
+structures. When group members are satisfied, however, conflict tends to
+lead to even greater unity and centralization of authority. Whereas the
+preceding studies essentially treat government repression as exogenous
+to the internal politics of dissident groups, Bhavnani, Miodownik, and
+Choi (2011) present evidence that governments deliberately stoke
+tensions among their opponents, as they find that the Israeli government
+increased conflict between Fatah and Hamas by undermining Hamas' control
+of the Gaza and by tolerating Fatah's relationship with the Jordanian
+military.
+
+Another group of scholars emphasizes concerns about post-conflict
+bargaining as the key determinant of dissident group cohesion. Christia
+(2012) assumes that the winning coalition in a civil war receives
+private benefits, which might include any rents available to the state,
+and having some portion of its interests represented in the new
+government. Thus, rebels have an incentive to form minimum winning
+coalitions, so as to limit the number of coalition partners with whom
+they must share benefits. Wolford, Cunningham, and Reed (2015) develop a
+similar logic, theorizing that political factions have an interest in
+joining conflicts so as to maximize the likelihood of their preferences
+being represented in the post-war government, but the value of fighting
+decreases as the number of parties with whom they expect to share power
+increases. Yet, Christia (2012) suggests that this incentive to minimize
+coalition size is moderated by the risk of being outside the winning
+coalition, as there is a strong possibility of new waves of violence
+between victorious rebels and rival rebel factions. She thus expects
+coalitions to change frequently in response to battlefield events, with
+factions bandwagoning with battle winners and shifting away from losing
+coalitions. Findley and Rudloff (2012) similarly find fragmentation to
+be most common among groups that have recently lost battles. This
+implies that fragmentation is essentially a process of weak actors
+becoming weaker.
+
+A final category of explanations places the source of rebel group
+cohesion in underlying social structure. Staniland (2014) argues that
+insurgent organizations will be most stable when their central
+leadership is able to exercise both vertical control over its
+rank-and-file members, and horizontal control over its constituent
+groups. This is most likely to occur when insurgencies draw from
+existing organizations with extant social ties of this sort, which might
+include former anti-colonial movements or ethnic political parties.
+Organizations are likely to fragment when constituent groups have a high
+degree of autonomy or control over individual members is limited
+(Staniland 2014, Ch. 2-3). Asal, Brown, and Dalton (2012) emphasize
+similar factors, arguing that organizations with factionalized
+leadership structures are at risk of fragmentation, while groups with
+more consolidated power structures will tend to remain cohesive.
+Finally, Warren and Troy (2015) suggest that group size plays an
+important role, as small groups are able to police themselves and
+resolve conflicts, whereas larger groups are more likely to experience
+infighting.
+
+Each of these studies makes an important contribution to our
+understanding of conflict complexity, and sheds light on the broader
+interests and organizational challenges present in rebel movements. Yet,
+while the fragmentation of existing groups accounts for a substantial
+portion of multi-rebel conflicts, other processes are at work in the
+majority of cases. Indeed, only 26.6\%\footnote{These figures are
+  calculated using data on conflict participation from Pettersson and
+  Wallensteen (2015) and actor attributes from (Uppsala Conflict Data
+  Program 2015). I code a conflict episode as a separate war if it
+  occurs following at least two calendar years of inactivity.
+  Secessionist movements are treated as separate conflicts from bids to
+  overthrow the central government, and separate from each other if they
+  concern different territories.} of the rebel groups that join ongoing
+civil wars splintered from an existing group, and only 9.7\% are
+agglomerations of existing groups. Thus, nearly two-thirds of the groups
+that join conflicts\footnote{The pattern is even more stark if one looks
+  at conflict-years, as over 95\% of conflict years with multiple
+  government-rebel dyads include at least one rebel group that is
+  neither a splinter organization nor the source of one.} (only 20\% of
+multi-dyadic conflicts have multiple rebel groups from the outset) do
+not appear to be the product of existing combatants reconfiguring, but
+rather are the result of an entirely new group of combatants entering
+the fray. I propose an integrated approach that accounts for both the
+fragmentation of existing groups, and the entry of new groups to the
+conflict.
+
+\subsubsection{Alliance Formation}\label{alliance-formation}
+
+\subsubsection{Mobilization}\label{mobilization}
+
+Few, if any, studies directly consider the phenomenon of new rebel
+groups joining ongoing conflicts. The literature on contagion is perhaps
+most relevant. \citet{Gleditsch2007} finds that transnational ethnic
+groups and political and economic linkages between states can provide
+channels for civil war to spread across international boundaries. Other
+scholars find that secessionist \citep{Ayres2000} and ethnic
+\citep{Lane2016} conflict often spread through processes of contagion,
+with the rebellion of one group seemingly inspiring those in neighboring
+areas to take up arms themselves. Such transnational processes might
+shape opportunities for multiple rebellions to emerge by increasing the
+availability of weapons, spreading tactical knowledge, or diverting
+government attention to foreign conflicts. Similarly, transnational
+motives for conflict may come in the form of grievances becoming clearer
+and more salient in light of events in neighboring countries, as
+happened during the Arab Spring, or the expected probability of a
+successful rebellion shifting upward in response to nearby events. Yet,
+rebel groups that are themselves transnational, operating in multiple
+countries \citep[see][]{salehyan07} account for only 10.8\% of conflict
+joiners.
+
+\section{Alliance Formation}\label{alliance-formation-1}
+
+\subsection{Introduction}\label{introduction-1}
+
+Theories of civil war tend to focus on individual- or group-level
+motives (e.g. Gurr 1970; Collier and Hoeffler 2004) or opportunities
+(e.g. Fearon and Laitin 2003) for rebellion, while giving little
+attention to the organization of dissent into rebel groups and
+coalitions. Even those studies which do explicitly consider rebel group
+formation tend to focus on group attributes such as discipline (e.g.
+Weinstein 2007), and do not consider the possibility that rebels do not
+always form a single group. Yet, 44\% of civil conflicts feature at
+least two rebel groups challenging the government.\footnote{Source:
+  Pettersson and Wallensteen (2015).} Over the course of the Chadian
+Civil War, for instance, 25 distinct rebel groups fought against the
+government. Conflicts in Afghanistan in the 1980's, Somalia in the
+1990's, and Sudan in the 2000's have been similarly complex. The ongoing
+civil war in Syria is contested by at least two dozen armed groups. Even
+ethnically-homogeneous, geographically-concentrated movements with
+common goals, such as the Karen secessionist campaign in Myanmar, often
+fragment into multiple rebel groups. Furthermore, the number of groups
+operating in these conflicts often varies greatly over time. The
+existing literature offers many useful insights to the conditions under
+which civil war will emerge, but it has few explanations of the
+structure of rebel movements.
+
+While little attention has been given to the sources of rebel movement
+structure, several studies suggest that such configurations can have
+deleterious consequences. Conflicts with multiple rebel groups last
+longer than dyadic competitions (Cunningham 2006; Cunningham, Gleditsch,
+and Salehyan 2009; Akcinaroglu 2012). Furthermore, Cunningham,
+Gleditsch, and Salehyan (2009) find that the presence of multiple
+government-rebel dyads decreases the likelihood of peace agreements and
+increases the likelihood of rebel victories, though Findley and Rudloff
+(2012), find that fragmented rebel movements are often associated with
+an \emph{increased} likelihood of negotiated settlement. Relatedly,
+Atlas and Licklider (1999) and Zeigler (2016) find that episodes of
+conflict renewal often occur between formerly allied rebel factions.
+Finally, conflicts with multiple dyads feature more fatalities than
+dyadic ones.\footnote{Source: my own analysis using data from Sundberg
+  (2008).} Clearly, conflicts with multiple rebel groups comprise one of
+the most severe subsets of civil wars. Thus, understanding the causes of
+multi-dyadic conflict is of great normative and policy importance.
+
+I seek to address this gap by explaining one of the primary determinants
+of rebel movement structure --- the formation of alliances between rebel
+factions. Which rebel groups are likely to form alliances? With whom are
+they likely to ally? While alliances cannot account for all of the
+variation in the number of rebel groups in a conflict --- the
+fragmentation of existing groups and the entry of previously non-violent
+groups to the conflict are also important processes --- alliance ties
+tend to predict deeper integration between rebel groups. Many rebel
+alliances evolve into umbrella organizations with shared command, and
+weak rebel groups are frequently absorbed by alliance partners. Thus,
+alliance formation is a crucial determinant of whether conflicts become
+less complex over time.
+
+First and foremost, this work advances our understanding of the
+complexity of civil conflict in terms of the number and arrangement of
+actors. This builds on the growing literature on another facet of
+complexity --- the fragmentation of existing groups (see Cunningham,
+Gleditsch, and Salehyan 2009; Pearlman and Cunningham 2011; Staniland
+2014) --- and presents contrasting evidence to the few existing studies
+of rebel alliances (Christia 2012; Bapat and Bond 2012), which focus on
+relative capability as the key driver of coalition building.
+Furthermore, examining the relationships between rebel groups sheds new
+light on debates about the motives behind rebellion (e.g. Collier and
+Hoeffler 2004). For instance, if rebellion is fundamentally about ethnic
+or religious grievances, we might expect to see the emergence of
+coalitions with homogeneous identities. If, by contrast, rebels are
+motivated by the desire for profits from natural resources or illicit
+activities, we might see groups with access to such revenues seek to
+limit the number of combatants with whom they share their spoils,
+irrespective of common identity.
+
+I proceed with a review of the literature on relations between rebel
+groups. Next, I outline the potential benefits rebels might receive by
+forming alliances. Subsequently, I explore the conditions under which
+rebels will elect to engage in such cooperation. Finally, I present
+results from an inferential network model applied to the Syrian Civil
+War.
+
+\subsection{Relations Among Rebels}\label{relations-among-rebels}
+
+Relations among rebel groups remains one of the most underexplored
+aspects of civil war. The vast majority of existing studies focus on
+conflict between non-state actors. A few studies have, however, examined
+conflict between rebel groups. In the most comprehensive study to date,
+Fjelde and Nilsson (2012) suggest that rebels fight each other for
+control over resources such drug supplies or valuable terrain. Greater
+resource endowments should lead to better postwar bargains with the
+government in the long run, and greater ability to sustain a rebellion
+in the short run. The authors find that this logic is most likely to
+prevail in the presence of natural resources, territories that are not
+controlled by the government, militarily weak governments, and
+significant power asymmetries among rebels. Atlas and Licklider (1999)
+and Zeigler (2016) find that this dynamic can also arise in the
+aftermath of conflicts, as the main fighting in renewed civil wars is
+often between previously allied rebel groups.
+
+Another strand of literature examines the emergence of conflict within
+previously coherent movements. Bakke, Cunningham, and Seymour (2012)
+conceptualize the fragmentation of rebels movements as varying in terms
+of the raw number of organizations, the degree of institutionalization
+unifying the organizations, and the distribution of power among them.
+They expect a greater general likelihood of infighting in more
+fragmented movements, particularly those with large numbers of groups
+and low degrees of institutionalization. Asal, Brown, and Dalton (2012)
+find evidence that largely supports this claim, showing that
+ethnopolitical movements with factionalized leadership structures are
+most likely to experience splits. Similarly, Cunningham, Bakke, and
+Seymour (2012) find that infighting is most likely in self-determination
+movements with large numbers of factions, and that the emergence of new
+factions is especially likely to trigger violence. Staniland (2014)
+similarly emphasizes pre-existing social structure, arguing that the
+probability of an insurgent group splintering is shaped by the strength
+of social ties in the organization from which it emerged. Others see
+infighting as contingent on the conflict process. Christia (2012) finds
+that rebel groups and coalitions tend to fragment when battlefield
+losses exacerbate divisions between faction leaders, while McLauchlin
+and Pearlman (2012) find that repression can deepen rifts within
+movements that are already divided, but cohesive movements may become
+further solidified by repression.
+
+There is also a substantial literature on intra-ethnic violence. Lilja
+and Hultman (2011) find that that Tamil rebels used violence against
+co-ethnic civilians to control populations and the resources they hold,
+and against coethnic armed groups to establish dominance within the
+ethnic group. Staniland (2012) finds that these patterns intra-ethnic
+violence tend to be self-reinforcing, as violence within ethnic
+insurgencies is the primary cause of the defection of some subsets of
+ethnic groups to the opposing side in the conflict. (Warren and Troy
+2015) seek to explain which ethnic groups are likely to experience such
+fragmentation, finding a curvilinear relationship between the size of an
+ethnic group and its probably of experiencing infighting. Small ethnic
+groups have the ability to police themselves, limiting violence, and
+intra-ethnic violence in large groups is likely to be met with
+government intervention. Thus, only moderate-sized groups tend to
+experience internal violence.
+
+Finally, a few studies consider the formation of alliances among various
+types of militant organizations. Asal and Rethemeyer (2008) and Horowitz
+and Potter (2013) conduct network analyses of alliance formation among
+terrorist groups, arguing that such arrangement are used to aggregate
+capabilities and share tactics. Bapat and Bond (2012) model the logic of
+alliance formation among rebel groups. They assume that alliances carry
+two significant costs: the dilution of each constituent group's agenda,
+and the risk of having one's private information sold to the government
+by an ally. Consistent with this theory, they find alliances to be most
+common when an outside state can enforce agreements, and when all rebel
+groups involved are strong enough to avoid the temptation of defecting
+to the government side Christia (2012) similarly emphasizes capability,
+arguing that neorealist balancing theory from international relations
+explains alignments in civil wars. When one coalition - a group of
+rebels or government-aligned forces - becomes too powerful, other groups
+will band together to prevent their own destruction. But similar Bapat
+and Bond (2012), Christia (2012) argues that this mechanism is
+constrained by a desire to maximize one's share of the post-war spoils.
+Thus, rebels realign frequently, seeking to form minimum winning
+coalitions. While shared identity appears on the surface to be an
+important determinant of rebel alignments, Christia views these
+narratives as post-hoc justifications aimed at legitimizing decisions
+that are really driven mostly by power. Some important aspects of
+alliance formation are beyond the scope of the existing studies,
+however. Namely, while relative power considerations can potentially
+account for why rebel groups form alliances, and when they will alter
+their ties, it does not explain why groups choose a particular partner
+when multiple options are available. Christia suggests that these
+decisions are shaped by personal relationships between rebel elites, but
+does not give this question extended consideration in her empirical
+analysis. Horowitz and Potter (2013) find that militants prefer to ally
+with powerful groups, but their focus is largely on transnational
+networks of terrorists and insurgents, rather than alliance formation
+within a particular conflict. I seek to resolve this gap by explaining
+not only whether, but also with whom rebel groups will choose to form
+alliances.
+
+\subsection{A Theory of Rebel Alliance
+Formation}\label{a-theory-of-rebel-alliance-formation}
+
+\subsubsection{Rebel Factions and Their
+Interests}\label{rebel-factions-and-their-interests}
+
+I start from the assumption that governments in civil wars are opposed
+by one or more dissident factions. I define a faction as a set of people
+with relatively homogeneous beliefs and identities, that is capable of
+acting as a group. For example, a communist party might have Leninist
+and Maoist factions, and an ethnonationalist movement might have
+Christian and Muslim factions. Faction members likely will not share
+identical beliefs on every political question, and may not have
+identical racial, ethnic, or religious backgrounds. This might be
+especially true of factions organized around loyalty to a specific
+individual or locale. A faction will, however, tend to be unified on the
+most salient political and identity issues of the moment.
+
+In some contexts, the faction may not be an appropriate unit of
+analysis. For example, rebel groups often do engage in recruiting new
+members on an individual basis, and an individual-level approach would
+be appropriate for studying such a phenomenon. For the formation and
+restructuring of rebel groups, however, decisions tend to be made by
+collectives. Staniland (2014) argues that rebel groups tend to emerge
+from existing organizations, rather than spontaneous collections of
+individuals. My own data collection shows similar patterns, with 97\% of
+rebel groups since 1946 having origins in a pre-existing organization.
+When rebel groups fragment, abandonment of the existing group is often
+done by entire sub-units. For example Staniland (2014) finds that
+fragmentation often takes the form of local brigades breaking away from
+a central organization, as was the case for with al-Qaeda in Iraq, which
+saw many local Sunni militias defect and begin cooperating with the US.
+Similarly, Christia (2012) sees realignment as being driven by mid-level
+rebel commanders, who generally take a cadre of loyal forces with them
+when initiating and breaking alliances.
+
+Factions can structured in a variety of arrangements during a conflict.
+A faction can resort to violence on an individual basis, resulting in a
+rebel group with mostly homogeneous preferences and identities. In other
+cases a faction may ally with others to former a larger, but more
+heterogeneous rebel group. Finally, factions may remain non-violent,
+using peaceful tactics to oppose the government. These arrangement are
+dynamic, however. Previously independent factions may form alliances,
+previusly aligned factions may choose to break alliances, previously
+non-violent factions may choose to enter a conflict, and previously
+violent factions may choose to demobilize. I argue that two broad
+concerns shape each these decisions.
+
+First, I assume that factions have genuine political interests. This
+assumption is not necessarily obvious in light of the long-running
+debate as to whether rebellion is motivated by public or private
+concerns (see Collier and Hoeffler 2004). Indeed, some scholars have
+gone as far as to posit that rebellion is little more than glorified
+criminal activity aimed at controlling natural resources and illicit
+trades (Mueller 2000), or that individual participation is often
+motivated by a desire to settle personal disputes (Kalyvas 2006). I do
+not reject the notion that rebels value such things (indeed, see the
+second assumption below); I simply contend that greed and grievance are
+a false dichotomy. Most rebel groups articulate a political platform of
+some variety. This might take the form of a comprehensive ideological
+program such as a communist revolution, or a more narrow concern such as
+land reform or self-determination for a particular ethnic group. While
+earlier work found greater support for the greed hypothesis, suggesting
+that such political rhetoric is merely a veneer on more selfish motives,
+recent studies using higher-quality data have found that political
+grievances, and particularly ethnic discrimination, to be among the
+strongest predictors of civil war (Cederman, Wimmer, and Min 2010).
+
+Second, however, I expect that factions will seek to maximize their
+individual power. Even if rebels are primarily motivated by political
+interests, material resources are an important means to achieving such
+goals. A faction's influence in any postwar order is likely to be shaped
+in large part by its power. If a faction retains enough fighting
+capability to re-open violence, other actors interested in peace will
+have an interest in accommodating many of their demands. Relatedly, a
+faction will have difficulty trusting any concessions it wins from more
+powerful actors. Thus, retaining capability at the end of a conflict is
+likely to be advantageous with respect to advancing one's political
+goals (Nygård and Weintraub 2015). Furthermore, greater power allows a
+faction greater autonomy from fellow rebels. Political power is a finite
+good, and as a group's capabilities increase, the number of other rebels
+with whom they must share it decreases (Christia 2012; Bapat and Bond
+2012). Finally, even if it is not their primary motive, rebels do use
+material resources to incentivize recruitment and retention efforts
+(Weinstein 2007), and to enrich top leadership.
+
+\subsubsection{The Value of Rebel
+Alliances}\label{the-value-of-rebel-alliances}
+
+Frequently, rebel factions engage in military collaboration with other
+non-state actors. This can range from an agreement not to target each
+other, to a divisions of territory, to joint campaigns on the
+battlefield, to full mergers. These alliances can be valuable for a
+number of reasons. First, alliances aggregate capabilities. This is
+perhaps the most common conception of alliances in international
+politics (see Bennett 1997), and it has been proposed as a motive for
+rebel alliances as well {[}Bapat and Bond (2012); Horowitz and Potter
+(2013). The logic of capability aggregation differs somewhat between
+international and civil conflicts. Whereas international alliances
+aggregate capabilities by bringing states into a conflict in which they
+might not otherwise participate, rebel groups by definition are already
+participating in conflict. Nevertheless, these alliances can bring great
+value because rather than simply aggregating, they can concentrate
+capabilities in space and time. For example, two rebel groups might be
+unable to capture a government-held town on their own, but in a joint
+operation would be sufficiently powerful to do so.
+
+Second, alliances can allow for burden-sharing and specialization.
+Burden-sharing has been offered as an explanation for international
+alliances such as NATO (Sandler and Forbes 1980), though it may not
+occur under all circumstances (see Olson and Zeckhauser 1966). Alliances
+can ensure that a single rebel group is not responsible for defeating
+the government, and might serve as a mechanism for reigning in the
+temptation to free ride off of another group's efforts. Relatedly,
+alliances can facilitate specialization by rebel groups. For instance,
+one alliance partner might specialize in holding territory, while
+another specializes in launching offensives in new areas. Furthermore,
+they can share strategies and technical information. For example, Hamas
+is believed to have learned how to use suicide bombings through its
+alliance with Hezbollah (Horowitz and Potter 2013).
+
+Third, alliances can manage conflict between members and ensure that
+their resources are directed toward common enemies. Weitsman (1997)
+argues that alliances often serve to tether powerful states to one
+another, so as to reduce the probability of conflict between them.
+Gibler (1996) finds that alliance treaties are often used to settle
+territorial disputes between the signatories. Similar alliances can be
+seen in civil wars, for example as a number of Syrian rebel groups
+agreed to focus their efforts in different regions of the country. This
+allows rebels to avoid conflict with each other. Compliance with such
+agreements is incentivized by the fact that reneging on the territorial
+arrangement would likely result in the loss of the other benefits of the
+alliance, such as capability aggregation.
+
+Fourth, operating as an alliance bloc may be beneficial to the members
+groups in bargaining situations. An alliance with a set of coordinated
+demands might command greater bargaining leverage than individual
+members, who collectively have similar power, but a more disparate set
+of demands. Perhaps more crucially, alliances might mitigate credible
+commitment problems. Peaceful settlements to conflicts can be derailed
+by concerns that the other side will not adhere to the agreement (Fearon
+1995). In civil wars, this is often borne out by extreme ``spoiler''
+factions. A rebel commitment to a peace agreement is more likely to be
+viewed as credible if it has formal control over other factions.
+
+\subsubsection{The Costs of Alliances}\label{the-costs-of-alliances}
+
+While the benefits are often many, most alliances between rebel groups
+are not without cost. The post-war political outcome, whether it comes
+in the form of a rebel victory or a compromise with the incumbent
+government, is likely to be shaped by all factions within the winning
+coalition. Thus, allying with another group holding differing ideologies
+and interests will tend to force a rebel faction to compromise on at
+least some issues, or to de-emphasize certain priorities. If, as I
+assume, rebels are motivated by political goals, the value of an
+alliance will decrease as its ideological similarity to its alliance
+partners decreases (Bapat and Bond 2012). Furthermore, any private
+benefits deriving from the conflict outcome (such as seats in a post-war
+legistlature) must be divided among the members of the winning alliance
+(Christia 2012). These concerns should tend to constrain the value of
+alliances in civil war. The existing literature finds that these
+concerns limit the size of rebel coalitions (Christia 2012). Logically,
+they should also shape the choice of partners with whom rebels ally.
+
+\subsubsection{The Choice of Alliance
+Partners}\label{the-choice-of-alliance-partners}
+
+I expect that the decision to form an alliance with a particular group
+is shaped by two broad considerations. The first is the ideological
+similarity of the two groups. The second is the potential gain in
+capability. Consistent with the existing literature, I view the current
+material capabilities of a potential ally as a crucial factor, with more
+powerful groups making more attractive alliance partners. I depart from
+the literature (e.g. Christia 2012), however, by also considering the
+importance of access to future sources of power. Specifically, I expect
+that a group will evaluate a potential alliance partner not only on its
+current level of capability, but also on the extent to which the group
+is a rival for access to future sources of power, such as natural
+resources or civilian populations. In other words, a rebel group with
+enough power to normally be an attractive partner may not be if it's
+strength is drawn from similar support bases as one's own group. By
+contrast, a relatively weak group with a completely non-overlapping
+support base might be an attractive ally.
+
+A rebel group's support base is shaped by a mix of external factors such
+as the presence of natural resources and foreign sponsors, as well as
+its objectives. Some ideological objectives provide rebel groups with
+somewhat malleable support bases, such as those that entail the
+provision of public, non-rival goods to society. It is comparatively
+easy for groups of this sort to minimize the overlap between their
+support bases. By contrast, rebels that pursue private, rival goods or
+interests specific to certain societal groups are likely to be in
+competition with rebels advancing similar objectives. In the remainder
+of this section I classify various rebel objectives on this dimension.
+
+Most non-sectarian ideological interests should fall into the category
+of public, non-rival goods. If two groups each prefer a similar goal,
+such as a redistributive welfare system, a greater role for Islam in
+government, or a devolution of power to regional governments, they will
+be able to enjoy the benefits of such policies regardless of which group
+enacts them. All else equal, goals of this sort should create common
+interests among the rebels who share them. Furthermore, policies of this
+sort tend not to have pre-defined constituencies. A rebel group based on
+ideology could potential convert new members or civilian supporters to
+its cause by spreading its beliefs. As ideologies of this sort are
+generally not tied to a specific ethnicity, religion, or geographic
+area, the pool of potential converts is quite large. Thus, groups
+centered around ideologies of this sort should have high potential for
+cooperation, as they are relatively unlikely to be rivals for support.
+The value of cooperation will be especially high for groups that have
+similar non-sectarian ideologies.
+
+\emph{H1: Rebel groups with similar non-sectarian ideologies should be
+more likely to form alliances than other rebel dyads}
+
+While groups with similar non-sectarian interests should tend not to
+come into competition until late in conflicts, for groups representing
+identity-based interests, the effect is contingent on the size of the
+group and malleability of group boundaries. The reason for this lies in
+the fact that many rebel groups rely on civilian populations for
+material support (Weinstein 2007), and the types of goals a group
+pursues is an important determinant of the malleability of civilian
+support coalitions. A group with broad-based policy goals might be able
+to persuade or coerce almost any group of citizens to support it. Thus,
+until a very large portion of the civilian population has been captured,
+groups sharing these types of goals will not be in competition over
+support as they can simply carve out different coalitions. Similar
+dynamics should occur among groups pursuing the interests of large or
+social groups, such as the majority ethnic or religious group. For
+example two Syrian rebel groups seeking to replace the Alawite-dominated
+Assad regime with one that embraces Sunni doctrine should find that
+civilian support is not particularly scarce given that Syria is
+majority-Sunni. Similarly, groups advocating the interests of social
+groups with fluid boundaries should tend to have opportunities to
+capture new civilian support rather than competing with similar groups
+over existing support. For instance, for a group advocating a
+Salafi-Jihadi ideology, any Sunni Muslim might serve as a potential
+convert.
+
+Rebels representing minority social groups, however, should tend to come
+into conflict more quickly. Groups of this sort must draw their support
+from a social base that is both smaller and more likely to be tapped out
+than the bases of more broadly defined groups, and that is more rigidly
+bounded. A rebel group aimed at advancing the interests of a particular
+ethnic or religious group is unlikely to attract support from non-group
+members. Even if it was able to do so, this might its standing with
+co-ethnics/co-religionists, as rival groups could claim that it is
+watering down its agenda. In other words, socially-defined rebel groups
+seeking to expand the pool of potential support might be vulnerable to
+outbidding appeals. In short, I expect that groups with the agenda of
+advancing the interests of majority ethnic or religious groups will be
+likely to cooperate with groups holding similar interests. Groups
+representing social minorities, however, should be unlikely to
+cooperate.\footnote{In the present analysis, however, the Kurds are the
+  only group to whom this logic is likely to apply, and thus I do not
+  test this hypothesis as it would essentially be a dummy variable for
+  the one Kurdish-Kurdish dyad.}
+
+\emph{H2: Rebel groups representing the same majority ethnic or
+religious groups will be more likely to form alliances than other dyads}
+
+Groups seeking to control the same territory should face a similar
+problem of rival consumption. Because secessionist claims tend to have
+well-defined geographic and/or ethnic boundaries, rebel groups
+representing such claims are likely to be in competition over a fixed
+pool of support. Thus, I expect that groups making similar territorial
+claims will be unlikely to cooperate.
+
+\emph{H3: Rebel groups with overlapping territorial claims will be less
+likely to form alliances than other dyads}
+
+```
+
+\subsection{Conclusion}\label{conclusion}
+
+I have argued that contrary to some theoretical treatments, rebel groups
+do care about political aims. This fact should lead alliance ties to be
+most common among groups sharing similar goals. Indeed, I find that in
+the Syrian Civil War, shared political goals are the single most
+important determinant of alliance partners. I do not find support for
+the notion that more powerful groups should be more likely to form
+alliances. While I do not find evidence of religious homophily, that may
+be an artifact of the limited diversity of Syrian rebels. Finally, I
+find a null relationship between shared territorial ambitions and
+alliances, where I expected a negative relationship.
+
+The finding on the importance of political goals contrasts with multiple
+existing theories of rebellion. The importance of political goals
+contrasts with the greed model of civil war, which views rebellion as
+being primarily aimed at procuring private material benefits for
+members. It also calls into question purely power-based accounts
+(Christia 2012), which expect rebels to be concerned with little else
+but winning. In addition, these results can help us to predict the
+dynamics of civil conflicts. If we observe a conflict with many rebel
+factions, but these groups share similar goals, we might expect the
+movement to aggregate over time. If these groups have disparate
+interests, however, there is a strong possibility that the conflict will
+remain highly fragmented. Given the severity associated with more
+complex conflicts, the ability to make predictions of this sort is
+highly valuable.
+
+Further research in this area is needed. My hypothesized effects may
+simply be conditional on factors that I have yet to account for. For
+example, access to material support from an outside actor should reduce
+competition over civilian support bases or territory. In addition, this
+work should be replicated in other cases. As one of the most complex
+civil wars on record, it is possible that the dynamics in Syria do not
+apply in other conflicts. Finally, future work should move beyond
+explaining the formation of networks and explore the effects of network
+structure on rebel behavior. For instance, are more densely networked
+rebel coalitions more resilient to anti-insurgent campaigns? Do certain
+tactics diffuse across rebel networks?
+
+\section{References}\label{references}
+
+\indent
+
+\setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing
+
+\hypertarget{refs}{}
+\hypertarget{ref-Akcinaroglu2012a}{}
+Akcinaroglu, Seden. 2012. ``Rebel Interdependencies and Civil War
+Outcomes.'' \emph{Journal of Conflict Resolution} 56 (5): 879--903.
+
+\hypertarget{ref-Asal2008}{}
+Asal, Victor, and R. Karl Rethemeyer. 2008. ``The Nature of the Beast:
+Organizational Structures and the Lethality of Terrorist Attacks.''
+\emph{The Journal of Politics} 70 (2): 437--49.
+
+\hypertarget{ref-Asal2012}{}
+Asal, Victor, Mitchell Brown, and Angela Dalton. 2012. ``Why Split?
+Organizational Splits among Ethnopolitical Organizations in the Middle
+East.'' \emph{Journal of Conflict Resolution} 56 (1): 94--117.
+
+\hypertarget{ref-Atlas1999}{}
+Atlas, Pierre M., and Roy Licklider. 1999. ``Conflict Among Former
+Allies After Civil War Settlement : Sudan , Zimbabwe , Chad , and
+Lebanon.'' \emph{Journal of Peace Research} 36 (1): 35--54.
+
+\hypertarget{ref-Bakke2012a}{}
+Bakke, Kristin M., Kathleen Gallagher Cunningham, and Lee J. M. Seymour.
+2012. ``A Plague of Initials: Fragmentation, Cohesion, and Infighting in
+Civil Wars.'' \emph{Perspectives on Politics} 10 (2): 265--83.
+
+\hypertarget{ref-Bapat2012}{}
+Bapat, Navin, and Kanisha Bond. 2012. ``Alliances between Militant
+Groups.'' \emph{British Journal of Political Science} 42 (4): 793--824.
+
+\hypertarget{ref-Bennett1997}{}
+Bennett, D. Scott. 1997. ``Testing Alternative Models of Alliance
+Duration, 1816-1984.'' \emph{American Journal of Political Science} 41
+(3): 846.
+
+\hypertarget{ref-Bhavnani2011}{}
+Bhavnani, Ravi, Dan Miodownik, and Hyun Jin Choi. 2011. ``Three Two
+Tango: Territorial Control and Selective Violence in Israel, the West
+Bank, and Gaza.'' \emph{Journal of Conflict Resolution} 55 (1): 133--58.
+doi:\href{https://doi.org/10.1177/0022002710383663}{10.1177/0022002710383663}.
+
+\hypertarget{ref-Cederman2010}{}
+Cederman, Lars-Erik, Andreas Wimmer, and Brian Min. 2010. ``Why do
+ethnic groups rebel?: New data and analysis.'' \emph{World Politics} 62
+(1): 87--98.
+
+\hypertarget{ref-Christia2012}{}
+Christia, Fotini. 2012. \emph{Alliance Formation in Civil Wars}.
+Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Collier2004}{}
+Collier, Paul, and Anke Hoeffler. 2004. ``Greed and grievance in civil
+war.'' \emph{Oxford Economic Papers} 56 (4): 563--95.
+
+\hypertarget{ref-Cunningham2006}{}
+Cunningham, David E. 2006. ``Veto Players and Civil War Duration.''
+\emph{American Journal of Political Science} 50 (4): 875--92.
+
+\hypertarget{ref-Cunningham2009}{}
+Cunningham, David E., Kristian Skrede Gleditsch, and Idean Salehyan.
+2009. ``It Takes Two: A Dyadic Analysis of Civil War Duration and
+Outcome.'' \emph{Journal of Conflict Resolution} 53 (4): 570--97.
+
+\hypertarget{ref-Cunningham2012a}{}
+Cunningham, Kathleen Gallagher, Kristin M. Bakke, and Lee J. M. Seymour.
+2012. ``Shirts Today , Skins Tomorrow : Dual Contests and the Effects of
+Fragmentation in Self-Determination Disputes.'' \emph{Journal of
+Conflict Resolution} 56 (1): 67--93.
+
+\hypertarget{ref-fearon95}{}
+Fearon, James D. 1995. ``Rationalist Explanations for War.''
+\emph{International Organization} 49 (3): 379--414.
+
+\hypertarget{ref-fearonlaitin03}{}
+Fearon, James D., and David D. Laitin. 2003. ``Ethnicity, Insurgency,
+and Civil War.'' \emph{American Political Science Review} 97 (1):
+75--90.
+
+\hypertarget{ref-Findley2012}{}
+Findley, Michael, and Peter Rudloff. 2012. ``Combatant Fragmentation and
+the Dynamics of Civil Wars.'' \emph{British Journal of Political
+Science} 42 (4): 879--901.
+
+\hypertarget{ref-Fjelde2012}{}
+Fjelde, Hanne, and Desiree Nilsson. 2012. ``Rebels against Rebels:
+Explaining Violence between Rebel Groups.'' \emph{Journal of Conflict
+Resolution} 56 (4): 604--28.
+
+\hypertarget{ref-Gibler1996}{}
+Gibler, Douglas M. 1996. ``Alliances That Never Balance: The Territorial
+Settlement Treaty.'' \emph{Conflict Management and Peace Science} 15
+(1): 75--97.
+
+\hypertarget{ref-gurr70}{}
+Gurr, Ted Robert. 1970. \emph{Why Men Rebel}. Princeton, NJ: Princeton
+University Press.
+
+\hypertarget{ref-Horowitz2013}{}
+Horowitz, Michael C., and Philip B. K. Potter. 2013. ``Allying to Kill:
+Terrorist Intergroup Cooperation and the Consequences for Lethality.''
+\emph{Journal of Conflict Resolution} 58 (2): 199--225.
+
+\hypertarget{ref-Kalyvas2006}{}
+Kalyvas, Stathis N. 2006. \emph{The Logic of Violence in Civil War}.
+Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Lilja2011}{}
+Lilja, Jannie, and Lisa Hultman. 2011. ``Intraethnic Dominance and
+Control: Violence Against Co-Ethnics in the Early Sri Lankan Civil
+War.'' \emph{Security Studies} 20 (2): 171--97.
+
+\hypertarget{ref-McLauchlin2012}{}
+McLauchlin, Theodore, and Wendy Pearlman. 2012. ``Out-Group Conflict,
+In-Group Unity?: Exploring the Effect of Repression on Intramovement
+Cooperation.'' \emph{Journal of Conflict Resolution} 56 (1): 41--66.
+
+\hypertarget{ref-mueller00}{}
+Mueller, John. 2000. ``The Banality of Ethnic War.'' \emph{International
+Security} 25 (1): 42--70.
+
+\hypertarget{ref-Nygard2014}{}
+Nygård, Håvard Mokleiv, and Michael Weintraub. 2015. ``Bargaining
+Between Rebel Groups and the Outside Option of Violence.''
+\emph{Terrorism and Political Violence} 27 (3): 557--80.
+
+\hypertarget{ref-Olson1966}{}
+Olson, Mancur, and Richard Zeckhauser. 1966. ``An economic theory of
+alliances.'' \emph{The Review of Economics and Statistics} 48 (3):
+266--79.
+
+\hypertarget{ref-Pearlman2011a}{}
+Pearlman, Wendy, and Kathleen Gallagher Cunningham. 2011. ``Nonstate
+Actors, Fragmentation, and Conflict Processes.'' \emph{Journal of
+Conflict Resolution} 56 (1): 3--15.
+
+\hypertarget{ref-Pettersson2015a}{}
+Pettersson, Therése, and Peter Wallensteen. 2015. ``Armed conflicts,
+1946-2014.'' \emph{Journal of Peace Research} 52 (4): 536--50.
+
+\hypertarget{ref-Sandler1980}{}
+Sandler, Todd, and John F. Forbes. 1980. ``Burden Sharing, Strategy, and
+the Design of NATO.'' \emph{Economic Inquiry} 18 (3): 425--44.
+
+\hypertarget{ref-Staniland2012d}{}
+Staniland, Paul. 2012. ``Between a Rock and a Hard Place: Insurgent
+Fratricide, Ethnic Defection, and the Rise of Pro-State
+Paramilitaries.'' \emph{Journal of Conflict Resolution} 56 (1): 16--40.
+
+\hypertarget{ref-Staniland2014}{}
+---------. 2014. \emph{Networks of Rebellion: Explaining Insurgent
+Cohesion and Collapse}. Ithaca, NY: Cornell University Press.
+
+\hypertarget{ref-Sundberg2008a}{}
+Sundberg, Ralph. 2008. ``Collective Violence 2002-2007: Global and
+Regional Trends.'' In \emph{States in Armed Conflict 2007}, edited by
+Lotta Harbom and Ralph Sundberg. Uppsala: Universitetstryckeriet.
+
+\hypertarget{ref-ucdpactor}{}
+Uppsala Conflict Data Program. 2015. ``UCDP Actor Dataset 2.2-2015.''
+Uppsala University.
+
+\hypertarget{ref-Warren2015}{}
+Warren, T. Camber, and Kevin K. Troy. 2015. ``Explaining Violent
+Intra-Ethnic Conflict : Group Fragmentation in the Shadow of State
+Power.'' \emph{Journal of Conflict Resolution} 59 (3): 484--509.
+
+\hypertarget{ref-Weinstein2007}{}
+Weinstein, Jeremy M. 2007. \emph{Inside Rebellion}. Cambridge: Cambridge
+University Press.
+
+\hypertarget{ref-Weitsman1997}{}
+Weitsman, Patricia. 1997. ``Intimate Enemies: The Politics of Peacetime
+Alliances.'' \emph{Security Studies} 7 (1): 156--93.
+
+\hypertarget{ref-Wolford}{}
+Wolford, Scott, David E. Cunningham, and William Reed. 2015. ``Why do
+Some Civil Wars Have More Rebel Groups than Others? A Formal Model and
+Empirical Analysis.'' \emph{Paper Presented at the 2015 Annual Meeting
+of the International Studies Association, New Orleans, LA}.
+
+\hypertarget{ref-Zeigler2016}{}
+Zeigler, Sean M. 2016. ``Competitive alliances and civil war
+recurrence.'' \emph{International Studies Quarterly} 60 (1): 24--37.
+
+
+\end{document}

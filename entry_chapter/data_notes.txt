@@ -1,0 +1,11 @@
+# Repression
+
+## Schnakenberg and Fariss
+
+- Repression levels vary across time and space, but hard to accurately measure across contexts
+- Their model:
+    - Accounts for variation in level information contained within human rights indicators
+    - Represents uncertainty with credibility intervals
+    - Represents temporal dependence
+    
+- Uses underlying data rather than additive scale of CIRI

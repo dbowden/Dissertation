@@ -1,0 +1,51 @@
+---
+title: "Late to the Party: Why Do New Rebel Groups Join Civil Conflicts?"
+author: "David Bowden"
+date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
+output:
+    bookdown::pdf_document2:
+        includes:
+            in_header: preamble.tex
+documentclass: article
+bibliography: /Users/david/Dropbox/library.bib
+fontsize: 12pt
+fontfamily: tgpagella
+geometry: margin=1in
+numbersections: true
+toc: no
+abstract:
+    Civil wars featuring multiple rebel groups are among the most severe conflicts, but we know little about the causes of such structures, nor about the direction of this relationship. I focus on the entry of new groups to civil conflicts, which I argue requires both a decrease in the relative cost of fighting that induces previously non-violent dissidents to take up arms, and a social division that leads them to form a new group rather than joining an existing one. Government repression of all forms should satisfy the former condition, while repression that disproportionately targets certain social groups should satisfy the latter by activating particularistic rather than inclusive identities. Using poisson regression models of civil wars over the period 1946--2015, I show that both the level of repression and of political discrimination predict greater numbers of rebel groups. Furthermore, there is an interactive effect, indicating that the greatest number of rebel groups are expected in cases where the level of repression is high and repression is targeted at narrow portions of society. The results suggest that government strategy can play a surprisingly large role in shaping the structure of rebel movements.
+---
+
+ ```{r setup, include=F}
+ knitr::opts_chunk$set(echo=F, error=F, message=F, warning=F, cache=T, results='asis')
+```
+
+\doublespacing
+
+```{r child='entry_intro.txt'}
+```
+
+```{r child='entry_theory.txt'}
+```
+
+```{r child='entry_design.txt'}
+```
+
+```{r child='entry_Results.Rmd'}
+```
+
+```{r child='entry_conclusion.txt'}
+```
+
+\newpage
+
+# References
+
+\indent
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing

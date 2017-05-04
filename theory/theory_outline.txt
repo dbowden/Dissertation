@@ -1,0 +1,64 @@
+# Framework
+
+- Processes affecting structure
+    - Entry
+        - Domestic
+        - Transnational
+    - Fragmentation
+    - Alliance formation
+
+- Actors in civil war: dissident pool
+    - Vary in willingness to use violence
+        - Some mobilize early
+        - Some don't do so right away
+    - Vary in identities and ideological commitments
+        - Ethnic, religious, geographic, sectoral diversity
+        - Differing ideological priorities
+        - But also some bases for unity in most cases
+    - Non-violent dissidents serve as support base for rebels in many cases, though natural resources and external support can mitigate this
+    - Many non-dissident civilians are likely to be present, but if they mobilize it will be in support of the government. Though this can be dynamic. Previously neutral people can be moved to opposition through repression, etc.
+    - Exit is an option in many cases, and this may explain the government's use of repression - a few people will join the rebellion, but the majority of opponents will leave.
+- The government is choosing between two outcomes:
+    - Large mobilization opposition employing a variety of tactics (no repression)
+    - Small but very committed opposition (repression induces less committed people to stay home or become refugees)
+    - Repression reduces probability of govt losing through electoral politics, deprives opposition of legitimizing non-violent wing
+- Rebel groups depend on civilian support, so targeting mechanism could drive both mobilization and entry - civilian demand for outbidding appeals increases, incentivizing fragmentation.
+- If your people are targeted you want to stay closer to home
+
+# The Malleability of Identity
+
+## Constructivist lit
+
+- Context-dependence
+
+## Rationalist lit
+
+- Posner, Penn, Hechter
+
+## Empirical lit
+
+- Eifert et al, Robinson, Masella, Christia
+
+# Conflict and Identity Change
+
+- Sambanis and Shayo
+- Pearlman et al
+- Gibler et al
+
+# Synthesis
+
+- Individuals have many identities that they can emphasize - national, ethnic, religious, regional, ideological, occupational, etc. The choice may be highly conscious and rational, though it could also be shaped by subconscious processes.
+- Rebel groups can emphasize particular identities as mobilization strategies. This is probably very strategic. But there is path dependency in these choices. If you adopt a nationalist/inclusive frame initially, you are susceptible to outbidding. If you begin with an ethnic strategy, it is hard to expand beyond that.
+- Repression should reduce relative cost of fighting, leading some previously non-violent dissidents to take up arms. Kalyvas and Kocher is a key cite here.
+- Discriminatory repression should activate the identities that form the basis for discrimination. Repression targeted at a specific ethnic group should increase identification with that group by members. The repression increases the salience of that identity, and creates a sense of linked fate.
+
+# Connection to Specific Processes
+
+## Individual-Level Identity
+
+- Very straightforward application of the theory
+- H: repression increases willingness to engage in costly mobilization
+- H: discriminatory repression increases identification with ethnic group
+- H: indiscriminate repression increases identification with nation
+
+## Group Entry

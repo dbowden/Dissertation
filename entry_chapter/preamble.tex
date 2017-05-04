@@ -1,0 +1,15 @@
+\usepackage{setspace}
+\usepackage{dcolumn}
+
+
+\usepackage{float}
+\let\origtable\table
+\let\endorigtable\endtable
+\renewenvironment{table}[1][2] {
+    \singlespacing
+    \expandafter\origtable\expandafter[H]
+} {
+    \endorigtable
+}
+
+\setlength\parindent{1cm}

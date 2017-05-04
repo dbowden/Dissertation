@@ -1,0 +1,16 @@
+# The Entry of New Groups
+
+```{r child='entry_intro.txt'}
+```
+
+```{r child='entry_theory.txt'}
+```
+
+```{r child='entry_design.txt'}
+```
+
+```{r child='entry_Results.Rmd'}
+```
+
+```{r child='entry_conclusion.txt'}
+```
