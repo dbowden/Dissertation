@@ -1,6 +1,6 @@
 ---
 title: "Politics Among Rebels: The Causes of Division Among Dissidents"
-author: "David Bowden"
+author: "David F. Bowden"
 date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
 output:
     bookdown::pdf_book:
