@@ -1,0 +1,4 @@
+# Theory
+
+```{r child='theory_framework.txt'}
+```

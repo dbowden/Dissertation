@@ -6,8 +6,10 @@ output:
     bookdown::pdf_book:
         includes:
             in_header: preamble.tex
-documentclass: article
+documentclass: book
 bibliography: /Users/david/Dropbox/library.bib
+biblio-sytle: apsr
+link-citations: yes
 fontsize: 12pt
 fontfamily: tgpagella
 geometry: margin=1in
@@ -22,6 +24,12 @@ toc: yes
 \doublespacing
 
 ```{r child='intro/intro.Rmd'}
+```
+
+```{r child='theory/theory.Rmd'}
+```
+
+```{r child='survey_chapter/survey_chapter.Rmd'}
 ```
 
 ```{r child='entry_chapter/entry_chapter.Rmd'}
