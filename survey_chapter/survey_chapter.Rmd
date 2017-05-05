@@ -1,4 +1,7 @@
-# Repression and Individual-Level Ethnic Identification
+# Repression and Individual-Level Ethnic Identification {#survey-chapter}
 
 ```{r child='survey_intro.txt'}
+```
+
+```{r child='survey_design.Rmd'}
 ```

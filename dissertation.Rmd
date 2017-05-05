@@ -15,6 +15,7 @@ fontfamily: tgpagella
 geometry: margin=1in
 numbersections: true
 toc: yes
+keep_tex: yes
 ---
 
  ```{r setup, include=F}
@@ -38,7 +39,11 @@ toc: yes
 ```{r child='alliance_network/alliance_chapter.Rmd'}
 ```
 
+```{r child='appendix/appendix.Rmd'}
+```
+
 # References {-}
+\markboth{REFERENCES}{}
 
 \indent
 

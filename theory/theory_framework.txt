@@ -9,3 +9,43 @@ Social identities form a second dimension of variation among dissidents. A few d
 Finally, while dissidents share a common interest in removing the incumbent government, they do not necessarily agree on many other political questions. Rural dissidents might make land reform their top priority in a post-war government, whereas urban dissidents might care more about welfare or modernization programs. Some dissidents hope to take control of a government with strong centralized authority, while others hope to procure greater regional autonomy as a consequence of the war. Broader left-right ideological divisions are often present, and doctrinal differences often divide groups with relatively similar views. For example, Indian communists were long divided into Maoist and Marxist-Leninist factions. Even when dissidents largely agree on goals, there are likely to be divisions between hardliners and moderates, who will be more willing to accept compromises and less willing to adopt extreme tactics. Finally, even dissidents who largely agree on questions of policy will still find themselves in competition over the power and private benefits of government [@Christia2012], which are subject to rival consumption.
 
 In short, the pool of individuals who oppose the government often form a mix of violent and non-violent organizations, and tend to have several social and political cleavages that might serve as the basis for organizational fragmentation. I argue that whether such divisions do produce fragmented groups, however, is contingent on contextual factors which I explore in the following section.
+
+### Changes to the Dissident Network
+
+I generally treat the dissident network as a fixed pool of government opponents. In reality, however, it will often change over the course of the conflict. Throughout history civilians have often fled conflict to become refugees. While one might reason that dissidents are somewhat less likely to do this than neutral civilians, in many conflicts the dissident network is undoubtedly depleted by fleeing members. Successful counterinsurgency operations by the government or third parties can also reduce the ranks of the dissidents. Both rebels and non-violent dissidents are often killed in great numbers, and even when they are not, they are may be subjected to imprisonment or repression that makes mobilization difficult. Under certain conditions, dissidents may even defect to the government side [@Staniland2012d].
+
+In other cases the dissident network may grow. Government repression may induce previously neutral civilians to support the opposition. Dissidents may attract support by offering a morally or politically superior platform to the government's, or by obtaining legitimacy through their choice of tactics or international support [@Chenoweth2013]. Rebels may attract new supporters by demonstrating strength and by extension their prospects for success [@Christia2012], or by offering private benefits to recruits [@Weinstein2007]. Rebel groups may also attract or coerce support from civilians by controlling territory [@Mampilly2011]. Finally, dissidents may be bolstered by international support. The Islamic State has recruited young Muslims from around the world to join them in Syria. The Liberation Tigers of Tamil Eelam enjoyed significant financial support from the Tamil diaspora, effectively giving them a larger civilian support network than they had locally.
+
+While I am primarily interested in changes to the structure of the dissident movement independent of its size, it is important to consider the possibility that the dissident network may change in composition as well.
+
+## The Politics of Rebellion
+
+
+
+## The Dynamics of Identity
+
+### The Dynamics of Political Goals
+
+## Government Agency
+
+Gambling
+
+Preventing voting
+
+Colonial strategies
+
+## Expectations
+
+### Micro-Level
+
+*Hypothesis 1: Repression should increase an individual's willingness to participate in political violence*
+
+*Hypothesis 2: Repression should increase the extent to which an individual identifies with their ethnic group*
+
+*Hypothesis 3: The probability that repression will induce an individual to identify with their ethnic group should increase with the extent to which the discrimination is targeted at the individual's group*
+
+### Joining
+
+### Fragmentation
+
+### Alliance Formation
