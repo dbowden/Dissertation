@@ -1,0 +1,18 @@
+## Research Design
+
+### The Afrobarometer Survey
+
+To examine the relationship between repression and individual attitudes toward political participation and ethnic identities, I use waves 3-6^[The ethnic vs. national identity question was not asked in waves 1 and 2.] of the Afrobarometer survey. The Afrobarometer is administered by researchers at Michigan State University, the Institute for Democracy in South Africa, and the Center for Democratic Development in Ghana. In each wave the survey attempts to obtain a nationally-representative sample of 20-25 African countries. This is accomplished by randomly sampling geographic areas (villages, neighborhoods, etc), with selection probabilities weighted by population. Within each geographic area a starting point is chosen at random, from which interviews begin randomly selecting households. Individuals are then randomly selected within households, alternating between men and women to ensure gender balance. The sample in each country usually numbers either 1,200 or 2,400, depending on the size and diversity of the country. Respondents are asked over 300 questions on their demographics and background, and their opinions on a wide range of political and cultural questions. One advantage of using such a general survey is the relatively low likelihood that individuals will be primed to answer questions about ethnicity in a way that is not representative of their normal opinions [@Eifert2010].
+
+Attributes for each survey wave are summarized in Table \@ref(tab:afro-topline). The four waves span the period 2005--2016, cover 38 countries, and collect a total of 158,362 individual responses. Response rates are generally quite high, averaging 76.5% in wave 6, and 77.7% in wave 5. A detailed summary of included countries is provided in Table \@ref(tab:response) of the Appendix.
+
+Wave  | Years  | Total Responses  | Countries
+--|---|---|--
+ 3 | 2005 | 25,397 | 18
+ 4 | 2008 | 27,713 | 20
+ 5 | 2011--2013 | 51,587 | 34
+ 6 | 2016 | 53,935 | 36
+ Total | 2005--2016 | 158,362 | 36
+ Table: (\#tab:afro-topline) The Afrobarometer Survey by Wave
+
+One concern relevant to the present application is that in rare cases the Afrobarometer excludes geographic areas experiencing significant violence or other factors that would pose a danger to interviewers. Additionally, questions about ethnic identity are not asked in some countries where doing so is deemed to be potentially harmful to the sampled communities. Each of these attributes is suboptimal, but I argue that each introduces bias *against* my hypotheses, rather than for them. I expect that repression will induce individuals to be more willing to engage in violent mobilization, and more likely to identify with their ethnic group. By excluding areas experiencing high levels of violence, the sample is likely to exclude many of the areas experiencing the highest levels of repression. Thus, my hypotheses face a hard test --- I must find an effect for repression in a sample where repression levels are mostly low or moderate.

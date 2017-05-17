@@ -1,0 +1,706 @@
+install.packages("vimcom")
+library(vimcom)
+panel <- read.csv("panel.csv")
+library(vimcom)
+install.packages("vimcom")
+library(vimcom)
+download.file("http://www.lepem.ufc.br/jaa/vimcom.plus_0.9-93.tar.gz",#
+              destfile = "vimcom.plus_0.9-93.tar.gz")
+install.packages("vimcom.plus_0.9-93.tar.gz", type = "source",#
+                  repos = NULL)
+install.packages("devtools")
+install.packages("vimcom.plus_0.9-93.tar.gz", type = "source",#
+                  repos = NULL)
+library(vimcom.plus)
+require(ggplot2)
+fdiRisk<-read.csv("http://dl.dropboxusercontent.com/u/10692900/fdiRisk.csv")
+library(vimcom.plus)
+ls()
+panel <- read.csv("panel.csv")
+anel <- read.csv("panel.csv")
+FullData <- read.csv("http://dl.dropboxusercontent.com/u/10692900/FDI_AGaIN/merge3_noDups.csv")
+FullData$FDI_perGDPlag = NA#
+FullData$FDI_netInflowlag = NA#
+FullData$FDI_netInflowPerGDPlag = NA#
+#
+for(i in 2:length(FullData$X))#
+{#
+ if(FullData$cown[i]==FullData$cown[i-1] && FullData$year[i]==(FullData$year[i-1]+1)) #
+ { #If the previous entry is for the same country and the subsequent year, fill a lagged variable#
+   FullData$FDI_perGDPlag[i] <- FullData$FDI_perGDP[i-1]#
+   FullData$FDI_netInflowlag[i] <- FullData$FDI_netInflow[i-1]#
+   FullData$FDI_netInflowPerGDPlag[i] <- FullData$FDI_netInflowPerGDP[i-1]#
+ }#
+}
+library(plm)
+FullData <- pdata.frame(FullData,c("cown","year"))
+FullData$PKO3 <- ifelse(!is.na(FullData$PKO)==1 | !is.na(lag(FullData$PKO,1))==1 | !is.na(lag(FullData$PKO,2))==1, 1, 0)
+FullData$Credible_Outcome <- ifelse(FullData$Outcome==1 | FullData$Outcome==4, 1, 0)
+FullData$Agreement <- ifelse(FullData$Outcome==1, 1, 0)
+spec1 <- FDI_netInflowPerGDP ~ GDP_PPP_2005 + GDP_growth + InstDemo + Population + Natrual_Resource_Rents + Type + Outcome + !is.na(PKO)#
+#
+spec2 <- FDI_netInflowPerGDP ~ lag(FDI_netInflowPerGDPlag) + GDP_PPP_2005 + GDP_growth + InstDemo + Population + Natrual_Resource_Rents + Type + Outcome + !is.na(PKO)#
+#
+spec3 <- FDI_netInflowPerGDP ~ lag(FDI_netInflowPerGDPlag) + lag(GDP_PPP_2005) + lag(GDP_growth) + lag(InstDemo) + lag(Population) + lag(Natrual_Resource_Rents) + lag(Type) + lag(Outcome) + lag(!is.na(PKO))#
+#
+spec4 <- FDI_netInflowPerGDP ~ lag(FDI_netInflowPerGDP,1) + GDP_PPP_2005 + lag(GDP_growth,0:2) + Population + InstDemo + lag(Natrual_Resource_Rents,0:2) + Outcome + !is.na(PKO)==1#
+#
+spec5 <- FDI_netInflowPerGDP ~ lag(FDI_netInflowPerGDP,1) + lag(GDP_growth,0:1) + Natrual_Resource_Rents + Credible_Outcome + PKO3#
+#
+spec6 <- diff(FDI_netInflowPerGDP) ~ Agreement + PKO3 + InstDemo + GDP_growth + Natrual_Resource_Rents#
+#
+spec7 <- FDI_netInflowPerGDP ~ lag(FDI_netInflowPerGDP,1) + lag(GDP_growth,0:1) + Natrual_Resource_Rents + Agreement + PKO3
+summary(fe1)
+fe1 <- plm(spec1,data=FullData,model="within",effect="twoway")
+summary(fe1)
+gmmspec1 <- FDI_netInflowPerGDP ~ lag(FDI_netInflowPerGDP,1) + lag(GDP_growth,0:1) + Natrual_Resource_Rents + GDP_PPP_2005 + Agreement + PKO3 | lag(GDP_PPP_2005,1:2) + lag(GDP_growth,2:3) + lag(Natrual_Resource_Rents,1:2)
+panel <- subset(FullData,select=c(country,year))
+panel$dup <- ifelse(duplicated(panel)==T,1,0)
+FullData$dup <- panel$dup
+FullData <- subset(FullData,dup==0)
+gmm1 <- pgmm(gmmspec1,data=FullData,effect="twoways",model="onestep")
+traceback()
+summary(cars)
+quit(save = "no")
+download.file("http://www.lepem.ufc.br/jaa/vimcom_1.0-0.tar.gz",#
+              destfile = "vimcom_1.0-0.tar.gz")
+install.packages("vimcom_1.0-0.tar.gz", type = "source",#
+                  repos = NULL)
+sessionInfo()
+library(vimcom)
+update.packages()
+source("/Users/david/Dropbox/Prospectus/9_16.Rmd")
+source("/Users/david/Dropbox/Prospectus/9_23.Rmd")
+library(UCDPtools)
+library(dplyr)
+library(UCDPtools)
+library(dplyr)
+actors <- read.delim("http://privatewww.essex.ac.uk/~ksg/data/nsa_v3.4_21November2013.asc")
+actors.agg <- group_by(actors, ucdpid)
+actors.conflict <- summarize(actors.agg, dyads = n_distinct(dyadid))
+rm(actors.agg)
+source("/Users/david/Library/Application Support/Sublime Text 3/Packages/SublimePeek/help-compiler/R-help.r")
+update.packages()
+library("effects")
+update.packages()
+y
+install.packages("ggplot2")
+library(devtools)
+install.packages("devtools")
+library(devtools)
+install_github('jimhester/lintr')
+setwd("/Users/david/Dropbox/Dissertation Sources,/Users/david/Dropbox/Prospectus")
+library(dplyr)
+update.packages()
+system(say "done")
+system(say done)
+system(say,"done")
+system(say("done"))
+system(say)
+system(say "hi")
+---#
+title: "Politics Among Rebels: The Determinants of Conflict and Cooperation Between Non-State Combatants"#
+author: "David Bowden"#
+documentclass: article#
+fontsize: 12pt#
+fontfamily: tgpagella#
+geometry: margin=1in#
+numbersections: true#
+bibliography: /Users/david/Dropbox/library.bib#
+csl: /Users/david/.pandoc/csl/apsa.csl#
+header-includes:#
+    - \usepackage{setspace}#
+    - \doublespacing#
+abstract: #
+	Rebel groups face a dilemma. On the one hand, pursuing control of natural resources, territory, and civilian populations within the country may be a good strategy for enhancing their strength relative to the government. On the other hand, this tactic often brings the risk of becoming entangled in conflict with other non-state actors, ultimately proving counterproductive. I argue that control of natural resources is often a worthwhile risk for rebels, particularly when they are losing the conflict. Non-state actors also experience conflicts of interest over control of territory, which tend to be acted upon by rebels that are experiencing success in the conflict. Under some circumstances, however, rebels are able to partition territory and access to resources, minimizing the scope of conflict with each other.#
+    <!-- put Research Q in abstract -->#
+---
+system("say finished")
+acled <- read.csv("~/Documents/Data/ACLED Version 6 All Africa 1997-2015_csv_dyadic.csv",fileEncoding="macintosh")
+colnames(acled)
+nig <- subset(acled, GWNO==475)
+levels(nig$ADMIN1)
+nig <- subset(ngi, ADMIN1=="Nasarawa" | ADMIN1=="Benue")
+nig <- subset(nig, ADMIN1=="Nasarawa" | ADMIN1=="Benue")
+head(nig)
+length(nig$GWNO)
+View(nig)
+table(nig$INTERACTION)
+qplot(nig$INTERACTION)
+library(ggplot2)
+qplot(nig$INTERACTION)
+with(subset(nig,INTER1==4),levels(ACTOR1))
+with(subset(nig,INTER1==4),ACTOR1)
+sum(nig$FATALITIES)
+with(gled,t.test(duration ~ joiner))
+ls()
+install.packages("Zelig")
+library(Zelig)
+install.packages("graph")
+install.packages("~/Downloads/graph_1.30.0.tar.gz",repos=NULL, type="source")
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+biocLite("graph")
+install.packages("Zelig")
+library(Zelig)
+install.packages("Rgraphviz")
+biocLite("Rgraphviz")
+library(Zelig)
+ls()
+rm(con,map)
+ls()
+library(igraph)#
+library(dplyr)#
+library(tidyr)#
+library(stringr)#
+library(lubridate)#
+library(readr)#
+library(ggplot2)#
+theme_set(theme_bw())#
+#
+pal <- read_csv("~/Dropbox/Prospectus/Diss Network/pal_diss.csv")
+install.packages(c('repr', 'IRkernel', 'IRdisplay'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))#
+IRkernel::installspec()
+IRkernel::installspec()
+install.packages(c('repr', 'IRkernel', 'IRdisplay'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))
+install.packages(c('rzmq','repr','IRkernel','IRdisplay'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))
+install.packages(c('repr'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))
+install.packages(c('IRKernel'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))
+install.packages(c('IRkernel'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))
+install.packages("rzmq")
+install.packages(c('IRkernel'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))
+install.packages(c('IRdisplay'),#
+                 repos = c('http://irkernel.github.io/', getOption('repos')))
+IRkernel::installspec(name = 'ir32', displayname = 'R 3.2')
+IRkernel::installspec()
+IRkernel::installspec(name = 'ir32', displayname = 'R 3.2')
+library(lubridate)
+ymd("1997-02-01")
+st = ymd("1997-02-01")
+st + months(18)
+library(readr)
+install.package("lintr")
+install.packages("lintr")
+library(foreign)#
+library(dplyr)
+install.packages(c('repr', 'pbdZMQ', 'devtools'))
+devtools::install_github('irkernel/IRdisplay')
+devtools::install_github('irkernel/IRkernel')
+library(dplyr)#
+library(tidyr)#
+library(stringr)#
+library(readr)#
+library(lubridate)#
+library(zoo)#
+library(ggplot2)#
+theme_set(theme_bw())
+icews <- read.csv("~/Google Drive/Dissertation Data/networkcreation/icews_groups.csv", stringsAsFactors = FALSE)
+#fix dates#
+icews$date <- ymd(icews$date)#
+icews$ym <- floor_date(icews$date,"month")
+#subset to actors likely to be afghan dissidents#
+iraq <- subset(icews, cow.src==645 & agent.src!="BUS" & (cow.tgt==645 | cow.tgt==2) & agent.src!="GOV" & date > "2003-03-31")
+#remove a few things that aren't formal groups#
+iraq <- subset(iraq, alt.src!="Iraqi Kurdistan" & alt.src!="Iraqi Kurds" & alt.src!="Naji Sabri" & alt.src!="Jalal Talabani" & alt.src!="Hoshyar Zebari" & alt.src!="Adnan Pachachi")
+#code a few individuals that weren't in the dictionary#
+iraq$alt.src[iraq$alt.src=="Massoud Barzani"] <- "Kurdistan Democratic Party"#
+iraq$alt.src[iraq$alt.src=="Ahmad Chalabi"] <- "Iraqi National Congress"
+#use group name instead of individual name when available#
+#iraq$alt.src <- ifelse(is.na(iraq$src.groups)==T, iraq$alt.src, iraq$src.groups)#
+unique(iraq$alt.src)
+rm(list=ls())
+ls()
+update.packages()
+library(dplyr)
+library(dplyr)#
+library(tidyr)#
+library(stringr)#
+library(readr)#
+library(lubridate)#
+library(zoo)#
+library(ggplot2)#
+theme_set(theme_bw())
+#import icews w/ group names added for individuals#
+icews <- read.csv("../ICEWS_Processing/icews_with_groups.csv", stringsAsFactors = FALSE)
+update.packages()
+JGR()
+library(JGR)
+JGR()
+matched_transfers <- read.csv("~/Box Sync/Compliance Paper/Trade/R&P Replication/matched_transfers.csv")
+m5 <- lm(log(post_trade+1) ~ agreement + log(tot_gdp) + log(tot_pop) + joint_dem + rivals + any_contiguity + portion, data=matched_transfers)
+To further establish the validity of the findings above, I conduct a number of robustness checks. First, to facilitate causal inference, I use a genetic algorithm [@Diamond2013] to match pairs of observations with and without agreements on every covariate that statistically differs betIen the two groups in the raw data. While the groups differ on seven variables prior to matching, after matching no statistically significant differences remain. After matching, agreements continue to have a significant relationship with trade. In fact, the magnitude is even larger than in the raw data, with agreements leading to a 138% increase in trade flows (see M)
+m6 <- lm(log(post_trade+1) ~  agreement + log(tot_gdp) + log(tot_pop) + joint_dem + rivals + any_contiguity + portion + settle, data=all_transfers)
+all_transfers <- read.csv("~/Box Sync/Compliance Paper/Trade/R&P Replication/all_transfers.csv")
+install.packages("multiwaycov")
+library(lubridate)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(readr)
+library(lubridate)
+theme_set(theme_bw())
+read.csv("~/Dropbox/Dissertation/Analyses/epr_group_formation/EPR-2014.csv")
+devtools::install("/Users/david/Dropbox/Dissertation/Document/formation_chapter")
+rmarkdown::render("/Users/david/Dropbox/Dissertation/Document/formation_chapter/formation_chapter.Rmd", encoding = "UTF-8")
+devtools::install("/Users/david/Dropbox/Dissertation/Document/formation_chapter")
+install.packages("root")
+cov <- read.csv("~/Box Sync/ISAMW16/isamw16_analysis/old/syria_covariates.csv")
+library(readr)
+library(dplyr)
+cov <- read.csv("~/Dropbox/Dissertation/Analyses/Alliance_Network_Chapter/isamw16_analysis/old/syria_covariates.csv")
+names <- cov[,1:2]
+colnames(names) <- c("Group Name", "Abbreviations")
+library(xtable)
+options(xtable.comment = FALSE)
+load("/Users/david/Dropbox/Civil War Data/master_rebel_yearly.Rdata")
+ls()
+rm(cov, names)
+head(ucdp.dyad)
+library(dplyr)
+install.packages("tidyverse")
+??preprocess
+library(sjmisc)#
+library(countrycode)#
+library(lubridate)#
+library(readxl)#
+library(sjPlot)#
+library(countrycode)#
+library(dplyr)#
+library(tidyr)#
+#
+setwd("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data")#
+afro6 <- read_spss("afrobarometer/afrobarometer_r6.sav")#
+afro5 <- read_spss("afrobarometer/afrobarometer_r5.sav")#
+afro4 <- read_spss("afrobarometer/afrobarometer_r4.sav")#
+afro3 <- read_spss("afrobarometer/afrobarometer_r3.sav")#
+#
+# Subset to relevant variables -----#
+afro6 <- dplyr::select(afro6, COUNTRY, DATEINTR, eth_id = Q88B, attack = Q11B, intim = Q49, employment = Q95, educ = Q97, urban = Q115, sex = Q101, occupation = Q96A, ethnic = Q87, ruling = Q52F, age = Q1, vote=Q21, protest=Q27E, meeting=Q20A, withinwt)#
+afro6$wave <- 6#
+afro6$ag <- ifelse(afro6$occupation==3, 1, 0)#
+afro6$COUNTRY <- to_label(afro6$COUNTRY)#
+afro6$violence <- NA#
+afro6$ethnic[afro6$ethnic < 0 | afro6$ethnic >= 9990] <- NA#
+afro6$ethnic <- to_label(afro6$ethnic)#
+afro6$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro6$ethnic)#
+afro6$ethnic[afro6$ethnic=="Not asked in country"] <- NA#
+#
+afro5 <- dplyr::select(afro5, eth_id = Q85B, attack = Q10B, intim = Q54, employment = Q96, educ = Q97, urban = Q115, sex = Q101, occupation = Q96_ARB, ethnic = Q84, ruling = Q59F, COUNTRY, DATEINTR, meeting=Q26A, protest=Q26D, violence=Q26E, vote=Q27, age=Q1, withinwt)#
+afro5$wave <- 5#
+afro5$ag <- ifelse(afro5$occupation>=1 & afro5$occupation<=5, 1, 0)#
+afro5$COUNTRY <- to_label(afro5$COUNTRY)#
+afro5$ethnic[afro5$ethnic < 0 | afro5$ethnic >= 9990] <- NA#
+afro5$ethnic <- to_label(afro5$ethnic)#
+afro5$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro5$ethnic)#
+afro5$ethnic[afro5$ethnic=="Not asked in country"] <- NA#
+#
+afro4 <- dplyr::select(afro4, eth_id = Q83, attack = Q9C, intim = Q47, employment = Q94, educ = Q89, urban = Q113, sex = Q101,  ethnic = Q79, ruling = Q49E, COUNTRY, DATEINTR, age=Q1, meeting=Q23A, protest=Q23C, vote=Q23D, withinwt = Withinwt)#
+afro4$occupation <- NA#
+afro4$wave <- 4#
+afro4$attack[afro4$attack==4] <- 3#
+afro4$employment[afro4$employment==3] <- 2#
+afro4$employment[afro4$employment==4 | afro4$employment==5] <- 3#
+afro4$ag <- NA#
+afro4$COUNTRY <- to_label(afro4$COUNTRY)#
+afro4$violence <- NA#
+afro4$ethnic[afro4$ethnic < 0 | afro4$ethnic >= 990] <- NA#
+afro4$ethnic <- to_label(afro4$ethnic)#
+afro4$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro4$ethnic)#
+afro4$ethnic[afro4$ethnic=="Not asked in country"] <- NA#
+afro3 <- dplyr::select(afro3, eth_id = q82, attack = q9c, employment = q94, educ = q90, urban = q113, sex = q101, occupation = q95, ethnic = q79, ruling = q55e, COUNTRY = country, DATEINTR = dateintr, age=q1, meeting=q31a, protest=q31c, vote=q30, withinwt)#
+afro3$intim <- NA#
+afro3$wave <- 3#
+afro3$attack[afro3$attack==4] <- 3#
+afro3$employment[afro3$employment==3] <- 2#
+afro3$employment[afro3$employment==4 | afro3$employment==5] <- 3#
+afro3$ag <- ifelse(afro3$occupation>=1 & afro3$occupation<=5, 1, 0)#
+afro3$COUNTRY <- to_label(afro3$COUNTRY)#
+afro3$violence <- NA#
+afro3$ethnic[afro3$ethnic < 0 | afro3$ethnic >= 990] <- NA#
+afro3$ethnic <- to_label(afro3$ethnic)#
+afro3$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro3$ethnic)#
+afro3$ethnic[afro3$ethnic=="Not asked in country"] <- NA#
+#
+afro <- rbind(afro6, afro5, afro4, afro3)#
+#
+rm(afro6, afro5, afro4, afro3)#
+#
+# Recode and standardize ------#
+afro[afro < 0] <- NA#
+#
+afro$eth_id_bin <- ifelse(afro$eth_id==1 | afro$eth_id==2, 1, 0)#
+afro$eth_id[afro$eth_id < 0 | afro$eth_id > 5] <- NA#
+afro$attack_recode <- ifelse(afro$attack > 3, NA, afro$attack)#
+afro$intim_recode <- ifelse(afro$intim > 3, NA, afro$intim)#
+afro$employment_recode <- ifelse(afro$employment==2 | afro$employment==3, 1, 0)#
+afro$educ_recode <- ifelse(afro$educ > 9, NA, afro$educ)#
+afro$urban_recode <- ifelse(afro$urban==2, 1, 0)#
+afro$ruling_supporter <- ifelse(afro$ruling==2 | afro$ruling==3, 1, 0)#
+afro$COUNTRY[afro$COUNTRY=="Cote d’Ivoire"] <- "Cote d'Ivoire"#
+afro$COUNTRY[afro$COUNRY=="São Tomé and Príncipe"] <- "Sao Tome and Principe"#
+afro$vote_recode <- ifelse(afro$vote==1, 1, 0)#
+afro$meeting_recode <- ifelse(afro$meeting>=2 & afro$meeting<=4, 1, 0)#
+afro$protest_recode <- ifelse(afro$protest>=2 & afro$protest<=4, 1, 0)#
+afro$violence_recode <- ifelse(afro$violence>=2 & afro$violence<=4, 1, 0)#
+afro$attack_recode_bin <- ifelse(afro$attack_recode>0, 1, 0)#
+afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)#
+#
+# Make attack discrepancy var -----#
+afro <- afro %>%#
+  group_by(COUNTRY, wave) %>%#
+  mutate(cntry.pr.attack=mean(attack_recode_bin, na.rm=T))#
+#
+afro <- afro %>%#
+  group_by(COUNTRY, wave, ethnic) %>%#
+  mutate(eth.pr.attack=mean(attack_recode_bin, na.rm=T))#
+#
+afro$diff.pr.attack <- afro$eth.pr.attack - afro$cntry.pr.attack#
+#
+# Country-level variables -------#
+#
+# Fariss Scores#
+afro$COW <- countrycode(afro$COUNTRY, "country.name", "cown")#
+#
+afro$YEAR <- year(afro$DATEINTR)#
+#
+hrs <- read.csv("HumanRightsProtectionScores_v2.04.csv")#
+#
+afro <- left_join(afro, hrs)#
+#
+rm(hrs)#
+#
+# Polity#
+polity <- read_excel("p4v2015.xls")#
+#
+polity <- dplyr::select(polity, COW = ccode, YEAR = year, polity2)#
+#
+afro <- left_join(afro, polity)#
+#
+rm(polity)#
+#
+# Fearon and Laitin data#
+fearon <- read_stata("repdata.dta")#
+#
+fearon <- filter(fearon, year == max(year))#
+#
+fearon <- dplyr::select(fearon, COW = ccode, mtnest, Oil, ethfrac, relfrac)#
+#
+afro <- left_join(afro, fearon)#
+#
+rm(fearon)#
+#
+# previous and ongoing wars#
+load("ucdp-prio-acd-4-2016.RData")#
+#
+ucdp.prio.acd <- separate_rows(ucdp.prio.acd, GWNoLoc, sep = ", ")#
+#
+ucdp.prio.acd <- ucdp.prio.acd %>%#
+  group_by(GWNoLoc, Year) %>%#
+  summarize(interstate=sum(TypeOfConflict==2), interstate_war=sum(TypeOfConflict==2 & IntensityLevel==2), civil=sum(TypeOfConflict!=2 & Incompatibility==2), civil_war=sum(TypeOfConflict!=2 & Incompatibility==2 & IntensityLevel==2), separatist=sum(TypeOfConflict!=2 & Incompatibility!=2), separatist_war=sum(TypeOfConflict!=2 & Incompatibility!=2 & IntensityLevel==2))#
+#
+ucdp.prio.acd$anyconflict <- 1#
+#
+ucdp.prio.acd$anywar <- ifelse(rowSums(ucdp.prio.acd[,c("interstate_war","civil_war","separatist_war")])>0, 1, 0)#
+#
+ucdp.prio.acd <- rename(ucdp.prio.acd, COW = GWNoLoc, YEAR = Year)#
+#
+ucdp.prio.acd$COW <- as.numeric(as.character(ucdp.prio.acd$COW))#
+#
+afro <- left_join(afro, ucdp.prio.acd)#
+#
+rm(ucdp.prio.acd)#
+#
+afro$anywar[is.na(afro$anywar)] <- 0#
+afro$anyconflict[is.na(afro$anyconflict)] <- 0#
+afro$separatist[is.na(afro$separatist)] <- 0#
+afro$civil[is.na(afro$civil)] <- 0#
+#
+## elections#
+## territorial disputes#
+## EPR data - national level and group level#
+#
+# Write data -------#
+save(afro, file="merged_afrobarometer.Rds")
+library(sjmisc)#
+library(countrycode)#
+library(lubridate)#
+library(readxl)#
+library(sjPlot)#
+library(countrycode)#
+library(dplyr)#
+library(tidyr)#
+#
+setwd("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data")#
+afro6 <- read_spss("afrobarometer/afrobarometer_r6.sav")#
+afro5 <- read_spss("afrobarometer/afrobarometer_r5.sav")#
+afro4 <- read_spss("afrobarometer/afrobarometer_r4.sav")#
+afro3 <- read_spss("afrobarometer/afrobarometer_r3.sav")#
+#
+# Subset to relevant variables -----#
+afro6 <- dplyr::select(afro6, COUNTRY, DATEINTR, eth_id = Q88B, attack = Q11B, intim = Q49, employment = Q95, educ = Q97, urban = Q115, sex = Q101, occupation = Q96A, ethnic = Q87, ruling = Q52F, age = Q1, vote=Q21, protest=Q27E, meeting=Q20A, withinwt)#
+afro6$wave <- 6#
+afro6$ag <- ifelse(afro6$occupation==3, 1, 0)#
+afro6$COUNTRY <- to_label(afro6$COUNTRY)#
+afro6$violence <- NA#
+afro6$ethnic[afro6$ethnic < 0 | afro6$ethnic >= 9990] <- NA#
+afro6$ethnic <- to_label(afro6$ethnic)#
+afro6$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro6$ethnic)#
+afro6$ethnic[afro6$ethnic=="Not asked in country"] <- NA#
+#
+afro5 <- dplyr::select(afro5, eth_id = Q85B, attack = Q10B, intim = Q54, employment = Q96, educ = Q97, urban = Q115, sex = Q101, occupation = Q96_ARB, ethnic = Q84, ruling = Q59F, COUNTRY, DATEINTR, meeting=Q26A, protest=Q26D, violence=Q26E, vote=Q27, age=Q1, withinwt)#
+afro5$wave <- 5#
+afro5$ag <- ifelse(afro5$occupation>=1 & afro5$occupation<=5, 1, 0)#
+afro5$COUNTRY <- to_label(afro5$COUNTRY)#
+afro5$ethnic[afro5$ethnic < 0 | afro5$ethnic >= 9990] <- NA#
+afro5$ethnic <- to_label(afro5$ethnic)#
+afro5$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro5$ethnic)#
+afro5$ethnic[afro5$ethnic=="Not asked in country"] <- NA#
+#
+afro4 <- dplyr::select(afro4, eth_id = Q83, attack = Q9C, intim = Q47, employment = Q94, educ = Q89, urban = Q113, sex = Q101,  ethnic = Q79, ruling = Q49E, COUNTRY, DATEINTR, age=Q1, meeting=Q23A, protest=Q23C, vote=Q23D, withinwt = Withinwt)#
+afro4$occupation <- NA#
+afro4$wave <- 4#
+afro4$attack[afro4$attack==4] <- 3#
+afro4$employment[afro4$employment==3] <- 2#
+afro4$employment[afro4$employment==4 | afro4$employment==5] <- 3#
+afro4$ag <- NA#
+afro4$COUNTRY <- to_label(afro4$COUNTRY)#
+afro4$violence <- NA#
+afro4$ethnic[afro4$ethnic < 0 | afro4$ethnic >= 990] <- NA#
+afro4$ethnic <- to_label(afro4$ethnic)#
+afro4$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro4$ethnic)#
+afro4$ethnic[afro4$ethnic=="Not asked in country"] <- NA#
+afro3 <- dplyr::select(afro3, eth_id = q82, attack = q9c, employment = q94, educ = q90, urban = q113, sex = q101, occupation = q95, ethnic = q79, ruling = q55e, COUNTRY = country, DATEINTR = dateintr, age=q1, meeting=q31a, protest=q31c, vote=q30, withinwt)#
+afro3$intim <- NA#
+afro3$wave <- 3#
+afro3$attack[afro3$attack==4] <- 3#
+afro3$employment[afro3$employment==3] <- 2#
+afro3$employment[afro3$employment==4 | afro3$employment==5] <- 3#
+afro3$ag <- ifelse(afro3$occupation>=1 & afro3$occupation<=5, 1, 0)#
+afro3$COUNTRY <- to_label(afro3$COUNTRY)#
+afro3$violence <- NA#
+afro3$ethnic[afro3$ethnic < 0 | afro3$ethnic >= 990] <- NA#
+afro3$ethnic <- to_label(afro3$ethnic)#
+afro3$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro3$ethnic)#
+afro3$ethnic[afro3$ethnic=="Not asked in country"] <- NA#
+#
+afro <- rbind(afro6, afro5, afro4, afro3)#
+#
+rm(afro6, afro5, afro4, afro3)#
+#
+# Recode and standardize ------#
+afro[afro < 0] <- NA
+unique(afro$COUNTRY)
+afro$eth_id_bin <- ifelse(afro$eth_id==1 | afro$eth_id==2, 1, 0)#
+afro$eth_id[afro$eth_id < 0 | afro$eth_id > 5] <- NA#
+afro$attack_recode <- ifelse(afro$attack > 3, NA, afro$attack)#
+afro$intim_recode <- ifelse(afro$intim > 3, NA, afro$intim)#
+afro$employment_recode <- ifelse(afro$employment==2 | afro$employment==3, 1, 0)#
+afro$educ_recode <- ifelse(afro$educ > 9, NA, afro$educ)#
+afro$urban_recode <- ifelse(afro$urban==2, 1, 0)#
+afro$ruling_supporter <- ifelse(afro$ruling==2 | afro$ruling==3, 1, 0)#
+afro$COUNTRY[afro$COUNTRY=="Cote d’Ivoire"] <- "Cote d'Ivoire"#
+afro$COUNTRY[afro$COUNRY=="São Tomé and Príncipe"] <- "Sao Tome and Principe"#
+afro$vote_recode <- ifelse(afro$vote==1, 1, 0)#
+afro$meeting_recode <- ifelse(afro$meeting>=2 & afro$meeting<=4, 1, 0)#
+afro$protest_recode <- ifelse(afro$protest>=2 & afro$protest<=4, 1, 0)#
+afro$violence_recode <- ifelse(afro$violence>=2 & afro$violence<=4, 1, 0)#
+afro$attack_recode_bin <- ifelse(afro$attack_recode>0, 1, 0)#
+afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)
+unique(afro$COUNTRY)
+afro$COUNTRY[afro$COUNRY=="São Tomé and Príncipe"] <- "Sao Tome and Principe"
+str(afro$COUNTRY)
+table(afro$COUNTRY)
+levels(afro$COUNTRY)
+afro$COUNTRY[afro$COUNRY=="São Tomé and Príncipe"] <- "Sao Tome and Principe"
+setwd("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data")#
+afro6 <- read_spss("afrobarometer/afrobarometer_r6.sav")#
+afro5 <- read_spss("afrobarometer/afrobarometer_r5.sav")#
+afro4 <- read_spss("afrobarometer/afrobarometer_r4.sav")#
+afro3 <- read_spss("afrobarometer/afrobarometer_r3.sav")
+afro6 <- dplyr::select(afro6, COUNTRY, DATEINTR, eth_id = Q88B, attack = Q11B, intim = Q49, employment = Q95, educ = Q97, urban = Q115, sex = Q101, occupation = Q96A, ethnic = Q87, ruling = Q52F, age = Q1, vote=Q21, protest=Q27E, meeting=Q20A, withinwt)#
+afro6$wave <- 6#
+afro6$ag <- ifelse(afro6$occupation==3, 1, 0)
+frq(afro6$COUNTRY)
+with(subset(afro6, COUNTRY==25), set_labels("Sao Tome and Principe"))
+with(subset(afro6, COUNTRY==25), set_labels(labels="Sao Tome and Principe"))
+get_labels(afro6$COUNTRY)
+labels <- get_labels(afro6$COUNTRY)
+class(labels)
+labels[25]
+afro6$COUNTRY <- set_labels(afro6$COUNTRY, labels=labels)
+get_labels(afro6$COUNTRY)
+labels[25] <- "Sao Tome and Principe"
+afro6$COUNTRY <- set_labels(afro6$COUNTRY, labels=labels)
+get_labels(afro6$COUNTRY)
+library(sjmisc)#
+library(countrycode)#
+library(lubridate)#
+library(readxl)#
+library(sjPlot)#
+library(countrycode)#
+library(dplyr)#
+library(tidyr)#
+#
+setwd("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data")#
+afro6 <- read_spss("afrobarometer/afrobarometer_r6.sav")#
+afro5 <- read_spss("afrobarometer/afrobarometer_r5.sav")#
+afro4 <- read_spss("afrobarometer/afrobarometer_r4.sav")#
+afro3 <- read_spss("afrobarometer/afrobarometer_r3.sav")#
+#
+# Subset to relevant variables -----#
+afro6 <- dplyr::select(afro6, COUNTRY, DATEINTR, eth_id = Q88B, attack = Q11B, intim = Q49, employment = Q95, educ = Q97, urban = Q115, sex = Q101, occupation = Q96A, ethnic = Q87, ruling = Q52F, age = Q1, vote=Q21, protest=Q27E, meeting=Q20A, withinwt)#
+afro6$wave <- 6#
+afro6$ag <- ifelse(afro6$occupation==3, 1, 0)#
+labels <- get_labels(afro6$COUNTRY)#
+labels[25] <- "Sao Tome and Principe"#
+afro6$COUNTRY <- set_labels(afro6$COUNTRY, labels=labels)#
+rm(labels)#
+afro6$COUNTRY <- to_label(afro6$COUNTRY)#
+afro6$violence <- NA#
+afro6$ethnic[afro6$ethnic < 0 | afro6$ethnic >= 9990] <- NA#
+afro6$ethnic <- to_label(afro6$ethnic)#
+afro6$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro6$ethnic)#
+afro6$ethnic[afro6$ethnic=="Not asked in country"] <- NA#
+#
+afro5 <- dplyr::select(afro5, eth_id = Q85B, attack = Q10B, intim = Q54, employment = Q96, educ = Q97, urban = Q115, sex = Q101, occupation = Q96_ARB, ethnic = Q84, ruling = Q59F, COUNTRY, DATEINTR, meeting=Q26A, protest=Q26D, violence=Q26E, vote=Q27, age=Q1, withinwt)#
+afro5$wave <- 5#
+afro5$ag <- ifelse(afro5$occupation>=1 & afro5$occupation<=5, 1, 0)#
+afro5$COUNTRY <- to_label(afro5$COUNTRY)#
+afro5$ethnic[afro5$ethnic < 0 | afro5$ethnic >= 9990] <- NA#
+afro5$ethnic <- to_label(afro5$ethnic)#
+afro5$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro5$ethnic)#
+afro5$ethnic[afro5$ethnic=="Not asked in country"] <- NA#
+#
+afro4 <- dplyr::select(afro4, eth_id = Q83, attack = Q9C, intim = Q47, employment = Q94, educ = Q89, urban = Q113, sex = Q101,  ethnic = Q79, ruling = Q49E, COUNTRY, DATEINTR, age=Q1, meeting=Q23A, protest=Q23C, vote=Q23D, withinwt = Withinwt)#
+afro4$occupation <- NA#
+afro4$wave <- 4#
+afro4$attack[afro4$attack==4] <- 3#
+afro4$employment[afro4$employment==3] <- 2#
+afro4$employment[afro4$employment==4 | afro4$employment==5] <- 3#
+afro4$ag <- NA#
+afro4$COUNTRY <- to_label(afro4$COUNTRY)#
+afro4$violence <- NA#
+afro4$ethnic[afro4$ethnic < 0 | afro4$ethnic >= 990] <- NA#
+afro4$ethnic <- to_label(afro4$ethnic)#
+afro4$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro4$ethnic)#
+afro4$ethnic[afro4$ethnic=="Not asked in country"] <- NA#
+afro3 <- dplyr::select(afro3, eth_id = q82, attack = q9c, employment = q94, educ = q90, urban = q113, sex = q101, occupation = q95, ethnic = q79, ruling = q55e, COUNTRY = country, DATEINTR = dateintr, age=q1, meeting=q31a, protest=q31c, vote=q30, withinwt)#
+afro3$intim <- NA#
+afro3$wave <- 3#
+afro3$attack[afro3$attack==4] <- 3#
+afro3$employment[afro3$employment==3] <- 2#
+afro3$employment[afro3$employment==4 | afro3$employment==5] <- 3#
+afro3$ag <- ifelse(afro3$occupation>=1 & afro3$occupation<=5, 1, 0)#
+afro3$COUNTRY <- to_label(afro3$COUNTRY)#
+afro3$violence <- NA#
+afro3$ethnic[afro3$ethnic < 0 | afro3$ethnic >= 990] <- NA#
+afro3$ethnic <- to_label(afro3$ethnic)#
+afro3$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro3$ethnic)#
+afro3$ethnic[afro3$ethnic=="Not asked in country"] <- NA#
+#
+afro <- rbind(afro6, afro5, afro4, afro3)#
+#
+rm(afro6, afro5, afro4, afro3)#
+#
+# Recode and standardize ------#
+afro[afro < 0] <- NA#
+#
+afro$eth_id_bin <- ifelse(afro$eth_id==1 | afro$eth_id==2, 1, 0)#
+afro$eth_id[afro$eth_id < 0 | afro$eth_id > 5] <- NA#
+afro$attack_recode <- ifelse(afro$attack > 3, NA, afro$attack)#
+afro$intim_recode <- ifelse(afro$intim > 3, NA, afro$intim)#
+afro$employment_recode <- ifelse(afro$employment==2 | afro$employment==3, 1, 0)#
+afro$educ_recode <- ifelse(afro$educ > 9, NA, afro$educ)#
+afro$urban_recode <- ifelse(afro$urban==2, 1, 0)#
+afro$ruling_supporter <- ifelse(afro$ruling==2 | afro$ruling==3, 1, 0)#
+afro$COUNTRY[afro$COUNTRY=="Cote d’Ivoire"] <- "Cote d'Ivoire"#
+afro$vote_recode <- ifelse(afro$vote==1, 1, 0)#
+afro$meeting_recode <- ifelse(afro$meeting>=2 & afro$meeting<=4, 1, 0)#
+afro$protest_recode <- ifelse(afro$protest>=2 & afro$protest<=4, 1, 0)#
+afro$violence_recode <- ifelse(afro$violence>=2 & afro$violence<=4, 1, 0)#
+afro$attack_recode_bin <- ifelse(afro$attack_recode>0, 1, 0)#
+afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)#
+#
+# Make attack discrepancy var -----#
+afro <- afro %>%#
+  group_by(COUNTRY, wave) %>%#
+  mutate(cntry.pr.attack=mean(attack_recode_bin, na.rm=T))#
+#
+afro <- afro %>%#
+  group_by(COUNTRY, wave, ethnic) %>%#
+  mutate(eth.pr.attack=mean(attack_recode_bin, na.rm=T))#
+#
+afro$diff.pr.attack <- afro$eth.pr.attack - afro$cntry.pr.attack#
+#
+# Country-level variables -------#
+#
+# Fariss Scores#
+afro$COW <- countrycode(afro$COUNTRY, "country.name", "cown")#
+#
+afro$YEAR <- year(afro$DATEINTR)#
+#
+hrs <- read.csv("HumanRightsProtectionScores_v2.04.csv")#
+#
+afro <- left_join(afro, hrs)#
+#
+rm(hrs)#
+#
+# Polity#
+polity <- read_excel("p4v2015.xls")#
+#
+polity <- dplyr::select(polity, COW = ccode, YEAR = year, polity2)#
+#
+afro <- left_join(afro, polity)#
+#
+rm(polity)#
+#
+# Fearon and Laitin data#
+fearon <- read_stata("repdata.dta")#
+#
+fearon <- filter(fearon, year == max(year))#
+#
+fearon <- dplyr::select(fearon, COW = ccode, mtnest, Oil, ethfrac, relfrac)#
+#
+afro <- left_join(afro, fearon)#
+#
+rm(fearon)#
+#
+# previous and ongoing wars#
+load("ucdp-prio-acd-4-2016.RData")#
+#
+ucdp.prio.acd <- separate_rows(ucdp.prio.acd, GWNoLoc, sep = ", ")#
+#
+ucdp.prio.acd <- ucdp.prio.acd %>%#
+  group_by(GWNoLoc, Year) %>%#
+  summarize(interstate=sum(TypeOfConflict==2), interstate_war=sum(TypeOfConflict==2 & IntensityLevel==2), civil=sum(TypeOfConflict!=2 & Incompatibility==2), civil_war=sum(TypeOfConflict!=2 & Incompatibility==2 & IntensityLevel==2), separatist=sum(TypeOfConflict!=2 & Incompatibility!=2), separatist_war=sum(TypeOfConflict!=2 & Incompatibility!=2 & IntensityLevel==2))#
+#
+ucdp.prio.acd$anyconflict <- 1#
+#
+ucdp.prio.acd$anywar <- ifelse(rowSums(ucdp.prio.acd[,c("interstate_war","civil_war","separatist_war")])>0, 1, 0)#
+#
+ucdp.prio.acd <- rename(ucdp.prio.acd, COW = GWNoLoc, YEAR = Year)#
+#
+ucdp.prio.acd$COW <- as.numeric(as.character(ucdp.prio.acd$COW))#
+#
+afro <- left_join(afro, ucdp.prio.acd)#
+#
+rm(ucdp.prio.acd)#
+#
+afro$anywar[is.na(afro$anywar)] <- 0#
+afro$anyconflict[is.na(afro$anyconflict)] <- 0#
+afro$separatist[is.na(afro$separatist)] <- 0#
+afro$civil[is.na(afro$civil)] <- 0#
+#
+## elections#
+## territorial disputes#
+## EPR data - national level and group level#
+#
+# Write data -------#
+save(afro, file="merged_afrobarometer.Rds")

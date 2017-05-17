@@ -1,0 +1,7 @@
+# Appendix {-}
+\markboth{APPENDIX}{}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+```{r child='survey_appendix.Rmd'}
+```

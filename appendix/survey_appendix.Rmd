@@ -1,0 +1,19 @@
+## Chapter \@ref(survey-chapter) Appendix {-}
+
+\singlespacing
+```{r response}
+library(dplyr)
+library(xtable)
+load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merged_afrobarometer.Rds") #built by afrobarometer_dataprep.R
+
+#count responses by country by wave
+bycountry <- afro %>%
+  group_by(COUNTRY) %>%
+  summarize(wave6=sum(wave==6), wave5=sum(wave==5), wave4=sum(wave==4), wave3=sum(wave==3))
+
+colnames(bycountry) <- c("Country", "Wave 6", "Wave 5", "Wave 4", "Wave 3")
+options(xtable.comment = FALSE)
+responsetable <- xtable(bycountry, caption="Survey Responses by Country and Wave", label="tab:response")
+print(responsetable, tabular.environment='longtable', include.rownames=F)
+```
+\doublespacing
