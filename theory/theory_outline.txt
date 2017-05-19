@@ -51,6 +51,7 @@
 - Rebel groups can emphasize particular identities as mobilization strategies. This is probably very strategic. But there is path dependency in these choices. If you adopt a nationalist/inclusive frame initially, you are susceptible to outbidding. If you begin with an ethnic strategy, it is hard to expand beyond that.
 - Repression should reduce relative cost of fighting, leading some previously non-violent dissidents to take up arms. Kalyvas and Kocher is a key cite here.
 - Discriminatory repression should activate the identities that form the basis for discrimination. Repression targeted at a specific ethnic group should increase identification with that group by members. The repression increases the salience of that identity, and creates a sense of linked fate.
+- As dissidents become more identity-oriented, it's harder to free ride.
 
 # Connection to Specific Processes
 

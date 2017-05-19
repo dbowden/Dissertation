@@ -36,9 +36,6 @@ keep_tex: yes
 ```{r child='entry_chapter/entry_chapter.Rmd'}
 ```
 
-```{r child='alliance_network/alliance_chapter.Rmd'}
-```
-
 ```{r child='appendix/appendix.Rmd'}
 ```
 

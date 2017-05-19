@@ -16,3 +16,21 @@ Wave  | Years  | Total Responses  | Countries
  Table: (\#tab:afro-topline) The Afrobarometer Survey by Wave
 
 One concern relevant to the present application is that in rare cases the Afrobarometer excludes geographic areas experiencing significant violence or other factors that would pose a danger to interviewers. Additionally, questions about ethnic identity are not asked in some countries where doing so is deemed to be potentially harmful to the sampled communities. Each of these attributes is suboptimal, but I argue that each introduces bias *against* my hypotheses, rather than for them. I expect that repression will induce individuals to be more willing to engage in violent mobilization, and more likely to identify with their ethnic group. By excluding areas experiencing high levels of violence, the sample is likely to exclude many of the areas experiencing the highest levels of repression. Thus, my hypotheses face a hard test --- I must find an effect for repression in a sample where repression levels are mostly low or moderate.
+
+### Dependent Variables
+
+#### Ethnic Identity
+
+The first dependent variable explored in this chapter is *ethnic identification*. The Afrobarometer asks individuals about the extent to which they identify with their ethnic group, relative to their nation.[^ethnic_q] Respondents place themselves on a five point scale with the possible responses: "I feel only [ethnicity]", "I feel more [ethnicity] than [nationality]", "I feel equally [ethnicity] and [nationality]", "I feel more [nationality] than [ethnicity]", and "I feel only [nationality]". In most models I collapse the measure into a binary variable, with respondents in the first two categories coded as ethnic identifiers, and all others as non-ethnic identifiers.
+
+[^ethnic_q]: Question text: "Let us suppose that you had to choose between being a [ENTER NATIONALITY] and being a ________ [Respondent’s Ethnic Group]. Which of the following best expresses your feelings?" 
+
+#### Political Participation
+
+Additionally, I examine the effects of repression on various forms of political participation.
+
+### Individual-level Controls
+
+### Country-level Controls
+
+### The Model

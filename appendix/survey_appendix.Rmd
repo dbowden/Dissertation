@@ -1,5 +1,7 @@
 ## Chapter \@ref(survey-chapter) Appendix {-}
 
+### Responses by Country {-}
+
 \singlespacing
 ```{r response}
 library(dplyr)
@@ -17,3 +19,21 @@ responsetable <- xtable(bycountry, caption="Survey Responses by Country and Wave
 print(responsetable, tabular.environment='longtable', include.rownames=F)
 ```
 \doublespacing
+
+### Question Wording {-}
+
+The question wordings for the independent and control variables taken from the Afrobarometer survey are included in this section.
+
+#### Voting {-}
+
+Question text: "Understanding that some people were unable to vote in the most recent national election in [20xx], which of the following statements is true for you?"
+
+Possible responses: 0= You were not registered to vote, 1= You voted in the elections, 2= You decided not to vote, 3=You could not find the polling station , 4=You were prevented from voting, 5= You did not have time to vote, 6= You did not vote because you could not find your name in the voters’ register, 7= Did not vote for some other reason, 8= You were too young to vote, 9= Don't Know/ Can't Remember
+
+#### Protest {-}
+
+Question text: "Here is a list of actions that people sometimes take as citizens when they are dissatisfied with government performance. For each of these, please tell me whether you, personally, have done any of these things during the past year. If not, would you do this if you had the chance: Participated in a demonstration or protest march."
+
+Possible responses: : 0=No, would never do this, 1=No, but would do if had the chance, 2=Yes, once or twice, 3=Yes, several times, 4=Yes, often, 9=Don’t know, 98=Refused to answer, -1=Missing 
+
+#### Meeting {-}
