@@ -1,8 +1,5 @@
 # The Entry of New Groups
 
-```{r child='entry_intro.txt'}
-```
-
 ```{r child='entry_design.txt'}
 ```
 

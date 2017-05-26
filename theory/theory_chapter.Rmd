@@ -1,0 +1,36 @@
+---
+title: "Theory Chapter"
+author: "David Bowden"
+date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
+output:
+    bookdown::pdf_document2:
+        includes:
+            in_header: /Users/david/Dropbox/Dissertation/Document/preamble.tex
+documentclass: book
+bibliography: /Users/david/Dropbox/library.bib
+biblio-sytle: apsr
+link-citations: yes
+fontsize: 12pt
+fontfamily: tgpagella
+geometry: margin=1in
+numbersections: true
+toc: no
+keep_tex: yes
+---
+
+\doublespacing
+
+# A Theory of Rebel Movement Structure
+```{r child='theory_framework.txt'}
+```
+
+# References {-}
+\markboth{REFERENCES}{}
+
+\indent
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing

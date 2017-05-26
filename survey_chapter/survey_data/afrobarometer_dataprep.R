@@ -17,10 +17,6 @@ afro3 <- read_spss("afrobarometer/afrobarometer_r3.sav")
 afro6 <- dplyr::select(afro6, COUNTRY, DATEINTR, eth_id = Q88B, attack = Q11B, intim = Q49, employment = Q95, educ = Q97, urban = Q115, sex = Q101, occupation = Q96A, ethnic = Q87, ruling = Q52F, age = Q1, vote=Q21, protest=Q27E, meeting=Q20A, withinwt)
 afro6$wave <- 6
 afro6$ag <- ifelse(afro6$occupation==3, 1, 0)
-labels <- get_labels(afro6$COUNTRY)
-labels[25] <- "Sao Tome and Principe"
-afro6$COUNTRY <- set_labels(afro6$COUNTRY, labels=labels)
-rm(labels)
 afro6$COUNTRY <- to_label(afro6$COUNTRY)
 afro6$violence <- NA
 afro6$ethnic[afro6$ethnic < 0 | afro6$ethnic >= 9990] <- NA
@@ -66,7 +62,12 @@ afro3$ethnic <- to_label(afro3$ethnic)
 afro3$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro3$ethnic)
 afro3$ethnic[afro3$ethnic=="Not asked in country"] <- NA
 
+
 afro <- rbind(afro6, afro5, afro4, afro3)
+
+labs <- get_labels(afro6)
+
+afro <- set_labels(afro$eth_id, labels=get_labels(afro6$eth_id))
 
 rm(afro6, afro5, afro4, afro3)
 
@@ -74,7 +75,7 @@ rm(afro6, afro5, afro4, afro3)
 afro[afro < 0] <- NA
 
 afro$eth_id_bin <- ifelse(afro$eth_id==1 | afro$eth_id==2, 1, 0)
-afro$eth_id[afro$eth_id < 0 | afro$eth_id > 5] <- NA
+#afro$eth_id[afro$eth_id < 0 | afro$eth_id > 5] <- NA
 afro$attack_recode <- ifelse(afro$attack > 3, NA, afro$attack)
 afro$intim_recode <- ifelse(afro$intim > 3, NA, afro$intim)
 afro$employment_recode <- ifelse(afro$employment==2 | afro$employment==3, 1, 0)
@@ -90,12 +91,12 @@ afro$attack_recode_bin <- ifelse(afro$attack_recode>0, 1, 0)
 afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)
 
 # Make attack discrepancy var -----
-afro <- afro %>%
-  group_by(COUNTRY, wave) %>%
+afro <- afro %>% 
+  group_by(COUNTRY, wave) %>% 
   mutate(cntry.pr.attack=mean(attack_recode_bin, na.rm=T))
 
-afro <- afro %>%
-  group_by(COUNTRY, wave, ethnic) %>%
+afro <- afro %>% 
+  group_by(COUNTRY, wave, ethnic) %>% 
   mutate(eth.pr.attack=mean(attack_recode_bin, na.rm=T))
 
 afro$diff.pr.attack <- afro$eth.pr.attack - afro$cntry.pr.attack

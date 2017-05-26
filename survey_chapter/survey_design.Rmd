@@ -19,18 +19,47 @@ One concern relevant to the present application is that in rare cases the Afroba
 
 ### Dependent Variables
 
-#### Ethnic Identity
+#### Ethnic Identity {-}
 
-The first dependent variable explored in this chapter is *ethnic identification*. The Afrobarometer asks individuals about the extent to which they identify with their ethnic group, relative to their nation.[^ethnic_q] Respondents place themselves on a five point scale with the possible responses: "I feel only [ethnicity]", "I feel more [ethnicity] than [nationality]", "I feel equally [ethnicity] and [nationality]", "I feel more [nationality] than [ethnicity]", and "I feel only [nationality]". In most models I collapse the measure into a binary variable, with respondents in the first two categories coded as ethnic identifiers, and all others as non-ethnic identifiers.
+The first dependent variable explored in this chapter is *ethnic identification*. The Afrobarometer asks individuals about the extent to which they identify with their ethnic group, relative to their nation. The question text is as follows:
 
-[^ethnic_q]: Question text: "Let us suppose that you had to choose between being a [ENTER NATIONALITY] and being a ________ [Respondent’s Ethnic Group]. Which of the following best expresses your feelings?" 
+>"Let us suppose that you had to choose between being a [ENTER NATIONALITY] and being a ________ [Respondent’s Ethnic Group]. Which of the following best expresses your feelings?" 
 
-#### Political Participation
+Respondents place themselves on a five point scale with the possible responses: "I feel only [ethnicity]", "I feel more [ethnicity] than [nationality]", "I feel equally [ethnicity] and [nationality]", "I feel more [nationality] than [ethnicity]", and "I feel only [nationality]". In most models I collapse the measure into a binary variable, with respondents in the first two categories coded as ethnic identifiers, and all others as non-ethnic identifiers.
 
-Additionally, I examine the effects of repression on various forms of political participation.
+Individuals self-report their ethnicity earlier in the survey. The question is open-ended, allowing for the possibility that respondents may conceive of ethnicity in ways that do not comport with scholarly definitions. Indeed, around 1.5% of respondents provide answers such as "African" or the name of a sub-national region. The vast majority, however, choose ethnicities that appear in externally-imposed classifications, such as the Ethnic Power Relations data [@Vogt2015].
+
+```{r ethnic}
+library(xtable)
+library(sjmisc)
+load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merged_afrobarometer.Rds") #built by afrobarometer_dataprep.R
+options(xtable.comment = FALSE)
+tab <- table(to_label(afro$eth_id))
+tab2 <- cbind(tab, prop.table(tab)*100)
+colnames(tab2) <- c("Count", "Percentage")
+xtable(tab2, digits=c(0,0,1), caption="Summary of Ethnic Identification (waves 3-6)", label="tab:ethnic")
+```
+
+Relatively few respondents identify with their ethnic group, with 4.3% answering that they feel only an ethnic identity, and 7.4% saying that their ethnic identity was more prevalent than their national identity (see Table \@ref(tab:ethnic)). A plurality of respondents (35.8%) said that they felt equally attached to their national and ethnic identities, and a large percentage (34.1%) said that they feel only a national identity.
+
+
+#### Political Participation {-}
+
+Additionally, I examine the effects of repression on various forms of political participation, including voting[^vote], attending community meetings[^participation], protesting, and participating in violence. I collapse each variable into binary categories with individuals who engaged in the activity at least once coded as one, and individuals who did not participate in the activity for any reason coded as zero.
+
+```{r partic}
+options(xtable.comment = FALSE)
+xtable(table(to_label(afro$vote)), caption="Voting")
+```
+
+### Independent Variables
 
 ### Individual-level Controls
 
 ### Country-level Controls
 
 ### The Model
+
+[^vote]: Question text: "Understanding that some people were unable to vote in the most recent national election in [20xx], which of the following statements is true for you?" 0= You were not registered to vote, 1= You voted in the elections, 2= You decided not to vote, 3=You could not find the polling station , 4=You were prevented from voting, 5= You did not have time to vote, 6= You did not vote because you could not find your name in the voters’ register, 7= Did not vote for some other reason, 8= You were too young to vote, 9= Don't Know/ Can't Remember
+
+[^participation]: The meeting, protest, and violence questions share a common stub. Question text: "Here is a list of actions that people sometimes take as citizens when they are dissatisfied with government performance. For each of these, please tell me whether you, personally, have done any of these things during the past year. If not, would you do this if you had the chance: Participated in a demonstration or protest march / Attended a community meeting / Used force or violence for a political cause." Possible responses: : 0=No, would never do this, 1=No, but would do if had the chance, 2=Yes, once or twice, 3=Yes, several times, 4=Yes, often, 9=Don’t know, 98=Refused to answer, -1=Missing 
