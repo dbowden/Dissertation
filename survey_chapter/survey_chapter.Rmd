@@ -5,3 +5,6 @@
 
 ```{r child='survey_design.Rmd'}
 ```
+
+```{r child='survey_results.Rmd'}
+```

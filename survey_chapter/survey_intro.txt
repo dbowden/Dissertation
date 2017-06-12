@@ -1,1 +1,11 @@
-In this chapter I test the microfoundations of the theory articulated in Chapter \@ref(theory). Recall that the structure of rebel movements is shaped by two broad questions. First, how many dissidents elect to participate in violence? Relatedly, under what conditions do previously non-violent dissidents choose to join the fighting? Second, 
+In this chapter I test the theory articulated in Chapter \@ref(theory) at the individual level, using data from the Afrobarometer survey. This analysis allows me to directly test whether the hypothesized mechanisms linking repression to rebel movement structure are in fact at work. Findings consistent with my expectations in this chapter would allow me to rule out many alternative explanations for the findings in the national-level analyses in subsequent chapters.
+
+I argue that the size and structure of the rebel movement is shaped by two parameters - the number of dissidents willing to engage in violence, and the extent to which dissidents are oriented toward broadly inclusive ideologies or identities, rather than particularistic identities or causes. One process that should influence these attributes is the repression of dissident civilians. As the risk of violence to civilians increases, the relative cost of fighting decreases, increasing the number of individuals willing to participate in rebellion.
+
+*Hypothesis 1: Individuals who experience repression should be more willing to participate in political violence themselves*
+
+As repression is often targeted on the basis of sub-national identities such as ethnicity or religion, and as these groups often offer a basis for collective defense, repression should induce individuals to identify more strongly with sub-national groups.
+
+*Hypothesis 2: Repression should increase the extent to which an individual identifies with their ethnic group*
+
+I proceed with a discussion of the general attributes of the Afrobarometer survey, followed by descriptions of the variables of interest, and finally analyze multilevel models of individual attitudes toward political mobilization and ethnic identity.

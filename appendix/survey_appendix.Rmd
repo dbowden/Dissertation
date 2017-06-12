@@ -19,3 +19,13 @@ responsetable <- xtable(bycountry, caption="Survey Responses by Country and Wave
 print(responsetable, tabular.environment='longtable', include.rownames=F)
 ```
 \doublespacing
+
+### Response Rates for Dependent Variables {-}
+
+```{r partic}
+options(xtable.comment = FALSE)
+vote <- table(to_label(afro$vote))
+vote2 <- cbind(vote, prop.table(vote)*100)
+colnames(vote2) <- c("Count", "Percentage")
+xtable(vote2, digits=c(0,0,1), caption="Summary of Voting Responses", label="tab:vote")
+```
