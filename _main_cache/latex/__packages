@@ -1,0 +1,13 @@
+base
+xtable
+sjmisc
+zoo
+lmtest
+Formula
+plm
+texreg
+sjPlot
+ggplot2
+dplyr
+Matrix
+lme4

@@ -1,0 +1,44 @@
+## Political Participation Results
+
+```{r hlm1}
+library(lme4)
+library(texreg)
+
+load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merged_afrobarometer.Rds")
+
+afro <- dplyr::rename(afro, Country=COUNTRY, Ethnic=ethnic, Year=YEAR, Wave=wave)
+
+h4 <- glmer(vote_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + educ_recode + urban_recode + ruling_supporter + lage + sex + (1 | Country/Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
+
+h5 <- glmer(meeting_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + educ_recode + urban_recode + ruling_supporter + lage + sex + (1 | Country/Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
+
+h6 <- glmer(protest_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + educ_recode + urban_recode + ruling_supporter + lage + sex + (1 | Country/Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
+
+h7 <- glmer(violence_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + educ_recode + urban_recode + ruling_supporter + lage + sex + (1 | Country/Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
+
+map <- list("latentmean"="Human Rights", "ethfrac"="Ethnolinguistic Fractionalization", "I(ethfrac^2)"="Ethnolinguistic Fractionalization$^{2}$", "polity2"="Polity", "civil > 0TRUE"="Civil War", "separatist > 0TRUE"="Separatist War", "attack_recode_bin"="Attacked", "intim_recode_bin"="Intimidated", "employment_recode"="Employed", "educ_recode"="Education", "urban_recode"="Urban", "ruling_supporter"="Ruling Party Supporter", "lage"="Age", "sex"="Male")
+
+texreg(list(h4,h5,h6,h7), caption="Multilevel Models of Political Participation", custom.coef.map=map, custom.model.names=c("M1 Voting", "M2 Meeting", "M3 Protest", "M4 Violence"))
+```
+
+```{r partic_eff, fig.cap="Effect Plots for Violence (M4)"}
+library(sjPlot)
+library(ggplot2)
+sjp.setTheme(base=theme_bw())
+
+sjp.glmer(h7, type="eff", show.ci=T, title="")
+```
+
+## Ethnic Identification Results
+
+```{r hlm2}
+h1 <- glmer(eth_id_bin ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + educ_recode + urban_recode + ruling_supporter + lage + sex + (1 | Country), data=afro, family=binomial("logit"), weights=withinwt)
+
+h2 <- glmer(eth_id_bin ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + educ_recode + urban_recode + ruling_supporter + lage + sex + (1 | Country/Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
+
+h3 <- glmer(eth_id_bin ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + educ_recode + urban_recode + ruling_supporter + lage + sex + (1 | Country/Ethnic) + (1|Wave), data=afro, family=binomial("logit"), weights=withinwt)
+
+map <- list("latentmean"="Human Rights", "ethfrac"="Ethnolinguistic Fractionalization", "I(ethfrac^2)"="Ethnolinguistic Fractionalization$^{2}$", "polity2"="Polity", "civil"="Civil War", "separatist"="Separatist War", "attack_recode_bin"="Attacked", "intim_recode_bin"="Intimidated", "employment_recode"="Employed", "educ_recode"="Education", "urban_recode"="Urban", "ruling_supporter"="Ruling Party Supporter", "lage"="logged Age", "sex"="Male")
+
+texreg(list(h1,h2,h3), caption="Multilevel Models of Ethnic Identification", custom.coef.map=map, custom.model.names=c("M5", "M6", "M7"))
+```
