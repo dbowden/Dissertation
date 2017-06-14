@@ -91,12 +91,12 @@ afro$attack_recode_bin <- ifelse(afro$attack_recode>0, 1, 0)
 afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)
 
 # Make attack discrepancy var -----
-afro <- afro %>% 
-  group_by(COUNTRY, wave) %>% 
+afro <- afro %>%
+  group_by(COUNTRY, wave) %>%
   mutate(cntry.pr.attack=mean(attack_recode_bin, na.rm=T))
 
-afro <- afro %>% 
-  group_by(COUNTRY, wave, ethnic) %>% 
+afro <- afro %>%
+  group_by(COUNTRY, wave, ethnic) %>%
   mutate(eth.pr.attack=mean(attack_recode_bin, na.rm=T))
 
 afro$diff.pr.attack <- afro$eth.pr.attack - afro$cntry.pr.attack
@@ -163,6 +163,17 @@ afro$civil[is.na(afro$civil)] <- 0
 ## elections
 ## territorial disputes
 ## EPR data - national level and group level
+
+afro$civil <- as.factor(afro$civil)
+afro$separatist <- as.factor(afro$separatist)
+afro$attack_recode_bin <- as.factor(afro$attack_recode_bin)
+afro$intim_recode_bin <- as.factor(afro$intim_recode_bin)
+afro$employment_recode <- as.factor(afro$employment_recode)
+afro$educ_recode <- as.factor(afro$educ_recode)
+afro$urban_recode <- as.factor(afro$urban_recode)
+afro$ruling_supporter <- as.factor(afro$ruling_supporter)
+afro$sex <- as.factor(afro$sex)
+afro$lage <- log(afro$age)
 
 # Write data -------
 save(afro, file="merged_afrobarometer.Rds")
