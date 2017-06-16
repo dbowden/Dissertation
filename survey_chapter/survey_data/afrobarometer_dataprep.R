@@ -65,8 +65,6 @@ afro3$ethnic[afro3$ethnic=="Not asked in country"] <- NA
 
 afro <- rbind(afro6, afro5, afro4, afro3)
 
-labs <- get_labels(afro6)
-
 afro <- set_labels(afro$eth_id, labels=get_labels(afro6$eth_id))
 
 rm(afro6, afro5, afro4, afro3)
@@ -80,6 +78,7 @@ afro$attack_recode <- ifelse(afro$attack > 3, NA, afro$attack)
 afro$intim_recode <- ifelse(afro$intim > 3, NA, afro$intim)
 afro$employment_recode <- ifelse(afro$employment==2 | afro$employment==3, 1, 0)
 afro$educ_recode <- ifelse(afro$educ > 9, NA, afro$educ)
+afro$primary <- ifelse(afro$educ >= 0 & afro$educ <= 3, 1, 0)
 afro$urban_recode <- ifelse(afro$urban==2, 1, 0)
 afro$ruling_supporter <- ifelse(afro$ruling==2 | afro$ruling==3, 1, 0)
 afro$COUNTRY[afro$COUNTRY=="Cote d’Ivoire"] <- "Cote d'Ivoire"
@@ -87,6 +86,7 @@ afro$vote_recode <- ifelse(afro$vote==1, 1, 0)
 afro$meeting_recode <- ifelse(afro$meeting>=2 & afro$meeting<=4, 1, 0)
 afro$protest_recode <- ifelse(afro$protest>=2 & afro$protest<=4, 1, 0)
 afro$violence_recode <- ifelse(afro$violence>=2 & afro$violence<=4, 1, 0)
+afro$violence_willing <- ifelse(afro$violence==1, 1, 0)
 afro$attack_recode_bin <- ifelse(afro$attack_recode>0, 1, 0)
 afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)
 
@@ -169,11 +169,14 @@ afro$separatist <- as.factor(afro$separatist)
 afro$attack_recode_bin <- as.factor(afro$attack_recode_bin)
 afro$intim_recode_bin <- as.factor(afro$intim_recode_bin)
 afro$employment_recode <- as.factor(afro$employment_recode)
-afro$educ_recode <- as.factor(afro$educ_recode)
+#afro$educ_recode <- as.factor(afro$educ_recode)
 afro$urban_recode <- as.factor(afro$urban_recode)
 afro$ruling_supporter <- as.factor(afro$ruling_supporter)
 afro$sex <- as.factor(afro$sex)
 afro$lage <- log(afro$age)
+afro$ag <- as.factor(afro$ag)
+afro$primary <- as.factor(afro$primary)
 
 # Write data -------
+afro <- dplyr::rename(afro, Country=COUNTRY, Ethnic=ethnic, Year=YEAR, Wave=wave)
 save(afro, file="merged_afrobarometer.Rds")
