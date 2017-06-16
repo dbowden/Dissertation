@@ -283,6 +283,11 @@ xtable::xtable(bycountry, caption="Survey Responses by Country and Wave")
 library(xtable)
 library(sjmisc)
 load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merged_afrobarometer.Rds") #built by afrobarometer_dataprep.R
+library(lme4)
+library(texreg)
+load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merged_afrobarometer.Rds")
+afro <- dplyr::rename(afro, Country=COUNTRY, Ethnic=ethnic, Year=YEAR, Wave=wave)
+h4 <- glmer(vote_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + primary + urban_recode + ruling_supporter + lage + (sex==1) + ag + (1 | Country/Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
 library(sjmisc)#
 library(countrycode)#
 library(lubridate)#
@@ -290,15 +295,12 @@ library(readxl)#
 library(sjPlot)#
 library(countrycode)#
 library(dplyr)#
-library(tidyr)#
-#
+library(tidyr)
 setwd("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data")#
 afro6 <- read_spss("afrobarometer/afrobarometer_r6.sav")#
 afro5 <- read_spss("afrobarometer/afrobarometer_r5.sav")#
 afro4 <- read_spss("afrobarometer/afrobarometer_r4.sav")#
-afro3 <- read_spss("afrobarometer/afrobarometer_r3.sav")#
-#
-# Subset to relevant variables -----#
+afro3 <- read_spss("afrobarometer/afrobarometer_r3.sav")
 afro6 <- dplyr::select(afro6, COUNTRY, DATEINTR, eth_id = Q88B, attack = Q11B, intim = Q49, employment = Q95, educ = Q97, urban = Q115, sex = Q101, occupation = Q96A, ethnic = Q87, ruling = Q52F, age = Q1, vote=Q21, protest=Q27E, meeting=Q20A, withinwt)#
 afro6$wave <- 6#
 afro6$ag <- ifelse(afro6$occupation==3, 1, 0)#
@@ -307,8 +309,7 @@ afro6$violence <- NA#
 afro6$ethnic[afro6$ethnic < 0 | afro6$ethnic >= 9990] <- NA#
 afro6$ethnic <- to_label(afro6$ethnic)#
 afro6$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro6$ethnic)#
-afro6$ethnic[afro6$ethnic=="Not asked in country"] <- NA#
-#
+afro6$ethnic[afro6$ethnic=="Not asked in country"] <- NA
 afro5 <- dplyr::select(afro5, eth_id = Q85B, attack = Q10B, intim = Q54, employment = Q96, educ = Q97, urban = Q115, sex = Q101, occupation = Q96_ARB, ethnic = Q84, ruling = Q59F, COUNTRY, DATEINTR, meeting=Q26A, protest=Q26D, violence=Q26E, vote=Q27, age=Q1, withinwt)#
 afro5$wave <- 5#
 afro5$ag <- ifelse(afro5$occupation>=1 & afro5$occupation<=5, 1, 0)#
@@ -316,8 +317,7 @@ afro5$COUNTRY <- to_label(afro5$COUNTRY)#
 afro5$ethnic[afro5$ethnic < 0 | afro5$ethnic >= 9990] <- NA#
 afro5$ethnic <- to_label(afro5$ethnic)#
 afro5$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro5$ethnic)#
-afro5$ethnic[afro5$ethnic=="Not asked in country"] <- NA#
-#
+afro5$ethnic[afro5$ethnic=="Not asked in country"] <- NA
 afro4 <- dplyr::select(afro4, eth_id = Q83, attack = Q9C, intim = Q47, employment = Q94, educ = Q89, urban = Q113, sex = Q101,  ethnic = Q79, ruling = Q49E, COUNTRY, DATEINTR, age=Q1, meeting=Q23A, protest=Q23C, vote=Q23D, withinwt = Withinwt)#
 afro4$occupation <- NA#
 afro4$wave <- 4#
@@ -330,7 +330,7 @@ afro4$violence <- NA#
 afro4$ethnic[afro4$ethnic < 0 | afro4$ethnic >= 990] <- NA#
 afro4$ethnic <- to_label(afro4$ethnic)#
 afro4$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro4$ethnic)#
-afro4$ethnic[afro4$ethnic=="Not asked in country"] <- NA#
+afro4$ethnic[afro4$ethnic=="Not asked in country"] <- NA
 afro3 <- dplyr::select(afro3, eth_id = q82, attack = q9c, employment = q94, educ = q90, urban = q113, sex = q101, occupation = q95, ethnic = q79, ruling = q55e, COUNTRY = country, DATEINTR = dateintr, age=q1, meeting=q31a, protest=q31c, vote=q30, withinwt)#
 afro3$intim <- NA#
 afro3$wave <- 3#
@@ -343,24 +343,19 @@ afro3$violence <- NA#
 afro3$ethnic[afro3$ethnic < 0 | afro3$ethnic >= 990] <- NA#
 afro3$ethnic <- to_label(afro3$ethnic)#
 afro3$ethnic <- gsub(pattern = "Related.*", replacement = NA, x = afro3$ethnic)#
-afro3$ethnic[afro3$ethnic=="Not asked in country"] <- NA#
-afro <- rbind(afro6, afro5, afro4, afro3)#
-#
-labs <- get_labels(afro6)#
-#
-afro <- set_labels(afro$eth_id, labels=get_labels(afro6$eth_id))#
-#
-rm(afro6, afro5, afro4, afro3)#
-#
-# Recode and standardize ------#
-afro[afro < 0] <- NA#
-#
-afro$eth_id_bin <- ifelse(afro$eth_id==1 | afro$eth_id==2, 1, 0)#
-#afro$eth_id[afro$eth_id < 0 | afro$eth_id > 5] <- NA#
+afro3$ethnic[afro3$ethnic=="Not asked in country"] <- NA
+afro <- rbind(afro6, afro5, afro4, afro3)
+labs <- get_labels(afro6)
+afro <- set_labels(afro$eth_id, labels=get_labels(afro6$eth_id))
+frq(afro$eth_id)
+rm(afro6, afro5, afro4, afro3)
+afro[afro < 0] <- NA
+afro$eth_id_bin <- ifelse(afro$eth_id==1 | afro$eth_id==2, 1, 0)
 afro$attack_recode <- ifelse(afro$attack > 3, NA, afro$attack)#
 afro$intim_recode <- ifelse(afro$intim > 3, NA, afro$intim)#
 afro$employment_recode <- ifelse(afro$employment==2 | afro$employment==3, 1, 0)#
 afro$educ_recode <- ifelse(afro$educ > 9, NA, afro$educ)#
+afro$primary <- ifelse(afro$educ >= 0 & afro$educ <= 3, 1, 0)#
 afro$urban_recode <- ifelse(afro$urban==2, 1, 0)#
 afro$ruling_supporter <- ifelse(afro$ruling==2 | afro$ruling==3, 1, 0)#
 afro$COUNTRY[afro$COUNTRY=="Cote d’Ivoire"] <- "Cote d'Ivoire"#
@@ -369,9 +364,7 @@ afro$meeting_recode <- ifelse(afro$meeting>=2 & afro$meeting<=4, 1, 0)#
 afro$protest_recode <- ifelse(afro$protest>=2 & afro$protest<=4, 1, 0)#
 afro$violence_recode <- ifelse(afro$violence>=2 & afro$violence<=4, 1, 0)#
 afro$attack_recode_bin <- ifelse(afro$attack_recode>0, 1, 0)#
-afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)#
-#
-# Make attack discrepancy var -----#
+afro$intim_recode_bin <- ifelse(afro$intim_recode<2, 1, 0)
 afro <- afro %>%#
   group_by(COUNTRY, wave) %>%#
   mutate(cntry.pr.attack=mean(attack_recode_bin, na.rm=T))#
@@ -443,18 +436,22 @@ afro$civil[is.na(afro$civil)] <- 0#
 #
 ## elections#
 ## territorial disputes#
-## EPR data - national level and group level#
-#
+## EPR data - national level and group level
 afro$civil <- as.factor(afro$civil)#
 afro$separatist <- as.factor(afro$separatist)#
 afro$attack_recode_bin <- as.factor(afro$attack_recode_bin)#
 afro$intim_recode_bin <- as.factor(afro$intim_recode_bin)#
 afro$employment_recode <- as.factor(afro$employment_recode)#
-afro$educ_recode <- as.factor(afro$educ_recode)#
+#afro$educ_recode <- as.factor(afro$educ_recode)#
 afro$urban_recode <- as.factor(afro$urban_recode)#
 afro$ruling_supporter <- as.factor(afro$ruling_supporter)#
 afro$sex <- as.factor(afro$sex)#
 afro$lage <- log(afro$age)#
-#
-# Write data -------#
-save(afro, file="merged_afrobarometer.Rds")
+afro$ag <- as.factor(afro$ag)
+afro <- dplyr::rename(afro, Country=COUNTRY, Ethnic=ethnic, Year=YEAR, Wave=wave)
+h4 <- glmer(vote_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + primary + urban_recode + ruling_supporter + lage + (sex==1) + ag + (1 | Country/Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
+h4 <- glmer(vote_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + primary + urban_recode + ruling_supporter + lage + (sex==1) + ag + (1 | Country / Ethnic), data=afro, family=binomial("logit"), weights=withinwt)
+h1 <- glmer(eth_id_bin ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + primary + urban_recode + ruling_supporter + lage + (sex==1) + ag + (1 | Country), data=afro, family=binomial("logit"), weights=withinwt)
+table(is.na(afro$Country))
+str(afro$Country)
+table(afro$Country)
