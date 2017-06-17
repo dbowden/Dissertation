@@ -1,0 +1,16 @@
+# Theory Revisions
+
+## Preference Aggregation
+
+- Rank-and-file members have preferences
+- Rebel groups generally aren't very democratic. No voice option.
+    - Rebel groups drawn from political parties might be an exception.
+- Members often do have an exit option, however.
+- Rebel leaders are constrained by this possibility. Will tend to adopt positions that minimize losses. If most members come from a specific ethnic group, they are likely to represent that identity. For non-zero sum issues, there will be logrolling. More diverse groups are less likely to adtop ethnic identities - more likely to attempt to preserve group with non-sectarian focus.
+- Plurality rule
+- Two variables - portion of the group a platform will retain, probability of working
+
+## Downstream Implications of Coming from Groups
+
+- Difficulty in merging structures in alliances (see Staniland)
+- Type of organization influences ability to leave
