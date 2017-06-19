@@ -22,11 +22,11 @@ Several studies consider the formation of alliances among various types of milit
 
 Few, if any, studies directly consider the phenomenon of new rebel groups joining ongoing conflicts. The literature on contagion is perhaps most relevant. @Gleditsch2007 finds that transnational ethnic groups and political and economic linkages between states can provide channels for civil war to spread across international boundaries. Other scholars find that secessionist [@Ayres2000] and ethnic [@Lane2016] conflict often spread through processes of contagion, with the rebellion of one group seemingly inspiring those in neighboring areas to take up arms themselves. Such transnational processes might shape opportunities for multiple rebellions to emerge by increasing the availability of weapons, spreading tactical knowledge, or diverting government attention to foreign conflicts. Similarly, transnational motives for conflict may come in the form of grievances becoming clearer and more salient in light of events in neighboring countries, as happened during the Arab Spring, or the expected probability of a successful rebellion shifting upward in response to nearby events. Yet, rebel groups that are themselves transnational, operating in multiple countries [see] @salehyan07] account for only 10.8% of conflict joiners.
 
-# Broader Contributions
+## Broader Contributions
 
 This project also contributes to a number of larger discussions in the civil war literature. Both the theoretical arguments and empirical results presented here shed new light on a number of ongoing questions.
 
-## Rebel Motives
+### Rebel Motives
 
 An examination of the relationships between dissident groups is also likely to offer a new perspective on rebel motives. For the last 15 years, the literature on civil war has largely been dominated by debates over whether rebellion is fundamentally political, or done in pursuit of private benefits. The former views civil war as an effort to resolve economic or political inequality [@gurr70; @Wood2003; @Cederman2010], and has been labeled as the 'grievance' hypothesis [@Collier2004]. The latter is composed primarily of studies emphasizing the 'greed' hypothesis [@Collier2004], which view rebellion as little more than large-scale criminal activity aimed at bringing profits to its members [@mueller00; @Lujala2005; @Ross2004e]. Others have emphasized non-material private benefits as motive for individual participation in rebellion, such as the ability to act on family disputes or romantic rivalries [@Kalyvas2006].
 

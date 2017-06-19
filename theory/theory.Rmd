@@ -1,4 +1,4 @@
-# Theory
+# A Theory of Rebel Movement Structure
 
 ```{r child='theory_framework.Rmd'}
 ```
