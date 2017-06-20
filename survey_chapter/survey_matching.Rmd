@@ -1,3 +1,57 @@
 ## Causal Identification {#causal}
 
-As discussed above, the preceding results do not account for the possibility of endogeneity. 
+As discussed above, the preceding results do not account for the possibility of endogeneity. The ideal solution would be an instrumental variable. Unfortunately, few if any measures included in the Afrobarometer meet the requirements of a valid instrument.  For instance, previous work has often used distance from the capital to instrument for an individual or location's probability of experiencing violence [e.g. @Voors2012]. While this measure may meet the exclusion restriction for some outcomes, there is reason to believe that it does not for ethnic identification. @Robinson2014 finds that orientation toward national identities is driven in part by modernization. Thus living in a remote location may affect ethnic identification directly, rather than only through the variable it is intended to instrument.
+
+As an alternative I use coarsened exact matching [@Iacus2012]. Matching seeks to create a subset of the data with a "treatment" (in this case the individual-level attack variable) and "control" group with similar values on a set of observable covariates. In this case I seek to balance the sample on individual-level measures of education, age, urban residence, support for the ruling party, and employment status, and country-level measures of ethnolinguistic fractionalization, Polity IV score, the Latent Human Protection Scores, and indicators for the presence of civil and separatist wars. Coarsened exact matching achieves balance by collapsing each continuous and categorical variable into a smaller number of strata, and identifying pairs of treated and control units that fall into the same strata on each variable. While there was a statistically significant difference of means between the treated and control groups on each of the covariates prior to matching, there are no significant differences on any variable after matching, and the mean difference between the groups reduces to zero for each variable except age and the categorical education measure, which each differ by less than 0.1. The trade-off for pursuing such exact matches is a loss of observations, as cases with no close are match are discarded. The problem is not especially dire in this case, however, as the number of cases reduces from 38,681 (the number of cases with no missing values on any covariate) to 28,251. The limitation of matching is its inability to address unobservable sources of bias. Thus, if certain individuals are disproportionately likely to be attacked for reasons that are not entirely captured by the included covariates, this bias is likely to remain in the post-matching sample.
+
+```{r matched}
+library(lme4)
+library(texreg)
+library(sjmisc)
+
+m2.out <- read.csv("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/cem_data.csv")
+
+m2.out[,c("eth_id_bin", "separatist", "civil", "attack_recode_bin", "intim_recode_bin", "employment_recode", "primary", "urban_recode", "ruling_supporter", "sex")] <- lapply(m2.out[,c("eth_id_bin", "separatist", "civil", "attack_recode_bin", "intim_recode_bin", "employment_recode", "primary", "urban_recode", "ruling_supporter", "sex")], as.factor)
+
+map2 <- list("latentmean"="Human Rights", "ethfrac"="Ethnolinguistic Fractionalization", "I(ethfrac^2)"="Ethnolinguistic Fractionalization$^{2}$", "polity2"="Polity", "civil2"="Civil War", "separatist2"="Separatist War", "attack_recode_bin1"="Attacked", "intim_recode_bin2"="Intimidated", "employment_recode2"="Employed", "primary2"="Primary Education", "urban_recode2"="Urban", "ruling_supporter2"="Ruling Party Supporter", "lage"="Age", "sex2"="Female")
+
+m2.out$attack_recode_bin <- set_label(m2.out$attack_recode_bin, "Attacked")
+m2.out$eth_id_bin <- set_label(m2.out$eth_id_bin, "Ethnic Identification")
+m2.out$violence_recode <- set_label(m2.out$violence_recode, "Used Violence")
+m2.out$violence_willing <- set_label(m2.out$violence_willing, "Willing to Use Violence")
+
+g1 <- glmer(eth_id_bin ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + primary + urban_recode + ruling_supporter + lage + sex +  (1 | Country / Ethnic), data=m2.out, family=binomial("logit"))
+
+g2 <- glmer(violence_recode ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + primary + urban_recode + ruling_supporter + lage + sex +  (1 | Country / Ethnic), data=m2.out, family=binomial("logit"))
+
+g3 <- glmer(violence_willing ~ latentmean + I(ethfrac^2) + ethfrac + polity2 + separatist + civil + attack_recode_bin + intim_recode_bin  + employment_recode + primary + urban_recode + ruling_supporter + lage + sex +  (1 | Country / Ethnic), data=m2.out, family=binomial("logit"))
+
+texreg(list(g3, g2,g1), caption="Models with Matched Data", custom.coef.map=map2, custom.model.names=c("M8 Violence (Willing)", "M9 Violence (Used)", "M10 Ethnic ID"), label="tab:matching")
+```
+
+The results using the matched data are reported in Table \@ref(tab:matching), and the estimates for the attack variable are very similar to those seen in the raw data. Individuals who have experienced an attack are substantially more likely to express willingness to engage in violence, with the effect being statistically significant at the 99.9% level (Model 8). The substantive effect is modest, however, increasing the probability from 0.08 to 0.11 (see Figure \@ref(fig:matchviolplotwilling)). These individuals also report higher probabilities of having engaged in violence, and the effect is significant at the 99.9% level (Model 9). Individuals who have been attacked are three times more likely than others to have used violence themselves (0.09 vs. 0.03, see Figure \@ref(fig:matchviolplot)). Additionally, being attacked is associated with a modest increase (0.14 vs. 0.11, see Figure \@ref(fig:matchethplot)) in the probability of ethnic identification, which is again significant at the 99.9% level. Many of the covariates are no longer significant after matching, as attack and non-attack subsets have identical means on these variables.
+
+```{r matchviolplotwilling, fig.cap="Predicted Probability of the Use of Violence (Model 8)"}
+library(sjPlot)
+library(ggplot2)
+library(sjmisc)
+sjp.setTheme(base=theme_bw())
+
+sjp.glmer(g3, type="pred", show.ci=T, title="", vars="attack_recode_bin", show.scatter=F, axis.lim=c(0,.6))
+```
+
+```{r matchviolplot, fig.cap="Predicted Probability of the Use of Violence (Model 8)"}
+library(sjPlot)
+library(ggplot2)
+library(sjmisc)
+sjp.setTheme(base=theme_bw())
+
+sjp.glmer(g2, type="pred", show.ci=T, title="", vars="attack_recode_bin", show.scatter=F, axis.lim=c(0,.6))
+```
+
+As noted above, matching cannot guard against all potential threats to causal inference. If some individuals are disproportionately likely both to be attacked and to engage in violence or identify ethnically for reasons that are not captured by the covariates, this bias will remain. One might imagine, however, that governments (and other actors) often make decisions of who to repress based on the sort of observable characteristics such as age and sex that are included in the matching. The matching analysis ensures that these observable measures do not bias the results. Thus while there is still some possibility of endogeneity, these results should increase our confidence that individuals who are attacked are not systematically different from others.
+
+```{r matchethplot, fig.cap="Predicted Probability of Ethnic Identification (Model 9)"}
+sjp.setTheme(base=theme_bw())
+sjp.glmer(g1, type="pred", show.ci=T, title="", vars="attack_recode_bin", show.scatter=F, axis.lim=c(0,.6))
+```

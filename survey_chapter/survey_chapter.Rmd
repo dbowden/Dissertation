@@ -11,3 +11,6 @@
 
 ```{r child='survey_matching.Rmd'}
 ```
+
+```{r child='survey_conclusion.txt'}
+```
