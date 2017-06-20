@@ -3,21 +3,21 @@ title: "Theory Chapter"
 author: "David Bowden"
 date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
 output:
-    bookdown::word_document2:
-        reference_docx: /Users/david/.pandoc/templates/pandoc.docx
-    # bookdown::pdf_document2:
-    #     includes:
-    #         in_header: /Users/david/Dropbox/Dissertation/Document/preamble.tex
+    # bookdown::word_document2:
+    #     reference_docx: /Users/david/.pandoc/templates/pandoc.docx
+    bookdown::pdf_document2:
+        includes:
+            in_header: /Users/david/Dropbox/Dissertation/Document/preamble.tex
 bibliography: /Users/david/Dropbox/library.bib
 biblio-sytle: apsr
-# documentclass: article
-# link-citations: yes
-# fontsize: 12pt
-# fontfamily: tgpagella
-# geometry: margin=1in
+documentclass: article
+link-citations: yes
+fontsize: 12pt
+fontfamily: tgpagella
+geometry: margin=1in
 numbersections: true
-# toc: no
-# keep_tex: yes
+toc: no
+keep_tex: yes
 ---
 
 \doublespacing
