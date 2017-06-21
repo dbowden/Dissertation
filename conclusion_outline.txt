@@ -1,0 +1,16 @@
+# Conclusion Outline
+
+- 1 para summary for each hypothesis
+- Implications:
+    + Shows that there is a sectarian spiral. This is consistent with Lewis (2016) - ethnicity not necessarily important to initial organization of rebellion, but is important to survival.
+    + Fragmentation of rebel movements reflects fragmentation of society
+        * In turn this shows that rebels are political, surprisingly representative of societal preferences
+    + Government can have a significant influence on structure of rebel movements
+    + Policymakers: further reason to care about repression
+    + Protecting civilians may limit conflict complexity
+- Future work:
+    + Why does government do this? What is their preference re: rebel structure?
+    + Other processes - external intervention, peacekeeping, regime defection
+    + More focus on rebel elites and content of their platforms
+- Further policy questions:
+    + How to undo the spiral? The classic method of statebuilding is external war.

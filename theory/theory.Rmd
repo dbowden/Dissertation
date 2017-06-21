@@ -2,3 +2,6 @@
 
 ```{r child='theory_framework.Rmd'}
 ```
+
+```{r child='theory_predictions.txt'}
+```

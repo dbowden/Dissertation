@@ -1,4 +1,4 @@
-# The Entry of New Groups
+# The Formation of New Rebel Groups
 
 ```{r child='entry_design.txt'}
 ```

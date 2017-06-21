@@ -1,0 +1,12 @@
+base
+xtable
+sjmisc
+Matrix
+lme4
+lattice
+MASS
+memisc
+pander
+sjPlot
+ggplot2
+texreg

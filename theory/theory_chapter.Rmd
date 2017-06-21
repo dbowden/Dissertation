@@ -26,6 +26,9 @@ keep_tex: yes
 ```{r child='theory_framework.Rmd'}
 ```
 
+```{r child='theory_predictions.txt'}
+```
+
 # References {-}
 \markboth{REFERENCES}{}
 

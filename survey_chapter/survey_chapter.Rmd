@@ -1,4 +1,4 @@
-# Repression and Individual-Level Ethnic Identification {#survey-chapter}
+# Repression and Individual-Level Attitudes {#survey-chapter}
 
 ```{r child='survey_intro.txt'}
 ```
