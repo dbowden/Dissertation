@@ -21,7 +21,7 @@ country_year$lpop <- log(country_year$pop)
 
 g9 <- glm(entry ~ n_rebels_lag + repression_lag + pcdiscrim + lgdp + lpop + IntensityLevel + cont_civil + Year + I(Year^2) + I(Year^3) + GWNoA, data=data.frame(country_year), family=binomial("logit"))
 
-g11 <- glm(entry ~ n_rebels_lag + repression_lag*pcdiscrim + lgdp + lpop + IntensityLevel + cont_civil + Year +  GWNoA, data=data.frame(country_year), family=binomial("logit"))
+g11 <- glm(entry ~ n_rebels_lag + repression_lag*pcdiscrim + log(rgdppc) + log(pop) + IntensityLevel + cont_civil + ethfrac + Year + I(Year^2) + I(Year^3) + as.factor(GWNoA), data=data.frame(country_year), family=binomial("logit"))
 
 coefmap <- list("repression_lag" = "Human Rights", "pcdiscrim" = "Discrimination", "repression_lag:pcdiscrim" = "Human Rights X Discrimination", "IntensityLevel" = "Intensity Level", "n_conflicts" = "Number of Conflicts", "n_rebels_lag" = "Lagged Rebel Groups", "pcterr" = "% Conflicts Over Territory", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "ethfrac" = "Ethnolinguistic Fractionalization",  "cont_civil" = "Contiguous Civil War", "polity2 > 5TRUE" = "Democracy")
 

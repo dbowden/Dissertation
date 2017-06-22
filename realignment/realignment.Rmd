@@ -1,0 +1,7 @@
+# The Realignment of Rebel Groups
+
+```{r child='splintering_results.Rmd'}
+```
+
+```{r child='alliance_results.Rmd'}
+```

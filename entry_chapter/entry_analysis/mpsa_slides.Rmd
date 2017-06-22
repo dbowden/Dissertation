@@ -1,0 +1,122 @@
+---
+title: 'Late to the Party: Why Do New Rebel Groups Join Civil Conflicts?'
+author: "David Bowden"
+date: "4/14/2017"
+output: 
+  beamer_presentation:
+    theme: "Rochester"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = F)
+```
+
+## Introduction
+
+- Why do some civil wars have multiple rebel groups?
+- Multi rebel conflicts among deadliest, long-lasting, most prone to recurrence
+- Some lit on fragmentation, but little on entry of new groups
+
+## Theory
+
+- Entry of new groups requires improved relative cost/benefit of fighting
+    - People who previously decided it was not in their interest to fight must change their mind
+- Entry also requires division w/ other dissidents
+    - People who decide to mobilize must decide to create a new group rather than joining an existing one
+        
+## Costs and Benefits
+
+- Benefits of fighting can increase during conflict
+- Costs of non-violence can also increase
+    - If non-violent people are at risk of violence, free riding isn't very free (Kalyvas and Kocher 2007)
+    - As risk associated with non-violence approaches risk associated with participation in violence, relative cost of fighting decreases
+    - Repression of civilians should produce this outcome
+    
+    
+## Divisions Among Dissidents
+
+- Individuals have many potential identities, and choose which to emphasize for instrumental reasons (Posner 2005, Penn 2008)
+- Repression can influence identity choice
+- Indiscriminate repression might activate broad, inclusive identities
+    - Unified dissident movement
+- Discriminatory repression activates identites that are basis for repression (ethnicity, religion)
+    - More divided dissident movement
+        
+## Hypotheses
+
+- Hypothesis 1: The number of rebel groups in a country should increase with the level of repression
+- Hypothesis 2: The number of rebel groups should increase with the extent to which repression is targeted
+- Hypothesis 3: There should be a positive interaction between repression and discrimination
+
+## Research Design
+
+- DV: Active rebel groups per country-year, 1946-2015 (UCDP)
+- IV1: Latent Human Protection Scores (Fariss 2014)
+- IV2: % of population not facing discrimination according to EPR (Vogt et al 2015)
+- Controls: conflict intensity, # UCDP conflicts, % UCDP conflicts over territory, ethnolinguistic fractionalization, population, GDPpc, contiguous civil wars
+- Not Shown: Polity, mountainous terrain, oil revenues, strength of largest rebel group, centralization of largest rebel group, external support for rebels
+- Model: Poisson regression w/ fixed effects for country
+
+
+## Results
+
+```{r, results='asis'}
+library(lmtest)
+library(plm)
+library(texreg)
+
+load("~/Dropbox/Dissertation/Analyses/epr_group_formation/country_year.Rdata")
+
+m1 <- glm(n_rebels ~ log(rgdppc) + repression_lag + discrimination_lag + ethfrac + n_conflicts +  (cont_civil>0) + IntensityLevel + pcterr + log(pop) + GWNoA, data=country_year, family="poisson")
+m1c <- coeftest(m1, vcov. = vcovHC(m1, type="HC0", cluster="GWNoA"))
+
+m2 <- glm(n_rebels ~ log(rgdppc) + repression_lag*discrimination_lag + ethfrac + n_conflicts +  (cont_civil>0) + IntensityLevel + pcterr + log(pop) + GWNoA, data=country_year, family="poisson")
+m2c <- coeftest(m2, vcov. = vcovHC(m2, type="HC0", cluster="GWNoA"))
+
+plotreg(m1c, omit.coef = "GWNoA")
+```
+
+## Results
+
+```{r}
+library(sjPlot)
+library(ggplot2)
+sjp.setTheme(base=theme_bw())
+
+sjp.glm(m1, type="eff", vars=c("repression_lag"), show.ci=T, title="")
+```
+
+## Results
+
+```{r}
+library(sjPlot)
+library(ggplot2)
+sjp.setTheme(base=theme_bw())
+
+sjp.glm(m1, type="eff", vars=c("discrimination_lag"), show.ci=T, title="")
+```
+
+## Results
+
+```{r}
+plotreg(m2c, omit.coef="GWNoA")
+```
+
+## Results
+
+```{r}
+sjp.int(m2, type="eff", show.ci=T, mdrt.values = "minmax", axis.title = "Discrimination", legend.labels = c("Min Human Rights", "Max Human Rights"), legend.title = "", title = "")
+```
+
+## Discussion
+
+- Repression associated with a large, statistically significant increase in number of rebel groups
+- Discrimination associated with smaller, but also significant increase
+- Interaction of repression and discrimination signficant - effect of repression increases with level of discrimination
+
+## Conclusion
+
+- Rebel cohesion depends on which identities are activated
+- The government can play an important role in shaping structure of rebel movements
+- Methodological improvements: better measure of targeted repression, instrument
+- Future work: government strategy, relationship between original and joining rebel groups

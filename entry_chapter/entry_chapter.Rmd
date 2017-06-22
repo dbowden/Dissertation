@@ -1,5 +1,8 @@
 # The Formation of New Rebel Groups
 
+```{r child='entry_intro.txt'}
+```
+
 ```{r child='entry_design.txt'}
 ```
 
@@ -7,4 +10,7 @@
 ```
 
 ```{r child='entry_conclusion.txt'}
+```
+
+```{r child='burma.txt'}
 ```

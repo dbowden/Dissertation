@@ -1,0 +1,570 @@
+gwid,statename,dyadid,sideb,sideb_id,group,gwgroupid,from,to,claim,recruitment,support
+40,Cuba,600,M-26-7,1595,Whites,4001000,1953,1958,0,0,0
+40,Cuba,602,Cuban Revolutionary Council,1596,Whites,4001000,1961,1961,0,0,0
+41,Haiti,244,Military faction (forces of Himmler Rebu and Guy Francois),1624,,,1989,1989,0,2,-1
+41,Haiti,251,Military faction (forces of Raol Cédras),1625,Haitians,4101000,1991,1991,0,0,0
+41,Haiti,440,FLRN,1626,Haitians,4101000,2004,2004,0,2,2
+41,Haiti,441,OP Lavalas (Chimères),1627,,,2004,2004,,,
+42,Dominican Republic,493,Military faction (constitutionalists),1608,Dominicans,4201000,1965,1965,0,2,2
+52,Trinidad and Tobago,219,Jamaat al-Muslimeen,1623,Blacks,5202000,1990,1990,1,1,0
+70,Mexico,230,EZLN,1628,Maya,7002000,1994,1994,1,1,1
+70,Mexico,299,EPR,1629,,,1996,1996,0,-1,-1
+90,Guatemala,621,Military faction,1587,,,1949,1949,0,0,2
+90,Guatemala,622,Forces of Carlos Castillo Armas,1588,Ladinos,9001000,1954,1954,0,0,0
+90,Guatemala,624,FAR I,1589,Ladinos,9001000,1963,1981,0,2,2
+90,Guatemala,694,FAR II,1590,Ladinos,9001000,1970,1981,0,2,2
+90,Guatemala,625,EGP,1591,Maya,9002000,1975,1981,1,1,1
+90,Guatemala,627,ORPA,1592,Maya,9002000,1979,1981,2,1,1
+90,Guatemala,228,URNG,1593,Maya,9002000,1982,1995,2,1,1
+92,El Salvador,514,Military faction (forces of Benjamin Mejia),1613,,,1972,1972,0,0,0
+92,El Salvador,508,FPL,1615,,,1979,1979,0,0,0
+92,El Salvador,510,ERP,1614,,,1979,1979,0,0,0
+92,El Salvador,225,FMLN,1616,,,1980,1991,0,0,0
+93,Nicaragua,567,FSLN,1619,Whites/mestizos,9301000,1977,1979,0,2,2
+93,Nicaragua,231,Contras/FDN,1620,Whites/mestizos,9301000,1982,1990,0,2,2
+93,Nicaragua,231,Contras/FDN,1620,Afronicaraguans,9302000,1982,1990,0,0,0
+93,Nicaragua,231,Contras/FDN,1620,Miskitos,9303000,1982,1990,1,1,1
+93,Nicaragua,231,Contras/FDN,1620,Sumus,9305000,1982,1990,1,1,1
+94,Costa Rica,581,National Liberation Army,1586,Whites/mestizos,9401000,1948,1948,0,0,0
+95,Panama,461,Military faction (forces of Moisés Giroldi),1622,Whites/mestizos,9501000,1989,1989,0,2,0
+100,Colombia,237,FARC,1604,,,1964,2013,0,0,0
+100,Colombia,342,ELN,1605,,,1966,2013,0,0,0
+100,Colombia,495,M-19,1606,,,1978,1988,0,0,0
+100,Colombia,343,EPL,1607,,,1984,2004,0,0,0
+101,Venezuela,672,Military faction (navy),1601,,,1962,1962,0,0,0
+101,Venezuela,778,Bandera Roja,1602,,,1982,1982,0,-1,-1
+101,Venezuela,475,Military faction (forces of Hugo Chávez),1603,,,1992,1992,0,0,0
+115,Suriname,559,SLA,1621,,,1987,1987,0,1,1
+135,Peru,499,MIR,1610,Whites/mestizos,13502000,1965,1965,0,2,0
+135,Peru,500,ELN,1609,Whites/mestizos,13502000,1965,1965,0,2,0
+135,Peru,235,Sendero Luminoso,1611,Indigenous peoples of the Andes,13501000,1982,2010,0,1,0
+135,Peru,235,Sendero Luminoso,1611,Whites/mestizos,13502000,1982,2010,0,2,0
+135,Peru,319,MRTA,1612,Indigenous peoples of the Andes,13501000,1989,1993,0,1,0
+135,Peru,319,MRTA,1612,Whites/mestizos,13502000,1989,1993,0,2,0
+145,Bolivia,462,Popular Revolutionary Movement,1580,Whites/mestizos,14504000,1946,1946,0,2,0
+145,Bolivia,463,MNR,1581,Whites/mestizos,14504000,1952,1952,0,2,2
+145,Bolivia,464,ELN,1582,,,1967,1967,0,0,0
+150,Paraguay,673,"Opposition coalition (Febreristas, Liberals and Communists)",1583,Whites/mestizos,15001000,1947,1947,0,2,0
+150,Paraguay,671,Military faction (forces of Alfredo Stroessner),1584,Whites/mestizos,15001000,1954,1954,0,2,0
+150,Paraguay,474,Military faction (forces of Andres Rodriguez),1585,Whites/mestizos,15001000,1989,1989,0,2,0
+155,Chile,490,"Military faction (forces of Augusto Pinochet, Toribio Merino and Leigh Guzman)",1618,Whites/mestizos,15501000,1973,1973,0,2,0
+160,Argentina,590,Military faction (forces of Eduardo A. Lonardi Doucet),1597,Whites/mestizos,16001000,1955,1955,0,2,0
+160,Argentina,810,Military faction (forces of Samuel Toranzo Calderón),1998,,,1955,1955,0,0,2
+160,Argentina,592,Military faction (colorados),1598,Whites/mestizos,16001000,1963,1963,0,2,0
+160,Argentina,594,ERP,1599,Whites/mestizos,16001000,1974,1977,0,2,0
+160,Argentina,593,Montoneros,1600,Whites/mestizos,16001000,1975,1977,0,2,2
+165,Uruguay,491,MLN/Tupamaros,1617,,,1972,1972,0,0,0
+200,United Kingdom,216,PIRA,1124,Catholics In N. Ireland,20006000,1971,1991,1,1,1
+200,United Kingdom,248,RIRA,1125,Catholics In N. Ireland,20006000,1998,1998,1,1,0
+220,France,584,OAS,1101,French,22001000,1961,1962,0,2,0
+230,Spain,366,ETA,1156,Basques,23004000,1978,1991,1,1,0
+343,Macedonia,341,UCK,1204,Albanians,34302000,2001,2001,1,1,0
+344,Croatia,303,Serbian Republic of Krajina,1183,Serbs,34402000,1992,1995,1,1,1
+345,Serbia and Montenegro,272,Republic of Croatia,1180,Croats,34502000,1991,1991,1,1,1
+345,Serbia and Montenegro,273,Croatian irregulars,1213,Croats,34502000,1991,1994,1,1,1
+345,Serbia and Montenegro,281,Republic of Slovenia,1179,Slovenes,34507000,1991,1991,1,1,1
+345,Serbia and Montenegro,295,UCK,1200,Albanians,34506000,1998,1999,1,1,1
+346,Bosnia and Herzegovina,292,Serbian Republic of Bosnia-Herzegovina,1182,Serbs,34602000,1992,1995,1,1,1
+346,Bosnia and Herzegovina,300,Serbian irregulars,1214,Serbs,34602000,1992,1995,1,1,1
+346,Bosnia and Herzegovina,293,Croatian Republic of Bosnia-Herzegovina,1193,Croats,34603000,1993,1994,1,1,1
+346,Bosnia and Herzegovina,294,Autonomous Province of Western Bosnia,1192,Bosniaks/Muslims,34601000,1993,1995,0,2,2
+350,Greece,467,DSE,1003,Greeks,35001000,1946,1949,0,2,2
+350,Greece,467,DSE,1003,Macedonians,35004000,1946,1949,0,1,1
+359,Moldova,367,PMR,1187,,,1992,1992,,,
+360,Romania,357,NSF,1172,Romanians,36001000,1989,1989,0,2,2
+365,Russia,478,Forest Brothers,1012,Estonians,36524000,1946,1948,1,1,1
+365,Russia,479,LTS(p)A,1014,Latvians,36521000,1946,1946,1,1,1
+365,Russia,481,LNPA,1013,Latvians,36521000,1946,1946,1,1,1
+365,Russia,482,BDPS,1015,Lithuanians,36513000,1946,1948,1,1,1
+365,Russia,483,UPA,1016,Ukrainians,36502000,1946,1950,1,1,1
+365,Russia,370,Republic of Armenia,1173,Armenians,36508000,1990,1991,1,1,1
+365,Russia,373,APF,1174,Azerbaijanis,36509000,1990,1990,1,1,1
+365,Russia,350,Parliamentary Forces,1194,,,1993,1993,0,0,0
+365,Russia,348,Chechen Republic of Ichkeria,1195,Chechens,36516000,1994,2007,1,1,1
+365,Russia,368,Wahhabi movement of the Buinaksk district,1201,,,1999,1999,0,0,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Chechens,36516000,2007,2013,1,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Avars,36523000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Dargins,36526000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Kabardins,36528000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Ingush,36533000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Kumyks,36534000,2007,2013,0,-1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Lezgins,36535000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Adyghe,36540000,2007,2013,0,-1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Balkars,36543000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Circassians,36544000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Karachai,36554000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Laks,36559000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Nogai,36561000,2007,2013,0,1,0
+365,Russia,773,Forces of the Caucasus Emirate,1210,Tabasarans,36565000,2007,2013,0,-1,0
+372,Georgia,239,National Guard and Mkhedrioni,1175,Georgians,37201000,1991,1992,0,0,0
+372,Georgia,259,Republic of Abkhazia,1185,Abkhazians,37207000,1992,1993,1,1,1
+372,Georgia,289,Zviadists,1176,Georgians,37201000,1992,1993,0,2,0
+372,Georgia,297,Republic of South Ossetia,1186,Ossetians (South),37206000,1992,2008,1,1,1
+373,Azerbaijan,361,Republic of Nagorno-Karabakh,1181,Armenians,37304000,1991,2012,1,1,1
+373,Azerbaijan,362,Military faction (forces of Suret Husseinov),1190,Azeri,37301000,1993,1993,0,0,0
+373,Azerbaijan,407,OPON Forces,1191,Azeri,37301000,1995,1995,0,0,0
+404,Guinea-Bissau,58,"Military Junta for the Consolidation of Democracy, Peace and Justice",1402,,,1998,1999,0,0,0
+420,The Gambia,547,NRC,1363,,,1981,1981,0,0,
+432,Mali,96,MPA,1373,Tuareg,43202000,1990,1990,1,1,
+432,Mali,97,FIAA,1374,Arabs/Moors,43203000,1994,1994,1,1,
+432,Mali,650,ATNMC,1375,Tuareg,43202000,2007,2009,1,1,0
+432,Mali,863,AQIM,1391,,,2009,2013,0,,0
+432,Mali,835,Ansar Dine,2042,Tuareg,43202000,2012,2013,0,1,-1
+432,Mali,836,MNLA,2043,Tuareg,43202000,2012,2012,1,1,1
+432,Mali,837,Military faction (Red Berets),2050,,,2012,2012,0,2,-1
+432,Mali,862,MUJAO,2046,,,2013,2013,0,,
+432,Mali,865,Signed-in-Blood Battalion,2120,Tuareg,43202000,2013,2013,0,1,2
+433,Senegal,129,MFDC,1381,Diola,43305000,1990,2011,1,1,0
+435,Mauritania,806,AQIM,1391,,,2010,2011,0,0,0
+436,Niger,761,FLAA,1376,Tuareg,43606000,1991,1992,1,1,
+436,Niger,111,CRA,1377,Tuareg,43606000,1994,1994,1,1,
+436,Niger,113,FDR,1395,Toubou,43605000,1995,1995,1,1,
+436,Niger,762,UFRA,1378,Tuareg,43606000,1997,1997,1,1,
+436,Niger,749,MNJ,1416,Tuareg,43606000,2007,2008,0,1,-1
+437,Cote d'Ivoire,89,MPCI,1410,Northerners (Mande and Voltaic/Gur),43703000,2002,2002,1,1,1
+437,Cote d'Ivoire,91,MPIGO,1411,Southern Mande,43705000,2002,2003,1,1,0
+437,Cote d'Ivoire,245,MJP,1409,,,2003,2003,0,0,0
+437,Cote d'Ivoire,439,FRCI,1412,Northerners (Mande and Voltaic/Gur),43703000,2004,2004,1,1,1
+437,Cote d'Ivoire,439,FRCI,1412,Southern Mande,43705000,2004,2004,1,1,1
+437,Cote d'Ivoire,820,FDSI-CI,2010,,,2011,2011,0,-1,-1
+438,Guinea,57,RFDG,1309,,,2000,2001,0,0,0
+439,Burkina Faso,487,Popular Front,1369,,,1987,1987,0,0,0
+450,Liberia,525,Military faction (forces of Samuel Doe),1357,Indigenous Peoples,45003000,1980,1980,1,1,1
+450,Liberia,93,NPFL,1358,Gio,45003020,1989,1990,2,1,1
+450,Liberia,93,NPFL,1358,Mano,45003080,1989,1990,2,1,1
+450,Liberia,94,INPFL,1359,Gio,45003020,1990,1990,2,1,0
+450,Liberia,94,INPFL,1359,Mano,45003080,1990,1990,0,0,0
+450,Liberia,95,LURD,1360,Krahn (Guere),45003050,2000,2003,0,1,0
+450,Liberia,95,LURD,1360,Mandingo,45003070,2000,2003,0,1,0
+450,Liberia,352,MODEL,1361,Krahn (Guere),45003050,2003,2003,0,1,1
+451,Sierra Leone,130,RUF,1384,Temne,45105060,1991,2001,0,0,0
+451,Sierra Leone,131,AFRC,1385,"Northern Groups (Temne, Limba)",45105000,1997,1999,0,0,0
+451,Sierra Leone,132,Kamajors,1386,Mende,45104000,1997,1998,0,1,1
+451,Sierra Leone,714,WSB,1387,,,2000,2000,0,0,0
+452,Ghana,502,NLC,1303,Ewe,45202000,1966,1966,0,2,2
+452,Ghana,503,Military faction (forces of Jerry John Rawlings),1304,Ewe,45202000,1981,1981,2,1,-1
+452,Ghana,504,Military faction (forces of Ekow Dennis and Edward Adjei-Ampofo),1305,,,1983,1983,0,-1,-1
+461,Togo,471,MTD,1367,Ewe (and related groups),46101000,1986,1986,2,1,1
+471,Cameroon,692,UPC,1418,Bamileke,47101000,1957,1961,0,1,1
+471,Cameroon,692,UPC,1418,Bassa/Duala,47102000,1957,1961,0,1,1
+471,Cameroon,539,Military faction (forces of Ibrahim Saleh),1366,Fulani (and other northern Muslim peoples),47104000,1984,1984,2,1,
+475,Nigeria,494,Military faction (forces of Patrick Nzeogwu),1306,Igbo,47502000,1966,1966,0,1,1
+475,Nigeria,528,Republic of Biafra,1308,Igbo,47502000,1967,1970,1,1,1
+475,Nigeria,446,Ahlul Sunnah Jamaa,1413,,,2004,2004,0,0,0
+475,Nigeria,473,NDPVF,1414,Ijaw,47503000,2004,2004,1,1,0
+475,Nigeria,793,Jama'atu Ahlis Sunna Lidda'awati wal-Jihad,1935,,,2009,2013,0,0,0
+481,Gabon,583,Military faction (forces loyal to Léon M'Ba),1273,,,1964,1964,0,0,0
+482,Central African Republic,17,Military faction (forces of André Kolingba),1406,Yakoma,48206080,2001,2001,2,1,1
+482,Central African Republic,287,Forces of Francois Bozize,1407,Baya,48205020,2002,2002,0,0,0
+482,Central African Republic,628,UFDR,1408,Goula,48205090,2006,2006,1,1,1
+482,Central African Republic,782,CPJP,1937,,,2009,2011,0,0,0
+483,Chad,656,Frolinat,1281,Muslim Sahel groups,48302000,1966,1970,2,1,1
+483,Chad,656,Frolinat,1281,Toubou,48306000,1966,1970,2,1,1
+483,Chad,658,First Liberation Army,1282,Muslim Sahel groups,48302000,1971,1972,0,1,-1
+483,Chad,658,First Liberation Army,1282,Toubou,48306000,1971,1972,0,1,-1
+483,Chad,659,Second Liberation Army,1283,Toubou,48306000,1971,1971,0,1,-1
+483,Chad,660,FAN,1284,Toubou,48306000,1976,1982,0,1,
+483,Chad,661,FAP,1285,Arabs,48301000,1977,1979,0,1,-1
+483,Chad,661,FAP,1285,Muslim Sahel groups,48302000,1977,1979,0,1,-1
+483,Chad,661,FAP,1285,Toubou,48306000,1977,1979,0,1,-1
+483,Chad,662,FAT,1286,Sara,48304000,1982,1982,0,2,-1
+483,Chad,663,GUNT,1287,Arabs,48301000,1983,1986,0,1,-1
+483,Chad,663,GUNT,1287,Muslim Sahel groups,48302000,1983,1986,0,1,-1
+483,Chad,663,GUNT,1287,Sara,48304000,1983,1986,0,2,-1
+483,Chad,663,GUNT,1287,Toubou,48306000,1983,1986,0,1,-1
+483,Chad,664,CDR,1301,Arabs,48301000,1987,1987,0,0,-1
+483,Chad,18,Revolutionary Forces of 1 April,1289,"Zaghawa, Bideyat",48302200,1989,1989,2,1,-1
+483,Chad,19,MOSANAT,1290,Hadjerai,48302100,1989,1989,1,1,0
+483,Chad,20,Islamic Legion,1288,"Zaghawa, Bideyat",48302200,1989,1990,0,1,0
+483,Chad,23,MPS,1291,Hadjerai,48302100,1990,1990,0,1,1
+483,Chad,23,MPS,1291,"Zaghawa, Bideyat",48302200,1990,1990,0,1,1
+483,Chad,25,MDD,1292,,,1991,1997,0,-1,0
+483,Chad,777,Military faction (forces of Maldoum Bada Abbas),1295,Hadjerai,48302100,1991,1991,1,1,-1
+483,Chad,21,CSNPD,1294,Sara,48304000,1992,1994,1,1,0
+483,Chad,22,CNR,1293,"Zaghawa, Bideyat",48302200,1992,1994,0,1,
+483,Chad,24,FNT,1296,"Zaghawa, Bideyat",48302200,1992,1994,0,1,0
+483,Chad,26,FARF,1297,Sara,48304000,1997,1998,0,1,0
+483,Chad,27,MDJT,1298,Toubou,48306000,1999,2003,0,1,1
+483,Chad,455,FUCD,1299,Tamas,48302300,2005,2006,0,1,0
+483,Chad,633,RAFD,1300,"Zaghawa, Bideyat",48302200,2006,2006,0,1,0
+483,Chad,634,UFDD,1302,Arabs,48301000,2006,2007,0,1,0
+483,Chad,634,UFDD,1302,"Zaghawa, Bideyat",48302200,2006,2007,0,1,0
+483,Chad,634,UFDD,1302,Toubou,48306000,2006,2007,0,1,0
+483,Chad,767,AN,1577,Arabs,48301000,2008,2008,0,1,0
+483,Chad,767,AN,1577,"Zaghawa, Bideyat",48302200,2008,2008,0,1,0
+483,Chad,767,AN,1577,Tamas,48302300,2008,2008,0,1,0
+483,Chad,767,AN,1577,Toubou,48306000,2008,2008,0,1,0
+483,Chad,783,UFR,1953,Arabs,48301000,2009,2009,0,1,0
+483,Chad,783,UFR,1953,"Zaghawa, Bideyat",48302200,2009,2009,0,1,0
+483,Chad,783,UFR,1953,Toubou,48306000,2009,2009,0,1,0
+483,Chad,807,PFNR,1997,,,2010,2010,0,1,-1
+484,Congo,36,Ninjas,1399,Lari/Bakongo,48405000,1993,1999,0,1,0
+484,Congo,37,Cocoyes,1400,,48409000,1997,1999,0,1,0
+484,Congo,189,Cobras,1398,Mbochi (proper),48406070,1997,1997,0,1,0
+484,Congo,38,Ntsiloulous,1401,Lari/Bakongo,48405000,1998,2002,1,1,0
+490,"Congo, DRC",588,Independent Mining State of South Kasai,1252,Luba Kasai,49005000,1960,1962,1,1,1
+490,"Congo, DRC",587,State of Katanga,1251,Lunda-Yeke,49011000,1961,1962,1,1,1
+490,"Congo, DRC",679,CNL,1265,Tetela-Kusu,49012000,1964,1965,0,1,1
+490,"Congo, DRC",680,Military Faction (Forces of Jean Schramme),1266,Lunda-Yeke,49011000,1967,1967,0,0,0
+490,"Congo, DRC",681,FLNC,1267,Luba Shaba,49007000,1977,1978,0,1,0
+490,"Congo, DRC",681,FLNC,1267,Lunda-Yeke,49011000,1977,1978,0,1,0
+490,"Congo, DRC",39,AFDL,1268,Tutsi-Banyamulenge,49013000,1996,1997,1,1,1
+490,"Congo, DRC",40,RCD,1270,Tutsi-Banyamulenge,49013000,1998,2001,1,1,0
+490,"Congo, DRC",41,MLC,1269,Mbandja,49002000,1998,2000,2,1,1
+490,"Congo, DRC",41,MLC,1269,Mongo,49004000,1998,2000,2,1,1
+490,"Congo, DRC",41,MLC,1269,Ngbaka,49006000,1998,2000,2,1,1
+490,"Congo, DRC",41,MLC,1269,Ngbandi,49008000,1998,2000,2,1,1
+490,"Congo, DRC",646,CNDP,1272,Tutsi-Banyamulenge,49013000,2006,2008,1,1,1
+490,"Congo, DRC",651,BDK,1415,Bakongo,49003000,2007,2008,1,1,0
+490,"Congo, DRC",831,M23,2045,Tutsi-Banyamulenge,49013000,2012,2013,1,1,-1
+490,"Congo, DRC",856,Kata Katanga,3967,Lunda-Yeke,49011000,2013,2013,2,1,0
+490,"Congo, DRC",858,APCLS,2091,,,2013,2013,-1,1,-1
+490,"Congo, DRC",12463,Forces of Paul Joseph Mukungubila,4286,Luba Shaba,49007000,2013,2013,2,-1,-1
+500,Uganda,554,Military faction (forces of Idi Amin),1322,"Far North-West Nile (Kakwa-Nubian, Madi, Lugbara, Alur)",50009110,1971,1971,2,1,0
+500,Uganda,700,Kikosi Maalum,1323,Langi/Acholi,50009120,1972,1979,0,1,0
+500,Uganda,555,Military faction (forces of Charles Arube),1324,Langi/Acholi,50009120,1974,1974,0,0,0
+500,Uganda,556,UNLF,1327,Langi/Acholi,50009120,1979,1979,0,1,0
+500,Uganda,701,Fronasa,1326,"South-Westerners (Ankole, Banyoro, Toro, Banyarwanda)",50011000,1979,1979,0,1,0
+500,Uganda,703,FUNA,1328,"Far North-West Nile (Kakwa-Nubian, Madi, Lugbara, Alur)",50009110,1980,1981,0,1,1
+500,Uganda,574,NRA,1329,Baganda,50002000,1981,1986,0,1,1
+500,Uganda,574,NRA,1329,"South-Westerners (Ankole, Banyoro, Toro, Banyarwanda)",50011000,1981,1986,0,1,1
+500,Uganda,704,UNRF,1330,"Far North-West Nile (Kakwa-Nubian, Madi, Lugbara, Alur)",50009110,1981,1983,1,1,1
+500,Uganda,575,UFM,1333,Baganda,50002000,1982,1982,0,0,0
+500,Uganda,149,HSM,1331,Langi/Acholi,50009120,1986,1987,1,1,1
+500,Uganda,706,UPDA,1332,Langi/Acholi,50009120,1986,1987,1,1,1
+500,Uganda,148,UPA,1334,Teso,50009210,1987,1992,0,1,1
+500,Uganda,151,LRA,1336,Langi/Acholi,50009120,1988,2013,1,1,0
+500,Uganda,708,Lord's Army,1335,Langi/Acholi,50009120,1988,1988,1,1,1
+500,Uganda,152,WNBF,1338,"Far North-West Nile (Kakwa-Nubian, Madi, Lugbara, Alur)",50009110,1996,1996,2,1,0
+500,Uganda,153,ADF,1337,"Far North-West Nile (Kakwa-Nubian, Madi, Lugbara, Alur)",50009110,1996,2013,0,0,0
+500,Uganda,153,ADF,1337,"South-Westerners (Ankole, Banyoro, Toro)",50011090,1996,2013,0,0,0
+500,Uganda,431,UNRF II,1339,"Far North-West Nile (Kakwa-Nubian, Madi, Lugbara, Alur)",50009110,1997,1997,1,1,0
+501,Kenya,536,Military faction (forces of Hezekiah Ochuka),1365,Luo,50106000,1982,1982,0,1,0
+516,Burundi,485,Military faction (forces loyal to Gervais Nyangoma),1275,Hutu,51601000,1965,1965,1,1,0
+516,Burundi,11,Palipehutu,1276,Hutu,51601000,1991,1992,1,1,0
+516,Burundi,12,CNDD,1277,Hutu,51601000,1994,1998,1,1,1
+516,Burundi,13,Frolina,1279,Hutu,51601000,1997,1997,1,1,0
+516,Burundi,15,Palipehutu-FNL,1278,Hutu,51601000,1997,2008,1,1,0
+516,Burundi,14,CNDD-FDD,1280,Hutu,51601000,1998,2003,1,1,1
+517,Rwanda,127,FPR,1379,Tutsi,51702000,1990,1994,1,1,1
+517,Rwanda,128,ALiR,2013,Hutu,51701000,1996,2000,1,1,1
+517,Rwanda,128,ALiR,2013,Tutsi,51702000,1996,2000,1,,
+517,Rwanda,828,FDLR,1380,Hutu,51701000,2001,2012,1,1,1
+520,Somalia,209,SSDF,1349,Somali,52001000,1982,1984,-1,2,-1
+520,Somalia,207,SNM,1350,Somali,52001000,1983,1991,-1,2,-1
+520,Somalia,208,SPM,1351,Somali,52001000,1989,1991,-1,2,-1
+520,Somalia,210,USC/SSA,1352,Somali,52001000,1990,1991,-1,2,-1
+520,Somalia,211,USC/SNA,1353,Somali,52001000,1991,1996,-1,2,-1
+520,Somalia,212,SRRC,1354,Somali,52001000,2001,2002,-1,2,-1
+520,Somalia,632,ARS/UIC,1355,Somali,52001000,2006,2008,-1,2,-1
+520,Somalia,770,Al-Shabaab,1578,Somali,52001000,2008,2013,-1,2,-1
+520,Somalia,804,Hizbul Islam,1882,Somali,52001000,2009,2010,-1,2,-1
+522,Djibouti,43,FRUD,1382,Afar,52202000,1991,1994,1,1,-1
+522,Djibouti,44,FRUD - AD,1383,Afar,52202000,1999,1999,1,1,-1
+530,Ethiopia,755,Military faction (forces of Mengistu Neway),1253,,,1960,1960,0,,0
+530,Ethiopia,667,ELF,1260,Muslim Eritreans,53011000,1964,1980,1,1,1
+530,Ethiopia,792,Ogaden Liberation Front,1940,Somali (Ogaden),53008000,1964,1964,1,1,0
+530,Ethiopia,53,EPLF,1261,Christian Eritreans,53010000,1973,1991,1,1,1
+530,Ethiopia,53,EPLF,1261,Muslim Eritreans,53011000,1973,1991,1,1,1
+530,Ethiopia,51,ALF,1371,Afar,53001000,1975,1976,1,1,1
+530,Ethiopia,46,TPLF,1255,Tigry,53009000,1976,1988,1,1,1
+530,Ethiopia,50,EPRP,1254,Tigry,53009000,1976,1987,0,1,0
+530,Ethiopia,522,WSLF,1345,Somali (Ogaden),53008000,1976,1983,1,1,0
+530,Ethiopia,55,OLF,1404,Oroma,53006000,1977,2013,1,1,0
+530,Ethiopia,754,EDU,1256,Amhara,53002000,1977,1978,0,0,0
+530,Ethiopia,754,EDU,1256,Tigry,53009000,1977,1978,0,1,0
+530,Ethiopia,796,SALF,1938,Oroma,53006000,1977,1980,0,1,0
+530,Ethiopia,796,SALF,1938,Somali (Ogaden),53008000,1977,1980,2,1,0
+530,Ethiopia,47,EPDM,1257,Amhara,53002000,1983,1985,0,2,0
+530,Ethiopia,791,SLM,1939,,,1983,1983,-1,-1,-1
+530,Ethiopia,48,EPRDF,1259,Amhara,53002000,1989,1991,0,1,-1
+530,Ethiopia,48,EPRDF,1259,Oroma,53006000,1989,1991,0,1,-1
+530,Ethiopia,48,EPRDF,1259,Tigry,53009000,1989,1991,0,1,1
+530,Ethiopia,49,Military faction (forces of Amsha Desta and Merid Negusie),1258,,,1989,1989,0,,
+530,Ethiopia,811,IGLF,2000,Somali (Ogaden),53008000,1991,1991,1,1,-1
+530,Ethiopia,852,Military faction (Harar garrison),2084,,,1991,1991,-1,-1,-1
+530,Ethiopia,283,AIAI,1394,Somali (Ogaden),53008000,1993,1999,1,0,0
+530,Ethiopia,54,ONLF,1346,Somali (Ogaden),53008000,1994,2013,1,1,1
+530,Ethiopia,52,ARDUF,1372,Afar,53001000,1996,1996,1,1,0
+531,Eritrea,435,EIJM - AS,1343,,,1997,2003,1,1,0
+540,Angola,568,FNLA,1420,Bakongo,54001000,1961,1979,0,1,1
+540,Angola,7,UNITA,1421,Ovimbundu-Ovambo,54005000,1966,2002,0,1,1
+540,Angola,191,FLEC-R,1392,Bakongo,54001000,1991,2002,1,1,1
+540,Angola,191,FLEC-R,1392,Cabindan Mayombe,54002000,1991,2002,1,1,1
+540,Angola,190,FLEC-FAC,1393,Bakongo,54001000,1994,2009,0,0,0
+540,Angola,190,FLEC-FAC,1393,Cabindan Mayombe,54002000,1994,2009,1,1,1
+541,Mozambique,99,Renamo,1347,Shona-Ndau,54103000,1977,2013,0,0,0
+552,Zimbabwe,565,ZAPU,1340,Africans,55201000,1967,1974,1,1,0
+552,Zimbabwe,560,ZANU,1341,Africans,55201000,1973,1976,1,1,0
+552,Zimbabwe,712,PF,1342,Africans,55201000,1976,1979,1,1,0
+560,South Africa,516,SWAPO,1307,,,1966,1988,0,,
+560,South Africa,558,ANC,1364,Asians,56002000,1981,1988,1,1,1
+560,South Africa,558,ANC,1364,Coloreds,56003000,1981,1988,1,1,1
+560,South Africa,558,ANC,1364,Blacks,56005000,1981,1988,1,1,1
+570,Lesotho,92,Military faction,1403,,,1998,1998,0,0,0
+580,Madagascar,540,Monima,1320,Côtiers,58001000,1971,1971,0,2,0
+581,Comoros,158,Presidential guard,1370,,,1989,1989,0,0,0
+581,Comoros,35,MPA/Republic of Anjouan,1397,,,1997,1997,1,-1,0
+600,Morocco,541,Military faction (forces of Mohamed Madbouh),1321,,,1971,1971,0,0,0
+600,Morocco,98,POLISARIO,1417,Sahrawis,60003000,1975,1989,1,1,0
+615,Algeria,2,Takfir wa'l Hijra,1388,Arabs,61501000,1991,1991,0,2,0
+615,Algeria,1,AIS,1389,Arabs,61501000,1992,1997,0,2,2
+615,Algeria,3,GIA,1390,Arabs,61501000,1993,2003,0,2,0
+615,Algeria,4,AQIM,1391,Arabs,61501000,1999,2013,0,2,0
+615,Algeria,845,MUJAO,2046,,,2012,2013,0,0,0
+616,Tunisia,551,Résistance Armée Tunisienne,1362,,,1980,1980,0,0,0
+620,Libya,823,NTC,2011,Arabs,62001000,2011,2011,0,2,2
+620,Libya,825,Forces of Muammar Gaddafi,2012,Arabs,62001000,2011,2011,0,2,2
+625,Sudan,676,SSLM,1264,Azande,62501000,1963,1972,1,1,1
+625,Sudan,676,SSLM,1264,Bari,62502000,1963,1972,1,1,1
+625,Sudan,676,SSLM,1264,Dinka,62504000,1963,1972,1,1,1
+625,Sudan,676,SSLM,1264,Latoka,62506000,1963,1972,1,1,1
+625,Sudan,676,SSLM,1264,Other Southern groups,62511000,1963,1972,1,1,1
+625,Sudan,520,Sudanese Communist Party,1310,,,1971,1971,0,0,0
+625,Sudan,521,Islamic Charter Front,1311,Other Arab groups,62509000,1976,1976,0,0,0
+625,Sudan,641,SPLM/A,1312,Beja,62503000,1983,2004,2,1,1
+625,Sudan,641,SPLM/A,1312,Dinka,62504000,1983,2004,2,1,1
+625,Sudan,641,SPLM/A,1312,Nuba,62507000,1983,2004,2,1,1
+625,Sudan,641,SPLM/A,1312,Nuer,62508000,1983,2004,2,1,1
+625,Sudan,641,SPLM/A,1312,Other Southern groups,62511000,1983,2004,2,1,1
+625,Sudan,641,SPLM/A,1312,Shilluk,62513000,1983,2004,2,1,1
+625,Sudan,645,NDA,1314,Nuer,62508000,1996,2001,1,1,1
+625,Sudan,433,SLM/A,1316,Fur,62505000,2003,2011,2,1,1
+625,Sudan,433,SLM/A,1316,Masalit,62514000,2003,2011,2,1,1
+625,Sudan,433,SLM/A,1316,Zaghawa,62515000,2003,2011,2,1,1
+625,Sudan,434,JEM,1315,Zaghawa,62515000,2003,2011,2,1,1
+625,Sudan,630,NRF,1317,Fur,62505000,2006,2006,0,1,1
+625,Sudan,630,NRF,1317,Masalit,62514000,2006,2006,0,1,1
+625,Sudan,630,NRF,1317,Zaghawa,62515000,2006,2006,0,1,1
+625,Sudan,631,SLM/A - MM,1318,Zaghawa,62515000,2006,2006,2,1,1
+625,Sudan,648,SLM/A-Unity,1319,Fur,62505000,2007,2008,2,1,1
+625,Sudan,648,SLM/A-Unity,1319,Masalit,62514000,2007,2008,2,1,1
+625,Sudan,648,SLM/A-Unity,1319,Zaghawa,62515000,2007,2008,2,1,1
+625,Sudan,808,SSDM/A,1993,,,2010,2011,0,0,0
+625,Sudan,812,SPLM/A-North,2008,Nuba,62507000,2011,2011,2,1,-1
+625,Sudan,813,SSLM/A,2009,Nuer,62508000,2011,2012,0,1,-1
+625,Sudan,815,Republic of South Sudan,2014,Dinka,62504000,2011,2011,2,1,1
+625,Sudan,815,Republic of South Sudan,2014,Nuer,62508000,2011,2011,2,1,1
+625,Sudan,815,Republic of South Sudan,2014,Other Southern groups,62511000,2011,2011,2,1,1
+625,Sudan,815,Republic of South Sudan,2014,Shilluk,62513000,2011,2011,2,1,1
+625,Sudan,833,SRF,2047,,,2011,2013,0,0,-1
+626,South Sudan,818,SSDM/A,1993,,,2011,2011,0,0,0
+626,South Sudan,819,SSLM/A,2009,Nuer,62608000,2011,2012,1,1,
+626,South Sudan,859,SPLM/A In Opposition,4226,Nuer,62608000,2013,2013,2,1,1
+626,South Sudan,860,SSDM/A - Cobra Faction,3563,Murle,62617000,2013,2013,1,1,0
+626,South Sudan,860,SSDM/A - Cobra Faction,3563,Anyuak,62619000,2013,2013,1,1,0
+630,Iran,260,KDPI,1005,Kurds,63008000,1946,1996,1,1,1
+630,Iran,468,Republic of Azerbaijan,1006,Azeri,63004000,1946,1946,1,,0
+630,Iran,246,MEK,1151,Persians,63009000,1979,2001,0,2,0
+630,Iran,546,APCO,1154,Arabs,63001000,1979,1980,1,1,1
+630,Iran,459,PJAK,1152,Kurds,63008000,2005,2011,1,1,-1
+630,Iran,640,Jondullah,1153,Baloch,63006000,2006,2010,1,1,-1
+640,Turkey,333,PKK,1166,Kurds,64001000,1984,2013,1,1,1
+640,Turkey,330,Devrimci Sol,1177,,,1991,1992,0,0,0
+640,Turkey,457,MKP,1178,,,2005,2005,0,0,0
+645,Iraq,717,Military faction (free Officers Movement),1069,,,1958,1958,0,0,0
+645,Iraq,718,Military faction (forces of Abdul Wahab al-Shawaf),1070,,,1959,1959,0,0,0
+645,Iraq,279,KDP,1102,Kurds,64501000,1961,1991,1,1,1
+645,Iraq,719,Military faction (forces of Abd as-Salam Arif),1071,,,1963,1963,0,0,0
+645,Iraq,720,NCRC,1072,,,1963,1963,0,0,0
+645,Iraq,285,PUK,1103,Kurds,64501000,1976,1996,1,1,1
+645,Iraq,653,KDP-QM,1104,Kurds,64501000,1977,1978,1,1,-1
+645,Iraq,298,SCIRI,1073,Shi'a Arabs,64502000,1982,1996,1,1,1
+645,Iraq,442,Al-Mahdi Army,1074,Shi'a Arabs,64502000,2004,2008,1,2,1
+645,Iraq,443,Ansar al-Islam,1075,Kurds,64501000,2004,2011,2,1,-1
+645,Iraq,443,Ansar al-Islam,1075,Sunni Arabs,64503000,2004,2011,2,1,-1
+645,Iraq,448,ISIS,1076,Sunni Arabs,64503000,2004,2013,1,1,-1
+645,Iraq,578,RJF,1077,Sunni Arabs,64503000,2005,2007,1,1,-1
+651,Egypt,241,al-Gama'a al-Islamiyya,1184,Arab Muslims,65101000,1993,1998,0,2,0
+652,Syria,518,Military faction (forces loyal to Nureddin Atassi and Youssef Zeayen),1110,,,1966,1966,0,0,0
+652,Syria,519,Muslim Brotherhood,1111,Sunni Arabs,65202000,1979,1982,1,1,0
+652,Syria,867,Syrian insurgents,4456,Sunni Arabs,65202000,2011,2013,1,1,1
+652,Syria,867,Syrian insurgents,4456,Kurds,65206000,2011,2013,-1,-1,2
+660,Lebanon,570,Independent Nasserite Movement/Mourabitoun militia,1078,Sunnis (Arab),66010000,1958,1958,1,1,1
+660,Lebanon,722,NSF,1079,Druze,66002000,1975,1984,0,1,1
+660,Lebanon,722,NSF,1079,Sunnis (Arab),66010000,1975,1984,0,1,1
+660,Lebanon,723,LAA,1080,Sunnis (Arab),66010000,1976,1976,1,2,-1
+660,Lebanon,724,Amal,1081,Shi'a Muslims (Arab),66008000,1983,1984,1,2,-1
+660,Lebanon,725,NUF,1082,,,1985,1986,0,0,0
+660,Lebanon,726,Lebanese Forces - Hobeika faction,1083,Maronite Christians,66005000,1986,1986,2,2,-1
+660,Lebanon,376,Forces of Michel Aoun,1084,Maronite Christians,66005000,1989,1990,1,1,1
+660,Lebanon,383,Lebanese Forces,1085,Maronite Christians,66005000,1989,1989,2,2,-1
+666,Israel,695,Palestinian insurgents,1044,Palestinians (Arab),66601000,1949,1964,1,1,
+666,Israel,696,Non PLO groups,1045,Palestinian Arabs,66601200,1965,1973,1,1,
+666,Israel,781,PLO,1046,Palestinian Arabs,66601200,1965,1988,1,1,1
+666,Israel,780,Rejectionist Front,1951,Palestinian Arabs,66601200,1974,1988,1,1,
+666,Israel,419,PFLP,1047,Palestinian Arabs,66601200,1989,2001,1,1,1
+666,Israel,428,PFLP-GC,1048,Palestinian Arabs,66601200,1989,1989,1,1,1
+666,Israel,377,Fatah,1049,Palestinian Arabs,66601200,1990,2007,1,1,1
+666,Israel,643,Hezbollah,1209,Palestinians (Arab),66601000,1990,2006,1,0,-1
+666,Israel,381,Hamas,1051,Palestinian Arabs,66601200,1993,2012,1,1,1
+666,Israel,380,PIJ,1050,Palestinian Arabs,66601200,1995,2012,1,1,
+666,Israel,427,PNA,1052,Palestinian Arabs,66601200,1996,2002,1,1,1
+666,Israel,426,AMB,1053,Palestinian Arabs,66601200,2002,2004,1,1,1
+666,Israel,629,PRC,1054,Palestinian Arabs,66601200,2006,2006,1,1,
+670,Saudi Arabia,548,JSM,1155,Sunni Wahhabi (Najdi) (Arab),67005000,1979,1979,0,2,0
+678,Yemen,615,Opposition coalition,1039,,,1948,1948,0,0,0
+678,Yemen,616,Royalists,1040,Northerners,67802000,1962,1970,1,0,0
+678,Yemen,617,NDF,1041,Northerners,67802000,1979,1982,0,0,0
+678,Yemen,617,NDF,1041,Sunni Shafi'I (Arab),67802200,1979,1982,2,1,1
+678,Yemen,375,Democratic Republic of Yemen,1196,Southerners,67801000,1994,1994,1,1,0
+678,Yemen,784,AQAP,1747,Southerners,67801000,2009,2013,0,2,0
+678,Yemen,784,AQAP,1747,Sunni Shafi'I (Arab),67802200,2009,2013,0,2,0
+680,Yemen People's Republic,564,Yemenite Socialist Party - Abdul Fattah Ismail faction,1167,,,1986,1986,0,0,0
+698,Oman,607,State of Oman/Free Oman,1068,,,1957,1957,0,0,0
+698,Oman,561,PFLO,1126,,,1969,1975,0,0,0
+700,Afghanistan,727,PDPA,1133,Pashtuns,70012000,1978,1978,0,2,-1
+700,Afghanistan,411,Jam'iyyat-i Islami-yi Afghanistan,1134,Pashtuns,70012000,1979,1996,0,1,1
+700,Afghanistan,411,Jam'iyyat-i Islami-yi Afghanistan,1134,Tajiks,70014000,1979,1996,0,1,1
+700,Afghanistan,411,Jam'iyyat-i Islami-yi Afghanistan,1134,Uzbeks,70016000,1979,1996,0,1,1
+700,Afghanistan,412,Hizb-i Islami-yi Afghanistan,1141,Pashtuns,70012000,1980,2013,0,1,1
+700,Afghanistan,731,Harakat-i Inqilab-i Islami-yi Afghanistan,1135,Hazara,70007000,1980,1988,0,1,-1
+700,Afghanistan,732,Mahaz-i Milli-yi Islami-yi Afghanistan,1138,Pashtuns,70012000,1980,1989,0,1,1
+700,Afghanistan,733,Jabha-yi Nijat-i Milli-yi Afghanistan,1137,Tajiks,70014000,1980,1988,0,2,-1
+700,Afghanistan,760,Hizb-i Islami-yi Afghanistan - Khalis faction,1136,Pashtuns,70012000,1980,1991,0,1,1
+700,Afghanistan,735,Ittihad-i Islami Bara-yi Azadi-yi Afghanistan,1139,Pashtuns,70012000,1981,1988,0,2,-1
+700,Afghanistan,737,Harakat-i Islami-yi Afghanistan,1140,Pashtuns,70012000,1984,1984,0,2,-1
+700,Afghanistan,413,Hizb-i Wahdat,1142,Hazara,70007000,1989,1995,1,1,1
+700,Afghanistan,476,Military faction (forces of Shahnawaz Tanay),1143,,,1990,1990,0,0,0
+700,Afghanistan,422,Junbish-i Milli-yi Islami,1144,Uzbeks,70016000,1993,1995,0,1,-1
+700,Afghanistan,327,Taleban,1146,Pashtuns,70012000,1995,2013,2,1,1
+700,Afghanistan,423,UIFSA,1147,Hazara,70007000,1996,2001,2,1,1
+700,Afghanistan,423,UIFSA,1147,Pashtuns,70012000,1996,2001,0,2,0
+700,Afghanistan,423,UIFSA,1147,Tajiks,70014000,1996,2001,2,1,1
+700,Afghanistan,423,UIFSA,1147,Uzbeks,70016000,1996,2001,2,1,1
+702,Tajikistan,353,UTO,1188,Tajik,70203000,1992,1998,0,2,0
+702,Tajikistan,848,PFT,2073,Tajik,70203000,1992,1992,0,2,0
+702,Tajikistan,415,Forces of Khudoberdiyev,1189,Uzbeks,70205000,1997,1998,1,1,0
+702,Tajikistan,849,Forces of Mullo Abdullo,2085,Tajik,70203000,2000,2010,0,2,-1
+702,Tajikistan,809,IMU,1202,Kyrgyz,70201000,2010,2011,0,1,0
+702,Tajikistan,809,IMU,1202,Tajik,70203000,2010,2011,0,1,0
+702,Tajikistan,809,IMU,1202,Uzbeks,70205000,2010,2011,0,1,0
+704,Uzbekistan,363,IMU,1202,Uzbeks,70406000,1999,2000,0,2,0
+704,Uzbekistan,444,JIG,1203,Uzbeks,70406000,2004,2004,0,2,0
+710,China,466,PLA,1002,Koreans,71006000,1946,1949,0,0,0
+710,China,580,Taiwanese insurgents,1018,,,1947,1947,2,1,1
+710,China,606,Tibet,1055,Tibetans,71010000,1950,1959,1,1,1
+710,China,830,ETIM,2041,Uyghur,71036000,2008,2008,1,1,0
+750,India,756,CPI,1019,,,1947,1951,0,0,0
+750,India,711,NNC,1064,Naga,75014000,1956,1968,1,1,0
+750,India,505,MNF,1109,Mizo,75012000,1966,1968,1,1,1
+750,India,690,CPI-ML,1034,,,1969,1971,0,0,0
+750,India,515,TNV,1148,Indigenous Tripuri,75007000,1979,1988,1,1,0
+750,India,325,PLA,1157,Manipuri,75010000,1982,2006,1,1,1
+750,India,387,Sikh insurgents,1162,Punjabi-Sikhs (non-SC/ST/OBCs),75017000,1983,1993,1,1,1
+750,India,309,ABSU,1205,Bodo,75003000,1989,1990,1,1,1
+750,India,355,Kashmir insurgents,1168,Kashmiri Muslims,75006000,1989,2013,1,1,0
+750,India,296,ULFA,1169,Assamese (non-SC/ST/OBCs),75001000,1990,2010,1,1,1
+750,India,405,PWG,1035,,,1990,2004,0,0,0
+750,India,262,ATTF,1149,Indigenous Tripuri,75007000,1992,1999,1,1,0
+750,India,286,NSCN-IM,1065,Naga,75014000,1992,2000,1,1,1
+750,India,406,MCC,1036,,,1992,2004,0,0,0
+750,India,313,NDFB,1206,Bodo,75003000,1993,2010,1,1,0
+750,India,336,UNLF,1158,Manipuri,75010000,1994,2009,1,1,1
+750,India,269,NLFT,1150,Indigenous Tripuri,75007000,1995,2006,1,1,1
+750,India,788,KNF,1159,,,1997,1997,0,0,0
+750,India,853,NSCN-K,1066,Naga,75014000,2000,2007,,,0
+750,India,853,NSCN-K,1066,,,2000,2007,,,
+750,India,451,CPI-Maoist,1037,Other Backward Classes (Castes),75016000,2005,2013,0,1,0
+750,India,451,CPI-Maoist,1037,Scheduled Castes & Tribes,75018000,2005,2013,0,1,0
+750,India,764,KCP,1160,Manipuri,75010000,2008,2009,1,1,0
+750,India,766,PREPAK,1161,Manipuri,75010000,2008,2009,1,1,0
+750,India,772,PULF,1212,,,2008,2008,-1,-1,-1
+750,India,785,NDFB - RD,1950,Bodo,75003000,2009,2010,1,1,0
+750,India,842,GNLA,2048,Scheduled Castes & Tribes,75018000,2012,2012,1,1,0
+750,India,12557,NDFB-S,3151,Bodo,75003000,2013,2013,1,1,0
+770,Pakistan,542,Mukti Bahini,1122,Bengali,77002000,1971,1971,1,1,1
+770,Pakistan,544,BLF,2053,Baluchis,77001000,1974,2012,1,1,1
+770,Pakistan,340,MQM,1197,Mohajirs,77003000,1990,1996,1,1,1
+770,Pakistan,639,BLA,1129,Baluchis,77001000,2004,2013,1,1,1
+770,Pakistan,638,Baloch Ittehad,1130,Baluchis,77001000,2006,2006,1,1,1
+770,Pakistan,768,TTP,1199,Pashtuns,77004000,2007,2013,0,2,0
+770,Pakistan,774,BRA,1131,Baluchis,77001000,2008,2012,1,1,-1
+770,Pakistan,844,Lashkar-e-Islam,1244,Pashtuns,77004000,2009,2013,0,0,0
+770,Pakistan,843,TTP - TA,1986,Pashtuns,77004000,2012,2012,0,0,0
+771,Bangladesh,223,JSS/SB,1127,Tribal-Buddhists,77103000,1975,1991,1,1,1
+771,Bangladesh,838,PBCP,1666,,,2005,2005,0,0,0
+771,Bangladesh,839,PBCP-Janajudhha,2051,,,2005,2006,0,0,0
+775,Myanmar,305,CPB,1023,Bamar (Barman),77501000,1948,1988,0,2,2
+775,Myanmar,305,CPB,1023,Buddhist Arakanese,77502000,1948,1988,0,1,1
+775,Myanmar,305,CPB,1023,Chinese,77503000,1948,1988,0,1,1
+775,Myanmar,305,CPB,1023,Wa,77510000,1948,1988,0,1,1
+775,Myanmar,677,CPB-RF,1024,,,1948,1970,0,0,0
+775,Myanmar,678,"PVO - ""White Band"" faction",1025,Bamar (Barman),77501000,1948,1953,0,2,1
+775,Myanmar,799,APLP,1934,Buddhist Arakanese,77502000,1948,1957,1,1,0
+775,Myanmar,800,Mujahid Party,1949,Muslim Arakanese,77508000,1948,1961,2,1,1
+775,Myanmar,683,MFL-MUF,1030,Mons,77507000,1949,1951,1,1,1
+775,Myanmar,753,PNDF,1042,Kachins,77505000,1949,1950,1,1,
+775,Myanmar,790,KNUP,1757,Kayin (Karens),77506000,1949,1975,1,1,1
+775,Myanmar,684,MPF,1031,Mons,77507000,1952,1958,1,1,1
+775,Myanmar,311,KNPP,1067,Karenni (Red Karens),77512000,1957,2005,1,1,1
+775,Myanmar,310,NMSP,1032,Mons,77507000,1959,1990,1,1,
+775,Myanmar,742,NSH,1089,Shan,77509000,1959,1959,1,1,1
+775,Myanmar,743,SSIA,1090,Shan,77509000,1960,1961,1,1,
+775,Myanmar,304,KIO,1043,Kachins,77505000,1961,2013,1,1,1
+775,Myanmar,744,SNUF,1091,Shan,77509000,1962,1963,2,1,1
+775,Myanmar,746,SSA,1092,Shan,77509000,1964,1973,1,1,1
+775,Myanmar,801,ANLP,1933,Buddhist Arakanese,77502000,1964,1972,1,1,1
+775,Myanmar,802,CPA,1936,Buddhist Arakanese,77502000,1964,1973,2,1,0
+775,Myanmar,306,KNU,1021,Kayin (Karens),77506000,1966,2011,1,1,1
+775,Myanmar,747,SURA,1094,Shan,77509000,1969,1983,2,1,0
+775,Myanmar,748,SSNLO,1093,Shan,77509000,1969,1970,1,1,
+775,Myanmar,794,RPF,1952,Muslim Arakanese,77508000,1973,1978,1,1,1
+775,Myanmar,797,LNUP,1756,,,1973,1982,-1,-1,-1
+775,Myanmar,750,SSRA,1095,,,1976,1976,-1,-1,-1
+775,Myanmar,795,ALP,1932,,,1977,1977,1,0,0
+775,Myanmar,751,TRC,1096,Shan,77509000,1984,1984,0,1,0
+775,Myanmar,308,MTA,1097,Shan,77509000,1985,1995,1,1,1
+775,Myanmar,322,ABSDF,1026,,,1990,1994,0,0,0
+775,Myanmar,312,RSO,1029,Muslim Arakanese,77508000,1991,1994,1,1,0
+775,Myanmar,307,RCSS,1098,Shan,77509000,1996,2013,1,1,0
+775,Myanmar,326,BMA,1033,Mons,77507000,1996,1996,1,1,0
+775,Myanmar,321,UWSA,1207,Wa,77510000,1997,1997,1,1,1
+775,Myanmar,314,God's Army,1022,Kayin (Karens),77506000,2000,2000,1,1,0
+775,Myanmar,853,NSCN-K,1066,Naga,75014000,2000,2007,,,0
+775,Myanmar,853,NSCN-K,1066,,,2000,2007,,,
+775,Myanmar,798,MNDAA,1746,,,2009,2009,-1,-1,-1
+775,Myanmar,805,DKBA 5,1992,Kayin (Karens),77506000,2010,2013,1,1,1
+775,Myanmar,826,SSPP,2007,Shan,77509000,2011,2013,1,1,-1
+780,Sri Lanka,256,JVP,1123,Sinhalese,78003000,1971,1990,0,2,0
+780,Sri Lanka,243,LTTE,1163,Sri Lankan Tamils,78004000,1984,2009,1,1,0
+780,Sri Lanka,526,TELO,1164,Sri Lankan Tamils,78004000,1984,1985,1,1,0
+780,Sri Lanka,687,EPRLF,1165,Sri Lankan Tamils,78004000,1985,1989,2,1,0
+790,Nepal,652,NC,1099,,,1960,1962,0,0,0
+790,Nepal,349,CPN-M,1100,Caste Hill Hindu Elite,79001000,1996,2006,1,1,1
+790,Nepal,349,CPN-M,1100,Adibasi Janajati,79002000,1996,2006,1,1,1
+790,Nepal,349,CPN-M,1100,Newars,79003000,1996,2006,0,2,2
+800,Thailand,598,Military faction (navy),1057,,,1951,1951,0,0,0
+800,Thailand,599,CPT,1058,,,1974,1982,0,-1,2
+800,Thailand,472,Patani insurgents,1208,Malay Muslims,80001000,2003,2013,1,1,1
+811,Cambodia,364,KR,1112,Khmer,81103000,1967,1998,0,2,0
+811,Cambodia,364,KR,1112,Khmer Loeu (incl. Kui),81105000,1967,1998,0,1,0
+811,Cambodia,553,KNUFNS,1113,Khmer,81103000,1978,1979,0,0,0
+811,Cambodia,378,KPNLF,1114,Khmer,81103000,1979,1991,0,2,0
+811,Cambodia,379,FUNCINPEC,1115,Khmer,81103000,1982,1997,0,2,0
+812,Laos,734,Pathet Lao,1086,,,1959,1973,0,0,0
+812,Laos,736,Neutralists,1087,,,1960,1960,0,0,0
+812,Laos,382,LRM,1088,Hmong,81201000,1989,1990,1,1,1
+817,Republic of Vietnam,614,FNL,1063,Hoa (Chinese),81701000,1955,1964,0,0,0
+817,Republic of Vietnam,614,FNL,1063,Kinh (Vietnamese),81702000,1955,1964,0,0,0
+820,Malaysia,585,CPM,1038,,,1948,1981,0,-1,2
+820,Malaysia,586,CCO,1106,Chinese,82001000,1963,1966,0,1,1
+820,Malaysia,861,Sultanate of Sulu,4006,,,2013,2013,1,-1,1
+840,Philippines,469,Huk,1009,,,1946,1954,0,0,0
+840,Philippines,217,CPP,1010,,,1969,2013,0,0,
+840,Philippines,507,MIM,1116,Moro,84003000,1970,1971,1,1,1
+840,Philippines,247,MNLF,1117,Moro,84003000,1972,1993,1,1,1
+840,Philippines,220,"Military faction (forces of Honasan, Abenina & Zumel)",1011,,,1987,1990,0,0,2
+840,Philippines,242,MILF,1118,Moro,84003000,1990,2011,1,1,1
+840,Philippines,249,ASG,1119,Moro,84003000,1993,2013,1,1,0
+840,Philippines,252,MNLF - NM,1120,Moro,84003000,2001,2013,1,1,1
+840,Philippines,647,MNLF - HM,1121,Moro,84003000,2007,2007,1,1,1
+840,Philippines,834,BIFM,2031,Indigenous,84002000,2012,2013,1,1,1
+850,Indonesia,605,Republic of South Moluccas,1056,Amboinese,85002000,1950,1950,1,1,1
+850,Indonesia,595,Darul Islam,1059,Javanese,85008000,1953,1961,0,2,0
+850,Indonesia,596,PRRI,1061,,,1958,1961,0,0,0
+850,Indonesia,752,Permesta Movement,1060,Minahasa,85011000,1958,1961,0,1,1
+850,Indonesia,498,OPM,1108,Papuans,85013000,1965,1984,1,1,1
+850,Indonesia,344,Fretilin,1132,East Timorese,85006000,1975,1998,1,1,1
+850,Indonesia,347,GAM,1170,Acehnese,85001000,1990,2005,1,1,1
+910,Papua New Guinea,337,BRA,1171,,,1990,1996,0,0,0

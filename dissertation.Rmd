@@ -37,6 +37,12 @@ keep_tex: yes
 ```{r child='entry_chapter/entry_chapter.Rmd'}
 ```
 
+```{r child='realignment/realignment.Rmd'}
+```
+
+```{r child='conclusion/conclusion.Rmd'}
+```
+
 \backmatter
 
 ```{r child='appendix/appendix.Rmd'}
