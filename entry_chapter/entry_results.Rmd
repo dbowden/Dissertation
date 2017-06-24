@@ -8,42 +8,58 @@ library(plm)
 library(texreg)
 library(sjmisc)
 
-load("~/Dropbox/Dissertation/Analyses/epr_group_formation/country_year.Rdata")
+conflict.year <- read.csv("entry_analysis/conflict_year.csv")
 
-country_year$entry <- ifelse(country_year$n_rebels > country_year$n_rebels_lag, 1, 0)
-country_year$entry <- set_label(country_year$entry, "Entry")
-country_year$pcdiscrim <- set_label(country_year$pcdiscrim, "% Country Not Facing Discrimination")
+conflict.year$multireb <- ifelse(conflict.year$lagged_rebels>1, 1, 0)
 
-country_year$GWNoA <- as.factor(country_year$GWNoA)
-#country_year$Year <- as.factor(country_year$Year)
-country_year$lgdp <- log(country_year$rgdppc)
-country_year$lpop <- log(country_year$pop)
+conflict.year$latentmean_diff <- set_label(conflict.year$latentmean_diff, "Change in Human Rights")
+conflict.year$new.joiner <- set_label(conflict.year$new.joiner, "New Rebel Group")
+conflict.year$postcw <- ifelse(conflict.year$Year > 1989, 1, 0)
 
-g9 <- glm(entry ~ n_rebels_lag + repression_lag + pcdiscrim + lgdp + lpop + IntensityLevel + cont_civil + Year + I(Year^2) + I(Year^3) + GWNoA, data=data.frame(country_year), family=binomial("logit"))
+m1 <- glm(new.joiner ~ latentmean_diff, data=data.frame(conflict.year), family=binomial("logit"))
+m1c <- coeftest(m1, vcov. = vcovHC(m1, type="HC1", cluster="GWNoA"))
 
-g11 <- glm(entry ~ n_rebels_lag + repression_lag*pcdiscrim + log(rgdppc) + log(pop) + IntensityLevel + cont_civil + ethfrac + Year + I(Year^2) + I(Year^3) + as.factor(GWNoA), data=data.frame(country_year), family=binomial("logit"))
+m2 <- glm(new.joiner ~ latentmean_diff + ethfrac  + maxint + cont_civil + Incompatibility + multireb + lgdp + lpop + mtnest + polity2 + postcw, data=data.frame(conflict.year), family=binomial("logit"))
+m2c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
 
-coefmap <- list("repression_lag" = "Human Rights", "pcdiscrim" = "Discrimination", "repression_lag:pcdiscrim" = "Human Rights X Discrimination", "IntensityLevel" = "Intensity Level", "n_conflicts" = "Number of Conflicts", "n_rebels_lag" = "Lagged Rebel Groups", "pcterr" = "% Conflicts Over Territory", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "ethfrac" = "Ethnolinguistic Fractionalization",  "cont_civil" = "Contiguous Civil War", "polity2 > 5TRUE" = "Democracy")
+m3 <- glm(new.joiner ~ latentmean_diff*ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2 + Incompatibility + postcw, data=data.frame(conflict.year), family=binomial("logit"))
+m3c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
 
-texreg(list(g9, g11), custom.coef.map = coefmap, caption="Models of Rebel Group Entry")
+# m3 <- glm(new.joiner ~ latentmean_diff + country_ethnic  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(conflict.year), family=binomial("logit"))
+# m3c <- coeftest(m3, vcov. = vcovHC(m3, type="HC1", cluster="GWNoA"))
+
+m4 <- glm(new.joiner ~ latentmean_diff + maxint + cont_civil + multireb + GWNoA + yearf, data=data.frame(conflict.year), family=binomial("logit"))
+m4c <- coeftest(m4, vcov. = vcovHC(m4, type="HC1", cluster="GWNoA"))
+
+map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "latentmean_diff:ethfrac"="Human Rights X Fractionalization","country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War")
+
+texreg(list(m1,m2,m3, m4), custom.coef.map=map, caption="Logit Models of Rebel Group Formation")
 ```
 
 Models 1 and 3 also provide tests of *H2*, which expects that the number of rebel groups should increase with the extent to which repression is targeted in a discriminatory fashion. Again I am able to reject the null hypothesis, as the effect of discrimination is positive and statistically significant at the 99.9% level in Model 1, and at the 99% level in Model 3. As the percentage of a country's population that is *not* subjected to discrimination (i.e. discrimination becomes more targeted), the expected number of rebel groups increases. The substantive effect is smaller than that for Human Rights, however (see Figure 1). Moving from perfectly indiscriminate policies to the most finely targeted increases the expected number of rebel groups from roughly 1.4 to slightly over 2.
 
-```{r effectplot, fig.cap="Effect Plots for Model 1"}
+```{r effectplot, fig.cap="Predicted Probability of New Rebel Group Formation"}
 library(sjPlot)
 library(ggplot2)
 sjp.setTheme(base=theme_bw())
 
-sjp.glm(g9, type="pred", vars=("repression_lag"), show.ci=T, title="", show.scatter = F, axis.lim = c(0, 1))
+sjp.glm(m2, type="pred", vars=("latentmean_diff"), show.ci=T, title="", show.scatter = F, axis.lim = c(0, 1))
 ```
 
 *H3*, which predicts an interactive effect between repression and discrimination, is tested in Models 2 and 4. In Model 2 the interaction is positive and statistically signficant at the 99.9% level. The marginal effects are plotted in Figure 2. The red line shows the predicted effect of Human Rights at the lowest observed value (i.e. the most repressive). At the lowest values of Discrimination (i.e. a perfectly indiscriminate political system) and most repressive values of Human Rights, the expected number of rebel groups is slightly below 2. As discrimination increases, however, the effect of repression increases. When 50% of the population is subject to discrimination, the expected number of rebel groups is roughly 2.8. When discrimination is at its highest, with 99% of the population being free from political discrimination, the effect of repression is quite strong, with a prediction of roughly 4.3 rebel groups. At the highest observed levels of human rights, the expected number of rebel groups is consistently around 1, and not affected by the level of Discrimination. In short, the interaction result suggests that we should see the greatest number of rebel groups when governments use strongly repressive tactics, but deploy such repression in a highly targeted fashion. When used indiscriminately, repression has little effect on the number of rebel groups. In Model 4, the interaction term is just shy of statistical significance. This suggests that splintering accounts for some of the interaction effect.
 
-```{r interactionplot, fig.cap="Marginal Effects Plots for Repression X Discrimination Interaction (Model 2)"}
-sjp.glm(g9, type="pred", vars=c("pcdiscrim"), show.ci=T, title="", show.scatter = F, axis.lim = c(0,1))
-```
-
 While the results are largely consistent with my hypotheses, this analysis does have limitations. Perhaps most notably, it does not use a perfect measure of targeted repression, instead relying on political discrimination as a proxy. I would argue, however, that this limitations is more likely to create bias *against* my hypotheses than for them. There may be people who are not part of an excluded minority group, but nevertheless are subjected to human rights violations. Indeed, as factors such as judicial independence and press freedom are significant components of the Latent Human Rights Scores, such patterns are likely. In such a case my measure would detect discrimination, but there would be many individuals behaving as if repression was indiscriminate. Conversely, some individuals may face limited political opportunities as a result of discrimination against their ethnic group, while avoiding threats to their physical integrity. This combination should produce individuals who are discinclined to cooperate with other members of society, but are not especially incentivized to resort to violence due to the absence of physical repression. Nevertheless, more precise measures should be pursued.
 
 Additionally, this analysis does not facilitate causal claims. It is possible that government repression strategy is endogenous to the expectation that multiple rebel groups will emerge, for example. While lagging the repression and discrimination variables may mitigate this concern slightly, the addition of an instrumental variable or other quasi-experimental technique would greatly improve the validity of the analysis.
+
+````{r rebethnic}
+group <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/group.csv")
+
+c1 <- glm(monoeth ~ joiner + splinter + alliance + Incompatibility + prevactive + country_ethnic + (rebpresosts!="no"), data=group, family=binomial("logit"))
+
+c2 <- glm(multieth ~ joiner + splinter + alliance + Incompatibility + prevactive + country_ethnic + (rebpresosts!="no"), data=group, family=binomial("logit"))
+
+c3 <- glm(noneth ~ joiner + splinter + alliance + Incompatibility + prevactive + country_ethnic + (rebpresosts!="no"), data=group, family=binomial("logit"))
+
+texreg(list(c1,c2,c3), caption="Logit Models of Rebel Group Ethnic Composition", custom.model.names=c("M1 Monoethnic", "M2 Multiethnic", "M3 Nonethnic"))
+```

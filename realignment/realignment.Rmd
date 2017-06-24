@@ -1,4 +1,7 @@
-# The Realignment of Rebel Groups
+# The Realignment of Rebel Groups {#realignment}
+
+````{r child='realignment_intro.txt'}
+```
 
 ```{r child='splintering_results.Rmd'}
 ```

@@ -1,1 +1,35 @@
 ## Alliance Formation Results
+
+```{r alliance}
+library(lmtest)
+library(plm)
+library(texreg)
+library(sjmisc)
+library(Zelig)
+
+country.year <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/conflict_year.csv")
+
+country.year$multireb <- ifelse(country.year$lagged_rebels>1, 1, 0)
+
+country.year$latentmean_diff <- set_label(country.year$latentmean_diff, "Change in Human Rights")
+country.year$new.alliance <- set_label(country.year$new.alliance, "New Rebel Group")
+
+country.year$GWNoA <- as.factor(country.year$GWNoA)
+country.year$yearf <- as.factor(country.year$Year)
+
+# m1 <- glm(new.mono.alliance ~ latentmean_diff, data=data.frame(country.year), family=binomial("logit"))
+# m1c <- coeftest(m1, vcov. = vcovHC(m1, type="HC1", cluster="GWNoA"))
+
+m2 <- zelig(new.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit")
+#m2c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
+
+m3 <- zelig(new.multi.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit")
+#m3c <- coeftest(m3, vcov. = vcovHC(m3, type="HC1", cluster="GWNoA"))
+
+m4 <- zelig(new.mono.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit")
+#m4c <- coeftest(m4, vcov. = vcovHC(m4, type="HC1", cluster="GWNoA"))
+
+map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "latentmean_diff:ethfrac"="Human Rights X Fractionalization","country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War")
+
+texreg(list(m2,m3,m4), caption="Rare Events Logit Models of Alliance Formation", custom.coef.map=map, custom.model.names = c("M1 All Alliances", "M2 Multiethnic", "M3 Monoethnic"), stars = c(0.001, 0.01, 0.05, 0.1), symbol="\\dagger")
+```

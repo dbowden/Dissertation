@@ -1,0 +1,9 @@
+*Hypothesis 6: The probability that rebels groups splinter should increase with the level of repression in a country*
+
+*Hypothesis 7: Multi-ethnic rebel groups should be at greater risk of splintering than monoethnic ones*
+
+*Hypothesis 8: Splinter organizations should be more likely than others to draw their support from a single ethnic group*
+
+*Hypothesis 9: The probability that new, multi-ethnic alliances will form should decrease with the level of repression*
+
+*Hypothesis 10: The probability that new, mono-ethnic alliances will form should increase with the level of repression*

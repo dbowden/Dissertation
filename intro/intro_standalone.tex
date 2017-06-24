@@ -1,0 +1,1107 @@
+\documentclass[12pt,]{book}
+\usepackage[]{tgpagella}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Introduction},
+            pdfauthor={David Bowden},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Introduction}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{David Bowden}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{June 24, 2017}
+
+\usepackage{setspace}
+
+\usepackage{float}
+\let\origtable\table
+\let\endorigtable\endtable
+\renewenvironment{table}[1][2] {
+    \singlespacing
+    \expandafter\origtable\expandafter[H]
+} {
+    \endorigtable
+}
+
+\frontmatter
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\begin{document}
+\maketitle
+
+\doublespacing
+
+\mainmatter
+
+Why do some civil wars have multiple rebel groups, while others have
+only one? Theories of civil war tend to focus on individual- or
+group-level motives (e.g. Gurr \protect\hyperlink{ref-gurr70}{1970};
+Collier and Hoeffler \protect\hyperlink{ref-Collier2004}{2004}) or
+opportunities (e.g. Fearon and Laitin
+\protect\hyperlink{ref-fearonlaitin03}{2003}) for rebellion, while
+giving little attention to the organization of dissent into rebel groups
+and coalitions. Even those studies which do explicitly consider rebel
+group formation tend to focus on group attributes such as treatment of
+civilians (e.g. Weinstein \protect\hyperlink{ref-Weinstein2007}{2007}),
+and do not consider the structure of the rebel movement that emerges.
+Yet, at least two rebel groups are simultaneously active at some point
+in 44\% of civil conflicts.\footnote{Source: Pettersson and Wallensteen
+  (\protect\hyperlink{ref-Pettersson2015a}{2015}).} Over the course of
+the Chadian Civil War, for instance, 25 distinct rebel groups appeared
+over the course of the conflict. Conflicts in Afghanistan in the 1980's,
+Somalia in the 1990's, Sudan in the 2000's have been similarly complex.
+The ongoing civil war in Syria is contested by at least two dozen armed
+groups. Even ethnically-homogeneous, geographically-concentrated
+populations with common goals, such as the Karen secessionist movement
+in Myanmar, often fragment into multiple rebel groups. Furthermore, the
+number of groups operating in these conflicts often varies greatly over
+time. Returning to the Syrian example, the opposition was largely
+consolidated under the banner of the Free Syrian Army early in the
+conflict, later splintered into dozens of factions largely on the basis
+of religion, and now is again reducing in complexity as groups merge or
+are defeated.
+
+Several studies examine the implications of rebel movement structure.
+Generally, these works find that fragmented rebel movements are
+associated with particularly concerning conflict attributes. Conflicts
+with multiple rebel groups last longer than dyadic competitions, as the
+increased number of veto players complicate the negotiation of peaceful
+settlements (Cunningham \protect\hyperlink{ref-Cunningham2006}{2006};
+Cunningham, Gleditsch, and Salehyan
+\protect\hyperlink{ref-Cunningham2009}{2009}; Akcinaroglu
+\protect\hyperlink{ref-Akcinaroglu2012a}{2012}), and create the
+possibility of peace being spoiled by extreme factions (Stedman
+\protect\hyperlink{ref-Stedman1997}{1997}). Relatedly, Cunningham,
+Gleditsch, and Salehyan (\protect\hyperlink{ref-Cunningham2009}{2009})
+find that the presence of multiple government-rebel dyads decreases the
+likelihood that a conflict will end with a peace agreement, while
+increasing the likelihood of rebel victory. Findley and Rudloff
+(\protect\hyperlink{ref-Findley2012}{2012}) find this effect to be
+conditional, however, as the fragmentation of weak rebel movements can
+increase the probability of peaceful settlement. Perhaps related to the
+paucity of peaceful settlements, both Atlas and Licklider
+(\protect\hyperlink{ref-Atlas1999}{1999}) and Zeigler
+(\protect\hyperlink{ref-Zeigler2016}{2016}) find that civil wars with
+multiple rebel groups are prone to recurrence, as new episodes of
+conflict frequently occur between rebel factions from the previous
+conflict. Finally, conflicts with multiple dyads feature over 20\% more
+fatalities than dyadic ones.\footnote{Source: my own analysis using data
+  from Sundberg (\protect\hyperlink{ref-Sundberg2008a}{2008}).} In
+short, conflicts with multiple rebel groups are an unusually severe
+subset of civil wars.
+
+While prior has firmly established the importance of understanding why
+some conflicts have multiple rebel groups while others do not, to date
+very few works have attempted to explain this phenomenon. The studies
+that do exist in this area tend to focus on a narrow subset of the
+processes affecting conflict complexity. For example, several recent
+works explore the splintering of existing rebel groups (e.g. McLauchlin
+and Pearlman \protect\hyperlink{ref-McLauchlin2012}{2012}; Staniland
+\protect\hyperlink{ref-Staniland2014}{2014}). These works tend to focus
+on the organizational characteristics of rebel groups however, and thus
+have little to say about why rebel groups might form alliances, nor why
+entirely new groups might enter a conflict. Christia
+(\protect\hyperlink{ref-Christia2012}{2012}) adapts realism from
+international relations theory into a unified explanation of splintering
+and alliance formation, but she too ignores the mobilization of new
+groups. I connect all three phenomena in a single theoretical framework,
+providing a unified explanation for conflict complexity. Additionally,
+the existing research is largely based on a small number of case studies
+disproportionately drawn from the Middle East and South Asia. While
+these conflicts are undeniably complex, they are outliers in terms of
+both their long duration and high degree of international intervention.
+I test my theory on a sample of all civil wars since 1946, demonstrating
+that it is widely applicable.
+
+The goal of this project is to address a single broad research question:
+what explains the variation in the number of rebel groups in a civil
+war? I address several more specific questions in pursuit of this
+broader goal. Under what conditions do new rebel groups join an ongoing
+civil war? Why do existing rebel groups splinter into multiple factions?
+When and why do previously independent rebel groups form alliances?
+
+In brief, I argue that the treatment of civilians during wartime is a
+crucial determinant of rebel movement cohesion. Violent repression of
+civilians should lead many of them to calculate that joining a rebellion
+is not dramatically riskier than remaining non-violent, increasing the
+pool of individuals willing to fight. But as repression is often applied
+on the basis of ethnicity, and ethnic groups often offer a useful basis
+for organizing defensive measures, repression should also tend to induce
+greater levels of ethnic identification. Thus, repression should both
+create a pool of individuals willing to join the conflict, and lead to
+increased demand for rebel groups that emphasize ethnic identity. I
+expect that this dynamic will influence all three processes identified
+in the existing literature as determinants of conflict complexity ---
+the formation of new rebel groups, the splintering of existing rebel
+groups, and the merger of previously independent groups into alliances.
+The results of my empirical chapters suggest that complex civil wars are
+often the result of a sectarian spiral --- an initial wave of repression
+mobilizes violent dissent and induces greater levels of ethnic
+identification, and the rebel movement fragments along ethnic lines to
+reflect these individual-level preferences. Prior work suggests that a
+more fragmented movement might lead to greater levels of conflict
+severity, closing the vicious circle.
+
+In the remainder of this chapter I review the existing literature on
+rebel movement structure, as well as prior work on repression and ethnic
+identification. Next, I summarize the broader theoretical and policy
+implications of the research. Finally, I provide a summary of the
+subsequent chapters.
+
+\section{The Contribution of this
+Project}\label{the-contribution-of-this-project}
+
+First and foremost, this project advances our understanding of a subset
+of civil wars that is crucially important for the reasons outlined
+above. This research explains three processes that account for most of
+the variation in the number of rebel groups in a conflict --- the entry
+of new groups, and the splintering and mergers of existing ones. This
+dissertation is among the first projects to directly address the first
+phenomenon of new rebel groups joining ongoing conflicts. Existing work
+either considers the formation of new rebel groups (i.e.~groups that
+were not previously contained within another violent organization) only
+in cases where it is coterminous with conflict initiation (e.g. Lewis
+\protect\hyperlink{ref-Lewis2016}{2016}), or in the context of contagion
+into previously peaceful areas (e.g. Lane
+\protect\hyperlink{ref-Lane2016}{2016}). Yet, I find that 27.5\% of
+rebel groups active since World War II were neither present from the
+beginning of the conflict, nor is there any evidence that they descended
+from existing rebel groups. An important contribution of this
+dissertation, then, is explaining this common but mostly ignored
+phenomenon.
+
+While splintering and alliance formation have been the subject of
+several prior studies, my findings largely contrast with existing work.
+Christia (\protect\hyperlink{ref-Christia2012}{2012}) argues that
+realist power politics calculations drive both alliance formation and
+splintering. By contrast, I find that a rebel group's strength is
+predictive of neither its susceptibility to splintering, nor its
+propensity to form alliances. Asal, Brown, and Dalton
+(\protect\hyperlink{ref-Asal2012}{2012}) and Staniland
+(\protect\hyperlink{ref-Staniland2014}{2014}) suggest that
+organizational structure is the key determinant of rebel cohesiveness. I
+find no evidence for this, however, as I find no evidence that rebel
+group centralization is related to splintering. Instead, I find that
+both phenomena are strongly related to repression. I also build upon the
+existing literature by unifying explanations of splintering and
+alliances into a more comprehensive theory of rebel movement structure,
+and test my theory in a much wider empirical domain than prior work.
+
+My findings also suggest several important second-order implications.
+One is that rebellion seems to be more political and more responsive to
+the preferences of rank-and-file dissidents than much of the existing
+literature would suggest. A substantial number of scholars view civil
+war as largely apolitical, instead being driven by material greed
+(Mueller \protect\hyperlink{ref-mueller00}{2000}; Collier and Hoeffler
+\protect\hyperlink{ref-Collier2004}{2004}) or personal animosities
+(Kalyvas \protect\hyperlink{ref-Kalyvas2006}{2006}). I argue that
+dissidents have strong preferences over the content of rebellion, and
+find that repression tends to induce stronger preferences for rebel
+groups that represent the interests of a particular ethnic group. While
+I cannot rule out the possibility that rebellions are initially driven
+by material considerations, as war initiation is beyond the scope of
+this study, my findings do suggest that civil war violence tends to have
+a politicizing effect over time. I discuss the literature on rebel
+motives in greater detail later in this chapter.
+
+This work also suggests that governments can exert a powerful influence
+on the structure of dissident organizations, as repression can heighten
+the salience of identities that divide dissidents. This contrasts with
+the most existing accounts of rebel movement structure, which tend to
+focus on factors mostly internal to the rebel movement such as relative
+power among rebel factions (Christia
+\protect\hyperlink{ref-Christia2012}{2012}), or the strength of pre-war
+social ties among dissidents (Staniland
+\protect\hyperlink{ref-Staniland2014}{2014}). It also raises several
+interesting questions about government strategy in the face of dissent.
+My findings suggest that repression expands the pool of individuals
+willing to fight, which in a vacuum makes government repression
+puzzling. It is also unclear whether the other key consequence of
+repression I identify --- the increased salience of ethnic identity ---
+is a desirable outcome for the government. On one hand it could form the
+basis of an effective divide-and-conquer strategy. On the other hand,
+fighting multiple opponents could complicate the logistics of
+counterinsurgency, threaten the credibility of negotiated settlements,
+and undermine the prospects of a stable resolution to the conflict.
+While this calculation merits greater consideration that I am able to
+give it in this dissertation, my findings in Chapter
+\ref{survey-chapter} suggest that repression may be aimed at deterring
+dissidents from political activities other than rebellion, such as
+voting.
+
+To test my hypotheses, I collected data on the origins of rebel groups.
+This allows me to distinguish between groups that splintered from
+existing rebel groups, groups engaging in violence for the first time,
+and coalitions of previously active groups. I suspect that the causal
+factors behind the emergence of each of these types are related, but as
+the processes are quite distinct they should be studied separately.
+Though I do not make much of the distinctions in this project, the data
+also distinguish between several categories of groups that were not
+previously engaged in rebellion, including political organizations,
+religious organizations, apolitical militias, and factions of the regime
+military. These categories should be useful for a variety of future
+studies on topics such as the durability of rebel groups, their
+probability of victory, and their treatment of civilians.
+
+In addition to resolving a gap in the scholarly literature, a better
+understanding of rebel movement structure is of value to policymakers.
+As noted above, conflicts with multiple rebel groups are among the most
+severe. Simply being able to predict which conflicts are likely to
+become severe through this mechanism has several useful applications.
+Policymakers might be able to identify early on the conflicts that are
+most likely to benefit from peace operations. Humanitarian organizations
+could predict which conflicts are likely to produce large numbers of
+refugees, and distribute resources accordingly. This work also be the
+possibility of moving beyond prediction and solving the underlying
+problem. As the empirical analyses identify the repression of civilians
+as a key mechanism driving conflict complexity, it stands to reason that
+protecting civilians might be an especially valuable undertaking for
+non-governmental organizations or outside states.
+
+In the next section I situate my dissertation in the literature to which
+it is most closely related. I explain in greater detail my contributions
+over the existing work on rebel structure, and also discuss the
+implications of this work for the literatures on repression and ethnic
+identification.
+
+\section{Previous Work on the Organization of
+Rebellion}\label{previous-work-on-the-organization-of-rebellion}
+
+The existing literature and empirical record suggest that the number of
+rebel groups active in a conflict is shaped by three broad processes.
+New groups can emerge when previously non-violent individuals mobilize
+and join the conflict. Alternatively, previously cohesive rebel groups
+can splinter into multiple successor organizations. Finally, the number
+of rebel groups can decrease when previously independent factions form
+alliances. I summarize the literature on each process in turn, and
+relate my contributions to the existing work.
+
+\subsection{Group Formation}\label{group-formation}
+
+Around 30\% of conflicts have at least one rebel group that was neither
+active from its beginning, nor did it split from an existing rebel
+group. Yet few studies directly consider the phenomenon of new rebel
+groups joining ongoing conflicts. Even studies of civil war onset often
+leave the formation of rebel groups in a black box, instead making a
+leap from individual motives to war initiation. For instance, a large
+literature views rebellion as an essentially criminal activity, driven
+by greed (Mueller \protect\hyperlink{ref-mueller00}{2000}; Collier and
+Hoeffler \protect\hyperlink{ref-Collier2004}{2004}; Lujala, Gleditsch,
+and Gilmore \protect\hyperlink{ref-Lujala2005}{2005}). Yet these works
+generally have very little to say about the origins of rebel
+organizations. These groups could be pre-existing criminal organizations
+that initiate more violent activity in hopes of securing greater profit,
+they could form for the purpose of a greed-driven rebellion after a sign
+of weakness from the government, or they could begin as rebel groups
+with sincere political goals, which are later seduced into less noble
+pursuits. The grievance school similarly tends to neglect group
+formation. For example, Cederman, Wimmer, and Min
+(\protect\hyperlink{ref-Cederman2010}{2010}) offer a nuanced explanation
+of the conditions under which ethnic minorities are likely to rebel.
+Yet, they say little about the logistics of organizing a rebellion, and
+seemingly assume that ethnic groups have an inherent ability to spawn
+rebel organizations.
+
+Scholars working at lower levels of analysis have come closer to
+explaining group formation. Kalyvas
+(\protect\hyperlink{ref-Kalyvas2006}{2006}) suggests that individuals
+are often already mobilized for small-scale violence such as personal
+rivalry, criminal activity, or ethnic conflict. Building a rebel group
+is thus an exercise in building coalitions from small, pre-existing
+organizations, and re-orienting individuals from localized issues to
+national-level political cleavages. Kalyvas gives little attention to
+this process, however, instead recommending it as an area for future
+research. Staniland (\protect\hyperlink{ref-Staniland2014}{2014}) also
+argues that rebel groups can trace their origins to pre-existing social
+organizations, though he sees larger, and often more political entities
+such as political parties or military units as the primary source of
+rebellion, rather than the localized and less formal groups emphasized
+by Kalyvas (\protect\hyperlink{ref-Kalyvas2006}{2006}). Staniland
+(\protect\hyperlink{ref-Staniland2014}{2014}) too devotes relatively
+little space to rebel group formation, instead focusing on linking the
+attributes of the originating organizations to rebel group outcomes such
+as durability. Lewis (\protect\hyperlink{ref-Lewis2016}{2016}) offers a
+somewhat contrasting view as she carefully documents the earliest
+activities of rebel groups in Uganda. She finds that rebel groups,
+including the Lord's Resistance Army, were typically founded by small
+number of entrepreneurial individuals, and initially tended to value
+stealth over broad mobilization. Only after the conflict began to
+escalate did groups seek to broaden their membership, in many cases by
+appealing to particular ethnic groups. Thus she sees scholars such as
+Cederman, Wimmer, and Min (\protect\hyperlink{ref-Cederman2010}{2010})
+and Staniland (\protect\hyperlink{ref-Staniland2014}{2014}) as beginning
+their analyses after rebellion had existed for some time.
+
+There is also a substantial literature on the contagion of civil war.
+For example, Gleditsch (\protect\hyperlink{ref-Gleditsch2007}{2007})
+finds that transnational ethnic groups and political and economic
+linkages between states can provide channels for civil war to spread
+across international boundaries. Most of his cases, however, are
+pre-existing rebel groups moving into new geographic areas, rather than
+\emph{sui generis} group formation. Other scholars find that entirely
+new rebel organizations can emerge through the contagion of secessionist
+(Ayres and Saideman \protect\hyperlink{ref-Ayres2000}{2000}) and ethnic
+(Lane \protect\hyperlink{ref-Lane2016}{2016}) conflict. Such
+transnational processes might shape opportunities for multiple
+rebellions to emerge by increasing the availability of weapons,
+spreading tactical knowledge, or diverting government attention to
+foreign conflicts. While contagion explains an important category of
+phenomena, these studies are primarily concerned with the spread of
+conflict to previously peaceful areas. This overlaps only partly with
+the scope of this project; I am also concerned with the emergence of new
+rebel groups in areas already experiencing conflict.
+
+In short, surprisingly few studies have given much consideration to the
+formation of rebel groups. The few that do (e.g. Lewis
+\protect\hyperlink{ref-Lewis2016}{2016}) focus entirely on groups whose
+origins coincide with war onset. While research on contagion effects
+sheds light on the expansion of conflict, it does not address the entry
+of new groups to existing conflict zones. I seek to resolve this gap.
+
+\subsection{Splintering}\label{splintering}
+
+Existing rebel groups frequently splinter into multiple successor
+organizations. In 1968, for example, a faction led by Ahmed Jibril broke
+away from the Popular Front for the Liberation of Palestine (PFLP) to
+form a new group, the Popular Front for the Liberation of
+Palestine-General Command (PFLP-GC). While the two groups often
+collaborated against Israel, they maintain distinct organizational
+structures and membership bases, and operate in different areas. The
+split was allegedly motivated by differing views of Marxist ideology and
+military doctrine, with the PFLP pursuing a more extreme strategy of
+attrition. Similar splits have occurred within dozens of rebel groups,
+including the Communist Party of Burma, the Free Syrian Army and the
+Sudan Liberation Army. In many cases the result is more than a nominal
+separation. In Sri Lanka, for example, the Tamil Peoples Liberation
+Tigers not only split from the Liberation Tigers of Tamil Eelam, but
+also defected to the government side in the conflict (Staniland
+\protect\hyperlink{ref-Staniland2012d}{2012}).
+
+Compared to group formation, there is a relatively large literature on
+rebel group splintering. One subset of this research focuses on the role
+of external actors, and particularly the government. For instance,
+McLauchlin and Pearlman (\protect\hyperlink{ref-McLauchlin2012}{2012})
+find that government repression provides occasion for groups to evaluate
+their current leadership structure. Pre-existing divisions within groups
+are likely to be exacerbated, leading the group to move toward more
+factionalized leadership structures. When group members are satisfied,
+however, conflict tends to lead to even greater unity and centralization
+of authority. Whereas the preceding studies essentially treat government
+repression as exogenous to the internal politics of dissident groups,
+Bhavnani, Miodownik, and Choi
+(\protect\hyperlink{ref-Bhavnani2011}{2011}) present evidence that
+governments deliberately stoke tensions among their opponents, as they
+find that the Israeli government increased conflict between Fatah and
+Hamas by undermining Hamas' control of the Gaza and by tolerating
+Fatah's relationship with the Jordanian military. Tamm
+(\protect\hyperlink{ref-Tamm2016}{2016}) finds that support from outside
+states can alter the balance of power within rebel groups, in some cases
+entrenching existing hierarchies, while in others creating possibilities
+for fragmentation or coups. Finally, Staniland
+(\protect\hyperlink{ref-Staniland2012d}{2012}) finds that the government
+can sometimes attract rebel groups to their side by offering greater
+resources during periods of infighting among rebel groups.
+
+Another group of scholars emphasizes concerns about post-conflict
+bargaining as the key determinant of dissident group cohesion. Christia
+(\protect\hyperlink{ref-Christia2012}{2012}) assumes that the winning
+coalition in a civil war receives private benefits, which might include
+any rents available to the state, and having some portion of its
+interests represented in the new government. Thus, rebels have an
+incentive to form minimum winning coalitions, so as to limit the number
+of coalition partners with whom they must share benefits. Wolford,
+Cunningham, and Reed (\protect\hyperlink{ref-Wolford}{2015}) develop a
+similar logic, theorizing that political factions have an interest in
+joining conflicts so as to maximize the likelihood of their preferences
+being represented in the post-war government, but the value of fighting
+decreases as the number of parties with whom they expect to share power
+increases. Yet, Christia (\protect\hyperlink{ref-Christia2012}{2012})
+suggests that this incentive to minimize coalition size is moderated by
+the risk of being outside the winning coalition, as there is a strong
+possibility of new waves of violence between victorious rebels and rival
+rebel factions. She thus expects coalitions to change frequently in
+response to battlefield events, with factions bandwagoning with battle
+winners and shifting away from losing coalitions. Findley and Rudloff
+(\protect\hyperlink{ref-Findley2012}{2012}) similarly find fragmentation
+to be most common among groups that have recently lost battles. This
+implies that fragmentation is essentially a process of weak actors
+becoming weaker.
+
+A final category of explanations places the source of rebel group
+cohesion in underlying social structure. Staniland
+(\protect\hyperlink{ref-Staniland2014}{2014}) argues that insurgent
+organizations will be most stable when their central leadership is able
+to exercise both vertical control over its rank-and-file members, and
+horizontal control over its constituent groups. This is most likely to
+occur when insurgencies draw from existing organizations with extant
+social ties of this sort, which might include former anti-colonial
+movements or ethnic political parties. Organizations are likely to
+fragment when constituent groups have a high degree of autonomy or
+control over individual members is limited (Staniland
+\protect\hyperlink{ref-Staniland2014}{2014}, Ch. 2-3). Asal, Brown, and
+Dalton (\protect\hyperlink{ref-Asal2012}{2012}) emphasize similar
+factors, arguing that organizations with factionalized leadership
+structures are at risk of fragmentation, while groups with more
+consolidated power structures will tend to remain cohesive. Finally,
+Warren and Troy (\protect\hyperlink{ref-Warren2015}{2015}) suggest that
+group size plays an important role, as small groups are able to police
+themselves and resolve conflicts, whereas larger groups are more likely
+to experience infighting.
+
+The existing work in this field tends to feature impressive data
+collection or fieldwork, and makes important contributions to our
+understanding of rebel group cohesion. Yet, making predictions from
+existing approaches tends to require detailed information about a rebel
+group and its internal workings, which is difficult to acquire,
+particularly while a conflict is still active. Furthermore, this
+literature tends to be somewhat disconnected from work on other rebel
+attributes and behaviors, including alliance formation. This
+dissertation addresses these limitations by unifying the formation of
+new groups, splintering, and alliance formation under a single
+theoretical framework which relies on explanatory factors that are
+relatively easy to observe, allowing for predictions about rebel group
+structure even during conflicts.
+
+\subsection{Alliance Formation}\label{alliance-formation}
+
+Empirically, alliances among rebel groups are both common and
+noteworthy. Many of the most successful rebel movements in history were
+coalitions of formerly independent organizations. For example, the
+Frente Farabundo Marti para la Liberacion Nacional (FMLN) was an
+umbrella organization uniting several left wing rebel groups in El
+Salvador, which eventually secured many concessions in the post-war
+peace process including a place as a major political party. Surpsingly,
+however, alliances among non-state actors have only recently begun to
+receive much scholarly attention.
+
+Asal and Rethemeyer (\protect\hyperlink{ref-Asal2008}{2008}) and
+Horowitz and Potter (\protect\hyperlink{ref-Horowitz2013}{2013}) conduct
+network analyses of alliance formation among terrorist groups, arguing
+that such arrangement are used to aggregate capabilities and share
+tactics. Much of the other work in the field focuses on the downsides of
+alliance. Bapat and Bond (\protect\hyperlink{ref-Bapat2012}{2012})
+assume that alliances carry two significant costs: the dilution of each
+constituent group's agenda, and the risk of having one's private
+information sold to the government by an ally. Consistent with this
+theory, they find alliances to be most common when an outside state can
+enforce agreements, and when all rebel groups involved are strong enough
+to avoid the temptation of defecting to the government side. Christia
+(\protect\hyperlink{ref-Christia2012}{2012}) similarly emphasizes
+capability, arguing that neorealist balancing theory from international
+relations explains alignments in civil wars. When one coalition - a
+group of rebels or government-aligned forces - becomes too powerful,
+other groups will band together to prevent their own destruction. But
+similar to Bapat and Bond (\protect\hyperlink{ref-Bapat2012}{2012}),
+Christia (\protect\hyperlink{ref-Christia2012}{2012}) argues that this
+mechanism is constrained by a desire to maximize one's share of the
+post-war spoils. Thus, rebels realign frequently, seeking to form
+minimum winning coalitions. While shared identity appears on the surface
+to be an important determinant of rebel alignments, Christia views these
+narratives as post-hoc justifications aimed at legitimizing decisions
+that are really driven mostly by power.
+
+The existing studies do much to advance our knowledge of relationships
+between non-state actors. Yet, some important aspects of alliance
+formation are beyond the scope of the existing studies, however. Namely,
+while relative power considerations can potentially account for why
+rebel groups form alliances, and when they will alter their ties, it
+does not explain why groups choose a particular partner. Horowitz and
+Potter (\protect\hyperlink{ref-Horowitz2013}{2013}) do shed light on
+this question, finding that militants prefer to ally with powerful
+groups, but their focus is largely on transnational networks of
+terrorists and insurgents, rather than alliance formation within a
+particular conflict. I offer an explanation of alliance formation that
+can predict not only when rebel groups will seek alliances, but also
+with whom. Furthermore, I connect this process to the broader dynamics
+of rebel movement structure, particularly splintering.
+
+\subsection{Repression}\label{repression}
+
+As repression is central to the theoretical argument presented here,
+this dissertation is shaped by and contributes to the literature on the
+topic. The focus in the existing literature has been on explaining why
+repression occurs, and identifying factors that might prevent it.
+Davenport (\protect\hyperlink{ref-Davenport2007a}{2007}) finds that
+there is a ``domestic democratic peace,'' meaning that democratic
+regimes tend to refrain from using the most violent forms of repression.
+However, he finds that even democracies often engage in repression
+during civil and international conflicts. Others find that international
+human rights treaties often have a meaningful restraining effect on
+governments, reducing their use of repression (Hathaway
+\protect\hyperlink{ref-Hathaway2002}{2002}; Simmons
+\protect\hyperlink{ref-simmons09}{2009}). Not all international
+influences are positive, however, as economic sanctions (R. M. Wood
+\protect\hyperlink{ref-Wood2008a}{2008}) are associated with increased
+repression. An important generalization in the context of this study is
+that human rights practices tend to be shaped by domestic and
+international political institutions that are likely to be largely
+exogenous to civil war dynamics.\footnote{Long-running civil wars,
+  however, might deter democratization and participation in human rights
+  treaties.}
+
+Another strand of the repression literature focuses on the consequences
+of repression, and especially the potential of repression to provoke
+escalation. In this vein Lichbach
+(\protect\hyperlink{ref-Lichbach1987}{1987}) argues that repression
+should lead dissidents to substitute increasingly violent tactics for
+more peaceful ones, as they will calculate that violence is more likely
+to achieve their goals. Moore (\protect\hyperlink{ref-Moore1998}{1998})
+finds empirical support for this model, suggesting that repression has
+significant potential to escalate political confrontations. My findings
+in Chapter \ref{survey-chapter} add further support for this model, as I
+show that repression increases willingness to engage in violence, while
+decreasing the likelihood that individuals will engage in peaceful
+political activities such as voting. I also move beyond this debate to
+show that repression can shape not only the likelihood, but also the
+structure of civil war violence.
+
+\subsection{Ethnic Identification}\label{ethnic-identification}
+
+Ethnic identity is central to the theoretical mechanism in this
+dissertation, and has long been an area of deep interest to scholars of
+comparative politics. This work is often predicated on the assumption
+that identity is dynamic. At a minimum, individuals can choose which of
+their several social roles to emphasize. For instance, individuals might
+orient primarily toward an ethnicity, a religion, an occupation, a
+region, or an ideology, and could potentially alter these choices over
+time. The majority of the work in this vein has focused on oscillations
+between ethnic and national identities. Early on this question was
+explored in discussions of statebuilding. Scholars in this area suggest
+that external threats such as interstate wars (Herbst
+\protect\hyperlink{ref-Herbst1990}{1990}; Tilly
+\protect\hyperlink{ref-Tilly1992}{1992}) or territorial disputes
+(Gibler, Hutchison, and Miller \protect\hyperlink{ref-Gibler2012}{2012})
+can provide a unifying influence, leading individuals to orient toward
+national identities and away from subnational ones such as ethnicity.
+Most other work in the area examines the role of political institutions
+in incentivizing the use of particular identities (Posner
+\protect\hyperlink{ref-Posner2005}{2005}; Penn
+\protect\hyperlink{ref-Penn2008}{2008}). For example, Eifert, Miguel,
+and Posner (\protect\hyperlink{ref-Eifert2010}{2010}) find that ethnic
+identification tends to be strongest just prior to or just after
+competitive elections, suggesting that individuals interpret politics
+through an ethnic lens.
+
+A striking feature of this literature is the degree of consensus that
+ethnic identity is malleable. This perspective is shared by a diverse
+range of scholars ranging from constructivists (e.g. Barnett
+\protect\hyperlink{ref-Barnett1995}{1995}) to formal theorists (e.g.
+Penn \protect\hyperlink{ref-Penn2008}{2008}), and enjoys strong
+empirical support (e.g. Eifert, Miguel, and Posner
+\protect\hyperlink{ref-Eifert2010}{2010}; Gibler, Hutchison, and Miller
+\protect\hyperlink{ref-Gibler2012}{2012}). Thus, it provides a strong
+foundation on which to build my theory. This dissertation also
+contributes to the ethnic identification in two ways. First, while
+previous work has suggested that internal conflict might have an
+opposite effect to external wars, leading to increased ethnic
+identification (Kaufmann \protect\hyperlink{ref-Kaufmann1996b}{1996}),
+no existing work has demonstrated this systematically. My dissertation
+begins to resolve this gap, as Chapter \ref{survey-chapter} shows that
+both repression and the presence of civil wars are associated with
+heightened levels of ethnic identification. Second, whereas most prior
+studies examine individual-level ethnic identification in isolation
+(e.g. Eifert, Miguel, and Posner
+\protect\hyperlink{ref-Eifert2010}{2010}), I connect the phenomenon to
+aggregate outcomes, namely the formation and restructuring of rebel
+groups.
+
+\subsection{Rebel Motives}\label{rebel-motives}
+
+An examination of the relationships between dissident groups is also
+likely to offer a new perspective on rebel motives. The literature on
+civil war has largely been dominated by debates over whether rebellion
+is fundamentally political, or done in pursuit of private benefits. The
+former views civil war as an effort to resolve economic or political
+inequality (Gurr \protect\hyperlink{ref-gurr70}{1970}; E. J. Wood
+\protect\hyperlink{ref-Wood2003}{2003}; Cederman, Wimmer, and Min
+\protect\hyperlink{ref-Cederman2010}{2010}), and has been labeled as the
+`grievance' hypothesis (Collier and Hoeffler
+\protect\hyperlink{ref-Collier2004}{2004}). The latter is composed
+primarily of studies emphasizing the `greed' hypothesis (Collier and
+Hoeffler \protect\hyperlink{ref-Collier2004}{2004}), which views
+rebellion as little more than large-scale criminal activity aimed at
+bringing profits to its members (Mueller
+\protect\hyperlink{ref-mueller00}{2000}; Lujala, Gleditsch, and Gilmore
+\protect\hyperlink{ref-Lujala2005}{2005}; Ross
+\protect\hyperlink{ref-Ross2004e}{2004}). Others have emphasized
+non-material private benefits as motive for individual participation in
+rebellion, such as the ability to act on family disputes or romantic
+rivalries (Kalyvas \protect\hyperlink{ref-Kalyvas2006}{2006}).
+
+This political-private motive debate has yet to be definitively
+resolved. A number of scholars have found greater support for the greed
+hypothesis than for grievance, with the presence of natural resources
+being a stronger predictor of civil war than economic or political
+grievances (Collier and Hoeffler
+\protect\hyperlink{ref-Collier2004}{2004}). Yet, these findings are not
+robust across different types of resources or even different measures of
+the same resource (Dixon \protect\hyperlink{ref-Dixon2009a}{2009}).
+Furthermore, several scholars have found that political factors such as
+hierarchical relationships between ethnic groups (Cederman, Wimmer, and
+Min \protect\hyperlink{ref-Cederman2010}{2010}) and poor economic
+performance (Miguel, Satyanath, and Sergenti
+\protect\hyperlink{ref-Miguel2004a}{2004}) exert a strong influence on
+civil war onset. Other scholars eschew the dichotomy altogether,
+suggesting that while private benefits are useful to rebel recruiting
+efforts, this does not preclude the possibility that rebel elites
+ultimately have political motives (Lichbach
+\protect\hyperlink{ref-Lichbach1995}{1995}; Weinstein
+\protect\hyperlink{ref-Weinstein2007}{2007}). Similarly, Lujala
+(\protect\hyperlink{ref-Lujala2010}{2010}) finds that natural resources
+are associated with longer conflicts, implying that at least a portion
+of resource revenues are devoted to fighting rather than private
+benefits.
+
+One factor that has limited progress on these questions of motive is the
+fact that the competing theories have been tested almost exclusively on
+a single outcome --- a binary measure of the occurrence of civil war at
+the national level. Studying the relationships between dissident groups
+and how they vary is likely to provide insight to underlying rebel
+motives. For instance, if rebellion is fundamentally about maximizing
+the profits of its members, we might expect to see rebels form the
+smallest coalitions possible that still allow them to control resource
+flows. If rebellion is fundamentally political, however, we might expect
+rebels to pursue coalitions large enough to pursue victory.
+Additionally, if ideology and identity are not truly important to
+rebels, splintering and alliance formation should be driven primarily by
+power calculations (see Christia
+\protect\hyperlink{ref-Christia2012}{2012}). If these factors do matter,
+however, they should shape the choice of alliance partners and the
+cohesiveness of individual groups. Ethnically homogenous rebel groups
+should be less prone to splintering in this case, and alliance should be
+more likely among groups with similar identities.
+
+\section{Project Summary}\label{project-summary}
+
+In Chapter \ref{theory} I articulate a theory of rebel movement
+structure. I begin with the assumption that rebel groups emerge from a
+broader pool of dissidents. While not all dissidents will be eager to
+participate in violence, each will prefer to be represented by a rebel
+group which advances their political interests and provides them with
+security. Thus, dissidents form a constituency that constantly evaluates
+the performance of rebel groups, and will consider switching their
+allegiance to new groups if the existing ones are lacking. In hopes of
+seizing on this dynamic, rebel entrepreneurs will look for opportunities
+to mobilize new groups by appealing to underrepresented identities and
+ideologies. These appeals should be especially effective in the wake of
+repression for two reasons. First, repression lowers the risk of
+fighting relative to remaining peaceful, leading new individuals to join
+the fighting. Second, as repression should induce greater levels of
+ethnic identification. Repression is often targeted on the basis of
+ethnicity, increasing its salience, and appeals for support from
+outside, co-ethnic states might be especially effective in the presence
+of human rights concerns. Thus repression not only creates a new pool of
+individuals willing to fight, it also stokes division among dissidents
+along ethnic lines. This should often lead individuals joining the
+fighting to form new groups rather than join existing ones, and
+individuals already in rebel groups to realign into more ethnically
+homogeneous configurations. This should manifest in the form of both the
+splintering of existing groups, particularly when existing groups are
+multi-ethnic, and the formation of ethnically-homogeneous alliances so
+as to replace the loss in capabilities due to fragmentation and
+streamline access to support from co-ethnic outside states.
+
+Chapter \ref{survey-chapter} tests the individual-level assumptions of
+the theory. Using a sample of over 150,000 Afrobarometer Survey
+responses, I find support for both of my key predictions regarding the
+effects of repression. Individuals who have experienced an attack in the
+past year are 30\% more likely than others to express willingness to use
+violence themselves. Additionally, I find these individuals are 62\%
+more likely to identify with their ethnic group than respondents who
+have not experienced an attack. While I am unable to completely rule out
+the possibility of reverse causality, the results hold after performing
+coarsened exact matching, showing that attacked individuals do not
+systematically differ from others on observable traits. These results
+suggest that my theory performs as expected at the individual level.
+
+Chapter \ref{entry} contains tests of my predictions regarding the
+formation of new rebel groups during ongoing conflicts. I add my measure
+of rebel group origin to the Uppsala Armed Conflict Dataset, resulting
+in a sample of all civil wars, 1946--2015. I find that the probability
+of a new rebel group joining an ongoing conflict during a given year has
+a strong, negative relationship with changes in respect for human
+rights. The largest observed increases in repression are associated with
+more than a 60\% chance of new rebel groups forming, while the
+probability is around 3\% in years with no substantial change in human
+rights practices, and approaches zero in following improvements to human
+rights. Contrary to my expectations, I find no evidence that ethnic
+diversity places a scope condition on my theory; new rebel groups form
+in a variety of societies. I also do not find evidence that rebels
+groups which join ongoing conflicts are more likely than others to draw
+their support from a single ethnic group. However, this result seems to
+be driven by a large number of rebel groups with no discernible ties to
+an ethnic constituency, and I do find that these joining rebel are
+significantly less likely than others to be multi-ethnic coalitions. To
+supplement these quantitative analyses, I illustrate the causal logic of
+my theory in a qualitative case study of the Mon separatists in Burma,
+and use the emergence of the All Burma Students' Democratic Front to
+explore the limits of my argument.
+
+In Chapter \ref{realignment} I explore two processes through which
+rebels reorganize --- splintering from existing groups, and the
+formation of alliances. I find that increases in repression are
+associated with an increased probability of rebel group splintering,
+though the result is not entirely robust. I do not find evidence to
+support my hypothesis that rebel groups which draw support from multiple
+ethnic groups are more prone to fragmentation. This seems to largely
+reflect the fact that ethnically-homogeneous groups are
+disproportionately likely to fight long-lasting, low-intensity
+separatist conflicts. I illustrate both findings with a study of the
+Karen National Union, which originally split from the multi-ethnic
+Burmese independence movement to advance the interests of the Karen
+people, but later splintered itself along religious lines. Finally,
+consistent with my expectations I find evidence that repression
+increases the probability that new ethnically-homogenous alliances will
+form, while having no effect on the formation multi-ethnic alliances.
+Though less robust than the findings in previous chapters, these results
+suggest that repression can initiate a process of realignment whereby
+rebels tend to leave multi-ethnic coalitions and form new alliances
+centered around a particular ethnic identity.
+
+Finally, I summarize the results in Chapter \ref{conclusion}, discuss
+their theoretical and policy significance, and propose several avenues
+for future research on this topic.
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{REFERENCES}{}
+
+\indent
+
+\setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing
+
+\hypertarget{refs}{}
+\hypertarget{ref-Akcinaroglu2012a}{}
+Akcinaroglu, Seden. 2012. ``Rebel Interdependencies and Civil War
+Outcomes.'' \emph{Journal of Conflict Resolution} 56 (5): 879--903.
+
+\hypertarget{ref-Asal2008}{}
+Asal, Victor, and R. Karl Rethemeyer. 2008. ``The Nature of the Beast:
+Organizational Structures and the Lethality of Terrorist Attacks.''
+\emph{The Journal of Politics} 70 (2): 437--49.
+
+\hypertarget{ref-Asal2012}{}
+Asal, Victor, Mitchell Brown, and Angela Dalton. 2012. ``Why Split?
+Organizational Splits among Ethnopolitical Organizations in the Middle
+East.'' \emph{Journal of Conflict Resolution} 56 (1): 94--117.
+
+\hypertarget{ref-Atlas1999}{}
+Atlas, Pierre M., and Roy Licklider. 1999. ``Conflict Among Former
+Allies After Civil War Settlement : Sudan , Zimbabwe , Chad , and
+Lebanon.'' \emph{Journal of Peace Research} 36 (1): 35--54.
+
+\hypertarget{ref-Ayres2000}{}
+Ayres, R. William, and Stephen Saideman. 2000. ``Is separatism as
+contagious as the common cold or as cancer? Testing international and
+domestic explanations.'' \emph{Nationalism and Ethnic Politics} 6 (3):
+91--113.
+
+\hypertarget{ref-Bapat2012}{}
+Bapat, Navin, and Kanisha Bond. 2012. ``Alliances between Militant
+Groups.'' \emph{British Journal of Political Science} 42 (4): 793--824.
+
+\hypertarget{ref-Barnett1995}{}
+Barnett, Michael N. 1995. ``Sovereignty, nationalism, and regional order
+in the Arab states system.'' \emph{International Organization} 49 (3):
+479.
+
+\hypertarget{ref-Bhavnani2011}{}
+Bhavnani, Ravi, Dan Miodownik, and Hyun Jin Choi. 2011. ``Three Two
+Tango: Territorial Control and Selective Violence in Israel, the West
+Bank, and Gaza.'' \emph{Journal of Conflict Resolution} 55 (1): 133--58.
+
+\hypertarget{ref-Cederman2010}{}
+Cederman, Lars-Erik, Andreas Wimmer, and Brian Min. 2010. ``Why do
+ethnic groups rebel?: New data and analysis.'' \emph{World Politics} 62
+(1): 87--98.
+
+\hypertarget{ref-Christia2012}{}
+Christia, Fotini. 2012. \emph{Alliance Formation in Civil Wars}.
+Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Collier2004}{}
+Collier, Paul, and Anke Hoeffler. 2004. ``Greed and grievance in civil
+war.'' \emph{Oxford Economic Papers} 56 (4): 563--95.
+
+\hypertarget{ref-Cunningham2006}{}
+Cunningham, David E. 2006. ``Veto Players and Civil War Duration.''
+\emph{American Journal of Political Science} 50 (4): 875--92.
+
+\hypertarget{ref-Cunningham2009}{}
+Cunningham, David E., Kristian Skrede Gleditsch, and Idean Salehyan.
+2009. ``It Takes Two: A Dyadic Analysis of Civil War Duration and
+Outcome.'' \emph{Journal of Conflict Resolution} 53 (4): 570--97.
+
+\hypertarget{ref-Davenport2007a}{}
+Davenport, Christian. 2007. \emph{State Repression and the Domestic
+Democratic Peace}. Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Dixon2009a}{}
+Dixon, Jeffrey. 2009. ``What Causes Civil Wars? Integrating Quantitative
+Research Findings.'' \emph{International Studies Review} 11 (4):
+707--35.
+
+\hypertarget{ref-Eifert2010}{}
+Eifert, Benn, Edward Miguel, and Daniel N. Posner. 2010. ``Political
+competition and ethnic identification in Africa.'' \emph{American
+Journal of Political Science} 54 (2): 494--510.
+
+\hypertarget{ref-fearonlaitin03}{}
+Fearon, James D., and David D. Laitin. 2003. ``Ethnicity, Insurgency,
+and Civil War.'' \emph{American Political Science Review} 97 (1):
+75--90.
+
+\hypertarget{ref-Findley2012}{}
+Findley, Michael, and Peter Rudloff. 2012. ``Combatant Fragmentation and
+the Dynamics of Civil Wars.'' \emph{British Journal of Political
+Science} 42 (4): 879--901.
+
+\hypertarget{ref-Gibler2012}{}
+Gibler, Douglas M., Marc L. Hutchison, and Steven V. Miller. 2012.
+``Individual Identity Attachments and International Conflict: The
+Importance of Territorial Threat.'' \emph{Comparative Political Studies}
+45 (12): 1655--83.
+
+\hypertarget{ref-Gleditsch2007}{}
+Gleditsch, Kristian Skrede. 2007. ``Transnational Dimensions of Civil
+War.'' \emph{Journal of Peace Research} 44 (3): 293--309.
+
+\hypertarget{ref-gurr70}{}
+Gurr, Ted Robert. 1970. \emph{Why Men Rebel}. Princeton, NJ: Princeton
+University Press.
+
+\hypertarget{ref-Hathaway2002}{}
+Hathaway, Oona A. 2002. ``Articles Do Human Rights Treaties Make a
+Difference ?'' \emph{Yale Law Journal} 111 (8): 1935--2042.
+
+\hypertarget{ref-Herbst1990}{}
+Herbst, Jeffrey. 1990. ``War and the State in Africa.''
+\emph{International Security} 14 (4): 117--39.
+
+\hypertarget{ref-Horowitz2013}{}
+Horowitz, Michael C., and Philip B. K. Potter. 2013. ``Allying to Kill:
+Terrorist Intergroup Cooperation and the Consequences for Lethality.''
+\emph{Journal of Conflict Resolution} 58 (2): 199--225.
+
+\hypertarget{ref-Kalyvas2006}{}
+Kalyvas, Stathis N. 2006. \emph{The Logic of Violence in Civil War}.
+Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Kaufmann1996b}{}
+Kaufmann, Chaim. 1996. ``Possible and Impossible Solutions to Ethnic
+Civil Wars.'' \emph{International Security} 20 (4): 136--75.
+
+\hypertarget{ref-Lane2016}{}
+Lane, Matthew. 2016. ``The Intrastate Contagion of Ethnic Civil War.''
+\emph{Journal of Politics} 78 (2): 1--15.
+
+\hypertarget{ref-Lewis2016}{}
+Lewis, Janet I. 2016. ``How Does Ethnic Rebellion Start ?''
+\emph{Comparative Political Studies}, forthcoming.
+
+\hypertarget{ref-Lichbach1987}{}
+Lichbach, Mark Irving. 1987. ``Deterrence or Escalation? The Puzzle of
+Aggregate Studies of Repression and Dissent.'' \emph{Journal of Conflict
+Resolution} 31 (2): 266--97.
+
+\hypertarget{ref-Lichbach1995}{}
+---------. 1995. \emph{The Rebel's Dilemma}. Ann Arbor, MI: University
+of Michigan Press.
+
+\hypertarget{ref-Lujala2010}{}
+Lujala, Päivi. 2010. ``The spoils of nature: Armed civil conflict and
+rebel access to natural resources.'' \emph{Journal of Peace Research} 47
+(1): 15--28.
+
+\hypertarget{ref-Lujala2005}{}
+Lujala, Päivi, Nils Petter Gleditsch, and Elisabeth Gilmore. 2005. ``A
+Diamond Curse?: Civil War and a Lootable Resource.'' \emph{Journal of
+Conflict Resolution} 49 (4): 538--62.
+
+\hypertarget{ref-McLauchlin2012}{}
+McLauchlin, Theodore, and Wendy Pearlman. 2012. ``Out-Group Conflict,
+In-Group Unity?: Exploring the Effect of Repression on Intramovement
+Cooperation.'' \emph{Journal of Conflict Resolution} 56 (1): 41--66.
+
+\hypertarget{ref-Miguel2004a}{}
+Miguel, Edward, Shanker Satyanath, and Ernest Sergenti. 2004. ``Economic
+Shocks and Civil Conflict: An Instrumental Variables Approach.''
+\emph{Journal of Political Economy} 112 (4): 725--53.
+
+\hypertarget{ref-Moore1998}{}
+Moore, Will H. 1998. ``Repression and Dissent: Substitution, Context,
+and Timing.'' \emph{American Journal of Political Science} 42 (3):
+851--73. doi:\href{https://doi.org/10.2307/2991732}{10.2307/2991732}.
+
+\hypertarget{ref-mueller00}{}
+Mueller, John. 2000. ``The Banality of Ethnic War.'' \emph{International
+Security} 25 (1): 42--70.
+
+\hypertarget{ref-Penn2008}{}
+Penn, Elizabeth Maggie. 2008. ``Citizenship versus Ethnicity: The Role
+of Institutions in Shaping Identity Choice.'' \emph{The Journal of
+Politics} 70 (4): 956--73.
+
+\hypertarget{ref-Pettersson2015a}{}
+Pettersson, Therése, and Peter Wallensteen. 2015. ``Armed conflicts,
+1946-2014.'' \emph{Journal of Peace Research} 52 (4): 536--50.
+
+\hypertarget{ref-Posner2005}{}
+Posner, Daniel N. 2005. \emph{Institutions and Ethnic Politics in
+Africa}. Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Ross2004e}{}
+Ross, Michael L. 2004. ``How Do Natural Resources Influence Civil War?
+Evidence from Thirteen Cases.'' \emph{International Organization} 58
+(01): 35--67.
+
+\hypertarget{ref-simmons09}{}
+Simmons, Beth A. 2009. \emph{Mobilizing for Human Rights: International
+Law in Domestic Politics}. Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Staniland2012d}{}
+Staniland, Paul. 2012. ``Between a Rock and a Hard Place: Insurgent
+Fratricide, Ethnic Defection, and the Rise of Pro-State
+Paramilitaries.'' \emph{Journal of Conflict Resolution} 56 (1): 16--40.
+
+\hypertarget{ref-Staniland2014}{}
+---------. 2014. \emph{Networks of Rebellion: Explaining Insurgent
+Cohesion and Collapse}. Ithaca, NY: Cornell University Press.
+
+\hypertarget{ref-Stedman1997}{}
+Stedman, Stephen John. 1997. ``Spoiler Problems in Peace Processes.''
+\emph{International Security} 22 (2): 5.
+doi:\href{https://doi.org/10.2307/2539366}{10.2307/2539366}.
+
+\hypertarget{ref-Sundberg2008a}{}
+Sundberg, Ralph. 2008. ``Collective Violence 2002-2007: Global and
+Regional Trends.'' In \emph{States in Armed Conflict 2007}, edited by
+Lotta Harbom and Ralph Sundberg. Uppsala: Universitetstryckeriet.
+
+\hypertarget{ref-Tamm2016}{}
+Tamm, Henning. 2016. ``Rebel Leaders, Internal Rivals, and External
+Resources: How State Sponsors Affect Insurgent Cohesion.''
+\emph{International Studies Quarterly}, sqw033.
+doi:\href{https://doi.org/10.1093/isq/sqw033}{10.1093/isq/sqw033}.
+
+\hypertarget{ref-Tilly1992}{}
+Tilly, Charles. 1992. \emph{Coercion, capital, and European states, AD
+990-1992}. Malden, MA: Blackwell.
+
+\hypertarget{ref-Warren2015}{}
+Warren, T. Camber, and Kevin K. Troy. 2015. ``Explaining Violent
+Intra-Ethnic Conflict : Group Fragmentation in the Shadow of State
+Power.'' \emph{Journal of Conflict Resolution} 59 (3): 484--509.
+
+\hypertarget{ref-Weinstein2007}{}
+Weinstein, Jeremy M. 2007. \emph{Inside Rebellion}. Cambridge: Cambridge
+University Press.
+
+\hypertarget{ref-Wolford}{}
+Wolford, Scott, David E. Cunningham, and William Reed. 2015. ``Why do
+Some Civil Wars Have More Rebel Groups than Others? A Formal Model and
+Empirical Analysis.'' \emph{Paper Presented at the 2015 Annual Meeting
+of the International Studies Association, New Orleans, LA}.
+
+\hypertarget{ref-Wood2003}{}
+Wood, Elisabeth Jean. 2003. \emph{Insurgent Collective Action and Civil
+War in El Salvador}. Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Wood2008a}{}
+Wood, Reed M. 2008. ```A hand upon the throat of the nation': Economic
+sanctions and state repression, 1976-2001.'' \emph{International Studies
+Quarterly} 52 (3): 489--513.
+
+\hypertarget{ref-Zeigler2016}{}
+Zeigler, Sean M. 2016. ``Competitive alliances and civil war
+recurrence.'' \emph{International Studies Quarterly} 60 (1): 24--37.
+
+
+\end{document}

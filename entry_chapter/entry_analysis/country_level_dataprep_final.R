@@ -1,8 +1,12 @@
 library(dplyr)
+library(tidyr)
+library(stringr)
 library(foreign)
 library(gdata)
 library(readr)
 library(readxl)
+library(WDI)
+library(countrycode)
 
 
 load("~/Dropbox/Civil War Data/master_rebel_yearly.Rdata")
@@ -26,12 +30,14 @@ ucdp.dyad$noneth <- ifelse(ucdp.dyad$tot_eth==0, 1, 0)
 # First code whether the war is new or ongoing
 ucdp.dyad <- ucdp.dyad %>% group_by(ConflictId) %>% mutate(lag_year=lag(Year))
 
-ucdp.dyad$new.ep1 <- ifelse((ucdp.dyad$Year - ucdp.dyad$lag_year)>1, 1, 0)
+ucdp.dyad$new.ep1 <- ifelse((ucdp.dyad$Year - ucdp.dyad$lag_year)>3, 1, 0)
 
 # Then code new groups
-ucdp.dyad$new.joiner <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$new.ep1==0 & ucdp.dyad$origin!="splinter" & ucdp.dyad$origin!="alliance", 1, 0)
+ucdp.dyad$new.joiner <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$new.ep1==0 & ucdp.dyad$origin!="splinter" & ucdp.dyad$origin!="alliance" & ucdp.dyad$origin!="militia", 1, 0)
 ucdp.dyad$new.splinter <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$origin=="splinter", 1, 0)
 ucdp.dyad$new.alliance <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$origin=="alliance", 1, 0)
+ucdp.dyad$new.mono.alliance <- ifelse(ucdp.dyad$new.alliance==1 & ucdp.dyad$monoeth==1, 1, 0)
+ucdp.dyad$new.multi.alliance <- ifelse(ucdp.dyad$new.alliance==1 & ucdp.dyad$multieth==1, 1, 0)
 
 # Code general entry status
 ucdp.dyad$splinter <- ifelse(ucdp.dyad$origin=="splinter", 1, 0)
@@ -61,6 +67,14 @@ ucdp.dyad <- left_join(ucdp.dyad, fearon)
 
 rm(fearon)
 
+ucdp.dyad <- ucdp.dyad %>% 
+  group_by(DyadId) %>% 
+  fill(ethfrac, mtnest)
+
+ucdp.dyad <- ucdp.dyad %>% 
+  group_by(DyadId) %>% 
+  fill(ethfrac, mtnest, .direction = "up")
+
 
 # 4. IV 2a: EPR groups --------
 epr <- read.csv("EPR-2014.csv")
@@ -74,7 +88,7 @@ epr$status_recode <- recode(epr$status, "MONOPOLY" = "absolute", "DOMINANT" = "a
 #aggregate to country years
 epr <- epr %>% 
   group_by(GWNoA, Year) %>%
-  summarize(country_ethnic=n_distinct(gwgroupid), country_excluded=sum(status=="excluded", na.rm=T))
+  summarize(country_ethnic=n_distinct(gwgroupid), country_excluded=sum(status_recode=="excluded", na.rm=T))
 
 ucdp.dyad <- left_join(ucdp.dyad, epr)
 
@@ -83,6 +97,33 @@ rm(epr)
 
 # 5. Instrument: Oil Revenue -------
 
+##oil rents per capita (Ross measure)
+rents <- WDI(country = "all", indicator = "NY.GDP.PETR.RT.ZS", start=1960, end=2015) #% of GDP
+gdppc <- WDI(country="all", indicator="NY.GDP.PCAP.CD", start=1960, end=2015)
+
+rents <- left_join(rents, gdppc)
+
+#multiplyin oil as % of GDP by gdppc should produce oilpc
+rents$oilpc <- rents$NY.GDP.PETR.RT.ZS * rents$NY.GDP.PCAP.CD
+
+rents$GWNoA <- countrycode(rents$iso2c, "iso2c", "cown")
+
+rents <- select(rents, GWNoA, Year=year, oilpc)
+
+ucdp.dyad <- left_join(ucdp.dyad, rents)
+
+rm(rents, gdppc)
+
+## Oil as % of merch exports 
+fuel <- WDI(country="all", indicator="TX.VAL.FUEL.ZS.UN", start=1960, end=2015)
+
+fuel$GWNoA <- countrycode(fuel$iso2c, "iso2c", "cown")
+
+fuel <- select(fuel, GWNoA, Year=year, oil.pc.exports=TX.VAL.FUEL.ZS.UN)
+
+ucdp.dyad <- left_join(ucdp.dyad, fuel)
+
+rm(fuel)
 
 
 # 6. Controls: Pop & GDP  -----
@@ -96,6 +137,20 @@ rm(gdp)
 
 
 # 7. Controls: Area ------
+area <- WDI(country="all", indicator="AG.LND.TOTL.K2", start=1960, end=2015)
+
+area$GWNoA <- countrycode(area$iso2c, "iso2c", "cown")
+
+area <- select(area, GWNoA, Year=year, area=AG.LND.TOTL.K2)
+
+ucdp.dyad <- left_join(ucdp.dyad, area)
+
+#fill pre-1960
+ucdp.dyad <- ucdp.dyad %>% 
+  group_by(DyadId) %>% 
+  fill(area, .direction=c("up"))
+
+rm(area)
 
 
 # 8. Controls: Polity -----
@@ -142,3 +197,141 @@ rm(mediation)
 
 
 # 10. Control: Contiguous Civil Wars ------
+cont <- read.csv("contdird.csv")
+
+#limit to land contiguity
+cont <- filter(cont, conttype==1)
+
+cont <- select(cont, GWNoA = state1no, state2 = state2no, Year = year)
+
+#load ucdp data and aggregate to country years
+#keep all conflict types
+load("ucdp-prio-acd-4-2016.RData")
+
+ucdp.prio.acd <- separate_rows(ucdp.prio.acd, GWNoA, sep=", ")
+
+ucdp.prio.acd <- ucdp.prio.acd %>% 
+  group_by(GWNoA, Year) %>% 
+  summarize(cont_interstate=sum(TypeOfConflict==2), cont_civil=sum(TypeOfConflict!=2), cont_maxint=max(IntensityLevel))
+
+ucdp.prio.acd <- rename(ucdp.prio.acd, state2 = GWNoA)
+
+ucdp.prio.acd$state2 <- as.numeric(as.character(ucdp.prio.acd$state2))
+
+cont <- left_join(cont, ucdp.prio.acd)
+
+rm(ucdp.prio.acd)
+
+#aggregate
+cont <- cont %>%
+  group_by(GWNoA, Year) %>% 
+  summarize(cont_interstate=sum(cont_interstate, na.rm=T), cont_civil=sum(cont_civil, na.rm=T), cont_maxint=max(cont_maxint, na.rm=T))
+
+ucdp.dyad <- left_join(ucdp.dyad, cont)
+
+rm(cont)
+
+
+# 11. Control: External Support -------
+support <- read_excel("extsup_large.xls")
+
+support <- select(support, Year = ywp_year, SideBID = actorID, external_exists, external_type_code, external_name)
+
+support$external_exists[support$external_exists < 0] <- NA
+
+# aggregated to group-years
+support <- support %>% 
+  group_by(SideBID, Year) %>% 
+  summarize(external_supporters=sum(external_exists, na.rm=T))
+
+ucdp.dyad <- left_join(ucdp.dyad, support)
+
+ucdp.dyad$external_supporters[ucdp.dyad$Year > 1974 & is.na(ucdp.dyad$external_supporters)] <- 0
+
+rm(support)
+
+
+# 12. Control: Lootable resources ------
+
+loot <- read.csv("all_resources_country.csv")
+
+loot <- rename(loot, GWNoA = COWCODE)
+
+loot$loot.dia <- ifelse(!is.na(loot$diamond.sites), 1, 0)
+loot$loot.gem <- ifelse(!is.na(loot$gem.sites), 1, 0)
+loot$loot.gold <- ifelse(!is.na(loot$gold.sites), 1, 0)
+loot$loot.oil <- ifelse(!is.na(loot$oil.sites), 1, 0)
+loot$loot.drugs <- ifelse(!is.na(loot$drug.sites), 1, 0)
+loot$lootable <- ifelse(loot$loot.dia==1 | loot$loot.gem==1 | loot$loot.gold==1 | loot$loot.oil==1 | loot$loot.drugs==1, 1, 0)
+
+loot <- select(loot, GWNoA, loot.dia, loot.gem, loot.gold, loot.oil, loot.drugs, lootable, tot.resource.sites)
+
+ucdp.dyad <- left_join(ucdp.dyad, loot)
+
+rm(loot)
+
+
+# 13. Battle-related deaths -------
+brd <- read.csv("ucdp-brd-dyadic-50-2016.csv")
+
+brd <- select(brd, DyadId, Year, BdBest)
+
+ucdp.dyad <- left_join(ucdp.dyad, brd)
+
+rm(brd)
+
+
+########## Aggregation ##############
+
+#write dyad-years
+write.csv(ucdp.dyad, "dyad_years.csv", row.names = F)
+
+# Country - years --------
+
+country.year <- ucdp.dyad %>% 
+  group_by(GWNoA, Year) %>%
+  summarize(n_rebels=n_distinct(SideBID), n_conflicts=n_distinct(ConflictId), maxint=max(IntensityLevel), new.joiner=max(new.joiner), new.alliance=max(new.alliance), new.splinter=max(new.splinter), latentmean=min(latentmean), mtnest=max(mtnest), oil.fearon=max(Oil), oil.pc.exports=max(oil.pc.exports), oilpc=max(oilpc), ethfrac=max(ethfrac), relfrac=max(relfrac), country_ethnic=max(country_ethnic), country_excluded=max(country_excluded), pop=max(pop), area=max(area), rgdppc=max(rgdppc), polity2=max(polity2), mediation=max(mediation), external_supporters=sum(external_supporters>0), lootable=max(lootable), tot.resource.sites=max(tot.resource.sites), BdBest=sum(BdBest), existing.support=sum(external_supporters>0 & new.joiner==0), cont_civil=max(cont_civil), new.multi.alliance=max(new.multi.alliance), new.mono.alliance=max(new.mono.alliance))
+
+# create some lagged variables
+country.year <- country.year %>% 
+  group_by(GWNoA) %>% 
+  mutate(latentmean_lag=lag(latentmean), latentmean_lag2=lag(latentmean,2) ,lagged_rebels=lag(n_rebels), oilpc_lag=lag(oilpc), oil.pc.exports_lag=lag(oil.pc.exports), lag_conflicts=lag(n_conflicts))
+
+country.year$latentmean_diff <- country.year$latentmean_lag - country.year$latentmean_lag2
+country.year$GWNoA <- as.factor(country.year$GWNoA)
+country.year$lgdp <- log(country.year$rgdppc)
+country.year$lpop <- log(country.year$pop)
+country.year$larea <- log(country.year$area)
+country.year$yearf <- as.factor(country.year$Year)
+country.year$new_conflict <- ifelse(country.year$n_conflicts > country.year$lag_conflicts, 1, 0)
+
+write.csv(country.year, "~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/country_year.csv", row.names = F)
+
+# Conflict - years --------
+
+conflict.year <- ucdp.dyad %>% 
+  group_by(ConflictId, Year) %>%
+  summarize(GWNoA=first(GWNoA), Incompatibility=first(Incompatibility), n_rebels=n_distinct(SideBID), n_conflicts=n_distinct(ConflictId), maxint=max(IntensityLevel), new.joiner=max(new.joiner), new.alliance=max(new.alliance), new.splinter=max(new.splinter), latentmean=min(latentmean), mtnest=max(mtnest), oil.fearon=max(Oil), oil.pc.exports=max(oil.pc.exports), oilpc=max(oilpc), ethfrac=max(ethfrac), relfrac=max(relfrac), country_ethnic=max(country_ethnic), country_excluded=max(country_excluded), pop=max(pop), area=max(area), rgdppc=max(rgdppc), polity2=max(polity2), mediation=max(mediation), external_supporters=sum(external_supporters>0), lootable=max(lootable), tot.resource.sites=max(tot.resource.sites), BdBest=sum(BdBest), existing.support=sum(external_supporters>0 & new.joiner==0), cont_civil=max(cont_civil), new.multi.alliance=max(new.multi.alliance), new.mono.alliance=max(new.mono.alliance))
+
+# create some lagged variables
+conflict.year <- conflict.year %>% 
+  group_by(ConflictId) %>% 
+  mutate(latentmean_lag=lag(latentmean), latentmean_lag2=lag(latentmean,2), lagged_rebels=lag(n_rebels), oilpc_lag=lag(oilpc), oil.pc.exports_lag=lag(oil.pc.exports), lag_conflicts=lag(n_conflicts))
+
+#recodes
+conflict.year$latentmean_diff <- conflict.year$latentmean_lag - conflict.year$latentmean_lag2
+conflict.year$GWNoA <- as.factor(conflict.year$GWNoA)
+conflict.year$lgdp <- log(conflict.year$rgdppc)
+conflict.year$lpop <- log(conflict.year$pop)
+conflict.year$larea <- log(conflict.year$area)
+conflict.year$yearf <- as.factor(conflict.year$Year)
+conflict.year$new_conflict <- ifelse(conflict.year$n_conflicts > conflict.year$lag_conflicts, 1, 0)
+
+write.csv(conflict.year, "~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/conflict_year.csv", row.names = F)
+
+# Group-level -------
+group <- ucdp.dyad %>% 
+  group_by(SideBID) %>% 
+  summarise_all(first)
+
+write.csv(group, "~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/group.csv", row.names = F)

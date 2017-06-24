@@ -1,4 +1,4 @@
-# The Formation of New Rebel Groups
+# The Formation of New Rebel Groups {#entry}
 
 ```{r child='entry_intro.txt'}
 ```
@@ -9,8 +9,8 @@
 ```{r child='entry_Results.Rmd'}
 ```
 
-```{r child='entry_conclusion.txt'}
+```{r child='burma.txt'}
 ```
 
-```{r child='burma.txt'}
+```{r child='entry_conclusion.txt'}
 ```

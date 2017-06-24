@@ -11,7 +11,7 @@ library(lme4)
 load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merged_afrobarometer.Rds")
 load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/survey_models.Rdata")
 
-map <- list("latentmean"="Human Rights", "ethfrac"="Ethnolinguistic Fractionalization", "I(ethfrac^2)"="Ethnolinguistic Fractionalization$^{2}$", "polity2"="Polity", "civil1"="Civil War", "separatist1"="Separatist War", "attack_recode_bin1"="Attacked", "intim_recode_bin1"="Intimidated", "employment_recode1"="Employed", "primary1"="Primary Education", "urban_recode1"="Urban", "ruling_supporter1"="Ruling Party Supporter", "lage"="Age", "sex2"="Female")
+map <- list("(Intercept)"="(Intercept)","latentmean"="Human Rights", "ethfrac"="Ethnolinguistic Fractionalization", "I(ethfrac^2)"="Ethnolinguistic Fractionalization$^{2}$", "polity2"="Polity", "civil1"="Civil War", "separatist1"="Separatist War", "attack_recode_bin1"="Attacked", "intim_recode_bin1"="Intimidated", "employment_recode1"="Employed", "primary1"="Primary Education", "urban_recode1"="Urban", "ruling_supporter1"="Ruling Party Supporter", "lage"="Age", "sex2"="Female")
 
 texreg(list(h7, h8), caption="Multilevel Models of Attitudes Toward Violence", custom.coef.map=map, custom.model.names=c("M1 Violence (Used)", "M2 Violence (Willing)"), label="tab:violence")
 ```
