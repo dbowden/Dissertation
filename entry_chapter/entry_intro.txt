@@ -1,6 +1,6 @@
 This chapter builds on the individual-level findings from Chapter \@ref(survey-chapter) to explain one aggregate manifestation of repression --- the formation of entirely new rebel groups. Specifically, I am interested in cases where entirely new rebel groups join ongoing civil wars. By new I simply mean a group that has not previously participated in violence. Pre-existing non-violent organizations such as religious organizations or political parties could constitute a new rebel group so long as they have not used violence previously, as would entirely new organizations that form during a conflict. I distinguish this sort of group formation from the splintering of existing organizations, as I expect the causal processes to be somewhat different. While splintering is driven by individuals who have already resorted to violence deciding to reorganize, group formation has the additional requirement of mobilizing previously non-violent individuals. To the best of my knowledge, no existing study directly addresses this question.
 
-
+I expect that repression should 
 
 *Hypothesis 3: The probability that a new rebel group will form should increase with the level of repression in the country*
 
