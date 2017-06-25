@@ -330,6 +330,10 @@ conflict.year$new_conflict <- ifelse(conflict.year$n_conflicts > conflict.year$l
 write.csv(conflict.year, "~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/conflict_year.csv", row.names = F)
 
 # Group-level -------
+ucdp.dyad <- ucdp.dyad %>% 
+  group_by(SideBID) %>% 
+  mutate(duration=(max(Year) - min(Year)))
+
 group <- ucdp.dyad %>% 
   group_by(SideBID) %>% 
   summarise_all(first)

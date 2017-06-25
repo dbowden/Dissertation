@@ -76,7 +76,7 @@ As these individual-level preferences are translated to rebel group leaders thro
 
 In short, I expect that rebel leaders have a strong incentive to be responsive to their members. When they fail to do so, or when members make demands that cannot be met, a reorganization of the rebel movement is likely.
 
-## Repression and the Dynamics of Individual Attitudes
+<!-- ## Repression and the Dynamics of Individual Attitudes
 
 While the availability of existing organizations plays a large role in determining which ideologies and identities rebel entrepreneurs initially employ in recruiting members, the appeal of these bases of mobilization can change over time. I am particularly interested in changes in the extent to which individual dissidents orient towards sub-national identities such as ethnicity or religion,^[Subsequently, I focus primarily on ethnicity. I expect that ethnicity will be the most salient cleavage in a majority of societies, but in some cases religion or other identities may play this role.] which often provide a basis for division within the dissident movement, and more inclusive priorities such as a non-sectarian ideology. I expect that government repression will be a crucial determinant of this orientation.
 
@@ -199,4 +199,4 @@ At the same time, increased ethnic identification might create opportunities for
 
 *Hypothesis 10: The probability that new, mono-ethnic alliances will form should increase with the level of repression*
 
-I provide comprehensive tests of these hypotheses in the following three chapters.
+I provide comprehensive tests of these hypotheses in the following three chapters. -->
