@@ -8,3 +8,5 @@ entry_chapter/mpsa_slides.Rmd
 entry_chapter/mpsa_slides.pdf
 entry_chapter/mpsa_notes.txt
 .Rproj.user
+survey_chapter/survey_standalone_cache/
+survey_chapter/survey_standalone_files/
