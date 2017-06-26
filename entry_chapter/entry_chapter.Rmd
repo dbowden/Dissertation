@@ -9,7 +9,7 @@
 ```{r child='entry_Results.Rmd'}
 ```
 
-```{r child='burma.txt'}
+```{r child='burma.Rmd'}
 ```
 
 ```{r child='entry_conclusion.txt'}

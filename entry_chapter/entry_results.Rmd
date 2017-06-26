@@ -3,7 +3,7 @@
 The poisson regression results are reported in Table 2. Models 1 and 2 use a dependent variable that includes all rebel groups active in a given year. Models 3 and 4 exclude splinter organizations. The "Human Rights" coefficient in Model 1 provides a test of *H1* which predicted that the number of rebel groups should increase with the level of repression. I am able to reject the null hypothesis of no relationship between repression and the number of rebel groups, as the latent respect for human rights measure has a negative relationship that is statiscally significant at the 99.9% level. As respect for human rights improves, the expected number of rebel groups declines. As a country becomes more repressive, by contrast, the expected number of rebel groups increases. Model 3 shows similar results (though only at a 95% significance level), suggesting that the relationship is not driven by the fragmentation of existing groups, but rather includes the mobilization of many new groups. Substantively, the effect of repression is large. As Figure 1 shows, the predicted number of rebel groups at the most repressive end of the spectrum is roughly 3. In the country-years where respect for human rights is highest (moderately high, in absolute terms), the expected number of groups is around 1.
 
 ```{r models}
-library(lmtest)
+library(lmtest)#
 library(plm)
 library(texreg)
 library(sjmisc)
@@ -15,6 +15,7 @@ conflict.year$multireb <- ifelse(conflict.year$lagged_rebels>1, 1, 0)
 conflict.year$latentmean_diff <- set_label(conflict.year$latentmean_diff, "Change in Human Rights")
 conflict.year$new.joiner <- set_label(conflict.year$new.joiner, "New Rebel Group")
 conflict.year$postcw <- ifelse(conflict.year$Year > 1989, 1, 0)
+conflict.year$conflictfe <- as.factor(conflict.year$ConflictId)
 
 m1 <- glm(new.joiner ~ latentmean_diff, data=data.frame(conflict.year), family=binomial("logit"))
 m1c <- coeftest(m1, vcov. = vcovHC(m1, type="HC1", cluster="GWNoA"))
@@ -28,7 +29,7 @@ m3c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
 # m3 <- glm(new.joiner ~ latentmean_diff + country_ethnic  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(conflict.year), family=binomial("logit"))
 # m3c <- coeftest(m3, vcov. = vcovHC(m3, type="HC1", cluster="GWNoA"))
 
-m4 <- glm(new.joiner ~ latentmean_diff + maxint + cont_civil + multireb + GWNoA + yearf, data=data.frame(conflict.year), family=binomial("logit"))
+m4 <- glm(new.joiner ~ latentmean_diff + maxint + cont_civil + multireb + conflictfe + yearf, data=data.frame(conflict.year), family=binomial("logit"))
 m4c <- coeftest(m4, vcov. = vcovHC(m4, type="HC1", cluster="GWNoA"))
 
 map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "latentmean_diff:ethfrac"="Human Rights X Fractionalization","country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War")
@@ -39,7 +40,7 @@ texreg(list(m1,m2,m3, m4), custom.coef.map=map, caption="Logit Models of Rebel G
 Models 1 and 3 also provide tests of *H2*, which expects that the number of rebel groups should increase with the extent to which repression is targeted in a discriminatory fashion. Again I am able to reject the null hypothesis, as the effect of discrimination is positive and statistically significant at the 99.9% level in Model 1, and at the 99% level in Model 3. As the percentage of a country's population that is *not* subjected to discrimination (i.e. discrimination becomes more targeted), the expected number of rebel groups increases. The substantive effect is smaller than that for Human Rights, however (see Figure 1). Moving from perfectly indiscriminate policies to the most finely targeted increases the expected number of rebel groups from roughly 1.4 to slightly over 2.
 
 ```{r effectplot, fig.cap="Predicted Probability of New Rebel Group Formation"}
-library(sjPlot)
+library(sjPlot)#
 library(ggplot2)
 sjp.setTheme(base=theme_bw())
 
@@ -53,7 +54,7 @@ While the results are largely consistent with my hypotheses, this analysis does 
 Additionally, this analysis does not facilitate causal claims. It is possible that government repression strategy is endogenous to the expectation that multiple rebel groups will emerge, for example. While lagging the repression and discrimination variables may mitigate this concern slightly, the addition of an instrumental variable or other quasi-experimental technique would greatly improve the validity of the analysis.
 
 ````{r rebethnic}
-group <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/group.csv")
+group <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/group.csv")#
 
 c1 <- glm(monoeth ~ joiner + splinter + alliance + Incompatibility + prevactive + country_ethnic + (rebpresosts!="no"), data=group, family=binomial("logit"))
 

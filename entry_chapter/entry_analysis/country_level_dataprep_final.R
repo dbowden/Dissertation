@@ -16,6 +16,29 @@ ucdp.dyad$GWNoA <- as.numeric(as.character(ucdp.dyad$GWNoA))
 #remove cases with ambiguous actor data (these are generic 'Palestinian Insurgents', etc)
 ucdp.dyad <- filter(ucdp.dyad, is.na(delete))
 
+# o. Create Conflict Episodes ----------
+ep <- ucdp.dyad %>% 
+  group_by(ConflictId, Year) %>% 
+  summarize()
+
+ep <- ep %>% 
+  group_by(ConflictId) %>% 
+  mutate(lag_Year=lag(Year), min_Year=min(Year))
+
+ep$new_ep <- ifelse((ep$Year - ep$lag_Year) > 3 | ep$Year==ep$min_Year, 1, 0)
+
+ep <- ep %>% 
+  group_by(GWNoA) %>% 
+  mutate(epnum=cumsum(new_ep))
+
+ep$conflict_ep <- paste(ep$GWNoA, ep$epnum, sep="-")
+
+ucdp.dyad <- left_join(ucdp.dyad, ep)
+
+ucdp.dyad <- select(ucdp.dyad, -lag_Year, -min_Year, -delete)
+
+rm(ep)
+
 
 # 1. Code DVs ---------------
 
@@ -27,13 +50,8 @@ ucdp.dyad$noneth <- ifelse(ucdp.dyad$tot_eth==0, 1, 0)
 
 ## Code joiner / splinter / alliance DV
 
-# First code whether the war is new or ongoing
-ucdp.dyad <- ucdp.dyad %>% group_by(ConflictId) %>% mutate(lag_year=lag(Year))
-
-ucdp.dyad$new.ep1 <- ifelse((ucdp.dyad$Year - ucdp.dyad$lag_year)>3, 1, 0)
-
 # Then code new groups
-ucdp.dyad$new.joiner <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$new.ep1==0 & ucdp.dyad$origin!="splinter" & ucdp.dyad$origin!="alliance" & ucdp.dyad$origin!="militia", 1, 0)
+ucdp.dyad$new.joiner <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$new_ep==0 & ucdp.dyad$origin!="splinter" & ucdp.dyad$origin!="alliance" & ucdp.dyad$origin!="militia", 1, 0)
 ucdp.dyad$new.splinter <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$origin=="splinter", 1, 0)
 ucdp.dyad$new.alliance <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$origin=="alliance", 1, 0)
 ucdp.dyad$new.mono.alliance <- ifelse(ucdp.dyad$new.alliance==1 & ucdp.dyad$monoeth==1, 1, 0)
