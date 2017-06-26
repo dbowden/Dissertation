@@ -6,8 +6,19 @@ To test the preceding hypotheses I use a dataset of country war-years derived fr
 
 #### Entry of New Rebel Groups {-}
 
-- **Number of Rebel Groups** My primary dependent variable is the number of rebel groups active in a country-conflict-year. The data comes from the UCDP Dyadic data [@Harbom2008; @Melander2016], which considers rebel factions to be separate groups if they have a discernible name. In other words, a faction connected to a larger group would be considered an independent organization and count toward this measure if it had its own name; otherwise, it would be considered part of the larger organization. Name *changes*, however, only result in the entry of a new group to the data if they are accompanied by a substantial change to the organization's composition such as a merger with another group. Note that given the difficulties of determining precisely when many rebel groups ceased operations, this measure includes all groups that appear at any point during the calendar year; it is therefore possible that this measure overstates the number of groups that were active simultaenously in some cases.
-- **Number of Non-Splinter Rebel Groups** As the process by which entirely new rebel groups emerge is likely to be somewhat different than the process by which existing rebel groups splinter, I employ an alternate DV that excludes splinter organizations from the count of active rebel groups. The measure is based on my own data collection on rebel origins, with groups being coded as splinter organizations if their leader and majority of members were previously part of a different rebel group, and transitioned directly to operating as an independent group (i.e. there was no period of peace between membership in the previous and new organizations).
+My primary dependent variable in this study is the entry of new rebel groups to an ongoing conflict. To qualify, a rebel group must meet two criteria. First, it cannot have previously participated in political violence. To determine this I use rebel origins data I collected (described in Appendix XX), and exclude groups that originated as portions of different rebel groups --- splinter organizations and alliances. This leaves rebel groups that emerged out of non-violent organizations such as political organizations, as well as militarized, but not political organizations such as local defense militias. Second, the group must join an ongoing conflict. I define a conflict as ongoing if it has produced at least 25 fatalities in at least one of the past three years. If three consecutive years of peace occur, I consider the next round of fighting to be a new conflict episode, and any new rebel groups that appear in the first year of an episode are considered to have initiated that conflict rather than joined it.
+
+Of the 503 rebel groups that appear in my data, 126 fit the definition. As some of these entered the same conflict in the same year, 106 of 1879^[Some observations are left-censored, meaning I am unable to determine whether there was conflict during the previous three years as it would predate the beginning of the dataset.]  (5.6%) of conflict-years are coded as having a new rebel group.
+
+
+#### Rebel Group Ethnicity {-}
+
+*H5* predicts that because the formation of new rebel groups is driven by a broader reorganization of society along ethnic lines, these newly-formed rebel groups should be likelier than others to draw their support from a single ethnic group. To test this I use the ACD2EPR 2014 dataset [@Wucherpfennig2011; @Vogt2015], which links rebel groups from the Uppsala Armed Conflict Data v.4-2014 [@Melander2016] to ethnic groups from the Ethnic Power Relations (EPR-Core 2014) [@Cederman2010; @Vogt2015]. This dataset identifies three forms of linkages between ethnic groups and rebel groups. First, a rebel group can claim to operate exclusively on behalf of a particular ethnic group. The dataset does allow for the possibility that a group could make such claims for multiple ethnic groups, as was the case for several of the South Sudanese separatist groups. Second, the data records all of the ethnic groups from which a rebel group recruits a significant number of soldiers. Finally, the data codes whether at least 50% of the members of an ethnic group support a rebel group. I collapse these measures into a single count of the number of ethnic groups to which a rebel group is tied. I then categorize rebel groups as "mono-ethnic," "multi-ethnic," or "non-ethnic," if they have no such ties. The distribution of cases across these categories is reported in Table \@ref(tab:acd2epr).
+
+ Non-Ethnic  | Mono-Ethnic  | Multi-Ethnic
+---|---|--
+97 | 309 | 47
+Table: (\#tab:acd2epr) Rebel Groups by Ethnic Affiliation
 
 ### Independent Variables
 
@@ -26,7 +37,7 @@ To test the preceding hypotheses I use a dataset of country war-years derived fr
 
 Additionally, I have examined the effect of several other control variables. None were statistically significant, nor did they substantially alter the performance of my variables of interest. Thus, I excluded them from the models reported below. This included several country-level variables, as well as several attributes of the largest rebel group active in a country-year.
 
-- **Democracy** A binary indicator for countries with a Polity IV score greater than 5 [@Marshall2012].
+- **Democracy** A binary indicator for countries with a Polity IV score greater than 5 [@Marshall2016].
 - **Mountainous Terrain** A measure of the percentage of land in a country that is mountainous [@fearonlaitin03].
 - **Oil Revenue** A binary indicator of whether one-third or more of a country's exports come from fossil fuels [@fearonlaitin03].
 - **Previous Conflict** A binary indicator of whether the country had experienced a previous episode of conflict separated by at least three calendar years with no fighting reaching the 25 fatality threshold.
