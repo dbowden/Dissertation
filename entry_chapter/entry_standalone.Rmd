@@ -1,0 +1,44 @@
+---
+title: "The Formation of New Rebel Groups"
+author: "David Bowden"
+date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
+output:
+    # bookdown::word_document2:
+    #    reference_docx: /Users/david/.pandoc/templates/pandoc.docx
+     bookdown::pdf_document2:
+         keep_tex: yes
+         includes:
+             in_header: /Users/david/Dropbox/Dissertation/Document/preamble.tex
+bibliography: /Users/david/Dropbox/library.bib
+biblio-sytle: apsr
+documentclass: book
+link-citations: yes
+fontsize: 12pt
+fontfamily: tgpagella
+geometry: margin=1in
+numbersections: true
+toc: no
+---
+
+```{r setup, include=F}
+knitr::opts_chunk$set(echo=F, error=F, message=F, warning=F, cache=T, results='asis', tidy=F)
+options(xtable.comment = FALSE)
+```
+
+\doublespacing
+
+\mainmatter
+
+```{r child='entry_chapter.Rmd'}
+```
+
+# References {-}
+\markboth{REFERENCES}{}
+
+\indent
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing
