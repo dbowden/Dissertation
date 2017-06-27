@@ -1,29 +1,31 @@
 ## Results
 
-The poisson regression results are reported in Table 2. Models 1 and 2 use a dependent variable that includes all rebel groups active in a given year. Models 3 and 4 exclude splinter organizations. The "Human Rights" coefficient in Model 1 provides a test of *H1* which predicted that the number of rebel groups should increase with the level of repression. I am able to reject the null hypothesis of no relationship between repression and the number of rebel groups, as the latent respect for human rights measure has a negative relationship that is statiscally significant at the 99.9% level. As respect for human rights improves, the expected number of rebel groups declines. As a country becomes more repressive, by contrast, the expected number of rebel groups increases. Model 3 shows similar results (though only at a 95% significance level), suggesting that the relationship is not driven by the fragmentation of existing groups, but rather includes the mobilization of many new groups. Substantively, the effect of repression is large. As Figure 1 shows, the predicted number of rebel groups at the most repressive end of the spectrum is roughly 3. In the country-years where respect for human rights is highest (moderately high, in absolute terms), the expected number of groups is around 1.
+### Group Formation Results
+
+The logistic regression results are reported in Table \@ref(tab:entry). Model 1 includes only the change in human rights measure, Model 2 adds a battery of controls, Model 3 includes an interaction effect between human rights and ethnolinguistic fractionalization, and Model 4 replaces the (mostly) static country-level variables with fixed effects for conflict and year.
+
+In the three models without interaction terms the Change in Human Rights variable performs as I expect. It is consistently negatively related to the probability of new rebel group formation. The relationship is statistically significant at the 99% level in all three models. The substantive effect is large, with a one-unit (which equates to roughly 1.5 standard deviations) decrease in human rights practices being associated with a roughly 400% increase in the odds of new rebel group formation. While the predicted probability of a new rebel group emerging is quite low when the change in human rights practices is zero (around 0.03, see Figure \@ref(fig:effectplot)), at the largest decreases (a change of -2.5 in one year) the probability of a new rebel group emerging is 0.72. The effect size is similar across models. With these results I am able to reject the null hypothesis of no relationship between repression and the formation of new rebel groups, consistent with my expectation in *Hypothesis 4*.
+
 
 ```{r models}
 library(lmtest)#
+library(pglm)
 library(plm)
 library(texreg)
 library(sjmisc)
 
 conflict.year <- read.csv("entry_analysis/conflict_year.csv")
 
-conflict.year$multireb <- ifelse(conflict.year$lagged_rebels>1, 1, 0)
-
 conflict.year$latentmean_diff <- set_label(conflict.year$latentmean_diff, "Change in Human Rights")
-conflict.year$new.joiner <- set_label(conflict.year$new.joiner, "New Rebel Group")
-conflict.year$postcw <- ifelse(conflict.year$Year > 1989, 1, 0)
-conflict.year$conflictfe <- as.factor(conflict.year$ConflictId)
+conflict.year$new.joiner <- set_label(conflict.year$new.joiner, "Formation of New Rebel Group")
 
 m1 <- glm(new.joiner ~ latentmean_diff, data=data.frame(conflict.year), family=binomial("logit"))
 m1c <- coeftest(m1, vcov. = vcovHC(m1, type="HC1", cluster="GWNoA"))
 
-m2 <- glm(new.joiner ~ latentmean_diff + ethfrac  + maxint + cont_civil + Incompatibility + multireb + lgdp + lpop + mtnest + polity2 + postcw, data=data.frame(conflict.year), family=binomial("logit"))
+m2 <- glm(new.joiner ~ latentmean_diff + ethfrac + I(ethfrac^2) + maxint + cont_civil + Incompatibility + multireb + lgdp + lpop + larea + mtnest + polity2 + postcw + tot.resource.sites, data=data.frame(conflict.year), family=binomial("logit"))
 m2c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
 
-m3 <- glm(new.joiner ~ latentmean_diff*ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2 + Incompatibility + postcw, data=data.frame(conflict.year), family=binomial("logit"))
+m3 <- glm(new.joiner ~ latentmean_diff*ethfrac + latentmean_diff*I(ethfrac^2) + maxint + cont_civil + multireb + lgdp + lpop + larea + mtnest + polity2 + Incompatibility + postcw + tot.resource.sites, data=data.frame(conflict.year), family=binomial("logit"))
 m3c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
 
 # m3 <- glm(new.joiner ~ latentmean_diff + country_ethnic  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(conflict.year), family=binomial("logit"))
@@ -32,35 +34,47 @@ m3c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
 m4 <- glm(new.joiner ~ latentmean_diff + maxint + cont_civil + multireb + conflictfe + yearf, data=data.frame(conflict.year), family=binomial("logit"))
 m4c <- coeftest(m4, vcov. = vcovHC(m4, type="HC1", cluster="GWNoA"))
 
-map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "latentmean_diff:ethfrac"="Human Rights X Fractionalization","country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War")
+map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "I(ethfrac^2)"="Ethnolinguistic Fractionalization$^{2}$", "latentmean_diff:ethfrac"="Human Rights X Fractionalization", "latentmean_diff:I(ethfrac^2)"="Human Rights X Fractionalization$^{2}$", "country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "larea"="Logged Area", "mtnest"="Mountainous Terrain", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War", "tot.resource.sites"="Lootable Resource Sites")
 
-texreg(list(m1,m2,m3, m4), custom.coef.map=map, caption="Logit Models of Rebel Group Formation")
+texreg(list(m1,m2,m3, m4), custom.coef.map=map, caption="Logit Models of Rebel Group Formation", label="tab:entry")
 ```
 
-Models 1 and 3 also provide tests of *H2*, which expects that the number of rebel groups should increase with the extent to which repression is targeted in a discriminatory fashion. Again I am able to reject the null hypothesis, as the effect of discrimination is positive and statistically significant at the 99.9% level in Model 1, and at the 99% level in Model 3. As the percentage of a country's population that is *not* subjected to discrimination (i.e. discrimination becomes more targeted), the expected number of rebel groups increases. The substantive effect is smaller than that for Human Rights, however (see Figure 1). Moving from perfectly indiscriminate policies to the most finely targeted increases the expected number of rebel groups from roughly 1.4 to slightly over 2.
+Model 3 provides a test of the interaction proposed in *H5*. Whereas I expect an interaction effect between the human rights measure and ethnolinguistic fractionalization, the two coefficents testing this (there are two as I expect the effect of ethnolinguistic fractionalization to be curvilinear) are not statistically significant. Ethnic diversity does not seem to matter on its own, either, as there is no evidence of a curvilinear effect, nor of a linear effect (not reported). I am thus unable to reject the null hypothesis of no relationship between ethnic diversity and the probability of new rebel groups forming. It is unclear whether this means my hypothesized mechanism of increased ethnic salience operates even at extreme levels of diversity, or if other mechanisms might operate in those cases. The analysis later in this chapter sheds light on that question.
 
-```{r effectplot, fig.cap="Predicted Probability of New Rebel Group Formation"}
-library(sjPlot)#
+```{r effectplot, fig.cap="Predicted Probability of New Rebel Group Formation (Based on Model 2)"}
+library(sjPlot)
 library(ggplot2)
 sjp.setTheme(base=theme_bw())
 
 sjp.glm(m2, type="pred", vars=("latentmean_diff"), show.ci=T, title="", show.scatter = F, axis.lim = c(0, 1))
 ```
 
-*H3*, which predicts an interactive effect between repression and discrimination, is tested in Models 2 and 4. In Model 2 the interaction is positive and statistically signficant at the 99.9% level. The marginal effects are plotted in Figure 2. The red line shows the predicted effect of Human Rights at the lowest observed value (i.e. the most repressive). At the lowest values of Discrimination (i.e. a perfectly indiscriminate political system) and most repressive values of Human Rights, the expected number of rebel groups is slightly below 2. As discrimination increases, however, the effect of repression increases. When 50% of the population is subject to discrimination, the expected number of rebel groups is roughly 2.8. When discrimination is at its highest, with 99% of the population being free from political discrimination, the effect of repression is quite strong, with a prediction of roughly 4.3 rebel groups. At the highest observed levels of human rights, the expected number of rebel groups is consistently around 1, and not affected by the level of Discrimination. In short, the interaction result suggests that we should see the greatest number of rebel groups when governments use strongly repressive tactics, but deploy such repression in a highly targeted fashion. When used indiscriminately, repression has little effect on the number of rebel groups. In Model 4, the interaction term is just shy of statistical significance. This suggests that splintering accounts for some of the interaction effect.
+Only a few control variables are significant, likely reflecting the fact that rebel group formation is a rare and time-varying outcome, while many of the predictors are largely static. New rebel groups are less likely in secessionist conflicts. As these conflicts are often fought by an ethnically homogeneous movement, this result is consistent with my overarching belief that the formation of new groups is about fighting on behalf of previously underrepresented ethnic groups. The 'Previously Multi-Rebel' measure is negatively related the probability of further groups joining, though only in the fixed effects model. This result perhaps suggests that rather than portending further fragmentation of the rebel movement, the presence of multiple rebel groups might signal that a conflict has become saturated with factions, and further additions are unlikely. Contiguous civil wars have a significant positive relationship, suggesting that some new rebel groups might be transnational in character. Again, however, the result is only significant in the fixed effects model.
 
-While the results are largely consistent with my hypotheses, this analysis does have limitations. Perhaps most notably, it does not use a perfect measure of targeted repression, instead relying on political discrimination as a proxy. I would argue, however, that this limitations is more likely to create bias *against* my hypotheses than for them. There may be people who are not part of an excluded minority group, but nevertheless are subjected to human rights violations. Indeed, as factors such as judicial independence and press freedom are significant components of the Latent Human Rights Scores, such patterns are likely. In such a case my measure would detect discrimination, but there would be many individuals behaving as if repression was indiscriminate. Conversely, some individuals may face limited political opportunities as a result of discrimination against their ethnic group, while avoiding threats to their physical integrity. This combination should produce individuals who are discinclined to cooperate with other members of society, but are not especially incentivized to resort to violence due to the absence of physical repression. Nevertheless, more precise measures should be pursued.
+These results are robust to a number of manipulations. The raw Latent Human Protection Score also consistently predicts the formation of new groups, though the substantive effect is slightly smaller than that of the differenced measure I employ. As mentioned, the results are similar when the data are aggregated into conflict years rather than treating separatist movements as distinct conflicts. I also include attributes of the largest rebel group active in the previous year, such as its size, degree of centralization, and whether it received foreign support. None change the performance of my human rights measure.
 
-Additionally, this analysis does not facilitate causal claims. It is possible that government repression strategy is endogenous to the expectation that multiple rebel groups will emerge, for example. While lagging the repression and discrimination variables may mitigate this concern slightly, the addition of an instrumental variable or other quasi-experimental technique would greatly improve the validity of the analysis.
+I do not perform any sort of causal identification in this analysis. I have examined several measures of oil production as potential instruments for repression, but none came close to the conventional standard for a strong instrument.^[An instrument is considered strong if the first-stage F-statistic is at least 10 [@Angrist2009]. The scores for the oil measures were generally around 4.5.] Matching is not an ideal choice here, as it requires a binary treatment, and my human rights measure is continuous. I cannot rule out the possibility that my results actually reflect the government's ability to anticipate new rebellions. Given that a rebel group must produce 25 fatalities in a calendar year before it enters the data, it is possible for an organization to exist, and for the government to be aware of it, in the years prior to it being coded as a new group in my data. However, I am skeptical that the temporal structure of such a process would be consistent enough to produce the results I report here --- it is unlikely that the increase in repression would consistent occur one year before the rebel group produces 25 fatalities, rather two or three years prior.
 
-````{r rebethnic}
+Ultimately, these results provide strong support for *H4*, as changes in human rights are robustly related to the formation of new rebel groups. I do not find support that ethnic diversity is related to this outcome, as I predicted in *H5*. Yet, this hypothesis is intended to establish scope conditions. The lack of support could then be an indication that my theory applies more broadly than I expected.
+
+### Group Composition Results
+
+*H6* predicts that the groups which join ongoing conflicts should be more likely than others to draw their support from a single ethnic group. This proposition is tested in Table \@ref(tab:comp). These analyses use the rebel group as the unit of analysis, with the ethnic composition of the group being the dependent variable. In Model 5 the dependent variable is monoethnic composition, in Model 6 it is multiethnic composition, and in Model 7 it is nonethnic composition, meaning the group has no discernible ties to a politically-relevant ethnic group. I include two group-level covariates from the Non-State Actor Dataset [@Cunningham2009]: binary indicators of whether the group was active in a previous conflict, and whether it is a transnational organization.
+
+```{r rebethnic}
 group <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/group.csv")#
 
-c1 <- glm(monoeth ~ joiner + splinter + alliance + Incompatibility + prevactive + country_ethnic + (rebpresosts!="no"), data=group, family=binomial("logit"))
+c1 <- glm(monoeth ~ joiner + Incompatibility + prevactive + ethfrac + (rebpresosts!="no"), data=group, family=binomial("logit"))
 
-c2 <- glm(multieth ~ joiner + splinter + alliance + Incompatibility + prevactive + country_ethnic + (rebpresosts!="no"), data=group, family=binomial("logit"))
+c2 <- glm(multieth ~ joiner + Incompatibility + prevactive + ethfrac + (rebpresosts!="no"), data=group, family=binomial("logit"))
 
-c3 <- glm(noneth ~ joiner + splinter + alliance + Incompatibility + prevactive + country_ethnic + (rebpresosts!="no"), data=group, family=binomial("logit"))
+c3 <- glm(noneth ~ joiner + Incompatibility + prevactive + ethfrac + (rebpresosts!="no"), data=group, family=binomial("logit"))
 
-texreg(list(c1,c2,c3), caption="Logit Models of Rebel Group Ethnic Composition", custom.model.names=c("M1 Monoethnic", "M2 Multiethnic", "M3 Nonethnic"))
+map2 <- list("(Intercept)"="(Intercept)", "joiner"="Joiner", "splinter"="Splinter", "alliance"="Alliance", "Incompatibilityterritory"="Secessionist", "prevactive"="Previously Active", "ethfrac"="Ethnlinguistic Fractionalization", 'rebpresosts != "no"TRUE'="Transnational")
+
+texreg(list(c1,c2,c3), caption="Logit Models of Rebel Group Ethnic Composition", custom.model.names=c("M5 Monoethnic", "M6 Multiethnic", "M7 Nonethnic"), label="tab:comp", custom.coef.map=map2)
 ```
+
+Consistent with *H6*, I find that rebel groups that join ongoing conflicts are nearly twice as likely as others to be monoethnic. The relationship is statistically significant at the 95% level. Joining status is not related to multiethnic or nonethnic composition. Secessionist groups are also more likely than others to be monoethnic, while being significantly less likely to be multiethnic or nonethnic. Unsurprisingly, the level of ethnolinguistic fractionalization in a country is positively related to the probability that rebel groups there will be multiethnic, and negatively related to their likelihood of being nonethnic. Finally transnational groups are more likely than others to be multiethnic, and less likely to lack an ethnic affiliation.
+
+This analysis provides support both for *Hypothesis 6*, and for my broader theoretical framework. I expect that the entry of new rebel groups to ongoing conflicts is the manifestation of increased mobilization around ethnic identity. The fact that rebel groups of this kind are significantly more likely than others to draw their support from a single ethnic group provides strong evidence for this argument. Future work should delve deeper into group attributes, looking not only at recruitment and claims of representation, but also the platform that rebel groups adopt. I would expect that joining groups would tend to place greater emphasis on ethnic grievances than others.

@@ -51,7 +51,7 @@ ucdp.dyad$noneth <- ifelse(ucdp.dyad$tot_eth==0, 1, 0)
 ## Code joiner / splinter / alliance DV
 
 # Then code new groups
-ucdp.dyad$new.joiner <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$new_ep==0 & ucdp.dyad$origin!="splinter" & ucdp.dyad$origin!="alliance" & ucdp.dyad$origin!="militia", 1, 0)
+ucdp.dyad$new.joiner <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$new_ep==0 & ucdp.dyad$origin!="splinter" & ucdp.dyad$origin!="alliance" , 1, 0)
 ucdp.dyad$new.splinter <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$origin=="splinter", 1, 0)
 ucdp.dyad$new.alliance <- ifelse(ucdp.dyad$rebel_age==0 & ucdp.dyad$origin=="alliance", 1, 0)
 ucdp.dyad$new.mono.alliance <- ifelse(ucdp.dyad$new.alliance==1 & ucdp.dyad$monoeth==1, 1, 0)
@@ -329,7 +329,7 @@ write.csv(country.year, "~/Dropbox/Dissertation/Document/entry_chapter/entry_ana
 
 conflict.year <- ucdp.dyad %>% 
   group_by(ConflictId, Year) %>%
-  summarize(GWNoA=first(GWNoA), Incompatibility=first(Incompatibility), n_rebels=n_distinct(SideBID), n_conflicts=n_distinct(ConflictId), maxint=max(IntensityLevel), new.joiner=max(new.joiner), new.alliance=max(new.alliance), new.splinter=max(new.splinter), latentmean=min(latentmean), mtnest=max(mtnest), oil.fearon=max(Oil), oil.pc.exports=max(oil.pc.exports), oilpc=max(oilpc), ethfrac=max(ethfrac), relfrac=max(relfrac), country_ethnic=max(country_ethnic), country_excluded=max(country_excluded), pop=max(pop), area=max(area), rgdppc=max(rgdppc), polity2=max(polity2), mediation=max(mediation), external_supporters=sum(external_supporters>0), lootable=max(lootable), tot.resource.sites=max(tot.resource.sites), BdBest=sum(BdBest), existing.support=sum(external_supporters>0 & new.joiner==0), cont_civil=max(cont_civil), new.multi.alliance=max(new.multi.alliance), new.mono.alliance=max(new.mono.alliance))
+  summarize(GWNoA=first(GWNoA), Incompatibility=first(Incompatibility), n_rebels=n_distinct(SideBID), n_conflicts=n_distinct(ConflictId), maxint=max(IntensityLevel), new.joiner=max(new.joiner), new.alliance=max(new.alliance), new.splinter=max(new.splinter), latentmean=min(latentmean), mtnest=max(mtnest), oil.fearon=max(Oil), oil.pc.exports=max(oil.pc.exports), oilpc=max(oilpc), ethfrac=max(ethfrac), relfrac=max(relfrac), country_ethnic=max(country_ethnic), country_excluded=max(country_excluded), pop=max(pop), area=max(area), rgdppc=max(rgdppc), polity2=max(polity2), mediation=max(mediation), external_supporters=sum(external_supporters>0), lootable=max(lootable), tot.resource.sites=max(tot.resource.sites), BdBest=sum(BdBest), existing.support=sum(external_supporters>0 & new.joiner==0), cont_civil=max(cont_civil), new.multi.alliance=max(new.multi.alliance), new.mono.alliance=max(new.mono.alliance), tot.resource.sites=max(tot.resource.sites))
 
 # create some lagged variables
 conflict.year <- conflict.year %>% 
@@ -344,6 +344,11 @@ conflict.year$lpop <- log(conflict.year$pop)
 conflict.year$larea <- log(conflict.year$area)
 conflict.year$yearf <- as.factor(conflict.year$Year)
 conflict.year$new_conflict <- ifelse(conflict.year$n_conflicts > conflict.year$lag_conflicts, 1, 0)
+conflict.year$multireb <- ifelse(conflict.year$lagged_rebels>1, 1, 0)
+conflict.year$latentmean_diff <- set_label(conflict.year$latentmean_diff, "Change in Human Rights")
+conflict.year$new.joiner <- set_label(conflict.year$new.joiner, "New Rebel Group")
+conflict.year$postcw <- ifelse(conflict.year$Year > 1989, 1, 0)
+conflict.year$conflictfe <- as.factor(conflict.year$ConflictId)
 
 write.csv(conflict.year, "~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/conflict_year.csv", row.names = F)
 
