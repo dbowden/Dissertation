@@ -26,19 +26,10 @@ c3c <- coeftest(c2, vcov. = vcovHC(c2, type="HC1", cluster="GWNoA"))
 # m3 <- glm(new.joiner ~ latentmean_diff + country_ethnic  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(conflict.year), family=binomial("logit"))
 # m3c <- coeftest(m3, vcov. = vcovHC(m3, type="HC1", cluster="GWNoA"))
 
-c4 <- glm(new.joiner ~ latentmean_diff + maxint + cont_civil + multireb + GWNoA + yearf, data=data.frame(conflict.year), family=binomial("logit"))
+c4 <- glm(new.splinter ~ latentmean_diff + maxint + cont_civil + multireb + GWNoA + yearf, data=data.frame(conflict.year), family=binomial("logit"))
 c4c <- coeftest(c4, vcov. = vcovHC(c4, type="HC1", cluster="GWNoA"))
 
 map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "latentmean_diff:ethfrac"="Human Rights X Fractionalization","country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War")
 
 texreg(list(c1,c2,c3, c4), custom.coef.map=map, caption="Logit Models of Splinter Group Formation")
-```
-
-```{r splinter-group}
-group <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/group.csv")
-
-s1 <- glm(splinter.source ~ multieth + latentmean + centcontrol, data=group)
-
-texreg(s1)
-
 ```

@@ -5,7 +5,7 @@ library(lmtest)
 library(plm)
 library(texreg)
 library(sjmisc)
-library(Zelig)
+library(Zelig, quietly=T)
 
 country.year <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/conflict_year.csv")
 
@@ -20,13 +20,13 @@ country.year$yearf <- as.factor(country.year$Year)
 # m1 <- glm(new.mono.alliance ~ latentmean_diff, data=data.frame(country.year), family=binomial("logit"))
 # m1c <- coeftest(m1, vcov. = vcovHC(m1, type="HC1", cluster="GWNoA"))
 
-m2 <- zelig(new.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit")
+m2 <- zelig(new.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit", cite=F)
 #m2c <- coeftest(m2, vcov. = vcovHC(m2, type="HC1", cluster="GWNoA"))
 
-m3 <- zelig(new.multi.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit")
+m3 <- zelig(new.multi.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit", cite=F)
 #m3c <- coeftest(m3, vcov. = vcovHC(m3, type="HC1", cluster="GWNoA"))
 
-m4 <- zelig(new.mono.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit")
+m4 <- zelig(new.mono.alliance ~ latentmean_diff + ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(country.year), model="relogit", cite=F)
 #m4c <- coeftest(m4, vcov. = vcovHC(m4, type="HC1", cluster="GWNoA"))
 
 map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "latentmean_diff:ethfrac"="Human Rights X Fractionalization","country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War")

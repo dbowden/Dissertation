@@ -1,0 +1,5 @@
+## Research Design
+
+### Splintering
+
+There are 113 splinter organizations in my data. As there are four cases in which a rebel group produced two splinter organizations in the same year, the number of failure events in my data is 109. 

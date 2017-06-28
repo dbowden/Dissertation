@@ -3,6 +3,9 @@
 ````{r child='realignment_intro.txt'}
 ```
 
+```{r child='realignment_design.Rmd'}
+```
+
 ```{r child='splintering_results.Rmd'}
 ```
 

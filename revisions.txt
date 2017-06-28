@@ -1,0 +1,3 @@
+# Revisions
+
+- Flip order of alliance hypotheses in theory
