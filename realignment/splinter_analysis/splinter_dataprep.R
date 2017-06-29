@@ -13,7 +13,7 @@ splinter <- subset(ucdp.dyad, origin=="splinter")
 
 splinter <- splinter %>% 
   group_by(SideBID) %>% 
-  summarize(Year=min(Year), splinter.name=first(SideB), origin.name=first(origin.name))
+  summarize(Year=min(Year), location=first(Location), splinter.name=first(SideB), origin.name=first(origin.name))
 
 splinter <- rename(splinter, SideB=origin.name)
 
@@ -72,9 +72,11 @@ rm(hrp)
 
 group.years <- group.years %>% 
   group_by(SideBID) %>% 
-  mutate(latentmean_lag=lag(latentmean))
+  mutate(latentmean_lag=lag(latentmean), latentmean_lag2=lag(latentmean,2))
 
 group.years$latentmean_diff <- group.years$latentmean - group.years$latentmean_lag
+
+group.years$latentmean_diff2 <- group.years$latentmean_lag - group.years$latentmean_lag2
 
 #Ethfrac
 fearon <- read.dta("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/repdata.dta")
@@ -92,3 +94,5 @@ group.years <- group.years %>%
 group.years <- group.years %>%
   group_by(SideBID) %>%
   fill(ethfrac, mtnest, .direction = "up")
+
+

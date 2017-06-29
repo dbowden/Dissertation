@@ -1,5 +1,67 @@
 ## Research Design
 
+While I believe them to be the result of closely related theoretical processes, the splintering of individual rebel organizations and the formation of alliances between separate organizations require distinct research designs. I first explain my choice of designs for studying splintering.
+
 ### Splintering
 
-There are 113 splinter organizations in my data. As there are four cases in which a rebel group produced two splinter organizations in the same year, the number of failure events in my data is 109. 
+The first phenomenon I explain in this chapter is splintering. As the explanatory factors in *H7* and *H8* are group attributes, the unit of analysis in this portion of the study is the rebel group-year. I seek to explain not simply which conflict years produce splinter organizations, but also which rebel groups within those conflict years. I draw my sample of cases from the UCDP Dyadic Dataset, version 4-2016 [@Melander2016], which includes an observation for every non-state actor in every year in which it was involved in conflict with the government producing at least 25 fatalities. After collapsing observations for rebel groups that appear in multiple conflicts in a single year, I am left with a dataset of 2,656 rebel group years covering the period 1946--2015.
+
+#### Dependent Variables {-}
+
+**Splintering**
+
+The first dependent variable in this portion of the analysis is the splintering of existing rebel groups. I use my own data on rebel group origins to identify splinter groups.^[The UCDP Actor data [@ucdpactor] does identify splinter groups, but uses very conservative coding rules that exclude many clear examples of splinter.] A group is coded as a splinter organization if most of its leadership were previously members of another rebel group. I follow the UCDP coding decisions for distinguishing cases where a new group has emerged from simple name changes. Essentially, a group is considered new if its leadership, organizational structure, or membership differs substantially from previous existing organizations. When two groups disagree about which is the original organization and which is the splinter, the larger group is considered the original.
+
+113 of the 506 rebel groups in my data are splinter organizations. As there are four cases in which a rebel group produced two splinter organizations in the same year, the number of years in which a new splinter organization emerged is 109. However, a large portion of these are coterminous with dissolution of the original organization. Typically in these cases the main organization will agree to a peace deal, and a radical faction will form a splinter organization to continue fighting. While this is an interesting and consequential phenomenon, it has already received a substantial amount of attention from scholars [e.g. @Stedman1997]. Furthermore, I am interested in processes that increase or decrease the number of rebel groups in a conflict. Replacing a large, moderate organization with a more radical splinter has important implications for the probability of peace and the tactics likely to be deployed. Ultimately, however, it does not alter the number of rebel groups competing simultaneously. I thus consider these cases to be beyond the scope of this dissertation, and exclude them from my analyses. This leaves a total of 25 cases in which a splinter and parent organization were active simultaneously. This variable is coded as 1 in the group-year in which a parent organization loses a splinter faction (i.e. I examine the groups that splinter).
+
+**Rebel Group Ethnicity**
+
+*H8* predicts that splinter organizations should be more likely than others to draw support from a single ethnic group. As I did for the similar hypothesis in Chapter \@ref(entry), I use the the ACD2EPR 2014 dataset [@Wucherpfennig2011; @Vogt2015] to determine this. The data measures three categories of ties between rebel and ethnic groups --- explicit claims of representation, recruiting, and support from at least half the ethnic group. I collapse these forms to code a trichotomous measure indicating whether a rebel group is multi-ethnic, mono-ethnic, or non-ethnic, meaning it has no observable links to any ethnic group.
+
+#### Independent Variables {-}
+
+**Human Rights**
+
+I again use the Latent Human Protection scores, version 2 [@Fariss2014; @Schnakenberg2014] to measure repression. As I do in Chapter \@ref(entry), I combat the fact that the measure is mostly static with a slight positive trend over time by using the change over the previous. In this measure, a negative score indicates that a country has become more repressive, while a positive score means that human rights have improved. In this sample the mean change is just 0.01, but there are numerous large change in both directions.
+
+**Multi-ethnic Group**
+
+To test *H7* I use the measure of rebel group ethnicity that serves as a dependent variable later in the chapter. In this case I collapse the measure into a dichotomous indicator with rebel groups that draw support from multiple ethnic groups coded as 1, and all others coded as zero. There are relatively few multi-ethnic groups in the data, with the attribute occurring in 334 of 2393 valid group-year observations.
+
+**Splinter Organization**
+
+The test of *H8* uses the splinter variable from my rebel origins data as an explanatory factor. The coding rules are described above. 113 out of 503 rebel groups are splinter organizations.
+
+#### Control Variables {-}
+
+I include many of the country-level covariates from Chapter \@ref(entry) in the splintering analyses as controls. These include ethnolinguistic fractionalization [@fearonlaitin03], Polity IV score [@Marshall2016], land area [@WorldBank2015], population [@Gleditsch2002b], GDP per capita [@Gleditsch2002b], and a count of lootable resource sites [@Lujala2007; @Gilmore2007; @Lujala2005; @Balestri2012; @Lujala2008; @Buhaug2005]. Refer to the previous chapter for detailed descriptions.
+
+Additionally I include several rebel group-level controls from @Cunningham2009. These include a binary indicators of whether the rebel group is stronger than the government, whether the group has a presence in multiple states, whether the group has a political wing, whether the group controls territory, whether the group has centralized control, and whether it receives external support. Each of these measures is a snapshot, measured for each group at only one point in time.
+
+#### Modeling Strategies {-}
+
+To test *H6* and *H7* I use a Cox proportional hazard survival model. This is a useful modeling framework in this case because the probability that a rebel group will splinter is in part a function of time. In a standard logistic regression analysis with the rebel group as the unit of analysis, the duration of time the group was active is such a strong predictor of splintering that it typically nullifies the significance of all other variables. The Cox model addresses this by treating splintering as a function of time, expressed as the probability that a rebel group will survive a given number of years without splintering. Independent variables explain deviations from this baseline survival curve.
+
+The exact specification of the dependent variable in this analysis is the number of years between a rebel group's first appearance in the data and the first time it generates a splinter organization. I remove a rebel group from the study once it has splintered for the first time. This results in the exclusion of three instances of splintering from rebel groups that had splintered previously. As many of my covariates are measured at the country level and there are often multiple rebel groups per country, I cluster the standard errors by country.
+
+To test *H8* I use a simple logistic regression with the rebel group as the unit of analysis. The mono-ethnic indicator is the dependent variable, and the indicator of whether the group is a splinter organization is the main predictor.
+
+### Alliance Formation
+
+The research design for the two alliance formation hypotheses (*H9* and *H10*) closely resembles the group formation analysis from Chapter \@ref(entry). The unit of analysis is the conflict-year. While I control for the number of rebel groups, I do not exclude observations that have only one rebel group. There are several cases where a new rebel group enters a conflict and joins an alliance in the same calendar year.
+
+#### Dependent Variable {-}
+
+The dependent variables for the two hypotheses are the formation of two different types of alliances --- mono-ethnic and multi-ethnic. I use my data on rebel origins to determine when a new alliance has formed. I code an alliance as any group whose members are drawn from at least two distinct previously active rebel groups. These alliances constitute a substantial enough integration of command that they replace their constituent groups in the data. In many cases, however, the alliance splinters and the members groups re-enter the data. I combine the alliance measure with the ethnic composition variable to code two dependent variables --- the formation of new multi-ethnic alliances, and of new mono-ethnic ones. Alliances involving this degree of integration are rare. New mono-ethnic alliances form in 29 of 2014 conflict-years, while there are only 13 years in which a new multi-ethnic alliance emerged.
+
+#### Independent Variable {-}
+
+I use same measure of human rights as in the preceding analyses. I again use the lagged change in the Latent Human Protection Score [@Fariss2014; @Schnakenberg2014]. The mean change in this data is -0.01, with a range from -2.51 to 1.50.
+
+#### Control Variables {-}
+
+I include two conflict-level controls: a binary indicator of whether the conflict produced 1,000 or more fatalities in a year, and a binary indicator of whether multiple rebel groups participated in the conflict in a year. Both measures come from the UCDP Dyadic Data [@Melander2016]. Additionally I control for several country-level factors, including ethnolinguistic fractionalization and the percentage of terrain that is mountainous [@fearonlaitin03], population and GDP per capita [@Gleditsch2002b], the Polity IV score [@Marshall2016], and an indicator of whether there was a civil war in a neighboring country.
+
+#### Modeling Strategy {-}
+
+As both dependent variables are binary but rare, I use a logistic regression with a rare events correction [@King2001a]. As there are sometimes multiple conflicts in a country-year, I cluster the standard errors by country.

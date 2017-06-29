@@ -3,17 +3,20 @@ library(survival)
 group.years$time1 <- group.years$time + 1
 
 group.years$stronger <- ifelse(group.years$rebstrength=="stronger" | group.years$rebstrength=="much stronger", 1, 0)
+group.years$multieth <- ifelse(group.years$tot_eth>1, 1, 0)
 
-m1 <- coxph(Surv(time, time1, death) ~ latentmean + (tot_eth>1) , data=group.years)
+S1 <- Surv(group.years$time, group.years$time1, group.years$death)
+
+m1 <- coxph(S1 ~ latentmean_diff + multieth + cluster(GWNoLoc), data=data.frame(group.years))
 summary(m1)
 
 texreg::screenreg(m1)
 
 
-m2 <- coxph(Surv(time, time1, death) ~ latentmean + (tot_eth>1) + ethfrac , data=group.years)
+m2 <- coxph(S1 ~ latentmean_diff + multieth + ethfrac + cluster(GWNoLoc), data=group.years)
 summary(m2)
 
-m3 <- coxph(Surv(time, time1, death) ~ latentmean_diff + (tot_eth>1) + rebpresosts_bin + rebpolwing_bin + stronger, data=group.years)
+m3 <- coxph(S1 ~ latentmean_diff + multieth + rebpresosts_bin + rebpolwing_bin + stronger + cluster(GWNoLoc), data=group.years)
 summary(m3)
 
 fit <- survfit(Surv(time, time1, death) ~ (latentmean_diff < 0), data=group.years)
