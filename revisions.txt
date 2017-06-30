@@ -3,3 +3,4 @@
 - Flip order of alliance hypotheses in theory
 - Change "level of repression" hypotheses to shock wording
 - Statistical power calculation for relogit
+- Discuss qualitative sections in research design

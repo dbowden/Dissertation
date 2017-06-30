@@ -1,35 +1,59 @@
 ## Splintering Results
 
-```{r splinter-yearly}
-library(lmtest)
-library(plm)
+Results of the splintering analysis are reported in Table \@ref(tab:survival). I fit five Cox proportional hazard models with different batteries of covariates. Model 1 includes only the two independent variables used to test my hypotheses --- the lagged change in human rights, and an indicator of whether the rebel group is multi-ethnic. In Model 2 I add several country-level control variables. Model 3 combines the change in human rights with a set of rebel group-level controls.
+
+```{r survival}
+library(survival)
 library(texreg)
-library(sjmisc)
 
-conflict.year <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/conflict_year.csv")
+group.years <- read.csv("splinter_analysis/survival_data.csv")
 
-conflict.year$multireb <- ifelse(conflict.year$lagged_rebels>1, 1, 0)
+group.years$commie <- ifelse(group.years$conflicttype_recode=="communist rebellion", 1, 0)
 
-conflict.year$latentmean_diff <- set_label(conflict.year$latentmean_diff, "Change in Human Rights")
-conflict.year$new.joiner <- set_label(conflict.year$new.joiner, "New Rebel Group")
-conflict.year$postcw <- ifelse(conflict.year$Year > 1989, 1, 0)
+S1 <- Surv(group.years$time, group.years$time1, group.years$death)
 
-c1 <- glm(new.splinter ~ latentmean_diff, data=data.frame(conflict.year), family=binomial("logit"))
-c1c <- coeftest(c1, vcov. = vcovHC(c1, type="HC1", cluster="GWNoA"))
+m1 <- coxph(S1 ~ latentmean_diff + multieth + cluster(GWNoLoc), data=group.years)
 
-c2 <- glm(new.splinter ~ latentmean_diff + ethfrac  + maxint + cont_civil + Incompatibility + multireb + lgdp + lpop + mtnest + polity2 + postcw, data=data.frame(conflict.year), family=binomial("logit"))
-c2c <- coeftest(c2, vcov. = vcovHC(c2, type="HC1", cluster="GWNoA"))
+# m2 <- coxph(S1 ~ latentmean + multieth + cluster(GWNoLoc), data=group.years)
 
-c3 <- glm(new.splinter ~ latentmean_diff*ethfrac  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2 + Incompatibility + postcw, data=data.frame(conflict.year), family=binomial("logit"))
-c3c <- coeftest(c2, vcov. = vcovHC(c2, type="HC1", cluster="GWNoA"))
+m3 <- coxph(S1 ~ latentmean_diff + multieth + polity2 + log(rgdppc) + log(pop) + log(area) + ethfrac + tot.resource.sites + IntensityLevel + cluster(GWNoLoc), data=group.years)
 
-# m3 <- glm(new.joiner ~ latentmean_diff + country_ethnic  + maxint + cont_civil + multireb + lgdp + lpop + mtnest + polity2, data=data.frame(conflict.year), family=binomial("logit"))
-# m3c <- coeftest(m3, vcov. = vcovHC(m3, type="HC1", cluster="GWNoA"))
+m6 <- coxph(S1 ~ latentmean + multieth + polity2 + log(rgdppc) + log(pop) + log(area) + ethfrac + tot.resource.sites + IntensityLevel + cluster(GWNoLoc), data=group.years)
 
-c4 <- glm(new.splinter ~ latentmean_diff + maxint + cont_civil + multireb + GWNoA + yearf, data=data.frame(conflict.year), family=binomial("logit"))
-c4c <- coeftest(c4, vcov. = vcovHC(c4, type="HC1", cluster="GWNoA"))
+m4 <- coxph(S1 ~ latentmean_diff + multieth + rebpresosts_bin + rebpolwing_bin + stronger + cluster(GWNoLoc), data=group.years)
 
-map <- list("(Intercept)"="(Intercept)","latentmean_diff" = "Change in Human Rights", "ethfrac" = "Ethnolinguistic Fractionalization", "latentmean_diff:ethfrac"="Human Rights X Fractionalization","country_ethnic"="Ethnic Groups", "maxint" = "Intensity Level", "new_conflict" = "New Conflict", "multireb"="Prev. Multi-rebel", "cont_civil" = "Contiguous Civil War", "lagged_rebels" = "Lagged Rebel Groups", "Incompatibilityterritory" = "Secessionist", "lgdp" = "Logged GDP per capita",  "lpop" = "Logged Population", "polity2" = "Polity", "postcw"="Post Cold War")
+m5 <- coxph(S1 ~ latentmean + multieth + rebpresosts_bin + rebpolwing_bin + stronger + cluster(GWNoLoc), data=group.years)
 
-texreg(list(c1,c2,c3, c4), custom.coef.map=map, caption="Logit Models of Splinter Group Formation")
+survmap <- list("latentmean_diff"="Change in Human Rights", "latentmean"="Human Rights", "multieth"="Multi-ethnic Group", "polity2"="Polity", "log(rgdppc)"="Logged GDPpc", "log(pop)"="Logged Population", "log(area)"="Logged Area", "ethfrac"="Ethnolinguistic Fractionalization", "tot.resource.sites"="Lootable Resource Sites", "IntensityLevel"="Intensity Level", "rebpresosts_bin"="Transnational Group", "rebpolwing_bin"="Political Wing", "stronger"="Stronger than Gov.")
+
+texreg(list(m1,m3, m4), caption="Cox Proportional Hazard Models of Rebel Group Splintering", stars = c(0.001, 0.01, 0.05, 0.1), symbol="\\dagger", label="tab:survival", custom.coef.map=survmap)
+#positive coefficient: higher risk of death
+#negative coefficient: lower risk of death
+#human rights is negative: improvements in human rights reduce the risk of splintering
+```
+
+The coefficients of a Cox model represent the effect of a variable on the hazard of failure (splintering in this case). A positive coefficient indicates that the risk of splintering increases with the level of that variable, while a negative coefficients signifies a reduced risk. Consistent with *H6* I find that the change in human rights is negatively related to the hazard of splintering. As human rights improve the risk that a rebel group will splinter decreases; as a country becomes more repressive, the risk of splintering increases. However, the effect is only statistically significant in Models 1 and 4, and even then only at the 90% level. The effect size is large, with a one-unit increase in human rights being associated with a 70% reduction in the likelihood of splintering in Model 1, and a 74% reduction in Model 4. The relationship is not significant in Model 2, though it is not clear whether the relationship is confounded by the country-level covariates, or the change is the result of missing data on those variables. 
+
+The findings are thus mostly consistent with *H6*, though not as robust as most of the analyses in the preceding chapters. Several cases from the data clearly fit my theoretical framework. The Karenni ethnic group of Burma are close relatives of the Karen, and fought as members of the Karen National Union (KNU) for the first several years of Burmese independence. In 1957, however, the Karenni left the KNU to form their own rebel group, the Karenni National Progressive Party (KNPP). This case illustrates that splintering does not always lead to hostile relations between the formerly united groups, however, as the KNU strongly supported the KNPP's desire to pursue a separate Karenni state [@Fredholm1993]. The Free Aceh Movement splintered from Darul Islam in Indonesia to pursue independence for the Acehnese people, rather than the Darul Islam's goals of an Islamic State in Indonesia. A review of the cases also suggests a possible explanation for the lack of robustness --- communist rebel groups are highly prone to fragmentation, and account for a large portion of the splinter organizations. 
+
+I find no support for *H7*, as the multi-ethnic variable never approaches statistical significance. As I discuss in the study of the Shan State independence movement later in this chapter, it is seemingly common for ethnically homogeneous groups to splinter. Only one control variable is significant --- the indicator of whether a rebel group is stronger than the government in Model 3. Being stronger than the government increases the risk of splintering by a factor of seven. This suggests that splintering has a strong strategic element. When rebels are weak and cannot afford any loss in capability, they hang together. When victory appears likely, however, they act on their internal differences, perhaps with an eye toward post-war bargaining.
+
+In summary the results of this analysis are largely consistent with my broader theory, though not robust to the inclusion of country-level controls. I interpret the results as suggesting that ethnic polarization is a common pathway to splintering. It is not, however, the only pathway. Communist rebellions are prone to splintering along doctrinal lines, and splinter organizations often emerge late in conflicts to continue the fighting after the original organization ceases its activities.
+
+### Splinter Group Ethnicity
+
+*H8* predicts that splinter organizations should be more likely than others to draw their support from a single ethnic group. If splintering is fundamentally about reorganization along ethnic lines, it stands to reason that the leaders of splinter organizations should take only co-ethnics with them. I test this proposition in Table \@ref(tab:splintcomp). I do not find support for *H8*, as splinter organizations are not likely than others (alliances and originating rebel groups constitute the baseline) to be ethnically-homogeneous. Splinter organizations also do not significantly differ in their probability of being multi-ethnic. I do find that splinter organizations are less likely less likely than others to have no ties to any ethnic group, with the effect being significant at the 95% level. This suggests that support from ethnic constituents might be an important factor in facilitating splintering. Factions that lack such support may be more likely to remain in the original rebel group, as they have less assurance of being able to acquire enough resources to be a viable independent group.
+
+```{r splinterethnic}
+group <- read.csv("~/Dropbox/Dissertation/Document/entry_chapter/entry_analysis/group.csv")#
+
+c1 <- glm(monoeth ~ splinter + joiner + Incompatibility + prevactive + ethfrac + (rebpresosts!="no"), data=group, family=binomial("logit"))
+
+c2 <- glm(multieth ~ splinter + joiner + Incompatibility + prevactive + ethfrac + (rebpresosts!="no"), data=group, family=binomial("logit"))
+
+c3 <- glm(noneth ~ splinter + joiner + Incompatibility + prevactive + ethfrac + (rebpresosts!="no"), data=group, family=binomial("logit"))
+
+map2 <- list("(Intercept)"="(Intercept)", "splinter"="Splinter", "joiner"="Joiner", "alliance"="Alliance", "Incompatibilityterritory"="Secessionist", "prevactive"="Previously Active", "ethfrac"="Ethnlinguistic Fractionalization", 'rebpresosts != "no"TRUE'="Transnational")
+
+texreg(list(c1,c2,c3), caption="Logit Models of Rebel Group Ethnic Composition", custom.model.names=c("M4 Monoethnic", "M5 Multiethnic", "M6 Nonethnic"), label="tab:splintcomp", custom.coef.map=map2)
 ```

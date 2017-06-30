@@ -1,6 +1,6 @@
 \mainmatter
 
-# Introduction
+# Introduction {#intro}
 
 ```{r child='intro_intro.txt'}
 ```

@@ -1,4 +1,7 @@
 # Conclusion {#conclusion}
 
+```{r child='conclusion_intro.txt'}
+```
+
 ```{r child='future_work.txt'}
 ```

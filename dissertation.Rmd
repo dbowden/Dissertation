@@ -7,7 +7,7 @@ output:
         includes:
             in_header: preamble.tex
 documentclass: book
-bibliography: /Users/david/Dropbox/library.bib
+bibliogrdaphy: /Users/david/Dropbox/library.bib
 biblio-sytle: apsr
 link-citations: yes
 fontsize: 12pt

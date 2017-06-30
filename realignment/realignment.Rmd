@@ -11,3 +11,9 @@
 
 ```{r child='alliance_results.Rmd'}
 ```
+
+```{r child='shan.txt'}
+```
+
+```{r child='realignment_conclusion.txt'}
+```
