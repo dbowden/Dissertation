@@ -3,5 +3,8 @@
 ```{r child='conclusion_intro.txt'}
 ```
 
+```{r child='conclusion_implications.txt'}
+```
+
 ```{r child='future_work.txt'}
 ```

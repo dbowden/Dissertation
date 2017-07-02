@@ -10,8 +10,8 @@ load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merg
 
 #count responses by country by wave
 bycountry <- afro %>%
-  group_by(COUNTRY) %>%
-  summarize(wave6=sum(wave==6), wave5=sum(wave==5), wave4=sum(wave==4), wave3=sum(wave==3))
+  group_by(Country) %>%
+  summarize(wave6=sum(Wave==6), wave5=sum(Wave==5), wave4=sum(Wave==4), wave3=sum(Wave==3))
 
 colnames(bycountry) <- c("Country", "Wave 6", "Wave 5", "Wave 4", "Wave 3")
 options(xtable.comment = FALSE)

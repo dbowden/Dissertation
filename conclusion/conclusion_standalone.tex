@@ -1,0 +1,564 @@
+\documentclass[12pt,]{book}
+\usepackage[]{tgpagella}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Conclusion},
+            pdfauthor={David Bowden},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Conclusion}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{David Bowden}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{July 1, 2017}
+
+\usepackage{setspace}
+
+\usepackage{float}
+\let\origtable\table
+\let\endorigtable\endtable
+\renewenvironment{table}[1][2] {
+    \singlespacing
+    \expandafter\origtable\expandafter[H]
+} {
+    \endorigtable
+}
+
+\frontmatter
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\begin{document}
+\maketitle
+
+\doublespacing
+
+\mainmatter
+
+\chapter{Conclusion}\label{conclusion}
+
+Why do some conflicts have multiple rebel groups, while in other cases
+dissidents form a single, cohesive group? As I discuss in Chapter
+\ref{intro}, the importance of this question has been well established.
+Civil wars with multiple rebel groups last longer than others
+(Cunningham \protect\hyperlink{ref-Cunningham2006}{2006}; Akcinaroglu
+\protect\hyperlink{ref-Akcinaroglu2012}{2012}), are less likely to end
+in a peace agreement (Cunningham, Gleditsch, and Salehyan
+\protect\hyperlink{ref-Cunningham2009}{2009}), have more bases on which
+conflict could recur (Atlas and Licklider
+\protect\hyperlink{ref-Atlas1999}{1999}), and produce more fatalities.
+In short, civil wars with multiple rebel groups tend to be among the
+most severe conflicts. Yet we know little about the causes of such
+structures. No existing work addresses the formation of new rebel groups
+during conflicts, and existing work on the splintering and merging of
+existing rebel groups produces somewhat contradictory findings (see for
+example Christia's (\protect\hyperlink{ref-Christia2012}{2012}) focus on
+power versus Staniland's (\protect\hyperlink{ref-Staniland2014}{2014})
+emphasis on social structure). My dissertation seeks to fill this gap in
+the literature.
+
+In Chapter \ref{theory} I articulate a theoretical framework of rebel
+movement politics from which I derive predictions about rebel movement
+structure. I start from the assumption that rebel groups are drawn from
+a broader pool of dissidents, which includes peaceful activists in
+addition to combatants. The loyalty of this dissident pool should be
+crucially important to most rebel groups as a source of material
+support, recruits, and political leverage. Rebel groups thus have an
+incentive to be responsive to these individuals. Failure to represent
+the interests of these non-violent dissidents will leave a rebel group
+vulnerable to competition. New recruits may look to form a new rebel
+group rather than joining an existing one, and entrepreneurial members
+of existing rebel groups may form splinter organizations in hopes of
+capturing the supporters of their previous organization. Thus it is the
+interaction of the preferences of ordinary dissidents and the decisions
+of rebel elites that determines rebel movement structure.
+
+One circumstance in which rebel elites may fail to adequately adapt to
+constituent preferences is the onset of repression. The threat of
+physical violence should increase the risk of being a non-violent
+dissident, and in turn decrease the \emph{relative} risk of fighting.
+This should lead some individuals who previously declined to participate
+in rebellion to take up arms. This influx of new recruits will not
+always be a boon to existing rebel groups, however. Repression should
+also tend to induce greater levels of ethnic identification, as
+repression is often targeted disproportionately at certain ethnic
+groups, ethnic groups often have militias and political organizations
+that make them a useful basis for organizing defense against repression,
+and appeals to co-ethnic states is often an effective means of securing
+external support. Thus existing rebel groups may struggle to win over
+these new recruits or even maintain their existing support, unless they
+happen to already place strong emphasis on ethnic identity. Otherwise,
+new organizations making more credible ethnicity-based appeals are
+likely to attract the new recruits and steal civilian support from
+existing rebel groups. Repression should therefore be associated with
+both the formation of entirely new rebel groups, and of organizations
+that splinter from existing rebel groups. To offset the loss of
+capability that results from splintering, rebels should be open to
+alliances and mergers with co-ethnic groups. In short, repression should
+lead rebel movements to both grow and reorganize around ethnic identity.
+
+I test the micro-level foundations of this theory in Chapter
+\ref{survey-chapter} using data from the Afrobarometer survey.
+Consistent with my expectations, I find that individuals who have
+experienced an attack are more likely than others to express willingness
+to participate in violence, and also more likely to identify with their
+ethnic group rather than their nation. Greater levels of repression at
+the national level are also associated with higher probabilities of
+ethnic identification. The results hold after performing coarsened exact
+matching, suggesting that there are not systematic observable
+differences between individuals who have been attacked and individuals
+who have not.
+
+In Chapter \ref{entry} I examine the formation of new rebel groups
+during ongoing conflicts. As I predict, the probability that new groups
+will enter a conflict increases in response to increases in repression.
+Contrary to my expectations, the ethnic diversity of a country does not
+limit the scope of my theory --- new rebel groups form even at
+relatively high and low levels of ethnic diversity. Adding support for
+my theory is the finding that the rebel groups which join ongoing
+conflicts are more likely than others to draw their support from a
+single ethnic group. This suggests that the link between repression and
+the formation of new groups is in fact related to ethnic identity,
+rather than some alternative process. I supplement these quantitative
+findings with a qualitative case study of the separatist movements in
+Burma. The initiation of the separatist movement in Shan State strongly
+supports my theory, as the rebellion emerged after a wave of abuses by
+government forces, and placed a strong emphasis on Shan identity. The
+Arakan case suggests several nuances, most notably the ability of
+religion to create divisions within ethnic groups.
+
+I test my predictions regarding splintering and alliance formation among
+existing rebel groups in Chapter \ref{realignment}. Consistent with my
+hypotheses, I find that increases in repression are associated with an
+increased risk of splintering for existing rebel groups, though the
+relationship is not completely robust. I do not find evidence for my
+prediction that splinter organizations should be more likely than others
+to draw their support from a single ethnic group. I find support for my
+prediction that repression should increase the probability of
+ethnically-homogeneous alliances forming, while it does not have the
+hypothesized negative relationship with the formation of multi-ethnic
+alliances. Burma again provides qualitative evidence in support of my
+theory, as the emergence of splinter organizations such as the Karenni
+National Progressive Party and Shan State Independence Army each appear
+to be driven by a desire to provide stronger representation for their
+respective ethnic groups. The formation of alliances among the Shan
+rebels in response to a counterinsurgency campaign provides further
+support for my framework.
+
+\section{Implications}\label{implications}
+
+The central implication of this research is that repression can trigger
+a sectarian spiral, whereby previously non-violent individuals join the
+fighting, and existing rebels reorganize around ethnic identity. I find
+that repression increases the number of new rebel groups, splinter
+organizations, and ethnically-homogeneous alliances. Given the rarity of
+the latter, it is safe to assume that in most conflicts, repression
+increases the total number of rebel groups.\footnote{A logit model (not
+  reported) predicting which conflict years have multiple rebel groups
+  without distinguishing between joiners, splinters, and alliances
+  confirms this, as the level of repression is a strong predictor of
+  multiple groups.} The level of repression against civilians explains a
+substantial portion of the variation in the number of rebel groups in a
+conflict, and I find multiple forms of evidence suggesting that the
+mechanism is related to increased ethnic identification.
+
+This conclusion contrasts with some prominent existing works. Christia
+(\protect\hyperlink{ref-Christia2012}{2012}) argues that rebel
+realignments are a function of the distribution of power between rebel
+coalitions and the government. When rebels are weaker than the
+government they will seek alliances. When rebels are stronger,
+coalitions tend to fragment so as to minimize the members of people with
+whom they must share private benefits. Her theory does not predict that
+splintering and certain types of alliance formation would be closely
+related, as I find them to be. This also contrasts with Kalyvas and
+Kocher (\protect\hyperlink{ref-Kalyvas2007}{2007}), who expects that
+rebel movements will generally become more cohesive over time. I show
+that the trend is contingent on repression. While Christia
+(\protect\hyperlink{ref-Christia2012}{2012}) does expect that ethnicity
+should form an important component of the identity of new alliances, she
+believes such identities are deployed instrumentally. My
+individual-level findings suggest that the members and supporters of
+rebel groups may sincerely adopt such identities, however, suggesting
+that rebel elites cannot switch identities at will as Christia expects.
+My findings are consistent with the work of Lewis
+(\protect\hyperlink{ref-Lewis2016}{2016}), who argues that ethnicity is
+not important to the initial organization of rebellion, but ethnic
+rebellions are disproportionately likely to thrive. The findings here
+suggest that rebellions without a clear ethnic identity should be
+vulnerable to splintering and losing recruits to new, more explicitly
+ethnic rival organizations.
+
+My findings also contrast those of Staniland
+(\protect\hyperlink{ref-Staniland2014}{2014}), who views internal social
+structure as the key determinant of rebel group cohesion. I find instead
+that an external factor, government repression, plays a surprisingly
+large role in shaping rebel movement structure. To some extent, however,
+this is a disagreement over the relative importance of the two factors.
+Staniland (\protect\hyperlink{ref-Staniland2014}{2014}) essentially
+assumes that repression will occur, and seeks to explain variation in
+resilience to it. Still, I find that repression is generally a strong
+predictor of splintering, while organizational characteristics are not.
+
+This research also suggests a strong connection between the preferences
+of rank-and-file dissidents and the broader patterns of rebel
+organization. Existing work tends to conceptualize rebel groups as the
+private armies of warlords (Christia
+\protect\hyperlink{ref-Christia2012}{2012}), who maintain control either
+through personal loyalty or the provision of private benefits (Lichbach
+\protect\hyperlink{ref-Lichbach1995}{1995}; Weinstein
+\protect\hyperlink{ref-Weinstein2007}{2007}). This viewpoint suggests
+that rebel elites have little need to be responsive to their members. My
+findings that both individual preferences and rebel movement structure
+respond to repression suggests that ordinary rebels do in fact have a
+consequential amount of agency. When leaders fail to accommodate their
+preferences, rebel group members have exit options in the form of
+splinter organizations and entirely new rebel groups. This implies that
+there should be a surprising amount of accountability within rebel
+organizations. At the same time, the formation of new rebel groups is
+not uncommon, suggesting that rebel elites often fail to respond to
+their members.
+
+Finally, this research suggests at least one clear policy
+recommendation. Previous work has shown that conflicts with multiple
+rebel groups are especially severe and difficult to resolve. I find that
+repression is a strong predictor of two different processes that can
+result in greater numbers of rebel groups. This suggests that
+governments facing rebellion might be well-served to refrain from
+widespread repression, and instead target their counterinsurgency
+operations against individuals who have already joined a rebel group to
+the greatest extent possible. In the following section I discuss avenues
+for future research on why governments repress despite these the
+negative consequences. My results also bolster the argument that outside
+states and the broader international community should endeavor to
+protect civilians during civil wars. While doing so has long been
+understood to be valuable from a humanitarian standpoint, my work
+suggests that the potential for such policies to limit conflict severity
+should place them in the self-interest neighboring states and any others
+likely to be affected by the fighting. It should be noted, however, that
+interventions of this sort are not foolproof. Notably, a UN effort to
+create a humanitarian zone in Srebrenica, Bosnia in 1995 actually
+facilitated the massacre of the civilians gathered there. These sorts of
+humanitarian efforts should thus only be undertaken with a sufficiently
+large deployment to ensure the security of the civilians under
+protection.
+
+\section{Future Research}\label{future-research}
+
+While this project makes significant progress toward explaining rebel
+movement structure, numerous avenues for future research remain. These
+include both refinements to the analyses I present here, as well as new
+analyses suggested by my results.
+
+The individual-level analysis could be refined on several dimensions in
+future work. One limitation of the existing results is their inability
+to identify the source of repression. It would be possible to make
+inferences about the likely perpetrator by matching the survey results,
+which include the respondent's city, to a geocoded dataset of battles,
+such as ACLED (Raleigh \protect\hyperlink{ref-Raleigh2012a}{2012}). If
+most of the violent events in a particular locale are perpetrated by the
+government, it might be reasonable to assume that it is the source of
+most attacks on individuals in that area. By contrast, this would not be
+a safe assumption in territory that is clearly controlled by a rebel
+group. The use of an external conflict data source could also address
+the issue of temporal ordering. The Afrobarometer data does not specify
+whether individuals were attacked before or after they engaged in
+violence themselves. With geocoded conflict data one could examine
+whether the average probability of participation in violence or of
+ethnic identification in a geographic area changes after violent events
+there. Finally, a more robust method of causal inference that can
+account for unobservable sources of bias would enhance the validity of
+the results. While finding a valid instrument at the individual level
+may be difficult, it should be possible to instrument for the
+country-level human rights measure.
+
+While general surveys such as the Afrobarometer provide useful data on
+individual attitudes toward violence and ethnicity, they do not provide
+tests of every element of my theory. Original survey or experimental
+work exploring individual attitudes towards rebel groups would
+potentially strengthen my arguments regarding the connection between
+individual attitudes and rebel movement structure. For instance, a
+finding that individuals who experience repression from the government
+become less supportive of existing rebel groups would provide strong
+support for my claim that dissident civilians are key drivers of change
+to the configuration of the rebel movement.
+
+The analysis of new rebel group formation could also benefit from
+several improvements. Adding a causal inference technique to the
+analysis would greatly enhance the validity of the results. While I did
+not find oil revenue to be a viable instrumental variable, it is
+possible that a suitable proxy for repression exists, such as colonial
+history. An alternative option could be panel data techniques that
+facilitate causal inference without the need for exogenous instruments
+(Kim and Frees \protect\hyperlink{ref-Kim2007}{2007}). A more detailed
+analysis of the attributes of the rebel groups that join ongoing
+conflicts could also lend further support to my theoretical framework.
+While the finding that joining groups are more likely than others to
+draw support from a single ethnic group lends credibility to my
+argument, an examination of the platform and recruiting appeals of these
+groups could strengthen the argument that group formation is motivated
+by a desire to place greater emphasis on ethnic identity. Relatedly, the
+relationships between newly formed rebel groups and others should be
+explored. Enhanced ethnic identification might lead to conflict between
+rebel groups of differing ethnicities. Alternatively, competition for
+civilian support might produce conflict between co-ethnic rebel groups.
+
+The group formation chapter also raises important questions about
+government strategy. My finding that repression tends to increase the
+number of rebel groups makes its use by governments a puzzle. Future
+work should examine the government's strategic calculus in more detail.
+It is possible that repression has some hidden benefit that outweighs
+the cost of additional rebel groups. My findings in Chapter
+\ref{survey-chapter} that repression is negatively related to voting
+suggests one possible answers --- governments are essentially accepting
+an increase in the level of violence by dissidents in exchange for a
+reduction in the overall size of the dissident movement. Relatedly,
+while repression increases the number of individuals willing to use
+violence, it also provokes division among dissidents along ethnic lines.
+The latter consequence might be sufficiently desirable as part of a
+divide-and-conquer strategy to justify the former. Finally, the
+repression puzzle may be a result of incomplete information. It could be
+the case the repression offers some possibility of total defeat of the
+dissident movement, and governments accept the risk of inspiring new
+rebel groups in pursuit of this outcome. In the Arab Spring, for
+example, Bahrain used repression to quickly put down the opposition
+movement there. While the tactic backfired in Syria, the possibility of
+an outcome similar to Bahrain may have made it a worthwhile gamble.
+
+The analysis of rebel group realignment also has room for improvement.
+While the findings for both splintering and alliance formation are
+mostly consistent with my predictions, the results are less robust than
+would be ideal. This is likely due in part to the rarity of both
+outcomes. This could likely be remedied, however, as the current
+analysis only looks at the most extreme instances of splintering and
+merging --- those which result in the formation of new rebel
+organizations with distinct names. A less extreme, and likely more
+prevalent form of splintering is the loss of membership, either to rival
+rebel groups, or to desertion. While this phenomenon would be quite
+difficult to measure for the entire post-World War II sample, it may be
+possible to track changes in rebel group membership for a smaller sample
+of conflicts. With respect to alliances, I consider only cases where
+formerly independent rebel groups merge to a significant degree. There
+are undoubtedly many instances of meaningful cooperation between rebel
+groups that fall short of formal integration. Indeed, a forthcoming data
+project (Asal and Rethemeyer \protect\hyperlink{ref-Asal2015}{2015})
+should facilitate analysis of such behavior. Including these less
+extreme examples of splintering and alliance formation should mitigate
+concerns about the rarity of these outcomes. The concerns from the group
+formation chapter also apply, as this analysis would benefit from a
+causal inference strategy and closer inspection of the rationale that
+rebel elites use to justify the creation of their new groups.
+
+At a broader level, other processes affecting rebel movement structure
+should be explored. I do not claim to provide a complete account of
+rebel movement structure, but rather a probabilistic theory of what I
+believe to be one of the most common pathways to multiple rebel groups.
+Other factors undoubtedly operate in some cases. For example, many
+instances of splintering occur not over ethnic lines, but over a divide
+between moderates who wish to participate in a peace process, and
+hardliners who wish to continue fighting. While this phenomenon has
+received some attention in the context of negotiating peace agreements
+(Stedman \protect\hyperlink{ref-Stedman1997}{1997}), there is little
+work on the conditions under which this is likely, nor on the
+implications for the subsequent fighting. I argue that attracting
+external support may be one reason for increased ethnic identification
+following repression, but do not explore external sponsorship in detail.
+In some cases external states may have a substantial amount of agency,
+however, which merits greater attention. For example, the Gulf
+Cooperation Council has repeatedly sought to establish an alliance of
+relatively moderate Sunni rebel groups in Syria. Finally, future work
+should explore factors that run in the opposite direction, fostering
+greater cohesion within rebel movements. The Latin American rebellions
+are generally much more cohesive than those in other regions. The
+explanation could relate to my theory, perhaps being the result of more
+fluid ethnic identities than are seen in most parts of the world.
+Alternatively, the explanation might involve the extreme levels of
+external sponsorship seen during the Cold War, or some
+as-yet-undiscovered factor.
+
+Finally, the severity of conflicts that experience this cycle of
+increased ethnic identification suggests a need for research on ways to
+reverse the process. Increased sectarianism can increase conflict
+severity, and as we have seen in places such as Afghanistan and the
+Democratic Republic of the Congo, can hinder the prospects for lasting
+peace. Preventing repression is an obvious policy recommendation of this
+research. Yet, that is more easily said than done, and is of little use
+in cases where it has already occurred. The most commonly cited factor
+that can increase national unity is external conflict (Tilly
+\protect\hyperlink{ref-Tilly1992}{1992}; Gibler, Hutchison, and Miller
+\protect\hyperlink{ref-Gibler2012}{2012}). Obviously, however, this is
+not a tenable solution. A few studies have suggested that economic
+development might promote national identities at the expense of ethnic
+ones (Miguel \protect\hyperlink{ref-Miguel2004b}{2004}), but much more
+research is needed in this area.
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{REFERENCES}{}
+
+\indent
+
+\setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+
+\singlespacing
+
+\hypertarget{refs}{}
+\hypertarget{ref-Akcinaroglu2012}{}
+Akcinaroglu, Seden. 2012. ``Rebel Interdependencies and Civil War
+Outcomes.'' \emph{Journal of Conflict Resolution} 56 (5): 879--903.
+doi:\href{https://doi.org/10.1177/0022002712445741}{10.1177/0022002712445741}.
+
+\hypertarget{ref-Asal2015}{}
+Asal, Victor H., and R. Karl Rethemeyer. 2015. ``Big Allied and
+Dangerous Dataset, version 2.''
+
+\hypertarget{ref-Atlas1999}{}
+Atlas, Pierre M., and Roy Licklider. 1999. ``Conflict Among Former
+Allies After Civil War Settlement : Sudan , Zimbabwe , Chad , and
+Lebanon.'' \emph{Journal of Peace Research} 36 (1): 35--54.
+
+\hypertarget{ref-Christia2012}{}
+Christia, Fotini. 2012. \emph{Alliance Formation in Civil Wars}.
+Cambridge: Cambridge University Press.
+
+\hypertarget{ref-Cunningham2006}{}
+Cunningham, David E. 2006. ``Veto Players and Civil War Duration.''
+\emph{American Journal of Political Science} 50 (4): 875--92.
+
+\hypertarget{ref-Cunningham2009}{}
+Cunningham, David E., Kristian Skrede Gleditsch, and Idean Salehyan.
+2009. ``It Takes Two: A Dyadic Analysis of Civil War Duration and
+Outcome.'' \emph{Journal of Conflict Resolution} 53 (4): 570--97.
+
+\hypertarget{ref-Gibler2012}{}
+Gibler, Douglas M., Marc L. Hutchison, and Steven V. Miller. 2012.
+``Individual Identity Attachments and International Conflict: The
+Importance of Territorial Threat.'' \emph{Comparative Political Studies}
+45 (12): 1655--83.
+
+\hypertarget{ref-Kalyvas2007}{}
+Kalyvas, Stathis N., and Matthew Adam Kocher. 2007. ``How `Free' Is Free
+Riding in Civil Wars? Violence, Insurgency, and the Collective Action
+Problem.'' \emph{World Politics} 59 (2): 177--216.
+
+\hypertarget{ref-Kim2007}{}
+Kim, Jee Seon, and Edward W. Frees. 2007. ``Multilevel modeling with
+correlated effects.'' \emph{Psychometrika} 72 (4): 505--33.
+
+\hypertarget{ref-Lewis2016}{}
+Lewis, Janet I. 2016. ``How Does Ethnic Rebellion Start ?''
+\emph{Comparative Political Studies}, forthcoming.
+
+\hypertarget{ref-Lichbach1995}{}
+Lichbach, Mark Irving. 1995. \emph{The Rebel's Dilemma}. Ann Arbor, MI:
+University of Michigan Press.
+
+\hypertarget{ref-Miguel2004b}{}
+Miguel, Edward. 2004. ``Tribe or Nation? Nation Building and Public
+Goods in Kenya versus Tanzania.'' \emph{World Politics} 56 (3): 327--62.
+doi:\href{https://doi.org/10.1353/wp.2004.0018}{10.1353/wp.2004.0018}.
+
+\hypertarget{ref-Raleigh2012a}{}
+Raleigh, Clionadh. 2012. ``Violence Against Civilians: A Disaggregated
+Analysis.'' \emph{International Interactions} 38 (4): 462--81.
+
+\hypertarget{ref-Staniland2014}{}
+Staniland, Paul. 2014. \emph{Networks of Rebellion: Explaining Insurgent
+Cohesion and Collapse}. Ithaca, NY: Cornell University Press.
+
+\hypertarget{ref-Stedman1997}{}
+Stedman, Stephen John. 1997. ``Spoiler Problems in Peace Processes.''
+\emph{International Security} 22 (2): 5.
+
+\hypertarget{ref-Tilly1992}{}
+Tilly, Charles. 1992. \emph{Coercion, capital, and European states, AD
+990-1992}. Malden, MA: Blackwell.
+
+\hypertarget{ref-Weinstein2007}{}
+Weinstein, Jeremy M. 2007. \emph{Inside Rebellion}. Cambridge: Cambridge
+University Press.
+
+
+\end{document}

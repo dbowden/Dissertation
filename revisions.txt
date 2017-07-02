@@ -4,3 +4,23 @@
 - Change "level of repression" hypotheses to shock wording
 - Statistical power calculation for relogit
 - Discuss qualitative sections in research design
+- Add ABSDF case to joining chapter
+- Flesh out KNPP case in realignment chapter
+- Distinguish use of violence from willingness
+- Put Shan initiation in entry chapter
+- Discuss causal inference in chapter 5
+- Mention centcontrol var in splintering
+
+## Theory Revised
+
+- Non-violent dissident network
+    - Material support
+    - New recruits
+    - Political support
+
+1. Description of dissident network
+    a. What do constituents want?
+    b. What do elites want?
+2. How groups operate: importance of constituent support
+3. How new groups form: the importance of existing organizations and the limits of constituent agency
+4. How groups fail: changes in dissident preferences and outbidding appeals
