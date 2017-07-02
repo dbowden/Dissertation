@@ -19,35 +19,13 @@ One concern relevant to the present application is that in rare cases the Afroba
 
 \singlespacing
 
-\begin{table}
-\begin{tabular}{p{3cm} p{6cm} p{7cm}}
+\begin{longtable}{p{3cm} p{6cm} p{6cm}}
 Variable & Question Text & Responses \\
 \hline
-Political Participation & "Here is a list of actions that people sometimes take as citizens when they are dissatisfied with government performance. For each of these, please tell me whether you, personally, have done any of these things during the past year. If not, would you do this if you had the chance: Participated in a demonstration or protest march / Attended a community meeting / Used force or violence for a political cause." & \begin{enumerate}
-\item "No, would never do this"
-\item "No, but would do if had the chance" 
-\item "Yes, once or twice" 
-\item "Yes, several times"
-\item "Yes, often."
-\end{enumerate} \\
-\hline
-Voting & "Understanding that some people were unable to vote in the most recent national election in [20xx], which of the following statements is true for you?" & \begin{enumerate}
-\item You were not registered to vote" 
-\item "You voted in the elections" 
-\item "You decided not to vote" 
-\item "You could not find the polling station" 
-\item"You were prevented from voting" 
-\item "You did not have time to vote" 
-\item "You did not vote because you could not find your name in the voters' register" 
-\item "Did not vote for some other reason" 
-\item "You were too young to vote" 
-\item "Don't Know/ Can't Remember"
-\end{enumerate} \\
-\hline
 Attitude Toward Violence & "During the past year, have you or anyone in your family: Been physically attacked?" & \begin{enumerate}
-\item "No" 
-\item "Once" 
-\item "Twice" 
+\item "No"
+\item "Once"
+\item "Twice"
 \item "Three or More Times"
 \item "Don't Know."
 \end{enumerate} \\
@@ -60,9 +38,37 @@ Ethnic Identity & "Let us suppose that you had to choose between being a [ENTER 
 \item "I feel only [nationality]"
 \end{enumerate} \\
 \hline
-\end{tabular}
-\caption{Question Wording} \label{table:wording}
-\end{table}
+Political Participation & "Here is a list of actions that people sometimes take as citizens when they are dissatisfied with government performance. For each of these, please tell me whether you, personally, have done any of these things during the past year. If not, would you do this if you had the chance: Participated in a demonstration or protest march / Attended a community meeting / Used force or violence for a political cause." & \begin{enumerate}
+\item "No, would never do this"
+\item "No, but would do if had the chance"
+\item "Yes, once or twice"
+\item "Yes, several times"
+\item "Yes, often."
+\end{enumerate} \\
+\hline
+Voting & "Understanding that some people were unable to vote in the most recent national election in [20xx], which of the following statements is true for you?" & \begin{enumerate}
+\item You were not registered to vote"
+\item "You voted in the elections"
+\item "You decided not to vote"
+\item "You could not find the polling station"
+\item"You were prevented from voting"
+\item "You did not have time to vote"
+\item "You did not vote because you could not find your name in the voters' register"
+\item "Did not vote for some other reason"
+\item "You were too young to vote"
+\item "Don't Know/ Can't Remember"
+\end{enumerate} \\
+\hline
+Intimidation & "During election campaigns in this country, how much do you personally fear becoming a victim of political intimidation or violence?" & \begin{enumerate}
+\item "A lot" 
+\item "Somewhat"
+\item "A little bit" 
+\item "Not at all" 
+\item "Don’t know"
+\end{enumerate} \\
+\hline
+\caption{Question Wording} \label{tab:wording}\\
+\end{longtable}
 
 \doublespacing
 
@@ -70,9 +76,7 @@ Ethnic Identity & "Let us suppose that you had to choose between being a [ENTER 
 
 #### Attitude Toward Violence {-}
 
-The first dependent variable explored in this chapter is willingness to use violence. To distinguish factors that influence an individual's willingness to engage in violence from those that make them more active generally, I include several other forms of political behavior, including voting, attending community meetings, and protesting. I collapse each variable into binary categories with individuals who engaged in the activity at least once coded as one, and individuals who did not participate in the activity for any reason, including those who are willing but have not actually done the activity, coded as zero. The violence, meeting, and protest questions share a common stub.
-
-The voting question differs as individuals generally vote only once, and it solicits explanations for why individuals did not vote.
+The first dependent variable explored in this chapter is willingness to use violence. To distinguish factors that influence an individual's willingness to engage in violence from those that make them more active generally, I include several other forms of political behavior, including voting, attending community meetings, and protesting. The question wordings and possible responses are reported in Table \@ref(tab:wording). The violence, meeting, and protest questions share a common question stub. The voting question differs as individuals generally vote only once, and it solicits explanations for why individuals did not vote. I collapse each variable into binary categories with individuals who engaged in the activity at least once coded as one, and individuals who did not participate in the activity for any reason, including those who are willing but have not actually done the activity, coded as zero. 
 
 Each of these measures is self-reported, and not subject to any independent verification. It is well-established in the US context that self-reported surveys overestimate the prevalence of voting, introducing bias to models of political participation [@Bernstein2001]. It is unclear whether such effects are prevalent in Africa. 70.4% of respondents in the full sample reported voting, though the number varies wildly across countries in a manner that generally matches variation in actual voter turnout [see @Kuenzi2007]. While social desirability bias might lead some individuals to claim they have voted while in fact they have not, the effect is likely to be in the opposite direction for less desirable behaviors such as protesting and violence. These effects are most likely to introduce bias into my analysis if individuals misreport behavior on both the independent in dependent variables. For example, if individual falsely claimed both to have been attacked and engaged in violence themselves, they would contribute to the relationship between those variables being overstated.
 
@@ -88,7 +92,7 @@ The participation measures are summarized in Table \@ref(tab:partic). Participat
 
 #### Ethnic Identity {-}
 
-The second dependent variable is ethnic identification. The Afrobarometer asks individuals about the extent to which they identify with their ethnic group, relative to their nation. I collapse the measure into a binary variable, with respondents in the first two categories coded as ethnic identifiers, and all others as non-ethnic identifiers.
+The second dependent variable is ethnic identification. The Afrobarometer asks individuals about the extent to which they identify with their ethnic group, relative to their nation. Refer again to Table \@ref(tab:wording) for the question wording. I collapse the measure into a binary variable, with respondents who identify only with their ethnic group and more with their ethnic group than their nation coded as ethnic identifiers, and all others as non-ethnic identifiers.
 
 Individuals self-report their ethnicity earlier in the survey. The question is open-ended, allowing for the possibility that respondents may conceive of ethnicity in ways that do not comport with scholarly definitions. Indeed, around 1.5% of respondents provide answers such as "African" or the name of a sub-national region. The vast majority, however, choose ethnicities that appear in externally-imposed classifications, such as the Ethnic Power Relations data [@Vogt2015].
 
@@ -107,22 +111,18 @@ Relatively few respondents identify with their ethnic group, with 4.3% answering
 
 ### Independent Variables
 
-*H1* predicts that individuals who experience violent repression should be more likely to participate in violence than others, and *H2* predicts that repression should increase the extent that individuals identify with their ethnic group. I test these propositions using both individual-level and national-level measures of repression. At the individual level, I use an Afrobarometer question that asks respondents whether they or a family member has been attacked in the past year:
+*H1* predicts that individuals who experience violent repression should be more likely to participate in violence than others, and *H2* predicts that repression should increase the extent that individuals identify with their ethnic group. I test these propositions using both individual-level and national-level measures of repression. At the individual level, I use an Afrobarometer question that asks respondents whether they or a family member has been attacked in the past year (see Table \@ref(tab:wording) for question text).  I recode the variable into a binary measure with individuals who experienced any attacks coded as 1, and individuals who experienced no attacks coded as 0. This question has two noteworthy limitations. First, it does not differentiate between individuals who were personally attacked from family members of people who were attacked. However, I expect that this feature is more likely to introduce bias against my hypotheses, than in their favor. The effect of violence on family members of people who are attacked should be less than or equal to that on people who personally experience violence. If this assumption holds, including family members should either have no effect or understate the effect of being attacked. Second, the question does not identify the source of the attack. While government repression may account for some attacks, the measure likely also includes violence from non-state actors including rebel groups, as well as common criminal activity. Again, however, I expect this to create bias against my hypotheses. Attacks that clearly should not be characterized as repression, such as domestic violence, should be less likely to influence willingness to engage and violence or identify with an ethnic group. Thus, including these types of attacks in the measure is more likely to understate the effect of repression than overstate it. With these coding decisions, 10.4% of respondents report having experienced an attack.
 
-The possible responses are:  I recode the variable into a binary measure with individuals who experienced any attacks coded as 1, and individuals who experienced no attacks coded as 0. This question has two noteworthy limitations. First, it does not differentiate between individuals who were personally attacked from family members of people who were attacked. However, I expect that this feature is more likely to introduce bias against my hypotheses, than in their favor. The effect of violence on family members of people who are attacked should be less than or equal to that on people who personally experience violence. If this assumption holds, including family members should either have no effect or understate the effect of being attacked. Second, the question does not identify the source of the attack. While government repression may account for some attacks, the measure likely also includes violence from non-state actors including rebel groups, as well as common criminal activity. Again, however, I expect this to create bias against my hypotheses. Attacks that clearly should not be characterized as repression, such as domestic violence, should be less likely to influence willingness to engage and violence or identify with an ethnic group. Thus, including these types of attacks in the measure is more likely to understate the effect of repression than overstate it. With these coding decisions, 10.4% of respondents report having experienced an attack.
+I also include a measure of intimidation, as I expect that the *belief* that the risk of non-violence is approaching that of violence should be sufficient to alter an individual's attitudes. While the question is somewhat limited in scope (see Table \@ref(tab:wording)), only asking about election-related violence, this does bring the advantage of shedding light on the reason why an individual might be targeted. 28.6% of respondents reported at least some fear of being attacked during an election.
 
-I also include a measure of threat perception, as I expect that the *belief* that the risk of non-violence is approaching that of violence should be sufficient to alter an individual's attitudes. While the question is somewhat limited in scope, only asking about election-related violence,^[Question text: "During election campaigns in this country, how much do you personally fear becoming a victim
-of political intimidation or violence?"] this does bring the advantage of shedding light on the reason why an individual might be targeted. 28.6% of respondents reported at least some fear of being attacked during an election.
-
-At the country level, I employ I use the Latent Human Protection Scores, version 2 [@Fariss2014; @Schnakenberg2014]. The project uses a Bayesian measurement model to estimate latent human rights scores using several data sources including US State Department and Amnesty International country reports, and several scholarly datasets on repression and mass killing. This data improves on previous approaches to measuring human rights by accounting for the fact that the standards by which government and NGO reports have judged countries have generally improved both over time and cross-nationally. The result is an aggregate measure that ranges from roughly -3 (most repressive) to 3 (most respectful of human rights). The score is calculated yearly, 1946--2015 for each country. I match the Latent Protection Human Protection Scores to each Afrobarometer respondent by the respondent's country and the year in which the survey was conducted. Within the sample, the measure ranges from -2.18 (Sudan in 2013) to 1.81 (Botswana in 2012), with mean of 0.26.^[Calculated with all country-years included in the data weighted equally.] The sample thus lacks any cases with the exceptionally levels of respect for human rights, as would be seen in many European democracies. The average, however, is quite close to the full sample mean of 0.29.
+An individual may not need to experience violence personally to update their calculations about their probability of experiencing it in the future. For example, if an ethnic minority in one part of a country is repressed, members of other minority groups may increase their expectation of being repressed themselves. Thus, I include a national-level measure of repression, the Latent Human Protection Scores, version 2 [@Fariss2014; @Schnakenberg2014]. The project uses a Bayesian measurement model to estimate latent human rights scores using several data sources including US State Department and Amnesty International country reports, and several scholarly datasets on repression and mass killing. This data improves on previous approaches to measuring human rights by accounting for the fact that the standards by which government and NGO reports have judged countries have generally improved both over time and cross-nationally. The result is an aggregate measure that ranges from roughly -3 (most repressive) to 3 (most respectful of human rights). The score is calculated yearly, 1946--2015 for each country. I match the Latent Protection Human Protection Scores to each Afrobarometer respondent by the respondent's country and the year in which the survey was conducted. Within the sample, the measure ranges from -2.18 (Sudan in 2013) to 1.81 (Botswana in 2012), with mean of 0.26.^[Calculated with all country-years included in the data weighted equally.] The sample thus lacks any cases with the exceptionally levels of respect for human rights, as would be seen in many European democracies. The average, however, is quite close to the full sample mean of 0.29.
 
 ### Control Variables
 
-I draw on previous studies of participation in rebellion [e.g. @Humphreys2008] and ethnic identity [e.g. @Eifert2010; @Gibler2012; @Masella2013; @Robinson2014] to identify a set of relevant control variables. Each of these measures comes from the Afrobarometer, though some are not included in all waves. These include the respondent's gender, logged age, and an ordinal measure of educational attainment,^[Possible responses: No formal schooling, Informal schooling only (including Koranic schooling), Some primary schooling, Primary school completed, Intermediate school or Some secondary school / high school, Secondary school / high school completed , Post-secondary qualifications, other than university e.g. a diploma or degree from a polytechnic or college, Some university, University
-completed, Post-graduate.] and binary indicators of whether they are employed at least part-time, whether they reside in an urban area, and whether they support the ruling party. I have examined several other controls, but exclude them from the models reported here as they are neither statistically significant nor do they alter the performance of my variables of interest. These include a binary indicator for individuals who work in agriculture (farming and fishing), an index of the level of economic development in the respondent's community, and the size of the respondent's ethnic group.
+I draw on previous studies of participation in rebellion [e.g. @Humphreys2008] and ethnic identity [e.g. @Eifert2010; @Gibler2012; @Masella2013; @Robinson2014] to identify a set of relevant control variables. Each of these measures comes from the Afrobarometer, though some are not included in all waves. First, I include the respondent's gender, as men are substantially more likely to participate in violence than women. Next I include age and an ordinal measure of educational attainment as both have been shown to be negatively related to the probability of participation in violence. Additionally, I include binary indicators of whether the respondent is employed at least part-time, as unemployed individuals are more likely to rebel, whether they reside in an urban area, as urban-dwellers have been shown to rebel at higher rates, and whether they support the ruling party, as these individuals would obviously be less likely to take political action against the government. I have examined several other controls, but exclude them from the models reported here as they are neither statistically significant nor do they alter the performance of my variables of interest. These include a binary indicator for individuals who work in agriculture (farming and fishing), an index of the level of economic development in the respondent's community, and the size of the respondent's ethnic group.
 
 At the country level I control for a curvilinear effect for ethnolinguistic fractionalization, using data from @fearonlaitin03. The intuition behind this choice is that at very low levels of fractionalization, meaning most individuals belong to the same ethnic group, ethnicity is not likely to be an important social cleavage. The same is likely to hold at the opposite extreme, where individuals might fragmented into a sufficiently large number of groups that ethnicity is unlikely to be a salient. A curvilinear effect should thus identify the cases in the middle of the spectrum where ethnicity is likely to matter. Additionally, I include the country's Polity IV regime score [@Marshall2016], as @Eifert2010 find that elections can induce greater levels of ethnic identification. Finally, as forms of violence besides repression might influence I include indicators of whether the country had a separatist war or civil war over the central government during the year the respondent was interviewed, constructed from the Uppsala Conflict Data [@Melander2016].
-s
+
 At the country level I control for a curvilinear effect for ethnolinguistic fractionalization, using data from @fearonlaitin03. The intuition behind this choice is that at very low levels of fractionalization, meaning most individuals belong to the same ethnic group, ethnicity is not likely to be an important social cleavage. The same is likely to hold at the opposite extreme, where individuals might fragmented into a sufficiently large number of groups that ethnicity is unlikely to be a salient. A curvilinear effect should thus identify the cases in the middle of the spectrum where ethnicity is likely to matter. Additionally, I include the country's Polity IV regime score [@Marshall2016], as @Eifert2010 find that elections can induce greater levels of ethnic identification. Finally, as forms of violence besides repression might influence I include indicators of whether the country had a separatist war or civil war over the central government during the year the respondent was interviewed, constructed from the Uppsala Conflict Data [@Melander2016].
 
 ### The Model

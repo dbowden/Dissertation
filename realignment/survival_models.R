@@ -16,7 +16,7 @@ texreg::screenreg(m1)
 m2 <- coxph(S1 ~ latentmean_diff + multieth + IntensityLevel + ethfrac + cluster(GWNoLoc), data=group.years)
 summary(m2)
 
-m3 <- coxph(S1 ~ latentmean_diff + multieth  + polity2 + rebpresosts_bin + rebpolwing_bin + stronger + IntensityLevel + cluster(GWNoLoc), data=group.years)
+m3 <- coxph(S1 ~ latentmean_diff + multieth + polity2  + log(rgdppc ) + log(area) + mtnest + rebpresosts_bin + rebpolwing_bin + stronger + IntensityLevel + cluster(GWNoLoc), data=group.years)
 summary(m3)
 
 fit <- survfit(Surv(time, time1, death) ~ (latentmean_diff < 0), data=group.years)
