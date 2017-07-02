@@ -8,5 +8,8 @@
 ```{r child='lit_review.txt'}
 ```
 
+```{r child='intro_contrib.txt'}
+```
+
 ````{r child='roadmap.txt'}
 ```
