@@ -1,6 +1,6 @@
 ## Research Design
 
-While I believe them to be the result of closely related theoretical processes, the splintering of individual rebel organizations and the formation of alliances between separate organizations require distinct research designs. I first explain my choice of designs for studying splintering.
+While I believe them to be the result of closely related theoretical processes, the splintering of individual rebel organizations and the formation of alliances between separate organizations require distinct research designs. This is so because the unit of analysis in the splintering study is the rebel group-year, whereas alliance formation is a decision by multiple rebel groups, and thus the unit of analysis is the conflict-year. I first explain the research design for splintering in greater detail, before explaining the differences in the alliance formation design.
 
 ### Splintering
 

@@ -25,6 +25,14 @@ keep_tex: yes
 
 \doublespacing
 
+\frontmatter
+
+# Abstract {-}
+
+What explains the variation in the number of rebel groups across civil conflicts? Prior research has established that conflicts with multiple rebels groups are among the most severe cases in terms of duration, fatalities, and possibilities for recurrence. Yet, we know little about why the structure of rebel movements varies. This dissertation seeks to resolve that gap. I argue that the organization of rebellion is contingent on the identities and ideologies that are most salient at a given moment. Organization around ethnic identity tends to produce fragmented movements with multiple rebel groups. I expect that ethnicity will tend to be salient when civilians are targeted with repression. Three empirical analyses provide support for this contention. I show that individuals who have been attacked are more willing to use violence and more likely to identify with their ethnic group. Next I show that repression significantly increases the probability that new rebel groups will enter a conflict, and that these new groups are likelier than others to emphasize a single ethnic identity. Finally, I show that repression triggers a reorganization of existing rebel groups around ethnicity, with repression being associated with increased probabilities of rebel group splintering and the formation of ethnically-homogeneous alliances. I supplement these quantitative analyses with case studies of several secessionist movements in Burma.
+
+\mainmatter
+
 ```{r child='intro/intro.Rmd'}
 ```
 

@@ -19,8 +19,16 @@
     - Political support
 
 1. Description of dissident network
-    a. What do constituents want?
-    b. What do elites want?
+    a. Civilians
+        - Security
+        - Political representation
+    b. Rank-and-File Rebels
+        - Security for family/home
+        - Political representation
+    c. Elites
+        - Private benefits
+            + MWC
+            + Leadership
 2. How groups operate: importance of constituent support
 3. How new groups form: the importance of existing organizations and the limits of constituent agency
 4. How groups fail: changes in dissident preferences and outbidding appeals

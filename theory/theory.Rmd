@@ -3,5 +3,8 @@
 ```{r child='theory_framework.Rmd'}
 ```
 
+```{r child='repression.txt'}
+```
+
 ```{r child='theory_predictions.txt'}
 ```
