@@ -54,7 +54,7 @@ sjp.glmer(h1, type="pred", show.ci=T, title="", vars="attack_recode_bin", show.s
 
 ```{r ethplot2, fig.cap="Predicted Probability of Ethnic Identification (Model 5)"}
 sjp.setTheme(base=theme_bw())
-sjp.glmer(h1, type="pred", show.ci=T, title="", vars="latentmean", show.scatter=F, axis.lim=c(0,.6))
+sjp.glmer(h1, type="pred", show.ci=T, title="", vars="latentmean", show.scatter=F, axis.lim=c(0,.2))
 ```
 
 While further analysis is need to establish the direction of the causal relationship, these results do allow me to tentatively reject the null hypothesis of no relationship between repression and ethnic identification associated with *H2*. Individuals who have been attacked are more than 40% more likely than others to identify with their ethnic group. The country-level human rights measure tells a similar story, with the probability of ethnic identification being lower in countries with greater respect for human rights. As is the case with the violence results, I cannot here rule out the possibility of endogeneity. It is quite plausible that individuals who identify strongly with an ethnic group are most likely to be targeted with repression. Many governments repress ethnic minorities to prevent them from undermining national unity. For example, the Turkish government has denied the claim that the Kurds are a distinct ethnicity from Turks, and have repressed them to prevent a secessionist movement. I address the concern in the following section.
