@@ -8,3 +8,6 @@
 
 ```{r child='survey_appendix.Rmd'}
 ```
+
+```{r child='entry_appendix.Rmd'}
+```

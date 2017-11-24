@@ -8,6 +8,7 @@ As an alternative to an instrument, I use coarsened exact matching [@Iacus2012].
 library(lme4)
 library(texreg)
 library(sjmisc)
+library(sjlabelled)
 
 m2.out <- read.csv("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/cem_data.csv")
 
@@ -35,23 +36,24 @@ The results using the matched data are reported in Table \@ref(tab:matching), an
 library(sjPlot)
 library(ggplot2)
 library(sjmisc)
-sjp.setTheme(base=theme_bw())
+set_theme(base=theme_bw())
 
-sjp.glmer(g3, type="pred", show.ci=T, title="", vars="attack_recode_bin", show.scatter=F, axis.lim=c(0,.6))
+plot_model(g3, type="eff", terms = "attack_recode_bin", title = "")
 ```
 
 ```{r matchviolplot, fig.cap="Predicted Probability of the Use of Violence (Model 8)"}
 library(sjPlot)
 library(ggplot2)
 library(sjmisc)
-sjp.setTheme(base=theme_bw())
+set_theme(base=theme_bw())
 
-sjp.glmer(g2, type="pred", show.ci=T, title="", vars="attack_recode_bin", show.scatter=F, axis.lim=c(0,.6))
+plot_model(g2, type="eff", terms = "attack_recode_bin", title = "")
 ```
 
 As noted above, matching cannot guard against all potential threats to causal inference. If some individuals are disproportionately likely both to be attacked and to engage in violence or identify ethnically for reasons that are not captured by the covariates, this bias will remain. One might imagine, however, that governments (and other actors) often make decisions of who to repress based on the sort of observable characteristics such as age and sex that are included in the matching. The matching analysis ensures that these observable measures do not bias the results. Thus while there is still some possibility of endogeneity, these results should increase our confidence that individuals who are attacked are not systematically different from others.
 
 ```{r matchethplot, fig.cap="Predicted Probability of Ethnic Identification (Model 9)"}
-sjp.setTheme(base=theme_bw())
-sjp.glmer(g1, type="pred", show.ci=T, title="", vars="attack_recode_bin", show.scatter=F, axis.lim=c(0,.6))
+set_theme(base=theme_bw())
+
+plot_model(g1, type="eff", terms = "attack_recode_bin", title = "")
 ```

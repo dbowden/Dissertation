@@ -81,7 +81,7 @@ The combined results are reported in Table \@ref(tab:combined). The "Change in H
 ```{r combinedplot, fig.cap="Predicted Probability of Multiple Rebel Groups", cache=F}
 library(sjPlot)
 library(ggplot2)
-sjp.setTheme(base=theme_bw())
+set_theme(base=theme_bw())
 
 sjp.glm(c2, type="pred", vars=("latentmean_diff"), show.ci=T, title="", show.scatter = F, axis.lim = c(0, 1))
 ```

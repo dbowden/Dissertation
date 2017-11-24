@@ -81,7 +81,7 @@ plotreg(m1c, omit.coef = "GWNoA")
 ```{r}
 library(sjPlot)
 library(ggplot2)
-sjp.setTheme(base=theme_bw())
+set_theme(base=theme_bw())
 
 sjp.glm(m1, type="eff", vars=c("repression_lag"), show.ci=T, title="")
 ```
@@ -91,7 +91,7 @@ sjp.glm(m1, type="eff", vars=c("repression_lag"), show.ci=T, title="")
 ```{r}
 library(sjPlot)
 library(ggplot2)
-sjp.setTheme(base=theme_bw())
+set_theme(base=theme_bw())
 
 sjp.glm(m1, type="eff", vars=c("discrimination_lag"), show.ci=T, title="")
 ```

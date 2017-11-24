@@ -1,4 +1,4 @@
-blibrary(lme4)
+library(lme4)
 
 load("/Users/david/Dropbox/Dissertation/Document/survey_chapter/survey_data/merged_afrobarometer.Rds")
 

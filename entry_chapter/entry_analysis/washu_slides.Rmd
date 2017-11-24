@@ -135,7 +135,7 @@ texreg(list(g9, g11), custom.coef.map = coefmap, caption="Models of Rebel Group 
 ```{r}
 library(sjPlot)
 library(ggplot2)
-sjp.setTheme(base=theme_bw())
+set_theme(base=theme_bw())
 
 sjp.glm(g9, type="pred", vars=("repression_lag"), show.ci=T, title="", show.scatter = F, axis.lim = c(0, 1))
 ```

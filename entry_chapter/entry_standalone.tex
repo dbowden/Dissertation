@@ -82,9 +82,10 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{June 27, 2017}
+  \date{September 15, 2017}
 
 \usepackage{setspace}
+\usepackage{longtable}
 
 \usepackage{float}
 \let\origtable\table
@@ -96,7 +97,9 @@
     \endorigtable
 }
 
-\frontmatter
+\raggedbottom
+
+% \setlength{\parskip}{1cm plus4mm minus3mm}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -107,8 +110,11 @@
 \newtheorem{proposition}{Proposition}[chapter]
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -178,7 +184,7 @@ group}
 
 \section{Research Design}\label{research-design}
 
-To test the preceding hypotheses I use a dataset of country war-years
+To test the preceding hypotheses I use a dataset of conflict-years
 derived from the Uppsala Conflict Data Program and Peace Research
 Institute Oslo's Dyadic Dataset, version 4-2016 (Harbom, Melander, and
 Wallensteen \protect\hyperlink{ref-Harbom2008}{2008}; Melander,
@@ -319,13 +325,13 @@ had a score averaging around -2.5, and Sudan, which had scores around
 The raw Latent Human Protection Scores tend to be relatively static over
 time. Yet, my theory suggests that it is changes in human rights
 practices, in the direction of being more repressive, that should change
-dissident behavior. To ensure that I am capturing these pheonemena, I
-use the year-over-year change in human protection score. While the
-average conflict-year sees very little change from the preceding year
-(the mean change is -0.01), 110 cases experience a negative change of at
-least 0.25, and in one case the score decreased by 2.52 in a single
-year. I lag the measure by one year, meaning that I am ultimately using
-the change in human rights practices at time \emph{t} to predict the
+dissident behavior. To ensure that I am capturing these phenomena, I use
+the year-over-year change in human protection score. While the average
+conflict-year sees very little change from the preceding year (the mean
+change is -0.01), 110 cases experience a negative change of at least
+0.25, and in one case the score decreased by 2.52 in a single year. I
+lag the measure by one year, meaning that I am ultimately using the
+change in human rights practices at time \emph{t} to predict the
 formation of new rebel groups at time \emph{t+1}.
 
 \subsubsection*{Ethnic Diversity}\label{ethnic-diversity}
@@ -456,20 +462,22 @@ the (mostly) static country-level variables with fixed effects for
 conflict and year.
 
 In the three models without interaction terms the Change in Human Rights
-variable performs as I expect. It is consistently negatively related to
-the probability of new rebel group formation. The relationship is
-statistically significant at the 99\% level in all three models. The
-substantive effect is large, with a one-unit (which equates to roughly
-1.5 standard deviations) decrease in human rights practices being
-associated with a roughly 400\% increase in the odds of new rebel group
-formation. While the predicted probability of a new rebel group emerging
-is quite low when the change in human rights practices is zero (around
-0.03, see Figure \ref{fig:effectplot}), at the largest decreases (a
-change of -2.5 in one year) the probability of a new rebel group
-emerging is 0.72. The effect size is similar across models. With these
-results I am able to reject the null hypothesis of no relationship
-between repression and the formation of new rebel groups, consistent
-with my expectation in \emph{Hypothesis 4}.
+variable performs as I expect. It has a consistent, negative
+relationship with the probability of new rebel group formation. As human
+rights improve, the probability that new rebel groups will form
+decreases, while increases in repression increase the probability of new
+groups forming. The relationship is statistically significant at the
+99\% level in all three models. The substantive effect is large, with a
+one-unit (which equates to roughly 1.5 standard deviations) decrease in
+human rights practices being associated with a roughly 400\% increase in
+the odds of new rebel group formation. While the predicted probability
+of a new rebel group emerging is quite low when the change in human
+rights practices is zero (around 0.03, see Figure \ref{fig:effectplot}),
+at the largest decreases (a change of -2.5 in one year) the probability
+of a new rebel group emerging is 0.72. The effect size is similar across
+models. With these results I am able to reject the null hypothesis of no
+relationship between repression and the formation of new rebel groups,
+consistent with my expectation in \emph{Hypothesis 4}.
 
 \begin{table}
 \begin{center}
@@ -477,46 +485,42 @@ with my expectation in \emph{Hypothesis 4}.
 \hline
  & Model 1 & Model 2 & Model 3 & Model 4 \\
 \hline
-(Intercept)                             & $-3.27^{***}$ & $6.69^{*}$   & $7.00^{*}$ & $15.71$      \\
-                                        & $(0.13)$      & $(3.03)$     & $(3.13)$   & $(14503.27)$ \\
-Change in Human Rights                  & $-1.37^{***}$ & $-1.41^{**}$ & $-1.53$    & $-1.79^{**}$ \\
-                                        & $(0.33)$      & $(0.43)$     & $(2.11)$   & $(0.59)$     \\
-Ethnolinguistic Fractionalization       &               & $-5.78$      & $-5.95$    &              \\
-                                        &               & $(3.16)$     & $(3.30)$   &              \\
-Ethnolinguistic Fractionalization$^{2}$ &               & $6.24$       & $6.65^{*}$ &              \\
-                                        &               & $(3.21)$     & $(3.31)$   &              \\
-Human Rights X Fractionalization        &               &              & $-6.44$    &              \\
-                                        &               &              & $(9.86)$   &              \\
-Human Rights X Fractionalization$^{2}$  &               &              & $9.91$     &              \\
-                                        &               &              & $(10.10)$  &              \\
-Intensity Level                         &               & $-0.19$      & $-0.22$    & $-0.23$      \\
-                                        &               & $(0.39)$     & $(0.40)$   & $(0.44)$     \\
-Prev. Multi-rebel                       &               & $0.16$       & $0.16$     & $-0.95^{**}$ \\
-                                        &               & $(0.39)$     & $(0.39)$   & $(0.36)$     \\
-Contiguous Civil War                    &               & $-0.05$      & $-0.05$    & $0.29^{*}$   \\
-                                        &               & $(0.11)$     & $(0.11)$   & $(0.14)$     \\
-Secessionist                            &               & $-1.00^{*}$  & $-0.91$    &              \\
-                                        &               & $(0.47)$     & $(0.47)$   &              \\
-Logged Area                             &               & $-0.18$      & $-0.17$    &              \\
-                                        &               & $(0.18)$     & $(0.18)$   &              \\
-Mountainous Terrain                     &               & $0.00$       & $0.01$     &              \\
-                                        &               & $(0.01)$     & $(0.01)$   &              \\
-Logged GDP per capita                   &               & $-0.33$      & $-0.36$    &              \\
-                                        &               & $(0.25)$     & $(0.25)$   &              \\
-Logged Population                       &               & $-0.37$      & $-0.42$    &              \\
-                                        &               & $(0.25)$     & $(0.25)$   &              \\
-Polity                                  &               & $-0.01$      & $-0.00$    &              \\
-                                        &               & $(0.03)$     & $(0.03)$   &              \\
-Post Cold War                           &               & $-0.25$      & $-0.18$    &              \\
-                                        &               & $(0.38)$     & $(0.39)$   &              \\
-Lootable Resource Sites                 &               & $-0.00$      & $-0.00$    &              \\
-                                        &               & $(0.01)$     & $(0.01)$   &              \\
+(Intercept)                       & $-3.27^{***}$ & $5.79^{*}$   & $5.59$      & $15.71$      \\
+                                  & $(0.13)$      & $(2.91)$     & $(2.96)$    & $(14503.27)$ \\
+Change in Human Rights            & $-1.37^{***}$ & $-1.39^{**}$ & $-3.31^{*}$ & $-1.79^{**}$ \\
+                                  & $(0.33)$      & $(0.43)$     & $(1.29)$    & $(0.59)$     \\
+Ethnolinguistic Fractionalization &               & $0.23$       & $0.61$      &              \\
+                                  &               & $(0.86)$     & $(0.91)$    &              \\
+Human Rights X Fractionalization  &               &              & $3.32$      &              \\
+                                  &               &              & $(2.09)$    &              \\
+Intensity Level                   &               & $-0.23$      & $-0.25$     & $-0.23$      \\
+                                  &               & $(0.39)$     & $(0.40)$    & $(0.44)$     \\
+Prev. Multi-rebel                 &               & $0.23$       & $0.25$      & $-0.95^{**}$ \\
+                                  &               & $(0.38)$     & $(0.38)$    & $(0.36)$     \\
+Contiguous Civil War              &               & $-0.07$      & $-0.08$     & $0.29^{*}$   \\
+                                  &               & $(0.10)$     & $(0.11)$    & $(0.14)$     \\
+Secessionist                      &               & $-1.21^{**}$ & $-1.13^{*}$ &              \\
+                                  &               & $(0.44)$     & $(0.45)$    &              \\
+Logged Area                       &               & $-0.25$      & $-0.23$     &              \\
+                                  &               & $(0.19)$     & $(0.19)$    &              \\
+Mountainous Terrain               &               & $-0.00$      & $0.00$      &              \\
+                                  &               & $(0.01)$     & $(0.01)$    &              \\
+Logged GDP per capita             &               & $-0.38$      & $-0.39$     &              \\
+                                  &               & $(0.24)$     & $(0.24)$    &              \\
+Logged Population                 &               & $-0.22$      & $-0.24$     &              \\
+                                  &               & $(0.24)$     & $(0.24)$    &              \\
+Polity                            &               & $0.01$       & $0.01$      &              \\
+                                  &               & $(0.03)$     & $(0.03)$    &              \\
+Post Cold War                     &               & $-0.21$      & $-0.18$     &              \\
+                                  &               & $(0.38)$     & $(0.38)$    &              \\
+Lootable Resource Sites           &               & $-0.01$      & $-0.01$     &              \\
+                                  &               & $(0.01)$     & $(0.01)$    &              \\
 \hline
-AIC                                     & 521.11        & 317.57       & 318.26     & 585.79       \\
-BIC                                     & 531.86        & 392.19       & 402.83     & 1263.99      \\
-Log Likelihood                          & -258.55       & -143.78      & -142.13    & -164.90      \\
-Deviance                                & 517.11        & 287.57       & 284.26     & 329.79       \\
-Num. obs.                               & 1597          & 1069         & 1069       & 1478         \\
+AIC                               & 521.11        & 319.37       & 318.68      & 585.79       \\
+BIC                               & 531.86        & 389.01       & 393.30      & 1263.99      \\
+Log Likelihood                    & -258.55       & -145.69      & -144.34     & -164.90      \\
+Deviance                          & 517.11        & 291.37       & 288.68      & 329.79       \\
+Num. obs.                         & 1597          & 1069         & 1069        & 1478         \\
 \hline
 \multicolumn{5}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
 \end{tabular}
@@ -527,17 +531,19 @@ Num. obs.                               & 1597          & 1069         & 1069   
 
 Model 3 provides a test of the interaction proposed in \emph{H5}.
 Whereas I expect an interaction effect between the human rights measure
-and ethnolinguistic fractionalization, the two coefficents testing this
-(there are two as I expect the effect of ethnolinguistic
-fractionalization to be curvilinear) are not statistically significant.
-Ethnic diversity does not seem to matter on its own, either, as there is
-no evidence of a curvilinear effect, nor of a linear effect (not
-reported). I am thus unable to reject the null hypothesis of no
-relationship between ethnic diversity and the probability of new rebel
-groups forming. It is unclear whether this means my hypothesized
-mechanism of increased ethnic salience operates even at extreme levels
-of diversity, or if other mechanisms might operate in those cases. The
-analysis later in this chapter sheds light on that question.
+and ethnolinguistic fractionalization, the interaction is not
+statistically significant. Ethnic diversity does not seem to matter on
+its own, either, as there is no evidence of a curvilinear effect, nor of
+a linear effect (not reported). I am thus unable to reject the null
+hypothesis of no relationship between ethnic diversity and the
+probability of new rebel groups forming. I also test for a curvilinear
+relationship between ethnolinguistic fractionalization and rebel group
+formation, and an interaction between human rights and the curvilinear
+measure. Neither is statistically significant. It is unclear whether
+this means my hypothesized mechanism of increased ethnic salience
+operates even at extreme levels of diversity, or if other mechanisms
+might operate in those cases. The analysis later in this chapter sheds
+light on that question.
 
 \begin{figure}
 \centering
@@ -648,16 +654,21 @@ Num. obs.                        & 323          & 323           & 323         \\
 \end{table}
 
 Consistent with \emph{H6}, I find that rebel groups that join ongoing
-conflicts are nearly twice as likely as others to be mono-ethnic. The
-relationship is statistically significant at the 95\% level. Joining
-status is not related to multi-ethnic or non-ethnic composition.
+conflicts are nearly twice as likely as others to be mono-ethnic. This
+relationship is represented by the ``Joiner'' coefficient in Model 5.
+Relative to all other rebel groups (splinter organizations, alliances,
+and groups that initiate conflicts), groups that join ongoing conflicts
+are substantially more likely to draw their support from a single ethnic
+group. The relationship is statistically significant at the 95\% level.
+Joining status is not related to multi-ethnic or non-ethnic composition.
 Secessionist groups are also more likely than others to be mono-ethnic,
 while being significantly less likely to be multi-ethnic or non-ethnic.
 Unsurprisingly, the level of ethnolinguistic fractionalization in a
 country is positively related to the probability that rebel groups there
-will be multi-ethnic, and negatively related to their likelihood of being
-non-ethnic. Finally transnational groups are more likely than others to
-be multi-ethnic, and less likely to lack an ethnic affiliation.
+will be multi-ethnic, and negatively related to their likelihood of
+being non-ethnic. Finally transnational groups are more likely than
+others to be multi-ethnic, and less likely to lack an ethnic
+affiliation.
 
 This analysis provides support both for \emph{Hypothesis 6}, and for my
 broader theoretical framework. I expect that the entry of new rebel
@@ -739,6 +750,63 @@ gaining independence in 1948, Burma faced two civil wars --- a
 secessionist campaign led by the Karen National Union, and a bid to
 overthrow the central government by the Red Flag faction of the
 Communist Party of Burma.
+
+\subsection{The Shan Secessionist
+Movement}\label{the-shan-secessionist-movement}
+
+Shan State is a large, mountainous area in eastern Burma, bordering
+Thailand on the south, Laos on the east, and China on the north. The
+Shan people and language are both closely related to the Thai, and in
+pursuit of its historical rivalry with Burma the Thai government has
+frequently supported Shan rebellions to form a sort of buffer zone
+between the two countries (Steinberg
+\protect\hyperlink{ref-Steinberg2010}{2010}). Adding to the
+international character of the region are the facts that it has long
+been one of the world's most productive areas for opium cultivation, and
+that it was used as refuge by Kuomintang (KMT) forces fleeing China in
+the 1950's and 1960's (Cowell \protect\hyperlink{ref-Cowell2005}{2005}).
+Shan State initially faced less repression than most other areas of the
+country, as it had been granted the right to secede in the Burmese
+Constitution (Silverstein
+\protect\hyperlink{ref-Silverstein1958}{1958}).
+
+The initial formation of rebellion in Shan State is consistent with the
+process of group formation proposed in my theory.\footnote{According to
+  the coding rules used in the quantitative analysis, the first Shan
+  rebel group initiated the conflict there, rather than joining it.
+  However, as there was significant fighting in the area between the
+  Burmese government and other non-state actors, I would argue that it
+  is consistent with my theory.} Following their defeat in the Chinese
+Civil War in 1950, a contingent of KMT soldiers fled into Shan in search
+of refuge. During the same period, the Communist Party of Burma and
+separatists from the Kachin region frequently used the area as a base of
+operations (Smith \protect\hyperlink{ref-Smith1999}{1999}). In hopes of
+defeating the Communists and Kachin, and expelling the KMT, the Burmese
+army sent a large troop deployment to the region in the late 1950's.
+These forces were undisciplined, however, and frequently committed
+abuses against the local population (Fredholm
+\protect\hyperlink{ref-Fredholm1993}{1993}, 156).
+
+Meanwhile, student groups began developing and promoting Shan
+nationalism, including through the dissemination of magazines. The
+abuses by the Burmese Army allowed this nationalist movement to gain
+traction among the broader population as it became the basis for
+opposing the military occupation (Fredholm
+\protect\hyperlink{ref-Fredholm1993}{1993}, Ch. 8). The process of
+increased ethnic identification in this case is largely consistent with
+my theoretical argument. Shan elites, especially the leaders of student
+organizations, began developing and advocating for a distinctly Shan
+identity in the mid-1950's. Repression by the Burmese army significantly
+enhanced the efficacy of these appeals, leading large portions of the
+Shan to embrace ethnic nationalism (Fredholm
+\protect\hyperlink{ref-Fredholm1993}{1993}, 156--57). In 1958 this
+nationalism culminated in the formation of the first Shan rebel group,
+the Young Brave Warriors (Lintner
+\protect\hyperlink{ref-Lintner1999}{1999}). In theory, Shan dissidents
+could have joined the Communist Party of Burma, partnered with the
+Kachin Independence Army that often operated in Shan, or perhaps even
+partnered with the KMT. Yet as my theory predicts, the chose to form an
+explicitly Shan organization.
 
 \subsection{The Arakanese Buddhist
 Rebels}\label{the-arakanese-buddhist-rebels}
@@ -829,17 +897,17 @@ is applied with respect to both ethnicity and religion, both dimensions
 of identity should be salient.
 
 Once deciding to rebel, it would not be a foregone conclusion that an
-Arakense dissident would choose to form a new rebel group. The Communist
-Party of Burma had a strong following in Arakan; joining the Red Flag
-faction, or later the Communist Party of Arakan, might have been a
-viable option for many. The Karen National Union was also active prior
-to any significant military mobilization in Arakan. It is not obvious,
-\emph{a priori}, why the various separatists would not band together, as
-individually none could pose a serious threat to the Burmese government.
-Indeed, most of the separatist movements agreed to ceasefires in the
-1990's and 2000's without winning any concessions, or coming at all
-close to military victory. Later in the conflict there were in fact
-attempts to build multi-ethnic alliances (Smith
+Arakanese dissident would choose to form a new rebel group. The
+Communist Party of Burma had a strong following in Arakan; joining the
+Red Flag faction, or later the Communist Party of Arakan, might have
+been a viable option for many. The Karen National Union was also active
+prior to any significant military mobilization in Arakan. It is not
+obvious, \emph{a priori}, why the various separatists would not band
+together, as individually none could pose a serious threat to the
+Burmese government. Indeed, most of the separatist movements agreed to
+ceasefires in the 1990's and 2000's without winning any concessions, or
+coming at all close to military victory. Later in the conflict there
+were in fact attempts to build multi-ethnic alliances (Smith
 \protect\hyperlink{ref-Smith1999}{1999}). Initially, however, dissidents
 generally choose to organize on the basis of ethnicity, in some cases
 further subdivided by religion. Geographic isolation surely played some
@@ -881,7 +949,7 @@ as the central government sought to create a unified Burmese state. The
 Arakanese groups that joined later in the conflict seem to fit my
 prediction that repression reduces the disincentive to participate in
 violence, though accounts from individual rebels are virtually
-non-existent. It should be noted, however, that the initial Arakense
+non-existent. It should be noted, however, that the initial Arakanese
 rebellion, the APLP, was comprised largely of individuals who had fought
 the Japanese in World War II (Charney
 \protect\hyperlink{ref-Charney2009}{2009}). While the core logic of the
@@ -890,24 +958,34 @@ occupation reduced the relative cost of fighting --- I fail to account
 for the fact that conflicts often cluster in space and time, meaning
 that the most recent wave of repression will not always be the only
 violent experience shaping dissident preferences. The Arakanese also
-ulimately formed new rebel groups around the identities that formed the
+ultimately formed new rebel groups around the identities that formed the
 basis for repression, as I expect. Yet the logic of forming a new group
 does not seem to follow the logic I propose. Whereas I expect that new
 groups to constitute a rejection of existing rebel groups in response to
 their lack of representation for some ethnic groups and inability to
 protect civilians, in Arakan the decision was mutual and collaborative.
-The Karen National Union was uninterested in recruiting Arakense
+The Karen National Union was uninterested in recruiting Arakanese
 dissidents, but did support the movement and aided in the establishment
 of several of the rebel groups there (Smith
 \protect\hyperlink{ref-Smith1999}{1999}).
 
 \subsection{Discussion}\label{discussion}
 
+The onset of conflict in Shan State provides an excellent illustration
+of my theory. Shan civilians were caught in the crossfire of conflicts
+between the Burmese government and two non-state actors, the KMT and the
+Kachin Independence Army. The abuses perpetrated against civilians
+during this time made them receptive to the nationalist movement being
+propagated by Shan elite, facilitating the creation of a distinctly Shan
+rebel group. I return to this case in Chapter \ref{realignment}, as it
+provides mixed evidence for my predictions regarding splintering and
+alliances.
+
 The Arakan case suggests some refinements for my theory, but in most
 ways is consistent with its logic. As I predict, the emergence of
 rebellion in Arakan followed a period of political and physical
 repression, though the residual effects of World War II likely played a
-role in producing a pool of individuals wiling to fight. I also sexpect
+role in producing a pool of individuals wiling to fight. I also expect
 that repression will lead individuals to identify more strongly with
 their ethnic group. In Arakan state this prediction is not inaccurate,
 but is underspecified. The fundamental groups to which Arakanese turned
@@ -1018,6 +1096,12 @@ Cambridge University Press.
 Christia, Fotini. 2012. \emph{Alliance Formation in Civil Wars}.
 Cambridge: Cambridge University Press.
 
+\hypertarget{ref-Cowell2005}{}
+Cowell, Adrian. 2005. ``Opium Anarchy in the Shan State of Burm.'' In
+\emph{Trouble in the Triangle: Opium and Conflict in Burma}, edited by
+Martin Jensen, Tom Kramer, and Pietje Vervest, 1--22. Chiang Mai,
+Thailand: Silkworm Books.
+
 \hypertarget{ref-Cunningham2009}{}
 Cunningham, David E., Kristian Skrede Gleditsch, and Idean Salehyan.
 2009. ``It Takes Two: A Dyadic Analysis of Civil War Duration and
@@ -1059,6 +1143,10 @@ Harbom, Lotta, Erik Melander, and Peter Wallensteen. 2008. ``Dyadic
 Dimensions of Armed Conflict, 1946---2007.'' \emph{Journal of Peace
 Research} 45 (5): 697--710.
 
+\hypertarget{ref-Lintner1999}{}
+Lintner, Bertil. 1999. \emph{Burma in Revolt: Opium and Insurgency Since
+1948}. Chiang Mai, Thailand: Silkworm Books.
+
 \hypertarget{ref-Lujala2008}{}
 Lujala, Päivi. 2008. ``Deadly Combat over Natural Resources: Gems,
 Petroleum, Drugs, and the Severity of Armed Civil Conflict.''
@@ -1081,9 +1169,10 @@ IV Project Dataset Users' Manual, v.2015.'' \emph{Polity IV Project},
 1--86.
 
 \hypertarget{ref-McLauchlin2012}{}
-McLauchlin, Theodore, and Wendy Pearlman. 2012. ``Out-Group Conflict,
-In-Group Unity?: Exploring the Effect of Repression on Intramovement
-Cooperation.'' \emph{Journal of Conflict Resolution} 56 (1): 41--66.
+McLauchlin, T., and W. Pearlman. 2012. ``Out-Group Conflict, In-Group
+Unity?: Exploring the Effect of Repression on Intramovement
+Cooperation.'' \emph{Journal of Conflict Resolution} 56: 41--66.
+doi:\href{https://doi.org/10.1177/0022002711429707}{10.1177/0022002711429707}.
 
 \hypertarget{ref-Melander2016}{}
 Melander, Erik, Therése Pettersson, and Lotta Themnér. 2016. ``Organized
@@ -1094,6 +1183,11 @@ violence, 1989--2015.'' \emph{Journal of Peace Research} 53 (5):
 Schnakenberg, Keith E., and Christopher J. Fariss. 2014. ``Dynamic
 Patterns of Human Rights Practices.'' \emph{Political Science Research
 and Methods} 2 (1): 1--31.
+
+\hypertarget{ref-Silverstein1958}{}
+Silverstein, Josef. 1958. ``Politics in the Shan State: The Question of
+Secession from the Union of Burma.'' \emph{Source: The Journal of Asian
+Studies} 18 (1): 43--57.
 
 \hypertarget{ref-Simmel1955}{}
 Simmel, Georg. 1955. \emph{Conflict and the Web of Group-Affiliations}.

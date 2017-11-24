@@ -18,7 +18,7 @@ toc: yes
 keep_tex: yes
 ---
 
- ```{r setup, include=F}
+ ```{r setup2, include=F}
  knitr::opts_chunk$set(echo=F, error=F, message=F, warning=F, cache=T, results='asis', tidy=F)
  options(xtable.comment = FALSE)
 ```

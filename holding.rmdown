@@ -36,7 +36,7 @@ I expect that drawing on existing organizations such as political parties, relig
 
 Consistent with these notions, my own data collection^[I begin with the set of all rebel groups in the Uppsala Armed Conflict data, 1946--2015 [@Melander2016]. I code the primary origin of each rebel group by examining the social roles its leaders had prior to forming the group. The coding rules for each category are described in the Appendix.] shows that most rebel groups can trace their origins to a pre-existing organization such as a political party, militia, or student organization [see also @Staniland2014]. Comparatively few have emerged through grassroots processes, such as protesters steadily becoming more violent and organized (see Figure \@ref(fig:origins)).
 
-```{r origins, echo=F, message=F, cache=T, fig.cap="The Origins of Rebel Groups, 1946--2015"}
+```{r origins2, echo=F, message=F, cache=T, fig.cap="The Origins of Rebel Groups, 1946--2015"}
 library(ggplot2)
 library(dplyr)
 
