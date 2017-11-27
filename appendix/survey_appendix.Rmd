@@ -19,14 +19,58 @@ responsetable <- xtable(bycountry, caption="Survey Responses by Country and Wave
 print(responsetable, tabular.environment='longtable', include.rownames=F)
 ```
 \doublespacing
+ 
+### Ordinal Models {-}
+ 
 
-<!-- ### Response Rates for Dependent Variables {-}
-
-```{r partic}
-options(xtable.comment = FALSE)
-vote <- table(to_label(afro$vote))
-vote2 <- cbind(vote, prop.table(vote)*100)
-colnames(vote2) <- c("Count", "Percentage")
-xtable(vote2, digits=c(0,0,1), caption="Summary of Voting Responses", label="tab:vote")
-```
- -->
+\begin{table}
+\begin{center}
+\begin{tabular}{l c c }
+\hline
+ & M1 Violence (Used) & M2 Ethnic ID \\
+\hline
+Human Rights                            & $0.06$        & $-0.31^{***}$ \\
+                                        & $(0.22)$      & $(0.07)$      \\
+Ethnolinguistic Fractionalization       & $-0.11$       & $5.23^{**}$   \\
+                                        & $(2.53)$      & $(1.95)$      \\
+Ethnolinguistic Fractionalization$^{2}$ & $0.59$        & $-4.42^{*}$   \\
+                                        & $(2.58)$      & $(1.89)$      \\
+Polity                                  & $-0.04$       & $0.06^{***}$  \\
+                                        & $(0.04)$      & $(0.01)$      \\
+Civil War                               & $-0.19$       & $0.25^{***}$  \\
+                                        & $(0.14)$      & $(0.04)$      \\
+Separatist War                          & $-0.30$       & $0.59$        \\
+                                        & $(0.48)$      & $(0.30)$      \\
+Attacked                                & $0.82^{***}$  & $0.07^{**}$   \\
+                                        & $(0.05)$      & $(0.03)$      \\
+Intimidated                             & $0.13^{***}$  & $0.10^{***}$  \\
+                                        & $(0.04)$      & $(0.02)$      \\
+Employed                                & $-0.03$       & $-0.04^{*}$   \\
+                                        & $(0.04)$      & $(0.02)$      \\
+Primary Education                       & $0.09^{*}$    & $0.15^{***}$  \\
+                                        & $(0.04)$      & $(0.02)$      \\
+Urban                                   & $-0.14^{**}$  & $-0.10^{***}$ \\
+                                        & $(0.05)$      & $(0.02)$      \\
+Ruling Party Supporter                  & $-0.09^{*}$   & $-0.02$       \\
+                                        & $(0.04)$      & $(0.02)$      \\
+Age                                     & $-0.19^{***}$ & $-0.02$       \\
+                                        & $(0.04)$      & $(0.02)$      \\
+Female                                  & $-0.25^{***}$ & $0.08^{***}$  \\
+                                        & $(0.04)$      & $(0.02)$      \\
+\hline
+Log Likelihood                          & -15231.43     & -78284.32     \\
+AIC                                     & 30502.85      & 156608.63     \\
+BIC                                     & 30673.86      & 156789.50     \\
+Num. obs.                               & 38191         & 62522         \\
+Groups (Ethnic)                         & 452           & 595           \\
+Groups (Country)                        & 26            & 27            \\
+Variance: Ethnic: (Intercept)           & 0.30          & 0.19          \\
+Variance: Country: (Intercept)          & 0.32          & 0.33          \\
+\hline
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Multilevel Ordinal Models of Attitudes Toward Violence and Ethnic Identity}
+\label{tab:ordinal}
+\end{center}
+\end{table}
+ 

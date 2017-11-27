@@ -11,3 +11,6 @@
 
 ```{r child='entry_appendix.Rmd'}
 ```
+
+```{r child='realignment_appendix.Rmd'}
+```
