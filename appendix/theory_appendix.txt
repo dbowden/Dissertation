@@ -1,4 +1,9 @@
-## Chapter 2 Appendix {-}
+## Supplementary Materials for Chapter 2 {-}
+
+<!-- \setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{section}{0}
+\renewcommand{\thesection}{A\arabic{section}} -->
 
 ### Coding Rules for Rebel Origin Data {-}
 

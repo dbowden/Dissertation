@@ -1,4 +1,4 @@
-## Conclusion
+## Conclusion {#survey-conclusion}
 
 The results in this chapter provide strong support for the microfoundations of my theory. I expected that repression would make individuals more willing to engage in violence. Consistent with this hypothesis, I find that while such sentiments are generally rare, individuals who have experienced a violent attacked are roughly 30% more likely than others to report a willingness to use violence, and are nearly three times more likely to report having used violence. I also predicted that repression should induce greater levels of ethnic identification among its targets. Indeed, I find that individuals who have experienced an attack are 42% more likely than others to identify more with their ethnic group than with their nation. The results hold after conducting coarsened exact matching, meaning that the results are not driven by any observable differences between the individuals who have been attacked and those who have not.
 

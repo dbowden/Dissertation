@@ -2,6 +2,8 @@
 \markboth{APPENDIX}{}
 \setcounter{table}{0}
 \renewcommand{\thetable}{A\arabic{table}}
+\setcounter{section}{0}
+\renewcommand{\thesection}{A\arabic{section}}
 
 ```{r child='theory_appendix.txt'}
 ```

@@ -88,9 +88,9 @@ Violence | 1473  | 50077  | 2.9%
 Protest |  16492 | 142056  | 10.4%
 Meeting  | 92849  | 65719  | 58.6%
 Vote | 111632 | 46952 | 70.4%
-Table: (\#tab:partic) Summary of Participation (waves 3-6)
+Table: (\#tab:descriptive) Summary of Participation (waves 3-6)
 
-The participation measures are summarized in Table \@ref(tab:partic). Participation in violence is rare, with only 2.9% of respondents reporting to have done it at least once in the past year. Participation rates increase as the degree of commitment required decreases - 10.4% participated in at least one protest, 58.6% participated in a community meeting, and 70.4% voted.
+The participation measures are summarized in Table \@ref(tab:descriptive). Participation in violence is rare, with only 2.9% of respondents reporting to have done it at least once in the past year. Participation rates increase as the degree of commitment required decreases - 10.4% participated in at least one protest, 58.6% participated in a community meeting, and 70.4% voted.
 
 #### Ethnic Identity {-}
 
@@ -106,10 +106,10 @@ options(xtable.comment = FALSE)
 tab <- table(to_label(afro$eth_id))
 tab2 <- cbind(tab, prop.table(tab)*100)
 colnames(tab2) <- c("Count", "Percentage")
-xtable(tab2, digits=c(0,0,1), caption="Summary of Ethnic Identification (waves 3-6)", label="tab:ethnic")
+xtable(tab2, digits=c(0,0,1), caption="Summary of Ethnic Identification (waves 3-6)", label="tab:ethnicdescrip")
 ```
 
-Relatively few respondents identify with their ethnic group, with 4.3% answering that they feel only an ethnic identity, and 7.4% saying that their ethnic identity was more prevalent than their national identity (see Table \@ref(tab:ethnic)). A plurality of respondents (35.8%) said that they felt equally attached to their national and ethnic identities, and a large percentage (34.1%) said that they feel only a national identity.
+Relatively few respondents identify with their ethnic group, with 4.3% answering that they feel only an ethnic identity, and 7.4% saying that their ethnic identity was more prevalent than their national identity (see Table \@ref(tab:ethnicdescrip)). A plurality of respondents (35.8%) said that they felt equally attached to their national and ethnic identities, and a large percentage (34.1%) said that they feel only a national identity.
 
 ### Independent Variables
 

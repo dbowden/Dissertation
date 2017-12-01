@@ -4,6 +4,7 @@ author: "David F. Bowden"
 date: "`r paste(format(Sys.time(), '%B'), ' ', as.numeric(format(Sys.time(), '%d')), ',', ' ', format(Sys.time(), '%Y'), sep='')`"
 output:
     bookdown::pdf_book:
+        keep_tex: yes
         includes:
             in_header: preamble.tex
 documentclass: book
@@ -15,7 +16,6 @@ fontfamily: tgpagella
 geometry: margin=1in
 numbersections: true
 toc: yes
-keep_tex: yes
 ---
 
  ```{r setup2, include=F}
@@ -52,6 +52,8 @@ What explains the variation in the number of rebel groups across civil conflicts
 ```
 
 \backmatter
+
+\markboth{APPENDIX}{}
 
 ```{r child='appendix/appendix.Rmd'}
 ```

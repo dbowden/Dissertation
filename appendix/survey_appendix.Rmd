@@ -1,8 +1,16 @@
-## Chapter \@ref(survey-chapter) Appendix {-}
+## Supplementary Materials for Chapter 3 {-}
+
+<!-- \setcounter{table}{0}
+\renewcommand{\thetable}{B\arabic{table}}
+\setcounter{section}{0}
+\renewcommand{\thesection}{B\arabic{section}} -->
+
+\pagebreak
 
 ### Responses by Country {-}
 
 \singlespacing
+
 ```{r response}
 library(dplyr)
 library(xtable)
@@ -21,7 +29,6 @@ print(responsetable, tabular.environment='longtable', include.rownames=F)
 \doublespacing
  
 ### Ordinal Models {-}
- 
 
 \begin{table}
 \begin{center}
