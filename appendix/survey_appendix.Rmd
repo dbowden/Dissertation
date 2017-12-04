@@ -1,4 +1,4 @@
-## Supplementary Materials for Chapter 3 {-}
+## Supplementary Materials for Chapter 3
 
 <!-- \setcounter{table}{0}
 \renewcommand{\thetable}{B\arabic{table}}
